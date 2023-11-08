@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\PROIECT\\PropertyListing\\PropertyListing\\Client\\PropertyListing.Client.csproj": {}
+    "C:\\Users\\ycarp\\Desktop\\.NetProiect\\Real-Estate-Property-Listing-Project\\PropertyListing\\Client\\PropertyListing.Client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\PROIECT\\PropertyListing\\PropertyListing\\Client\\PropertyListing.Client.csproj": {
+    "C:\\Users\\ycarp\\Desktop\\.NetProiect\\Real-Estate-Property-Listing-Project\\PropertyListing\\Client\\PropertyListing.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\PROIECT\\PropertyListing\\PropertyListing\\Client\\PropertyListing.Client.csproj",
+        "projectUniqueName": "C:\\Users\\ycarp\\Desktop\\.NetProiect\\Real-Estate-Property-Listing-Project\\PropertyListing\\Client\\PropertyListing.Client.csproj",
         "projectName": "PropertyListing.Client",
-        "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\PROIECT\\PropertyListing\\PropertyListing\\Client\\PropertyListing.Client.csproj",
-        "packagesPath": "C:\\Users\\andim\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\PROIECT\\PropertyListing\\PropertyListing\\Client\\obj\\",
+        "projectPath": "C:\\Users\\ycarp\\Desktop\\.NetProiect\\Real-Estate-Property-Listing-Project\\PropertyListing\\Client\\PropertyListing.Client.csproj",
+        "packagesPath": "C:\\Users\\ycarp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ycarp\\Desktop\\.NetProiect\\Real-Estate-Property-Listing-Project\\PropertyListing\\Client\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\andim\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ycarp\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\PROIECT\\PropertyListing\\PropertyListing\\Shared\\PropertyListing.Shared.csproj": {
-                "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\PROIECT\\PropertyListing\\PropertyListing\\Shared\\PropertyListing.Shared.csproj"
+              "C:\\Users\\ycarp\\Desktop\\.NetProiect\\Real-Estate-Property-Listing-Project\\PropertyListing\\Shared\\PropertyListing.Shared.csproj": {
+                "projectPath": "C:\\Users\\ycarp\\Desktop\\.NetProiect\\Real-Estate-Property-Listing-Project\\PropertyListing\\Shared\\PropertyListing.Shared.csproj"
               }
             }
           }
@@ -72,7 +72,7 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[7.0.12, 7.0.12]"
+              "version": "[7.0.13, 7.0.13]"
             }
           ],
           "frameworkReferences": {
@@ -80,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -89,17 +89,17 @@
         }
       }
     },
-    "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\PROIECT\\PropertyListing\\PropertyListing\\Shared\\PropertyListing.Shared.csproj": {
+    "C:\\Users\\ycarp\\Desktop\\.NetProiect\\Real-Estate-Property-Listing-Project\\PropertyListing\\Shared\\PropertyListing.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\PROIECT\\PropertyListing\\PropertyListing\\Shared\\PropertyListing.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\ycarp\\Desktop\\.NetProiect\\Real-Estate-Property-Listing-Project\\PropertyListing\\Shared\\PropertyListing.Shared.csproj",
         "projectName": "PropertyListing.Shared",
-        "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\PROIECT\\PropertyListing\\PropertyListing\\Shared\\PropertyListing.Shared.csproj",
-        "packagesPath": "C:\\Users\\andim\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\PROIECT\\PropertyListing\\PropertyListing\\Shared\\obj\\",
+        "projectPath": "C:\\Users\\ycarp\\Desktop\\.NetProiect\\Real-Estate-Property-Listing-Project\\PropertyListing\\Shared\\PropertyListing.Shared.csproj",
+        "packagesPath": "C:\\Users\\ycarp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ycarp\\Desktop\\.NetProiect\\Real-Estate-Property-Listing-Project\\PropertyListing\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\andim\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ycarp\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -146,7 +146,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

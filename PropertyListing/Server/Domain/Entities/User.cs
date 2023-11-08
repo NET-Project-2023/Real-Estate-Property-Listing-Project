@@ -7,6 +7,7 @@
         public string Email { get; private set;}
         public string Password { get; private set;}
         public Role UserRole { get; private set;}
+        
 
         public User(int userId, string name, string email, string password, Role userRole)
         {
