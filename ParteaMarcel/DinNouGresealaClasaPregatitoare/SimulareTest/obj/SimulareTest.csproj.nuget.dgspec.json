@@ -1,0 +1,268 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\Facultate\\Anu 3 sem 1\\Real-Estate\\Real_Estate\\SimulareTest\\SimulareTest.csproj": {}
+  },
+  "projects": {
+    "E:\\Facultate\\Anu 3 sem 1\\Real-Estate\\Real_Estate\\Infrastructure\\Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Facultate\\Anu 3 sem 1\\Real-Estate\\Real_Estate\\Infrastructure\\Infrastructure.csproj",
+        "projectName": "Infrastructure",
+        "projectPath": "E:\\Facultate\\Anu 3 sem 1\\Real-Estate\\Real_Estate\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\ycarp\\.nuget\\packages\\",
+        "outputPath": "E:\\Facultate\\Anu 3 sem 1\\Real-Estate\\Real_Estate\\Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\ycarp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "E:\\Facultate\\Anu 3 sem 1\\Real-Estate\\Real_Estate\\Real_estate.Application\\Real_estate.Application.csproj": {
+                "projectPath": "E:\\Facultate\\Anu 3 sem 1\\Real-Estate\\Real_Estate\\Real_estate.Application\\Real_estate.Application.csproj"
+              },
+              "E:\\Facultate\\Anu 3 sem 1\\Real-Estate\\Real_Estate\\Real_estate.Domain\\Real_estate.Domain.csproj": {
+                "projectPath": "E:\\Facultate\\Anu 3 sem 1\\Real-Estate\\Real_Estate\\Real_estate.Domain\\Real_estate.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.13, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Facultate\\Anu 3 sem 1\\Real-Estate\\Real_Estate\\Real_estate.Application\\Real_estate.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Facultate\\Anu 3 sem 1\\Real-Estate\\Real_Estate\\Real_estate.Application\\Real_estate.Application.csproj",
+        "projectName": "Real_estate.Application",
+        "projectPath": "E:\\Facultate\\Anu 3 sem 1\\Real-Estate\\Real_Estate\\Real_estate.Application\\Real_estate.Application.csproj",
+        "packagesPath": "C:\\Users\\ycarp\\.nuget\\packages\\",
+        "outputPath": "E:\\Facultate\\Anu 3 sem 1\\Real-Estate\\Real_Estate\\Real_estate.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\ycarp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "E:\\Facultate\\Anu 3 sem 1\\Real-Estate\\Real_Estate\\Real_estate.Domain\\Real_estate.Domain.csproj": {
+                "projectPath": "E:\\Facultate\\Anu 3 sem 1\\Real-Estate\\Real_Estate\\Real_estate.Domain\\Real_estate.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Facultate\\Anu 3 sem 1\\Real-Estate\\Real_Estate\\Real_estate.Domain\\Real_estate.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Facultate\\Anu 3 sem 1\\Real-Estate\\Real_Estate\\Real_estate.Domain\\Real_estate.Domain.csproj",
+        "projectName": "Real_estate.Domain",
+        "projectPath": "E:\\Facultate\\Anu 3 sem 1\\Real-Estate\\Real_Estate\\Real_estate.Domain\\Real_estate.Domain.csproj",
+        "packagesPath": "C:\\Users\\ycarp\\.nuget\\packages\\",
+        "outputPath": "E:\\Facultate\\Anu 3 sem 1\\Real-Estate\\Real_Estate\\Real_estate.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\ycarp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Facultate\\Anu 3 sem 1\\Real-Estate\\Real_Estate\\SimulareTest\\SimulareTest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Facultate\\Anu 3 sem 1\\Real-Estate\\Real_Estate\\SimulareTest\\SimulareTest.csproj",
+        "projectName": "SimulareTest",
+        "projectPath": "E:\\Facultate\\Anu 3 sem 1\\Real-Estate\\Real_Estate\\SimulareTest\\SimulareTest.csproj",
+        "packagesPath": "C:\\Users\\ycarp\\.nuget\\packages\\",
+        "outputPath": "E:\\Facultate\\Anu 3 sem 1\\Real-Estate\\Real_Estate\\SimulareTest\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\ycarp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "E:\\Facultate\\Anu 3 sem 1\\Real-Estate\\Real_Estate\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "E:\\Facultate\\Anu 3 sem 1\\Real-Estate\\Real_Estate\\Infrastructure\\Infrastructure.csproj"
+              },
+              "E:\\Facultate\\Anu 3 sem 1\\Real-Estate\\Real_Estate\\Real_estate.Domain\\Real_estate.Domain.csproj": {
+                "projectPath": "E:\\Facultate\\Anu 3 sem 1\\Real-Estate\\Real_Estate\\Real_estate.Domain\\Real_estate.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
