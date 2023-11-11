@@ -1,0 +1,45 @@
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Real_estate.Application\bin\Debug\net7.0\Real_estate.Application.deps.json
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Real_estate.Application\bin\Debug\net7.0\Real_estate.Application.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Real_estate.Application\bin\Debug\net7.0\Real_estate.Application.pdb
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Real_estate.Application\bin\Debug\net7.0\Real_estate.Domain.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Real_estate.Application\bin\Debug\net7.0\Real_estate.Domain.pdb
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Real_estate.Application\obj\Debug\net7.0\Real_estate.Application.csproj.AssemblyReference.cache
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Real_estate.Application\obj\Debug\net7.0\Real_estate.Application.GeneratedMSBuildEditorConfig.editorconfig
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Real_estate.Application\obj\Debug\net7.0\Real_estate.Application.AssemblyInfoInputs.cache
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Real_estate.Application\obj\Debug\net7.0\Real_estate.Application.AssemblyInfo.cs
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Real_estate.Application\obj\Debug\net7.0\Real_estate.Application.csproj.CoreCompileInputs.cache
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Real_estate.Application\obj\Debug\net7.0\Real_estate.Application.csproj.CopyComplete
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Real_estate.Application\obj\Debug\net7.0\Real_estate.Application.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Real_estate.Application\obj\Debug\net7.0\refint\Real_estate.Application.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Real_estate.Application\obj\Debug\net7.0\Real_estate.Application.pdb
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Real_estate.Application\obj\Debug\net7.0\ref\Real_estate.Application.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Real_estate.Application\bin\Debug\net7.0\Real_estate.Application.deps.json
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Real_estate.Application\bin\Debug\net7.0\Real_estate.Application.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Real_estate.Application\bin\Debug\net7.0\Real_estate.Application.pdb
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Real_estate.Application\bin\Debug\net7.0\Real_estate.Domain.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Real_estate.Application\bin\Debug\net7.0\Real_estate.Domain.pdb
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Real_estate.Application\obj\Debug\net7.0\Real_estate.Application.csproj.AssemblyReference.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Real_estate.Application\obj\Debug\net7.0\Real_estate.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Real_estate.Application\obj\Debug\net7.0\Real_estate.Application.AssemblyInfoInputs.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Real_estate.Application\obj\Debug\net7.0\Real_estate.Application.AssemblyInfo.cs
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Real_estate.Application\obj\Debug\net7.0\Real_estate.Application.csproj.CoreCompileInputs.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Real_estate.Application\obj\Debug\net7.0\Real_estate.Application.csproj.CopyComplete
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Real_estate.Application\obj\Debug\net7.0\Real_estate.Application.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Real_estate.Application\obj\Debug\net7.0\refint\Real_estate.Application.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Real_estate.Application\obj\Debug\net7.0\Real_estate.Application.pdb
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Real_estate.Application\obj\Debug\net7.0\ref\Real_estate.Application.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Real_estate.Application\bin\Debug\net7.0\Real_estate.Application.deps.json
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Real_estate.Application\bin\Debug\net7.0\Real_estate.Application.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Real_estate.Application\bin\Debug\net7.0\Real_estate.Application.pdb
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Real_estate.Application\bin\Debug\net7.0\Real_estate.Domain.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Real_estate.Application\bin\Debug\net7.0\Real_estate.Domain.pdb
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Real_estate.Application\obj\Debug\net7.0\Real_estate.Application.csproj.AssemblyReference.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Real_estate.Application\obj\Debug\net7.0\Real_estate.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Real_estate.Application\obj\Debug\net7.0\Real_estate.Application.AssemblyInfoInputs.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Real_estate.Application\obj\Debug\net7.0\Real_estate.Application.AssemblyInfo.cs
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Real_estate.Application\obj\Debug\net7.0\Real_estate.Application.csproj.CoreCompileInputs.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Real_estate.Application\obj\Debug\net7.0\Real_estate.Application.csproj.CopyComplete
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Real_estate.Application\obj\Debug\net7.0\Real_estate.Application.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Real_estate.Application\obj\Debug\net7.0\refint\Real_estate.Application.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Real_estate.Application\obj\Debug\net7.0\Real_estate.Application.pdb
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Real_estate.Application\obj\Debug\net7.0\ref\Real_estate.Application.dll

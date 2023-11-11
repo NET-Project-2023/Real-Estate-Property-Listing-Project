@@ -1,0 +1,33 @@
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Real_estate.Domain\bin\Debug\net7.0\Real_estate.Domain.deps.json
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Real_estate.Domain\bin\Debug\net7.0\Real_estate.Domain.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Real_estate.Domain\bin\Debug\net7.0\Real_estate.Domain.pdb
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Real_estate.Domain\obj\Debug\net7.0\Real_estate.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Real_estate.Domain\obj\Debug\net7.0\Real_estate.Domain.AssemblyInfoInputs.cache
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Real_estate.Domain\obj\Debug\net7.0\Real_estate.Domain.AssemblyInfo.cs
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Real_estate.Domain\obj\Debug\net7.0\Real_estate.Domain.csproj.CoreCompileInputs.cache
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Real_estate.Domain\obj\Debug\net7.0\Real_estate.Domain.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Real_estate.Domain\obj\Debug\net7.0\refint\Real_estate.Domain.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Real_estate.Domain\obj\Debug\net7.0\Real_estate.Domain.pdb
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Real_estate.Domain\obj\Debug\net7.0\ref\Real_estate.Domain.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Real_estate.Domain\bin\Debug\net7.0\Real_estate.Domain.deps.json
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Real_estate.Domain\bin\Debug\net7.0\Real_estate.Domain.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Real_estate.Domain\bin\Debug\net7.0\Real_estate.Domain.pdb
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Real_estate.Domain\obj\Debug\net7.0\Real_estate.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Real_estate.Domain\obj\Debug\net7.0\Real_estate.Domain.AssemblyInfoInputs.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Real_estate.Domain\obj\Debug\net7.0\Real_estate.Domain.AssemblyInfo.cs
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Real_estate.Domain\obj\Debug\net7.0\Real_estate.Domain.csproj.CoreCompileInputs.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Real_estate.Domain\obj\Debug\net7.0\Real_estate.Domain.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Real_estate.Domain\obj\Debug\net7.0\refint\Real_estate.Domain.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Real_estate.Domain\obj\Debug\net7.0\Real_estate.Domain.pdb
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Real_estate.Domain\obj\Debug\net7.0\ref\Real_estate.Domain.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Real_estate.Domain\bin\Debug\net7.0\Real_estate.Domain.deps.json
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Real_estate.Domain\bin\Debug\net7.0\Real_estate.Domain.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Real_estate.Domain\bin\Debug\net7.0\Real_estate.Domain.pdb
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Real_estate.Domain\obj\Debug\net7.0\Real_estate.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Real_estate.Domain\obj\Debug\net7.0\Real_estate.Domain.AssemblyInfoInputs.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Real_estate.Domain\obj\Debug\net7.0\Real_estate.Domain.AssemblyInfo.cs
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Real_estate.Domain\obj\Debug\net7.0\Real_estate.Domain.csproj.CoreCompileInputs.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Real_estate.Domain\obj\Debug\net7.0\Real_estate.Domain.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Real_estate.Domain\obj\Debug\net7.0\refint\Real_estate.Domain.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Real_estate.Domain\obj\Debug\net7.0\Real_estate.Domain.pdb
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Real_estate.Domain\obj\Debug\net7.0\ref\Real_estate.Domain.dll

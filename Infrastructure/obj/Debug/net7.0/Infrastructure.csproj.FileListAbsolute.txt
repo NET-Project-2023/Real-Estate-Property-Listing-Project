@@ -1,0 +1,57 @@
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Infrastructure\bin\Debug\net7.0\Infrastructure.deps.json
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Infrastructure\bin\Debug\net7.0\Infrastructure.runtimeconfig.json
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Infrastructure\bin\Debug\net7.0\Infrastructure.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Infrastructure\bin\Debug\net7.0\Infrastructure.pdb
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Infrastructure\obj\Debug\net7.0\Infrastructure.csproj.AssemblyReference.cache
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Infrastructure\obj\Debug\net7.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Infrastructure\obj\Debug\net7.0\Infrastructure.AssemblyInfoInputs.cache
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Infrastructure\obj\Debug\net7.0\Infrastructure.AssemblyInfo.cs
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Infrastructure\obj\Debug\net7.0\Infrastructure.csproj.CoreCompileInputs.cache
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Infrastructure\obj\Debug\net7.0\Infrastructure.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Infrastructure\obj\Debug\net7.0\refint\Infrastructure.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Infrastructure\obj\Debug\net7.0\Infrastructure.pdb
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Infrastructure\obj\Debug\net7.0\Infrastructure.genruntimeconfig.cache
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Infrastructure\obj\Debug\net7.0\ref\Infrastructure.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Infrastructure\bin\Debug\net7.0\Real_estate.Domain.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Infrastructure\bin\Debug\net7.0\Real_estate.Domain.pdb
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Infrastructure\obj\Debug\net7.0\Infrastructure.csproj.CopyComplete
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Infrastructure\bin\Debug\net7.0\Real_estate.Application.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Infrastructure\bin\Debug\net7.0\Real_estate.Application.pdb
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Infrastructure\bin\Debug\net7.0\Infrastructure.deps.json
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Infrastructure\bin\Debug\net7.0\Infrastructure.runtimeconfig.json
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Infrastructure\bin\Debug\net7.0\Infrastructure.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Infrastructure\bin\Debug\net7.0\Infrastructure.pdb
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Infrastructure\bin\Debug\net7.0\Real_estate.Application.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Infrastructure\bin\Debug\net7.0\Real_estate.Domain.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Infrastructure\bin\Debug\net7.0\Real_estate.Application.pdb
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Infrastructure\bin\Debug\net7.0\Real_estate.Domain.pdb
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Infrastructure\obj\Debug\net7.0\Infrastructure.csproj.AssemblyReference.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Infrastructure\obj\Debug\net7.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Infrastructure\obj\Debug\net7.0\Infrastructure.AssemblyInfoInputs.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Infrastructure\obj\Debug\net7.0\Infrastructure.AssemblyInfo.cs
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Infrastructure\obj\Debug\net7.0\Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Infrastructure\obj\Debug\net7.0\Infrastructure.csproj.CopyComplete
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Infrastructure\obj\Debug\net7.0\Infrastructure.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Infrastructure\obj\Debug\net7.0\refint\Infrastructure.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Infrastructure\obj\Debug\net7.0\Infrastructure.pdb
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Infrastructure\obj\Debug\net7.0\Infrastructure.genruntimeconfig.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Infrastructure\obj\Debug\net7.0\ref\Infrastructure.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Infrastructure\bin\Debug\net7.0\Infrastructure.deps.json
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Infrastructure\bin\Debug\net7.0\Infrastructure.runtimeconfig.json
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Infrastructure\bin\Debug\net7.0\Infrastructure.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Infrastructure\bin\Debug\net7.0\Infrastructure.pdb
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Infrastructure\bin\Debug\net7.0\Real_estate.Application.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Infrastructure\bin\Debug\net7.0\Real_estate.Domain.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Infrastructure\bin\Debug\net7.0\Real_estate.Application.pdb
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Infrastructure\bin\Debug\net7.0\Real_estate.Domain.pdb
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Infrastructure\obj\Debug\net7.0\Infrastructure.csproj.AssemblyReference.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Infrastructure\obj\Debug\net7.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Infrastructure\obj\Debug\net7.0\Infrastructure.AssemblyInfoInputs.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Infrastructure\obj\Debug\net7.0\Infrastructure.AssemblyInfo.cs
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Infrastructure\obj\Debug\net7.0\Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Infrastructure\obj\Debug\net7.0\Infrastructure.csproj.CopyComplete
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Infrastructure\obj\Debug\net7.0\Infrastructure.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Infrastructure\obj\Debug\net7.0\refint\Infrastructure.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Infrastructure\obj\Debug\net7.0\Infrastructure.pdb
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Infrastructure\obj\Debug\net7.0\Infrastructure.genruntimeconfig.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Infrastructure\obj\Debug\net7.0\ref\Infrastructure.dll

@@ -1,0 +1,108 @@
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\bin\Debug\net7.0\Testing.exe
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\bin\Debug\net7.0\Testing.deps.json
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\bin\Debug\net7.0\Testing.runtimeconfig.json
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\bin\Debug\net7.0\Testing.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\bin\Debug\net7.0\Testing.pdb
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\bin\Debug\net7.0\Microsoft.Extensions.Caching.Abstractions.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\bin\Debug\net7.0\Microsoft.Extensions.Caching.Memory.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\bin\Debug\net7.0\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\bin\Debug\net7.0\Microsoft.Extensions.Logging.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\bin\Debug\net7.0\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\bin\Debug\net7.0\Microsoft.Extensions.Primitives.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\bin\Debug\net7.0\Npgsql.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\bin\Debug\net7.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\bin\Debug\net7.0\Infrastructure.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\bin\Debug\net7.0\Real_estate.Application.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\bin\Debug\net7.0\Real_estate.Domain.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\bin\Debug\net7.0\Infrastructure.pdb
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\bin\Debug\net7.0\Real_estate.Domain.pdb
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\bin\Debug\net7.0\Real_estate.Application.pdb
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\obj\Debug\net7.0\Testing.csproj.AssemblyReference.cache
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\obj\Debug\net7.0\Testing.GeneratedMSBuildEditorConfig.editorconfig
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\obj\Debug\net7.0\Testing.AssemblyInfoInputs.cache
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\obj\Debug\net7.0\Testing.AssemblyInfo.cs
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\obj\Debug\net7.0\Testing.csproj.CoreCompileInputs.cache
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\obj\Debug\net7.0\Testing.csproj.CopyComplete
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\obj\Debug\net7.0\Testing.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\obj\Debug\net7.0\refint\Testing.dll
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\obj\Debug\net7.0\Testing.pdb
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\obj\Debug\net7.0\Testing.genruntimeconfig.cache
+E:\Facultate\Anu 3 sem 1\Real-Estate\Real_Estate\Testing\obj\Debug\net7.0\ref\Testing.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\bin\Debug\net7.0\Testing.exe
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\bin\Debug\net7.0\Testing.deps.json
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\bin\Debug\net7.0\Testing.runtimeconfig.json
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\bin\Debug\net7.0\Testing.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\bin\Debug\net7.0\Testing.pdb
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\bin\Debug\net7.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\bin\Debug\net7.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\bin\Debug\net7.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\bin\Debug\net7.0\Microsoft.Extensions.Logging.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\bin\Debug\net7.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\bin\Debug\net7.0\Microsoft.Extensions.Primitives.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\bin\Debug\net7.0\Npgsql.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\bin\Debug\net7.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\bin\Debug\net7.0\Infrastructure.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\bin\Debug\net7.0\Real_estate.Application.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\bin\Debug\net7.0\Real_estate.Domain.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\bin\Debug\net7.0\Infrastructure.pdb
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\bin\Debug\net7.0\Real_estate.Domain.pdb
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\bin\Debug\net7.0\Real_estate.Application.pdb
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\obj\Debug\net7.0\Testing.csproj.AssemblyReference.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\obj\Debug\net7.0\Testing.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\obj\Debug\net7.0\Testing.AssemblyInfoInputs.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\obj\Debug\net7.0\Testing.AssemblyInfo.cs
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\obj\Debug\net7.0\Testing.csproj.CoreCompileInputs.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\obj\Debug\net7.0\Testing.csproj.CopyComplete
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\obj\Debug\net7.0\Testing.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\obj\Debug\net7.0\refint\Testing.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\obj\Debug\net7.0\Testing.pdb
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\obj\Debug\net7.0\Testing.genruntimeconfig.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\ParteaMarcel\DinNouGresealaClasaPregatitoare\Testing\obj\Debug\net7.0\ref\Testing.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\obj\Debug\net7.0\Testing.csproj.AssemblyReference.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\obj\Debug\net7.0\Testing.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\obj\Debug\net7.0\Testing.AssemblyInfoInputs.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\obj\Debug\net7.0\Testing.AssemblyInfo.cs
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\obj\Debug\net7.0\Testing.csproj.CoreCompileInputs.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\obj\Debug\net7.0\Testing.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\obj\Debug\net7.0\refint\Testing.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\obj\Debug\net7.0\Testing.pdb
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\Testing.exe
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\Testing.deps.json
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\Testing.runtimeconfig.json
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\Testing.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\Testing.pdb
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\Microsoft.Extensions.Logging.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\Microsoft.Extensions.Primitives.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\Npgsql.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\Infrastructure.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\Real_estate.Application.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\Real_estate.Domain.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\Infrastructure.pdb
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\Real_estate.Domain.pdb
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\Real_estate.Application.pdb
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\obj\Debug\net7.0\Testing.csproj.CopyComplete
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\obj\Debug\net7.0\Testing.genruntimeconfig.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\Testing\obj\Debug\net7.0\ref\Testing.dll
