@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using MediatR;
-using System.Reflection;
+﻿using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Real_estate.Application
