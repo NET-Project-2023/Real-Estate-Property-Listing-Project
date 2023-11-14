@@ -142,3 +142,8 @@ C:\Users\ycarp\Desktop\Real-Estate\Real-Estate-Property-Listing-Project\Testing\
 C:\Users\ycarp\Desktop\Real-Estate\Real-Estate-Property-Listing-Project\Testing\obj\Debug\net7.0\Testing.pdb
 C:\Users\ycarp\Desktop\Real-Estate\Real-Estate-Property-Listing-Project\Testing\obj\Debug\net7.0\Testing.genruntimeconfig.cache
 C:\Users\ycarp\Desktop\Real-Estate\Real-Estate-Property-Listing-Project\Testing\obj\Debug\net7.0\ref\Testing.dll
+C:\Users\ycarp\Desktop\Real-Estate\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\FluentValidation.dll
+C:\Users\ycarp\Desktop\Real-Estate\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\ycarp\Desktop\Real-Estate\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\MediatR.dll
+C:\Users\ycarp\Desktop\Real-Estate\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\MediatR.Contracts.dll
+C:\Users\ycarp\Desktop\Real-Estate\Real-Estate-Property-Listing-Project\Testing\bin\Debug\net7.0\MediatR.Extensions.Microsoft.DependencyInjection.dll

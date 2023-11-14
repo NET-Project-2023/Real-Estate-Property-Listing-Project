@@ -8,6 +8,6 @@ Console.WriteLine("Hello, World!");
 var category = User.Create("Sorin", "SorinMunteanu@dasada.com", "EuSuntSorin123", Role.Customer);
 
 var context = new RealEstateContext();
-var userRepository = new UseryRepository(context);
+var userRepository = new UserRepository(context);
 var result = await userRepository.AddAsync(category.Value);
 Console.WriteLine(result.Value.Name);

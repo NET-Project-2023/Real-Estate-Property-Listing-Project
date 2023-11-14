@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "kxBLJ5PyXoQKGhS0TEvrZ7tBWEBDC7jyX+ySMw46r0s1JpK2HukVzE5FtqinMWTTSya6qBKqvDIVcHip0C1M1A==",
+  "dgSpecHash": "qE4WhJ1s3dR8vTapwyK2gULjGC1EOCEDfVFN7YHta5GlXWXVLiOdbkXFNS9kn0/zENkwdsIDlk+cXEBZR+yLcQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\ycarp\\Desktop\\Real-Estate\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\ycarp\\.nuget\\packages\\fluentvalidation\\11.8.0\\fluentvalidation.11.8.0.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.8.0\\fluentvalidation.dependencyinjectionextensions.11.8.0.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

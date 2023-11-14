@@ -5,14 +5,14 @@ namespace Infrastructure
 {
     public class RealEstateContext: DbContext
     {
+        public RealEstateContext(DbContextOptions<RealEstateContext> options) : base(options)
+        {
+
+        }       
         public DbSet<Property> Properties { get; set; }
         public DbSet<User> Users { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseNpgsql("Server=localhost;Port=5432;Database=RealEstate;User Id=postgres;Password=Monster02@;");
 
-        }
 
     }
 }

@@ -14,14 +14,13 @@ namespace Real_estate.Domain.Entities
             UserRole = userRole;
         }
         public Guid UserId { get; private set; }
-        public string Name { get; private set; }
-        public string Email { get; private set; }
-        public string Password { get; private set; }
+        public string? Name { get; private set; }
+        public string? Email { get; private set; }
+        public string? Password { get; private set; }
         public Role UserRole { get; private set; }
-
         public string PhoneNumber { get; private set; } = string.Empty;
 
-        public static Result<User> Create(string name, string email, string password, Role userRole)
+        public static Result<User> Create(string name, string email, string password, Role userRole, string? phoneNumber = null)
         {
             if (string.IsNullOrWhiteSpace(name))
             {
@@ -39,13 +38,19 @@ namespace Real_estate.Domain.Entities
             {
                 return Result<User>.Failure("Must enter a valid status :  Customer / Owner / Admin ");
             }
-            return Result<User>.Succes(new User(name, email, password, userRole));
+            var newUser = new User(name, email, password, userRole);
+            if (!string.IsNullOrWhiteSpace(phoneNumber))
+            {
+                newUser.AttachPhoneNumber(phoneNumber);
+            }
+
+            return Result<User>.Succes(newUser);
         }
 
 
         public void AttachPhoneNumber(string phoneNumber)
         {
-            if (string.IsNullOrWhiteSpace(phoneNumber))
+            if (!string.IsNullOrWhiteSpace(phoneNumber))
             {
                 PhoneNumber = phoneNumber;
             }

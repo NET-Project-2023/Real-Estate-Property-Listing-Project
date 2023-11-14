@@ -1,10 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "dz2R8vin+/T3HpgSNq6HdsiCTpriUXUNZc/aNULzUIItrnsGwrZ1Eju7y5S8bFcSU5jPetfZ85MyCUyOg5g8nA==",
+  "dgSpecHash": "r/oexTQSz2G3k4aNy02KYbHbKvqJEd+nzXtwZNhsW0MDQXg+TJU4V88KB2cYh3RkOKfnUSkjIPrzueyYSmqdJg==",
   "success": true,
   "projectFilePath": "C:\\Users\\ycarp\\Desktop\\Real-Estate\\Real-Estate-Property-Listing-Project\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ycarp\\.nuget\\packages\\fluentvalidation\\11.8.0\\fluentvalidation.11.8.0.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.8.0\\fluentvalidation.dependencyinjectionextensions.11.8.0.nupkg.sha512",
     "C:\\Users\\ycarp\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\ycarp\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.13\\microsoft.entityframeworkcore.7.0.13.nupkg.sha512",
     "C:\\Users\\ycarp\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.13\\microsoft.entityframeworkcore.abstractions.7.0.13.nupkg.sha512",
     "C:\\Users\\ycarp\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.13\\microsoft.entityframeworkcore.analyzers.7.0.13.nupkg.sha512",
