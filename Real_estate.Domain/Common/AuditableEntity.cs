@@ -1,9 +1,7 @@
 ﻿
 namespace Real_estate.Domain.Common
 {
-    //entitate auditabila- vrei sa stii care-i userul si cine a facut modificari pe anumita entitate in orice moment
-    //Scopul clasei e sa o atasam de alta clase de domeniu a.i. sa stim cand si cine a modifcat acea clasa dupa autentificare,
-    //practic sistemu va sti cine a facut ultimu schimbare :)
+
     public class AuditableEntity
     {
         public string? CreatedBy { get; set; }

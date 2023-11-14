@@ -140,9 +140,17 @@
               "target": "Package",
               "version": "[11.8.0, )"
             },
-            "MediatR.Extensions.Microsoft.DependencyInjection": {
+            "MediatR": {
               "target": "Package",
               "version": "[11.1.0, )"
+            },
+            "xunit.assert": {
+              "target": "Package",
+              "version": "[2.6.1, )"
+            },
+            "xunit.extensibility.core": {
+              "target": "Package",
+              "version": "[2.6.1, )"
             }
           },
           "imports": [

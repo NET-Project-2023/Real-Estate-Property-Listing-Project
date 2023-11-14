@@ -1,7 +1,6 @@
-﻿using MediatR;
+﻿using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
-
+using MediatR
 
 namespace Real_estate.Application
 {
@@ -9,12 +8,12 @@ namespace Real_estate.Application
     {
         public static void AddApplicationServices(this IServiceCollection services)
         {
-            //services.AddMediatR
-            //    (
-            //        cfg => cfg.RegisterServicesFromAssembly(
+            services.AddMediatR
+                (
+                    cfg => cfg.RegisterServicesFromAssembly(
 
-            //            Assembly.GetExecutingAssembly())
-            //    );
+                        Assembly.GetExecutingAssembly())
+                );
         }
     }
 }
