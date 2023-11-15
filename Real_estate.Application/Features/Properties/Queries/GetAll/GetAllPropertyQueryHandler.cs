@@ -29,7 +29,7 @@ namespace Real_estate.Application.Features.Properties.Queries.GetAll
                    Price= c.Price,
                    NumberOfBathrooms= c.NumberOfBathrooms,
                    NumberOfBedrooms= c.NumberOfBedrooms,
-                   ImagesUrls= c.ImagesUrls,
+                   Images = c.Images,
                    PropertyStatus= c.PropertyStatus,
                    OwnerId= c.OwnerId
                 }).ToList();

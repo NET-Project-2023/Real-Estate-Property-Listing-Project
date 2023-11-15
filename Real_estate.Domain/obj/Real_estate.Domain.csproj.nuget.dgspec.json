@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ycarp\\Desktop\\Real-Estate\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj": {}
+    "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ycarp\\Desktop\\Real-Estate\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj": {
+    "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ycarp\\Desktop\\Real-Estate\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj",
         "projectName": "Real_estate.Domain",
-        "projectPath": "C:\\Users\\ycarp\\Desktop\\Real-Estate\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj",
-        "packagesPath": "C:\\Users\\ycarp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ycarp\\Desktop\\Real-Estate\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\obj\\",
+        "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj",
+        "packagesPath": "C:\\Users\\andim\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ycarp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\andim\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

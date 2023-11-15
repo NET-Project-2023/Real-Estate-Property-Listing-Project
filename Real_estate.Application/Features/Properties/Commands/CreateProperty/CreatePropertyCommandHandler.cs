@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Real_estate.Application.Persistence;
 using Real_estate.Domain.Entities;
-
+using Real_estate.Application.Features.Properties.Commands;
 
 namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
 {
@@ -54,6 +54,7 @@ namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
                     PropertyStatus = property.Value.PropertyStatus,
                     OwnerId = property.Value.OwnerId,
                     NumberOfBedrooms = property.Value.NumberOfBedrooms
+
                 }
             };
         }

@@ -27,7 +27,7 @@ namespace Real_estate.Application.Features.Properties.Queries.GetByName
                     Price = result.Value.Price,
                     NumberOfBathrooms = result.Value.NumberOfBathrooms,
                     NumberOfBedrooms = result.Value.NumberOfBedrooms,
-                    ImagesUrls = result.Value.ImagesUrls,
+                    Images = result.Value.Images,
                     PropertyStatus = result.Value.PropertyStatus,
                     OwnerId = result.Value.OwnerId
                 };

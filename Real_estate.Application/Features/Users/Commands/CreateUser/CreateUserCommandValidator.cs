@@ -10,33 +10,32 @@ namespace Real_estate.Application.Features.Users.Commands.CreateUser
         {
             // Validating Name
             RuleFor(p => p.Name)
-                .NotEmpty().WithMessage("{UserName} is required.")
+                .NotEmpty().WithMessage(ValidationMessages.RequiredMessage)
                 .NotNull()
-                .MaximumLength(100).WithMessage("{UserName} must not exceed 100 characters.");
+                .MaximumLength(100).WithMessage(ValidationMessages.MaxLengthMessage);
 
             // Validating Email
             RuleFor(p => p.Email)
-                .NotEmpty().WithMessage("{EmailyName} is required.")
-                .EmailAddress().WithMessage("Invalid {EmailyName} format.")
+                .NotEmpty().WithMessage(ValidationMessages.RequiredMessage)
+                .EmailAddress().WithMessage(ValidationMessages.EmailFormatMessage)
                 .NotNull();
 
             // Validating Password
             RuleFor(p => p.Password)
-                .NotEmpty().WithMessage("{Password} is required.")
+                .NotEmpty().WithMessage(ValidationMessages.RequiredMessage)
                 .NotNull()
-                // You might want to include rules for password complexity here
-                .MinimumLength(6).WithMessage("{Password} must be at least 6 characters long.");
-            
+                .MinimumLength(6).WithMessage(ValidationMessages.MinLengthMessage);
+
             When(p => !string.IsNullOrWhiteSpace(p.PhoneNumber), () =>
             {
                 RuleFor(p => p.PhoneNumber)
                     .Matches(new Regex(@"^\+?[1-9]\d{1,14}$")) // Regex for international phone numbers
-                    .WithMessage("{PropertyName} must be in a valid phone number format.");
+                    .WithMessage(ValidationMessages.PhoneNumberFormatMessage);
             });
 
             // Validating Role - Assuming 'Role' is an enum or similar
             RuleFor(p => p.UserRole)
-                .Must(BeAValidRole).WithMessage("{PropertyName} is not a valid role.");
+                .Must(BeAValidRole).WithMessage(ValidationMessages.NotValidRoleMessage);
 
             // Custom method to validate the UserRole enum
             bool BeAValidRole(Role role)
