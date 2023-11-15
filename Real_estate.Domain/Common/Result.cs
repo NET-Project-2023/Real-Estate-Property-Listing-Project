@@ -2,17 +2,17 @@
 {
     public class Result<T> where T : class
     {
-        public Result(bool isSucces, T value, string error)
+        public Result(bool isSuccess, T value, string error)
         {
-            IsSucces = isSucces;
+            IsSuccess = isSuccess;
             Value = value;
             Error = error;
         }
 
-        public bool IsSucces { get; }
+        public bool IsSuccess { get; }
         public T Value { get; }
         public string Error { get; }
-        public static Result<T> Succes(T valeu)
+        public static Result<T> Success(T valeu)
         {
             return new Result<T>(true, valeu, null!);
         }

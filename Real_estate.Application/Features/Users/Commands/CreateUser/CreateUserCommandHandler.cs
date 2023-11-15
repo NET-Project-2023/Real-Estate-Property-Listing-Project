@@ -31,7 +31,7 @@ namespace Real_estate.Application.Features.Users.Commands.CreateUser
 
 
             System.Console.WriteLine(request.UserRole);
-            if (!userResult.IsSucces)
+            if (!userResult.IsSuccess)
             {
                 return new CreateUserCommandResponse
                 {

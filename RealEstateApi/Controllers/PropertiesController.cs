@@ -1,4 +1,4 @@
-﻿using GlobalBuyTicket.API.Controllers;
+﻿using RealEstate.API.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Real_estate.Application.Features.Properties.Commands.CreateProperty;
 

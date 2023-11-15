@@ -1,7 +1,9 @@
-﻿using GlobalBuyTicket.API.Controllers;
+﻿using RealEstate.API.Controllers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Real_estate.Application.Features.Users.Commands.CreateUser;
+using Real_estate.Application.Features.Users.Queries.GetAll;
+using Real_estate.Application.Features.Users.Queries.GetById;
 
 namespace RealEstate.API.Controllers
 {
@@ -17,6 +19,21 @@ namespace RealEstate.API.Controllers
             {
                 return BadRequest(result);
             }
+            return Ok(result);
+        }
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetAll()
+        {
+            var result = await Mediator.Send(new GetAllUserQuery());
+            return Ok(result);
+        }
+
+        [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> Get(Guid id)
+        {
+            var result = await Mediator.Send(new GetByIdUserQuery(id));
             return Ok(result);
         }
     }
