@@ -19,7 +19,7 @@ namespace RealEstate.API.Controllers
             }
             return Ok(result);
         }
-        [HttpGet]
+        [HttpGet("GetAllProperties")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll()
         {
