@@ -63,7 +63,7 @@ namespace Real_estate.Domain.Entities
 
             }
 
-            return Result<Property>.Succes(new Property( title, address, size, price, propertyStatus, ownerId, numberOfBedrooms));
+            return Result<Property>.Success(new Property( title, address, size, price, propertyStatus, ownerId, numberOfBedrooms));
         }
         public string ImagesUrlsSerialized
         {

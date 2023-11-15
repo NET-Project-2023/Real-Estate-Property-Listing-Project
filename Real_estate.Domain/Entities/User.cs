@@ -44,7 +44,7 @@ namespace Real_estate.Domain.Entities
                 newUser.AttachPhoneNumber(phoneNumber);
             }
 
-            return Result<User>.Succes(newUser);
+            return Result<User>.Success(newUser);
         }
 
 

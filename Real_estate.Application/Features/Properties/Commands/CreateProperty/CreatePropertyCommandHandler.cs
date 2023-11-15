@@ -29,7 +29,7 @@ namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
             }
 
             var property = Property.Create(request.Title, request.Address, request.Size, request.Price, request.PropertyStatus, request.OwnerId, request.NumberOfBedrooms);
-            if (!property.IsSucces)
+            if (!property.IsSuccess)
             {
                 return new CreatePropertyCommandResponse
                 {
