@@ -11,6 +11,7 @@ namespace Infrastructure
         }       
         public DbSet<Property> Properties { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Listing> Listings { get; set; }
 
 
 
