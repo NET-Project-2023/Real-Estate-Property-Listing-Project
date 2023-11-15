@@ -1,6 +1,8 @@
-﻿using RealEstate.API.Controllers;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Real_estate.Application.Features.Properties.Commands.CreateProperty;
+using Real_estate.Application.Features.Properties.Queries.GetAll;
+using Real_estate.Application.Features.Properties.Queries.GetById;
+using Real_estate.Application.Features.Properties.Queries.GetByName;
 
 namespace RealEstate.API.Controllers
 {
@@ -15,6 +17,28 @@ namespace RealEstate.API.Controllers
             {
                 return BadRequest(result);
             }
+            return Ok(result);
+        }
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetAll()
+        {
+            var result = await Mediator.Send(new GetAllPropertyQuery());
+            return Ok(result);
+        }
+
+        [HttpGet("ById/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> Get(Guid id)
+        {
+            var result = await Mediator.Send(new GetByIdPropertyQuery(id));
+            return Ok(result);
+        }
+        [HttpGet("ByName/{name}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> Get(string name)
+        {
+            var result = await Mediator.Send(new GetByNamePropertyQuery(name));
             return Ok(result);
         }
     }
