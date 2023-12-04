@@ -19,7 +19,7 @@ namespace Identity.Services
         {
             this.userManager = userManager;
             this.roleManager = roleManager;
-            configuration = configuration;
+            this.configuration = configuration;
 
         }
         public async Task<(int, string)> Registeration(RegistrationModel model, string role)
