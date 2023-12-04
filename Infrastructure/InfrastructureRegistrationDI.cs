@@ -22,6 +22,7 @@ namespace Infrastructure
                     builder.MigrationsAssembly(
                         typeof(RealEstateContext)
                         .Assembly.FullName)));
+
             services.AddScoped
                 (typeof(IAsyncRepository<>),
                 typeof(BaseRepository<>));
