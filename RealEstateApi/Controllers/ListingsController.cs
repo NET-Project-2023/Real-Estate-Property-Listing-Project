@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Real_estate.Application.Features.Listings.Commands.CreateListing;
+using Real_estate.Application.Features.Listings.Commands.DeleteListing;
 using Real_estate.Application.Features.Listings.Queries.GetAll;
 using Real_estate.Application.Features.Listings.Queries.GetById;
 using Real_estate.Application.Features.Properties.Queries.GetAll;
@@ -36,6 +37,20 @@ namespace RealEstate.API.Controllers
         {
             var result = await Mediator.Send(new GetByIdListingQuery(id));
             return Ok(result);
+        }
+
+        [HttpDelete("{listingId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> Delete(Guid listingId)
+        {
+            var command = new DeleteListingCommand { ListingId = listingId };
+            var result = await Mediator.Send(command);
+            if (!result.Success)
+            {
+                return NotFound(result.Message);
+            }
+            return Ok(result.Message);
         }
 
     }
