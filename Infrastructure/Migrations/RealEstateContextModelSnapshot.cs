@@ -18,7 +18,7 @@ namespace Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.13")
+                .HasAnnotation("ProductVersion", "8.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -83,13 +83,9 @@ namespace Infrastructure.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
-                    b.Property<List<string>>("ImagesUrls")
+                    b.Property<List<byte[]>>("Images")
                         .IsRequired()
-                        .HasColumnType("text[]");
-
-                    b.Property<string>("ImagesUrlsSerialized")
-                        .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("bytea[]");
 
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("text");
