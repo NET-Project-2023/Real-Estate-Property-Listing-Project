@@ -56,5 +56,24 @@ namespace RealEstate.API.Controllers
             }
             return Ok(result.Message);
         }
+        [HttpPut("{propertyId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Update(Guid propertyId, UpdatePropertyCommand command)
+        {
+            if (propertyId != command.PropertyId)
+            {
+                return BadRequest("Property ID mismatch.");
+            }
+
+            var result = await Mediator.Send(command);
+            if (!result.Success)
+            {
+                return BadRequest(result.Message);
+            }
+
+            return Ok(result.Message);
+        }
+
     }
 }

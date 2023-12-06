@@ -5,7 +5,7 @@ using Real_estate.Domain.Entities;
 
 namespace Real_estate.Application.Features.Users.Commands.UpdateUser
 {
-    public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, UpdateUserCommandResponse>
+    public class UpdatePropertyCommandHandler : IRequestHandler<UpdatePropertyCommand, UpdatePropertyCommandResponse>
     {
         private readonly IAsyncRepository<Property> propertyRepository;
 

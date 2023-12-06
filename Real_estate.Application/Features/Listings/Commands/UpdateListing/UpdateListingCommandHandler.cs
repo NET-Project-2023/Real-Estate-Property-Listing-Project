@@ -3,9 +3,9 @@ using Real_estate.Application.Contracts;
 using Real_estate.Application.Persistence;
 using Real_estate.Domain.Entities;
 
-namespace Real_estate.Application.Features.Users.Commands.UpdateUser
+namespace Real_estate.Application.Features.Users.Commands.UpdateListing
 {
-    public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, UpdateUserCommandResponse>
+    public class UpdateListingCommandHandler : IRequestHandler<UpdateListingCommand, UpdateListingCommandResponse>
     {
         private readonly IAsyncRepository<Listing> listingRepository;
 

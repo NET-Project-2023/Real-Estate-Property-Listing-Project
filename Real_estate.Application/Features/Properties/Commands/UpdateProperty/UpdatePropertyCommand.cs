@@ -3,7 +3,7 @@ using static Real_estate.Domain.Enums.Enums;
 
 namespace Real_estate.Application.Features.Users.Commands.UpdateUser
 {
-    public class UpdateUserCommand : IRequest<UpdateUserCommandResponse>
+    public class UpdatePropertyCommand : IRequest<UpdatePropertyCommandResponse>
     {
         public Guid PropertyId { get; set; }
         public string? Title { get; set; } // Optional update

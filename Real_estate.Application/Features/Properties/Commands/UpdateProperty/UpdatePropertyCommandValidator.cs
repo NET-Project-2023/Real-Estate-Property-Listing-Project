@@ -5,9 +5,9 @@ using System.Text.RegularExpressions;
 
 namespace Real_estate.Application.Features.Users.Commands.UpdateUser
 {
-    public class UpdateUserCommandValidator : AbstractValidator<UpdateUserCommand>
+    public class UpdatePropertyCommandValidator : AbstractValidator<UpdatePropertyCommand>
     {
-        public UpdateUserCommandValidator()
+        public UpdatePropertyCommandValidator()
         {
             // Optional validation for Title
             When(p => !string.IsNullOrWhiteSpace(p.Title), () =>

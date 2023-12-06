@@ -2,7 +2,7 @@
 
 namespace Real_estate.Application.Features.Users.Commands.UpdateUser
 {
-    public class UpdateUserCommandResponse : BaseResponse
+    public class UpdateListingCommandResponse : BaseResponse
     {
         public UpdateListingCommandResponse() : base()
         {
