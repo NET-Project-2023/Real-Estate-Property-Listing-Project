@@ -1,8 +1,11 @@
 ﻿using Identity.Models;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Real_estate.Application.Contracts.Identity;
+using Real_estate.Application.Features.Listings.Commands.CreateUser;
 using Real_estate.Application.Models.Identity;
+using static Real_estate.Domain.Enums.Enums;
 
 namespace RealEstate.API.Controllers
 {
@@ -12,11 +15,15 @@ namespace RealEstate.API.Controllers
     {
         private readonly IAuthService _authService;
         private readonly ILogger<AuthenticationController> _logger;
+        private readonly IMediator _mediator;
 
-        public AuthenticationController(IAuthService authService, ILogger<AuthenticationController> logger)
+
+        public AuthenticationController(IAuthService authService, ILogger<AuthenticationController> logger, IMediator mediator)
         {
             _authService = authService;
             _logger = logger;
+            _mediator = mediator; // This line is important. It saves the injected mediator to a private field.
+
         }
 
         [HttpPost]
@@ -45,7 +52,6 @@ namespace RealEstate.API.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
-
         [HttpPost]
         [Route("register")]
         public async Task<IActionResult> Register(RegistrationModel model)
@@ -54,15 +60,31 @@ namespace RealEstate.API.Controllers
             {
                 if (!ModelState.IsValid)
                 {
+                    _logger.LogError($"Invalid model state: {ModelState}");
                     return BadRequest("Invalid payload");
                 }
 
-                // Admin, Customer si Owner
                 var (status, message) = await _authService.Registeration(model, UserRoles.Customer);
 
                 if (status == 0)
                 {
                     return BadRequest(message);
+                }
+
+                // Create the user in your Entity model
+                var createUserCommand = new CreateUserCommand
+                {
+                    Name = model.Name, // Assuming UserName is equivalent to Name
+                    Email = model.Email,
+                    Password = model.Password,
+                    UserRole = Role.Customer, // Assuming a default role, adjust as needed
+                };
+
+                var createUserResult = await _mediator.Send(createUserCommand);
+                if (!createUserResult.Success)
+                {
+                    // Handle failure
+                    return BadRequest(createUserResult);
                 }
 
                 return CreatedAtAction(nameof(Register), model);

@@ -21,6 +21,7 @@ namespace RealEstate.API.Controllers
             }
             return Ok(result);
         }
+
         [HttpGet("GetAllUsers")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll()
@@ -50,6 +51,7 @@ namespace RealEstate.API.Controllers
             }
             return Ok(result.Message);
         }
+
         [HttpPut("{userId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
