@@ -1,8 +1,7 @@
 ﻿using Real_estate.Domain.Common;
 using static Real_estate.Domain.Enums.Enums;
-
-
 namespace Real_estate.Domain.Entities
+
 {
     public class Property : AuditableEntity
     {
@@ -35,6 +34,7 @@ namespace Real_estate.Domain.Entities
         public static Result<Property> Create(string title, string address, int size, int price, Status propertyStatus, Guid ownerId, int numberOfBedrooms)
         {
 
+            // Create the property
             return Result<Property>.Success(new Property(title, address, size, price, propertyStatus, ownerId, numberOfBedrooms));
         }
 

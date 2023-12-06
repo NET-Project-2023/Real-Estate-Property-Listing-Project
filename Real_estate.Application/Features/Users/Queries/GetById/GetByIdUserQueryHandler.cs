@@ -1,8 +1,6 @@
 ﻿using Real_estate.Application.Persistence;
 using MediatR;
 
-
-
 namespace Real_estate.Application.Features.Users.Queries.GetById
 {
     public class GetByIdCategoryHandler : IRequestHandler<GetByIdUserQuery, UserDto>

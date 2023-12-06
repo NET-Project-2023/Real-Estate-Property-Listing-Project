@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static Real_estate.Domain.Enums.Enums;
 
-namespace Real_estate.Application.Features.Users.Queries
+namespace Real_estate.Application.Features.Users
 {
     public class UserDto
     {
