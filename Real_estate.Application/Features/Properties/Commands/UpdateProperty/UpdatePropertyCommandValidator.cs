@@ -55,7 +55,7 @@ namespace Real_estate.Application.Features.Users.Commands.UpdateUser
             When(p => p.NumberOfBathrooms.HasValue, () =>
             {
                 RuleFor(p => p.NumberOfBathrooms)
-                    .GreaterThanOrEqualTo(0).WithMessage(ValidationMessages.GreaterThanOrEqualToZeroMessage);
+                    .GreaterThanOrEqualTo(0).WithMessage(ValidationMessages.GreaterThanZeroMessage);
             });
 
             // Conditional validation for Images

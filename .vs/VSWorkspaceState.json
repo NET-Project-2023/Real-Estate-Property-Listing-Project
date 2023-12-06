@@ -1,18 +1,17 @@
 {
   "ExpandedNodes": [
     "",
-    "\\RealEstateApi",
-    "\\RealEstateApi\\Controllers",
     "\\Real_estate.Application",
     "\\Real_estate.Application\\Features",
-    "\\Real_estate.Application\\Features\\Properties",
-    "\\Real_estate.Application\\Features\\Properties\\Commands",
-    "\\Real_estate.Application\\Features\\Properties\\Commands\\UpdateProperty",
-    "\\Real_estate.Application\\Models",
-    "\\Real_estate.Application\\Responses",
+    "\\Real_estate.Application\\Features\\Listings",
+    "\\Real_estate.Application\\Features\\Listings\\Commands",
+    "\\Real_estate.Application\\Features\\Listings\\Commands\\UpdateListing",
+    "\\Real_estate.Application\\Features\\Users",
+    "\\Real_estate.Application\\Features\\Users\\Commands",
+    "\\Real_estate.Application\\Features\\Users\\Commands\\UpdateUser",
     "\\Real_estate.Domain",
     "\\Real_estate.Domain\\Entities"
   ],
-  "SelectedNode": "\\Real_estate.Application\\Features\\Users\\Commands\\UpdateUser\\UpdateUserCommandResponse.cs",
+  "SelectedNode": "\\Real_estate.Application\\Features\\Listings\\Commands\\UpdateListing\\UpdateListingCommandHandler.cs",
   "PreviewInSolutionExplorer": false
 }

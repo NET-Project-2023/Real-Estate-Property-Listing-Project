@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\carin\\Source\\Repos\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj": {}
+    "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\carin\\Source\\Repos\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj": {
+    "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\carin\\Source\\Repos\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj",
         "projectName": "Real_estate.Domain",
-        "projectPath": "C:\\Users\\carin\\Source\\Repos\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj",
+        "projectPath": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj",
         "packagesPath": "C:\\Users\\carin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\carin\\Source\\Repos\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\obj\\",
+        "outputPath": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -39,6 +39,9 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "default"
         }
       },
       "frameworks": {
@@ -55,7 +58,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

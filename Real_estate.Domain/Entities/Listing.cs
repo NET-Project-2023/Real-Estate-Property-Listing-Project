@@ -48,5 +48,41 @@ namespace Real_estate.Domain.Entities
             }
             return Result<Listing>.Success(new Listing(title, user, property, description));
         }
+        public void UpdateTitle(string newTitle)
+        {
+            if (string.IsNullOrWhiteSpace(newTitle))
+            {
+                throw new ArgumentException("Title cannot be empty.", nameof(newTitle));
+            }
+
+            Title = newTitle;
+        }
+
+        public void UpdateDescription(string newDescription)
+        {
+            // Assuming that Description can be null or empty
+            Description = newDescription;
+        }
+
+        public void UpdateUser(User newUser)
+        {
+            if (newUser == null)
+            {
+                throw new ArgumentNullException(nameof(newUser), "User cannot be null.");
+            }
+
+            User = newUser;
+        }
+
+        public void UpdateProperty(Property newProperty)
+        {
+            if (newProperty == null)
+            {
+                throw new ArgumentNullException(nameof(newProperty), "Property cannot be null.");
+            }
+
+            Property = newProperty;
+        }
+
     }
 }

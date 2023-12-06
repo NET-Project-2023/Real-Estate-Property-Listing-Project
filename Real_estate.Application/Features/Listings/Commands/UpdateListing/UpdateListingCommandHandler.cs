@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Real_estate.Application.Contracts;
+using Real_estate.Application.Features.Users.Commands.UpdateUser;
 using Real_estate.Application.Persistence;
 using Real_estate.Domain.Entities;
 

@@ -64,5 +64,60 @@ namespace Real_estate.Domain.Entities
                 NumberOfBathrooms = numberOfBathrooms;
             }
         }
+        public void UpdateTitle(string newTitle)
+        {
+            if (string.IsNullOrWhiteSpace(newTitle))
+            {
+                throw new ArgumentException("Title cannot be empty.", nameof(newTitle));
+            }
+
+            Title = newTitle;
+        }
+
+        public void UpdateDescription(string newDescription)
+        {
+            // Assuming that Description can be null or empty
+            Description = newDescription;
+        }
+
+        public void UpdateAddress(string newAddress)
+        {
+            if (string.IsNullOrWhiteSpace(newAddress))
+            {
+                throw new ArgumentException("Address cannot be empty.", nameof(newAddress));
+            }
+
+            Address = newAddress;
+        }
+
+        public void UpdateSize(int newSize)
+        {
+            // You may add validation logic for the size if needed
+            Size = newSize;
+        }
+
+        public void UpdatePrice(int newPrice)
+        {
+            // You may add validation logic for the price if needed
+            Price = newPrice;
+        }
+
+        public void UpdateNumberOfBedrooms(int newNumberOfBedrooms)
+        {
+            // You may add validation logic for the number of bedrooms if needed
+            NumberOfBedrooms = newNumberOfBedrooms;
+        }
+
+        public void UpdateNumberOfBathrooms(int newNumberOfBathrooms)
+        {
+            // You may add validation logic for the number of bathrooms if needed
+            NumberOfBathrooms = newNumberOfBathrooms;
+        }
+
+        public void UpdatePropertyStatus(Status newPropertyStatus)
+        {
+            // You may add validation logic for the property status if needed
+            PropertyStatus = newPropertyStatus;
+        }
     }
 }
