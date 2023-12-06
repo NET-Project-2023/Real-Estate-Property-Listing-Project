@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dragos\\Desktop\\dotnet\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj": {}
+    "C:\\Users\\ycarp\\Desktop\\AndiV2\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dragos\\Desktop\\dotnet\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj": {
+    "C:\\Users\\ycarp\\Desktop\\AndiV2\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dragos\\Desktop\\dotnet\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj",
+        "projectUniqueName": "C:\\Users\\ycarp\\Desktop\\AndiV2\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj",
         "projectName": "Real_estate.Application",
-        "projectPath": "C:\\Users\\Dragos\\Desktop\\dotnet\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj",
-        "packagesPath": "C:\\Users\\Dragos\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dragos\\Desktop\\dotnet\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\obj\\",
+        "projectPath": "C:\\Users\\ycarp\\Desktop\\AndiV2\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj",
+        "packagesPath": "C:\\Users\\ycarp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ycarp\\Desktop\\AndiV2\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Dragos\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ycarp\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -32,8 +28,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Dragos\\Desktop\\dotnet\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj": {
-                "projectPath": "C:\\Users\\Dragos\\Desktop\\dotnet\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj"
+              "C:\\Users\\ycarp\\Desktop\\AndiV2\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj": {
+                "projectPath": "C:\\Users\\ycarp\\Desktop\\AndiV2\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj"
               }
             }
           }
@@ -84,21 +80,17 @@
         }
       }
     },
-    "C:\\Users\\Dragos\\Desktop\\dotnet\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj": {
+    "C:\\Users\\ycarp\\Desktop\\AndiV2\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dragos\\Desktop\\dotnet\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\ycarp\\Desktop\\AndiV2\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj",
         "projectName": "Real_estate.Domain",
-        "projectPath": "C:\\Users\\Dragos\\Desktop\\dotnet\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj",
-        "packagesPath": "C:\\Users\\Dragos\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dragos\\Desktop\\dotnet\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\obj\\",
+        "projectPath": "C:\\Users\\ycarp\\Desktop\\AndiV2\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj",
+        "packagesPath": "C:\\Users\\ycarp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ycarp\\Desktop\\AndiV2\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Dragos\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ycarp\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

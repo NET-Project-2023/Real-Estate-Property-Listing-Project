@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Real_estate.Application.Persistence;
 
-namespace Real_estate.Application.Features.Users.Queries.GetAll
+namespace Real_estate.Application.Features.Listings.Queries.GetAll
 {
 
     public class GetAllUserQueryHandler : IRequestHandler<GetAllUserQuery, GetAllUserResponse>

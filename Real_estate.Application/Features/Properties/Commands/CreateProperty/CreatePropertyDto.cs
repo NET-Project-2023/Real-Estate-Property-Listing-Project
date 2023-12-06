@@ -1,6 +1,6 @@
 ﻿using static Real_estate.Domain.Enums.Enums;
 
-namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
+namespace Real_estate.Application.Features.Listings.Commands.CreateProperty
 {
     public class CreatePropertyDto
     {

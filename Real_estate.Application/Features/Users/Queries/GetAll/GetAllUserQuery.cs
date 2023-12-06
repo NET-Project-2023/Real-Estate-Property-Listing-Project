@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MediatR;
 
-namespace Real_estate.Application.Features.Users.Queries.GetAll
+namespace Real_estate.Application.Features.Listings.Queries.GetAll
 {
    public class GetAllUserQuery :  IRequest<GetAllUserResponse>
     {

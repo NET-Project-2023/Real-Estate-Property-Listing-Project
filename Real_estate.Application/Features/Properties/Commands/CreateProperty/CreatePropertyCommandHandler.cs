@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Real_estate.Application.Persistence;
 using Real_estate.Domain.Entities;
-using Real_estate.Application.Features.Properties.Commands;
+using Real_estate.Application.Features.Listings.Commands;
 using Real_estate.Application.Persistence;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
+namespace Real_estate.Application.Features.Listings.Commands.CreateProperty
 {
     public class CreatePropertyCommandHandler : IRequestHandler<CreatePropertyCommand, CreatePropertyCommandResponse>
     {

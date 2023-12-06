@@ -64,5 +64,77 @@ namespace Real_estate.Domain.Entities
                 NumberOfBathrooms = numberOfBathrooms;
             }
         }
+        public void UpdateTitle(string newTitle)
+        {
+            if (string.IsNullOrWhiteSpace(newTitle))
+            {
+                throw new ArgumentException("Title cannot be empty.", nameof(newTitle));
+            }
+            Title = newTitle;
+        }
+
+        public void UpdateDescription(string newDescription)
+        {
+            if (string.IsNullOrWhiteSpace(newDescription))
+            {
+                throw new ArgumentException("Description cannot be empty.", nameof(newDescription));
+            }
+            Description = newDescription;
+        }
+
+        public void UpdateAddress(string newAddress)
+        {
+            if (string.IsNullOrWhiteSpace(newAddress))
+            {
+                throw new ArgumentException("Address cannot be empty.", nameof(newAddress));
+            }
+            Address = newAddress;
+        }
+
+        public void UpdateSize(int newSize)
+        {
+            if (newSize <= 0)
+            {
+                throw new ArgumentException("Size must be greater than zero.", nameof(newSize));
+            }
+            Size = newSize;
+        }
+
+        public void UpdatePrice(int newPrice)
+        {
+            if (newPrice < 0) // Assuming price cannot be negative.
+            {
+                throw new ArgumentException("Price cannot be negative.", nameof(newPrice));
+            }
+            Price = newPrice;
+        }
+
+        public void UpdateNumberOfBedrooms(int newNumberOfBedrooms)
+        {
+            if (newNumberOfBedrooms < 0) // Assuming the number of bedrooms cannot be negative.
+            {
+                throw new ArgumentException("Number of bedrooms cannot be negative.", nameof(newNumberOfBedrooms));
+            }
+            NumberOfBedrooms = newNumberOfBedrooms;
+        }
+
+        public void UpdateNumberOfBathrooms(int newNumberOfBathrooms)
+        {
+            if (newNumberOfBathrooms < 0) // Assuming the number of bathrooms cannot be negative.
+            {
+                throw new ArgumentException("Number of bathrooms cannot be negative.", nameof(newNumberOfBathrooms));
+            }
+            NumberOfBathrooms = newNumberOfBathrooms;
+        }
+
+        public void UpdatePropertyStatus(Status newStatus)
+        {
+            // Assuming you have a validation for status or you might want to check if it's a valid enum
+            if (!Enum.IsDefined(typeof(Status), newStatus))
+            {
+                throw new ArgumentException("Invalid property status.", nameof(newStatus));
+            }
+            PropertyStatus = newStatus;
+        }
     }
 }

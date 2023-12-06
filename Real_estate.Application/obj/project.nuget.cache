@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "/LZ73mqXKUA27v3PxOnet9KyQ2s8P2yOL51OmCzc/yLGWX7Md89AAJEHDkc5KRVAUqXdOjcNpET67ie1sy0v9w==",
+  "dgSpecHash": "uNb84uD7lbroXqWcQr5sxTvsciD7PoV6s8mTHcxnblwKLwuFZwH1jIgvFb44+Y5eCTjh+DkIIXdppM5Ldu3rhw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dragos\\Desktop\\dotnet\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj",
+  "projectFilePath": "C:\\Users\\ycarp\\Desktop\\AndiV2\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Dragos\\.nuget\\packages\\fluentvalidation\\11.8.0\\fluentvalidation.11.8.0.nupkg.sha512",
-    "C:\\Users\\Dragos\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.8.0\\fluentvalidation.dependencyinjectionextensions.11.8.0.nupkg.sha512",
-    "C:\\Users\\Dragos\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
-    "C:\\Users\\Dragos\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
-    "C:\\Users\\Dragos\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+    "C:\\Users\\ycarp\\.nuget\\packages\\fluentvalidation\\11.8.0\\fluentvalidation.11.8.0.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.8.0\\fluentvalidation.dependencyinjectionextensions.11.8.0.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

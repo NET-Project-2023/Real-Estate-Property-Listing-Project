@@ -1,15 +1,13 @@
-﻿using RealEstate.API.Controllers;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Real_estate.Application.Features.Users.Commands.CreateUser;
-using Real_estate.Application.Features.Users.Queries.GetAll;
-using Real_estate.Application.Features.Users.Queries.GetById;
-using Real_estate.Application.Features.Users.Commands.DeleteUser;
+﻿using Microsoft.AspNetCore.Mvc;
+using Real_estate.Application.Features.Listings.Commands.CreateUser;
+using Real_estate.Application.Features.Listings.Queries.GetAll;
+using Real_estate.Application.Features.Listings.Queries.GetById;
+using Real_estate.Application.Features.Listings.Commands.DeleteUser;
 using Real_estate.Application.Features.Users.Commands.UpdateUser;
 
 namespace RealEstate.API.Controllers
 {
-   
+
     public class UsersController : ApiControllerBase
     {
         [HttpPost]

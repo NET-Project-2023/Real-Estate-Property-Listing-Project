@@ -3,7 +3,7 @@ using Real_estate.Domain.Entities;
 using MediatR;
 using System.Runtime.InteropServices;
 
-namespace Real_estate.Application.Features.Users.Commands.CreateUser
+namespace Real_estate.Application.Features.Listings.Commands.CreateUser
 {
     public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, CreateUserCommandResponse>
     {

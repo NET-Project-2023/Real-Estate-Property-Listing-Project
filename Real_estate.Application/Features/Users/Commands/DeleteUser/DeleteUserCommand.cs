@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Real_estate.Application.Features.Users.Commands.DeleteUser
+namespace Real_estate.Application.Features.Listings.Commands.DeleteUser
 {
     public class DeleteUserCommand : IRequest<DeleteUserCommandResponse>
     {

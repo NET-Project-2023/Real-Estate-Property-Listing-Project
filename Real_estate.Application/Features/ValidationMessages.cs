@@ -18,6 +18,9 @@ namespace Real_estate.Application.Features
         public const string MinLengthMessage = "{0} must be at least {MinLength} characters long.";
         public const string PhoneNumberFormatMessage = "{0} must be in a valid phone number format.";
         public const string NotValidRoleMessage = "{0} is not a valid role.";
+        public const string ImageNotEmptyMessage = "The image cannot be empty.";
+        public const string NotValidStatusMessage = "The status is not valid.";
+
     }
 
 }

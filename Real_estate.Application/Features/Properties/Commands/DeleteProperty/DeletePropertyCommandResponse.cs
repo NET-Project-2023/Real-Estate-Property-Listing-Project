@@ -1,6 +1,6 @@
 ﻿using Real_estate.Application.Responses;
 
-namespace Real_estate.Application.Features.Properties.Commands.DeleteProperty
+namespace Real_estate.Application.Features.Listings.Commands.DeleteProperty
 {
     public class DeletePropertyCommandResponse : BaseResponse
     {
