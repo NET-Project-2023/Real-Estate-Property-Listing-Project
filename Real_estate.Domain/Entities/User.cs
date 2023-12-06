@@ -46,7 +46,6 @@ namespace Real_estate.Domain.Entities
 
             return Result<User>.Success(newUser);
         }
-
         public void UpdateName(string newName)
         {
             if (string.IsNullOrWhiteSpace(newName))

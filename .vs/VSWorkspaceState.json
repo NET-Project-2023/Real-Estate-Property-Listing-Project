@@ -2,9 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\Infrastructure",
-    "\\Infrastructure\\Repositories",
-    "\\Real_estate.Domain"
+    "\\RealEstateApi",
+    "\\Real_estate.Application",
+    "\\SimulareTest"
   ],
-  "SelectedNode": "\\Real_estate.Application",
+  "SelectedNode": "\\Identity",
   "PreviewInSolutionExplorer": false
 }
