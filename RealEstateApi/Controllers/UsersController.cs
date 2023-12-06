@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Real_estate.Application.Features.Users.Commands.CreateUser;
 using Real_estate.Application.Features.Users.Queries.GetAll;
 using Real_estate.Application.Features.Users.Queries.GetById;
+using Real_estate.Application.Features.Users.Commands.DeleteUser;
+using Real_estate.Application.Features.Users.Commands.UpdateUser;
 
 namespace RealEstate.API.Controllers
 {
@@ -35,6 +37,37 @@ namespace RealEstate.API.Controllers
         {
             var result = await Mediator.Send(new GetByIdUserQuery(id));
             return Ok(result);
+        }
+
+        [HttpDelete("{userId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> Delete(Guid userId)
+        {
+            var command = new DeleteUserCommand { UserId = userId };
+            var result = await Mediator.Send(command);
+            if (!result.Success)
+            {
+                return NotFound(result.Message);
+            }
+            return Ok(result.Message);
+        }
+        [HttpPut("{userId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Update(Guid userId, UpdateUserCommand command)
+        {
+            if (userId != command.UserId)
+            {
+                return BadRequest("User ID mismatch.");
+            }
+
+            var result = await Mediator.Send(command);
+            if (!result.Success)
+            {
+                return BadRequest(result.Message);
+            }
+            return Ok(result.Message);
         }
     }
 }

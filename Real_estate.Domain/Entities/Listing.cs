@@ -1,6 +1,5 @@
 ﻿using Real_estate.Domain.Common;
 using static Real_estate.Domain.Enums.Enums;
-
 namespace Real_estate.Domain.Entities
 {
     public class Listing : AuditableEntity
@@ -47,7 +46,6 @@ namespace Real_estate.Domain.Entities
             {
                 return Result<Listing>.Failure("Listing creator must be an Owner");
             }
-
             return Result<Listing>.Success(new Listing(title, user, property, description));
         }
     }

@@ -1,6 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Real_estate.Application.Contracts;
+using Real_estate.Application.Persistence;
 using Real_estate.Domain.Common;
+using System.Linq.Expressions;
+
+
 namespace Infrastructure.Repositories
 {
     public class BaseRepository<T> : IAsyncRepository<T> where T : class
@@ -37,6 +40,10 @@ namespace Infrastructure.Repositories
             return Result<T>.Success(result.Value);
 
         }
+        public async Task<bool> ExistsAsync(Expression<Func<T, bool>> predicate)
+        {
+            return await context.Set<T>().AnyAsync(predicate);
+        }
 
         public async Task<Result<T>> FindByIdAsync(Guid id)
         {
@@ -52,6 +59,8 @@ namespace Infrastructure.Repositories
         {
             var result = await context.Set<T>().Skip(page).Take(size).AsNoTracking().ToListAsync();
 
+
+
             return Result<IReadOnlyList<T>>.Success(result);
 
 
@@ -64,7 +73,7 @@ namespace Infrastructure.Repositories
             {
                 throw new ArgumentNullException(nameof(entity));
             }
-            context.Entry(entity).State = EntityState.Modified;
+            context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             await context.SaveChangesAsync();
             return Result<T>.Success(entity);
         }

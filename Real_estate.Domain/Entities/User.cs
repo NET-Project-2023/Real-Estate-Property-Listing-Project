@@ -47,7 +47,45 @@ namespace Real_estate.Domain.Entities
             return Result<User>.Success(newUser);
         }
 
+        public void UpdateName(string newName)
+        {
+            if (string.IsNullOrWhiteSpace(newName))
+            {
+                throw new ArgumentException("Name cannot be empty.", nameof(newName));
+            }
 
+            Name = newName;
+        }
+
+        public void UpdateEmail(string newEmail)
+        {
+            if (string.IsNullOrWhiteSpace(newEmail))
+            {
+                throw new ArgumentException("Email cannot be empty.", nameof(newEmail));
+            }
+
+            Email = newEmail;
+        }
+
+        public void UpdatePassword(string newPassword)
+        {
+            if (string.IsNullOrWhiteSpace(newPassword))
+            {
+                throw new ArgumentException("Password cannot be empty.", nameof(newPassword));
+            }
+
+            Password = newPassword;
+        }
+
+        public void UpdateUserRole(Role newUserRole)
+        {
+            UserRole = newUserRole;
+        }
+
+        public void UpdatePhoneNumber(string newPhoneNumber)
+        {
+            PhoneNumber = newPhoneNumber;
+        }
         public void AttachPhoneNumber(string phoneNumber)
         {
             if (!string.IsNullOrWhiteSpace(phoneNumber))

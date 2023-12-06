@@ -1,24 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Real_estate.Domain\Real_estate.Domain.csproj" />
   </ItemGroup>
-
   <ItemGroup>
-    <Folder Include="Contracts\" />
     <Folder Include="Features\Listings\Queries\" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.8.0" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.8.0" />
     <PackageReference Include="MediatR" Version="12.1.1" />
   </ItemGroup>
-
 </Project>

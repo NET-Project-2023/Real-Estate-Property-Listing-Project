@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Real_estate.Application.Features.Properties.Commands.CreateProperty;
+using Real_estate.Application.Features.Properties.Commands.DeleteProperty;
 using Real_estate.Application.Features.Properties.Queries.GetAll;
 using Real_estate.Application.Features.Properties.Queries.GetById;
 using Real_estate.Application.Features.Properties.Queries.GetByName;
@@ -40,6 +41,20 @@ namespace RealEstate.API.Controllers
         {
             var result = await Mediator.Send(new GetByNamePropertyQuery(name));
             return Ok(result);
+        }
+
+        [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var command = new DeletePropertyCommand { PropertyId = id };
+            var result = await Mediator.Send(command);
+            if (!result.Success)
+            {
+                return NotFound(result.Message);
+            }
+            return Ok(result.Message);
         }
     }
 }

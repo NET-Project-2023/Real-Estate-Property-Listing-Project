@@ -1,6 +1,6 @@
 ﻿using Real_estate.Domain.Common;
 
-namespace Real_estate.Application.Contracts
+namespace Real_estate.Application.Persistence
 {
     public interface IAsyncRepository<T> where T : class
     {
