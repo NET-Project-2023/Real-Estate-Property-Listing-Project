@@ -1,20 +1,13 @@
 ﻿using MediatR;
 using Real_estate.Application.Persistence;
 using Real_estate.Domain.Entities;
-using Real_estate.Application.Features.Listings.Commands;
-using Real_estate.Application.Persistence;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Real_estate.Application.Features.Listings.Commands.CreateProperty
 {
     public class CreatePropertyCommandHandler : IRequestHandler<CreatePropertyCommand, CreatePropertyCommandResponse>
     {
         private readonly IPropertyRepository propertyRepository;
-        private readonly IUserRepository userRepository; // Add this
+        private readonly IUserRepository userRepository;
 
         public CreatePropertyCommandHandler(IPropertyRepository propertyRepository, IUserRepository userRepository)
         {
@@ -47,7 +40,7 @@ namespace Real_estate.Application.Features.Listings.Commands.CreateProperty
                 };
             }
 
-
+            // TODO: CreatedBy
             var property = Property.Create(request.Title, request.Address, request.Size, request.Price, request.PropertyStatus, request.OwnerId, request.NumberOfBedrooms);
             if (!property.IsSuccess)
             {
@@ -73,6 +66,7 @@ namespace Real_estate.Application.Features.Listings.Commands.CreateProperty
                     PropertyStatus = property.Value.PropertyStatus,
                     OwnerId = property.Value.OwnerId,
                     NumberOfBedrooms = property.Value.NumberOfBedrooms
+                    // TODO: CreatedBy
                 }
             };
         }

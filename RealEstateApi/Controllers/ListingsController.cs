@@ -3,9 +3,6 @@ using Real_estate.Application.Features.Listings.Commands.CreateListing;
 using Real_estate.Application.Features.Listings.Commands.DeleteListing;
 using Real_estate.Application.Features.Listings.Queries.GetAll;
 using Real_estate.Application.Features.Listings.Queries.GetById;
-using Real_estate.Application.Features.Listings.Queries.GetAll;
-using Real_estate.Application.Features.Listings.Queries.GetById;
-using Real_estate.Application.Features.Listings.Queries.GetByName;
 using Real_estate.Application.Features.Listings.Commands.UpdateListing;
 
 namespace RealEstate.API.Controllers

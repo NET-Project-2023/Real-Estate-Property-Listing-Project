@@ -22,8 +22,7 @@ namespace RealEstate.API.Controllers
         {
             _authService = authService;
             _logger = logger;
-            _mediator = mediator; // This line is important. It saves the injected mediator to a private field.
-
+            _mediator = mediator;
         }
 
         [HttpPost]
@@ -71,19 +70,17 @@ namespace RealEstate.API.Controllers
                     return BadRequest(message);
                 }
 
-                // Create the user in your Entity model
                 var createUserCommand = new CreateUserCommand
                 {
-                    Name = model.Name, // Assuming UserName is equivalent to Name
+                    Name = model.Name, 
                     Email = model.Email,
                     Password = model.Password,
-                    UserRole = Role.Customer, // Assuming a default role, adjust as needed
+                    UserRole = Role.Customer, 
                 };
 
                 var createUserResult = await _mediator.Send(createUserCommand);
                 if (!createUserResult.Success)
                 {
-                    // Handle failure
                     return BadRequest(createUserResult);
                 }
 
