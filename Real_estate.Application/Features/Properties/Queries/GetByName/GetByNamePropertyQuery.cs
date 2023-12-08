@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Real_estate.Application.Features.Properties.Queries.GetByName
+namespace Real_estate.Application.Features.Listings.Queries.GetByName
 {
     public record GetByNamePropertyQuery(string Title) : IRequest<PropertyDto>;
 }

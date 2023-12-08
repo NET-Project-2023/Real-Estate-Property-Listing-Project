@@ -3,7 +3,7 @@
 using MediatR;
 using static Real_estate.Domain.Enums.Enums;
 
-namespace Real_estate.Application.Features.Users.Commands.CreateUser
+namespace Real_estate.Application.Features.Listings.Commands.CreateUser
 {
 
     public class CreateUserCommand : IRequest<CreateUserCommandResponse>

@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 
 
-namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
+namespace Real_estate.Application.Features.Listings.Commands.CreateProperty
 {
     public class CreatePropertyCommandValidator : AbstractValidator<CreatePropertyCommand>
     {

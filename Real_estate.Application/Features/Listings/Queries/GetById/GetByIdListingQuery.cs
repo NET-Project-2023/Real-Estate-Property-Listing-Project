@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using Real_estate.Application.Features.Properties.Queries;
+using Real_estate.Application.Features.Listings.Queries;
 using System;
 using System.Collections.Generic;
 using System.Linq;

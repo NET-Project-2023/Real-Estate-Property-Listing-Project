@@ -1,6 +1,6 @@
 ﻿using Real_estate.Application.Responses;
 
-namespace Real_estate.Application.Features.Users.Commands.CreateUser
+namespace Real_estate.Application.Features.Listings.Commands.CreateUser
 {
     public class CreateUserCommandResponse : BaseResponse
     {
