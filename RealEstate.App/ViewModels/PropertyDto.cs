@@ -1,4 +1,6 @@
-﻿namespace RealEstate.App.ViewModels
+﻿using static RealEstate.App.Enums;
+
+namespace RealEstate.App.ViewModels
 {
     public class PropertyDto
     {
@@ -11,8 +13,7 @@
         public int NumberOfBedrooms { get; set; }
         public int NumberOfBathrooms { get; set; }
         public List<byte[]> Images { get; set; }
-
-        //public Status PropertyStatus { get; set; }
+        public Status PropertyStatus { get; set; }
         public Guid OwnerId { get; set; }
     }
 }

@@ -1,5 +1,4 @@
-﻿
-namespace Real_estate.Domain.Enums
+﻿namespace RealEstate.App
 {
     public static class Enums
     {

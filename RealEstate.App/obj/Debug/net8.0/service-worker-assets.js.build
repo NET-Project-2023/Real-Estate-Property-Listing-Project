@@ -869,17 +869,17 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-IAN4FsuI49ifrtWC73WjLAh7XSqW9DU7dcpko9tMQMM=",
+      "hash": "sha256-b9bNC6kscxzKEz\/R7AKahbsQJOfowk+6XCjr6AC7mTc=",
       "url": "_framework\/RealEstate.App.wasm"
     },
     {
-      "hash": "sha256-z7huaWnHuFu+QWrL98YqnOZCAKGOSztO+cw75TTvO7w=",
+      "hash": "sha256-+Y4GcC5iQZchJpguwJgGjTSl8FosXAE31IdfamLT6As=",
       "url": "_framework\/RealEstate.App.pdb"
     },
     {
-      "hash": "sha256-gTP1Uz2x8eubiaKCdlO\/W8z7gkWiVdpcKqN331s2Wj8=",
+      "hash": "sha256-15+7jGyg2D+sKhhFGM\/jMzy9nYnYcSHBRiSbe570LIE=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "hbPDww12"
+  "version": "T+QGZG4z"
 };
