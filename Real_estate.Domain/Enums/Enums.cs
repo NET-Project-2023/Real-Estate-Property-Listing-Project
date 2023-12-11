@@ -11,8 +11,7 @@ namespace Real_estate.Domain.Enums
         }
         public enum Role
         {
-            Customer,
-            Owner,
+            User,
             Admin
         }
     }

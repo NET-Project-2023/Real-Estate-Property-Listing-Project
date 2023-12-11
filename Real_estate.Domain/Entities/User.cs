@@ -34,7 +34,7 @@ namespace Real_estate.Domain.Entities
             {
                 return Result<User>.Failure("password is required.");
             }
-            if (userRole != Role.Owner && userRole != Role.Customer && userRole != Role.Admin)
+            if (userRole != Role.User && userRole != Role.Admin)
             {
                 return Result<User>.Failure("Must enter a valid status :  Customer / Owner / Admin ");
             }

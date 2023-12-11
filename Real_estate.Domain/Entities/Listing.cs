@@ -42,9 +42,9 @@ namespace Real_estate.Domain.Entities
                 return Result<Listing>.Failure("Description is required.");
             }
 
-            if (userRole != Role.Owner)
+            if (userRole != Role.User)
             {
-                return Result<Listing>.Failure("Listing creator must be an Owner");
+                return Result<Listing>.Failure("Listing creator must be logged in");
             }
             return Result<Listing>.Success(new Listing(title, user, property, description));
         }

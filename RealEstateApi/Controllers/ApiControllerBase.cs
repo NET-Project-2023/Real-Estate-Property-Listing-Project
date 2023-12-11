@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace RealEstate.API.Controllers
 {
-    [Route("api/v2/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class ApiControllerBase : ControllerBase
     {
