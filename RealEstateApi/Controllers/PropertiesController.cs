@@ -23,8 +23,8 @@ namespace RealEstate.API.Controllers
             return Ok(result);
         }
 
-        [AllowAnonymous]
-        [HttpGet("GetAllProperties")]
+        [Authorize(Roles = "User")]
+        [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll()
         {
@@ -32,9 +32,8 @@ namespace RealEstate.API.Controllers
             return Ok(result);
         }
 
-
-        [AllowAnonymous]
-        [HttpGet("ById/{id}")]
+        [Authorize(Roles = "User")]
+        [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> Get(Guid id)
         {
@@ -43,8 +42,8 @@ namespace RealEstate.API.Controllers
         }
 
 
-        [AllowAnonymous]
-        [HttpGet("ByName/{name}")]
+        [Authorize(Roles = "User")]
+        [HttpGet("{name}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> Get(string name)
         {
@@ -52,6 +51,7 @@ namespace RealEstate.API.Controllers
             return Ok(result);
         }
 
+        [Authorize(Roles = "User")]
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

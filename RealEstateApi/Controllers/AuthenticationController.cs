@@ -1,5 +1,6 @@
 ﻿using Identity.Models;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Real_estate.Application.Contracts.Identity;
 using Real_estate.Application.Contracts.Interfaces;
@@ -100,9 +101,18 @@ namespace RealEstate.API.Controllers
         [Route("logout")]
         public async Task<IActionResult> Logout()
         {
-            await _authService.Logout();
-            return Ok();
+            try
+            {
+                await _authService.Logout();
+                return Ok("Logout successful");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
         }
+
 
         [HttpGet]
         [Route("currentuserinfo")]
