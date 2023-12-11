@@ -1,0 +1,59 @@
+﻿@page "/addproperty"
+@using RealEstate.App.Contracts
+@using RealEstate.App.ViewModels
+
+<h3>New Property</h3>
+
+<EditForm Model="@PropertyViewModel" OnValidSubmit="@HandleValidSubmit">
+
+    <DataAnnotationsValidator />
+    <ValidationSummary></ValidationSummary>
+
+    <div class="row mb-3 ms-2">
+        <label for="title" class="col-sm-3 form-label">Property title:</label>
+        <div class="col-sm-5">
+            <InputText id="title" class="form-control" @bind-Value="@PropertyViewModel.Title" placeholder="Enter property name"></InputText>
+            <ValidationMessage For="@(() => PropertyViewModel.Title)" />
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save property</button>
+    <button class="btn btn-primary" @onclick="Cancel">Cancel</button>
+</EditForm>
+
+@code {
+    [Inject]
+    public IPropertyDataService PropertyDataService { get; set; }
+
+    [Inject]
+    public NavigationManager NavigationManager { get; set; }
+
+    public PropertyViewModel PropertyViewModel { get; set; } = new PropertyViewModel();
+
+    public string Message { get; set; }
+}
+
+@functions {
+    private async Task HandleValidSubmit()
+    {
+        var result = await PropertyDataService.CreatePropertyAsync(PropertyViewModel);
+        if (result.IsSuccess)
+        {
+            Message = "Property created successfully";
+            NavigationManager.NavigateTo("/propertyoverview");
+        }
+        else
+        {
+            Message = result.Message;
+            if (!string.IsNullOrWhiteSpace(result.ValidationErrors))
+            {
+                Message += result.ValidationErrors;
+            }
+        }
+    }
+
+    private void Cancel()
+    {
+        NavigationManager.NavigateTo("/propertyoverview");
+    }
+}

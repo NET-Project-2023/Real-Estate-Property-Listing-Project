@@ -1,0 +1,89 @@
+﻿@page "/propertyoverview"
+@using RealEstate.App.Contracts
+@using RealEstate.App.ViewModels
+
+<h3>PropertyOverview</h3>
+
+<br />
+
+<p><input class="custom-checkbox" type="checkbox" id="includeHistory" @onchange="OnIncludeHistoryChanged" />   Include past events?</p>
+
+@if (Properties == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Property Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cat in Properties)
+            {
+                <tr>
+                    <td>@cat.Title </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <table class="nested-table ms-auto me-auto">
+                            @*  <thead>
+                                <tr>
+                                    <th>Event name</th>
+                                    <th class="category-event-header">Event date</th>
+                                    <th class="category-event-header">Artist</th>
+                                    <th class="category-event-header">Price</th>
+                                </tr>
+                            </thead> *@
+                            <tbody>
+                                @*  @foreach (var ev in cat.Events)
+                                {
+                                    <tr>
+                                        <td class="event-name">@ev.Name </td>
+                                        <td class="event-date">@ev.Date.ToShortDateString() </td>
+                                        <td class="event-artist">@ev.Artist</td>
+                                        <td class="event-price">@ev.Price</td>
+                                    </tr>
+                                } *@
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    [Inject]
+    public IPropertyDataService PropertyDataService { get; set; }
+
+    [Inject]
+    public NavigationManager NavigationManager { get; set; }
+
+    public List<PropertyViewModel> Properties { get; set; }
+
+}
+
+@functions {
+    protected override async Task OnInitializedAsync()
+    {
+        Properties = (await PropertyDataService.GetPropertiesAsync()).ToList();
+    }
+
+    private void OnIncludeHistoryChanged(ChangeEventArgs e)
+    {
+        if ((bool)e.Value)
+        {
+            NavigationManager.NavigateTo("/propertyoverview?includeHistory=true");
+        }
+        else
+        {
+            NavigationManager.NavigateTo("/propertyoverview");
+        }
+    }
+} 
+
