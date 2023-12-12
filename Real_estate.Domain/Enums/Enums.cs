@@ -5,14 +5,13 @@ namespace Real_estate.Domain.Enums
     {
         public enum Status
         {
-            ForSale,
-            ForRent,
-            SoldOrRented
+            ForSale = 2,
+            ForRent = 1,
+            SoldOrRented = 0
         }
         public enum Role
         {
-            Customer,
-            Owner,
+            User,
             Admin
         }
     }

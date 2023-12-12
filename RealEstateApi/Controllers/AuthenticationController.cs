@@ -1,10 +1,12 @@
 ﻿using Identity.Models;
 using MediatR;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Real_estate.Application.Contracts.Identity;
+using Real_estate.Application.Contracts.Interfaces;
 using Real_estate.Application.Features.Listings.Commands.CreateUser;
 using Real_estate.Application.Models.Identity;
+using RealEstate.API.Models;
 using static Real_estate.Domain.Enums.Enums;
 
 namespace RealEstate.API.Controllers
@@ -15,14 +17,16 @@ namespace RealEstate.API.Controllers
     {
         private readonly IAuthService _authService;
         private readonly ILogger<AuthenticationController> _logger;
+        private readonly ICurrentUserService currentUserService;
         private readonly IMediator _mediator;
 
 
-        public AuthenticationController(IAuthService authService, ILogger<AuthenticationController> logger, IMediator mediator)
+        public AuthenticationController(IAuthService authService, ILogger<AuthenticationController> logger, IMediator mediator, ICurrentUserService currentUserService)
         {
             _authService = authService;
             _logger = logger;
             _mediator = mediator;
+            this.currentUserService = currentUserService;
         }
 
         [HttpPost]
@@ -63,7 +67,7 @@ namespace RealEstate.API.Controllers
                     return BadRequest("Invalid payload");
                 }
 
-                var (status, message) = await _authService.Registeration(model, UserRoles.Customer);
+                var (status, message) = await _authService.Registeration(model, UserRoles.User);
 
                 if (status == 0)
                 {
@@ -75,7 +79,7 @@ namespace RealEstate.API.Controllers
                     Name = model.Name, 
                     Email = model.Email,
                     Password = model.Password,
-                    UserRole = Role.Customer, 
+                    UserRole = Role.User, 
                 };
 
                 var createUserResult = await _mediator.Send(createUserCommand);
@@ -91,6 +95,42 @@ namespace RealEstate.API.Controllers
                 _logger.LogError(ex.Message);
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
+        }
+
+        [HttpPost]
+        [Route("logout")]
+        public async Task<IActionResult> Logout()
+        {
+            try
+            {
+                await _authService.Logout();
+                return Ok("Logout successful");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
+
+        [HttpGet]
+        [Route("currentuserinfo")]
+        public CurrentUser CurrentUserInfo()
+        {
+            if (this.currentUserService.GetCurrentUserId() == null)
+            {
+                return new CurrentUser
+                {
+                    IsAuthenticated = false
+                };
+            }
+            return new CurrentUser
+            {
+                IsAuthenticated = true,
+                UserName = this.currentUserService.GetCurrentUserId(),
+                Claims = this.currentUserService.GetCurrentClaimsPrincipal().Claims.ToDictionary(c => c.Type, c => c.Value)
+            };
         }
     }
 }

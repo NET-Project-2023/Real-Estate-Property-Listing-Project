@@ -14,13 +14,14 @@ namespace Identity.Services
     {
         private readonly UserManager<ApplicationUser> userManager;
         private readonly RoleManager<IdentityRole> roleManager;
+        private readonly SignInManager<ApplicationUser> signInManager;
         private readonly IConfiguration configuration;
-        public AuthService(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
+        public AuthService(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration, SignInManager<ApplicationUser> signInManager)
         {
             this.userManager = userManager;
             this.roleManager = roleManager;
             this.configuration = configuration;
-
+            this.signInManager = signInManager;
         }
         public async Task<(int, string)> Registeration(RegistrationModel model, string role)
         {
@@ -43,10 +44,10 @@ namespace Identity.Services
             if (!await roleManager.RoleExistsAsync(role))
                 await roleManager.CreateAsync(new IdentityRole(role));
 
-            if (await roleManager.RoleExistsAsync(UserRoles.Customer)) // De uitat pe curs
+            if (await roleManager.RoleExistsAsync(UserRoles.User)) // De uitat pe curs
                 await userManager.AddToRoleAsync(user, role);
 
-            if (await roleManager.RoleExistsAsync(UserRoles.Owner))
+            if (await roleManager.RoleExistsAsync(UserRoles.Admin))
                 await userManager.AddToRoleAsync(user, role);
 
             return (1, "User created successfully!");
@@ -76,7 +77,13 @@ namespace Identity.Services
             return (1, token);
         }
 
-        
+        public async Task<(int, string)> Logout()
+        {
+            await signInManager.SignOutAsync();
+            return (1, "User logged out successfully!");
+        }
+
+
         private string GenerateToken(IEnumerable<Claim> claims)
         {
             var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]!));
