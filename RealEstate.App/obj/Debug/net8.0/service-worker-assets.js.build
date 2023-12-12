@@ -5,7 +5,7 @@
       "url": "css\/app.css"
     },
     {
-      "hash": "sha256-z8OR40MowJ8GgK6P89Y+hiJK5+cclzFHzLhFQLL92bg=",
+      "hash": "sha256-SiIVMGgRhdXjKSTIddX7mh9IbOXVcwQWc7\/p4nS6D\/0=",
       "url": "css\/bootstrap\/bootstrap.min.css"
     },
     {
@@ -833,7 +833,7 @@
       "url": "_framework\/System.Private.CoreLib.wasm"
     },
     {
-      "hash": "sha256-GhUDBeylTPHdJKKlfWVTLPy0keFtUZvPAYva+5GOiD4=",
+      "hash": "sha256-poakCeJYzF3a3fAWsdu9oVUk2TvUW523ItgUMgPb5gw=",
       "url": "_framework\/dotnet.js"
     },
     {
@@ -842,7 +842,7 @@
     },
     {
       "hash": "sha256-LjLDIz9+J7uuiwMlQ4HbNx2BnSpphOtO2MwkoI28vdI=",
-      "url": "_framework\/dotnet.native.8.0.0.6vrnrm5ozq.js"
+      "url": "_framework\/dotnet.native.8.0.0.7ukoabwfpe.js"
     },
     {
       "hash": "sha256-Vr6ZXKoP77zgabrMIxQ1GbOkrxfx5XGqHO0odLhUIMY=",
@@ -850,7 +850,7 @@
     },
     {
       "hash": "sha256-WdSX3HQvnBYF0KJLZoOyHvTzMHetaob6PV0Kn2K+QXw=",
-      "url": "_framework\/dotnet.runtime.8.0.0.hfqcydujc6.js"
+      "url": "_framework\/dotnet.runtime.8.0.0.13w7gbwbjs.js"
     },
     {
       "hash": "sha256-nrQOPUqGOUp4H+hxg3zCwjSAa5h6ATED3lf8Xsh4r8I=",
@@ -869,17 +869,17 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-b9bNC6kscxzKEz\/R7AKahbsQJOfowk+6XCjr6AC7mTc=",
+      "hash": "sha256-E4RHhuBY2MHLScXi9EiM55rwKpsNPLSzJePG0ichowE=",
       "url": "_framework\/RealEstate.App.wasm"
     },
     {
-      "hash": "sha256-+Y4GcC5iQZchJpguwJgGjTSl8FosXAE31IdfamLT6As=",
+      "hash": "sha256-pmuDwY5u9RzD\/rZ09gvzX4c+Q6WESg0x8FqXskQtTC8=",
       "url": "_framework\/RealEstate.App.pdb"
     },
     {
-      "hash": "sha256-15+7jGyg2D+sKhhFGM\/jMzy9nYnYcSHBRiSbe570LIE=",
+      "hash": "sha256-Cjom+qtO5ef75gjLL\/5azKRVEwNXHmTiNaUJqa6zEPg=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "T+QGZG4z"
+  "version": "2fz15YCz"
 };

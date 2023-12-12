@@ -74,7 +74,8 @@ namespace RealEstate.App.Services
                 throw new ApplicationException(content);
             }
 
-            var properties = JsonSerializer.Deserialize<List<PropertyViewModel>>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+            var response = JsonSerializer.Deserialize<PropertiesResponse>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+            var properties = response?.Properties ?? new List<PropertyViewModel>();
 
 
             return properties!;
