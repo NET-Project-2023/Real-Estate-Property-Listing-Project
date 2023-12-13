@@ -1,5 +1,6 @@
 ﻿using Blazored.LocalStorage;
 using RealEstate.App.Contracts;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace RealEstate.App.Services
 {
@@ -26,6 +27,25 @@ namespace RealEstate.App.Services
         public async Task RemoveTokenAsync()
         {
             await localStorageService.RemoveItemAsync(TOKEN);
+        }
+
+        public async Task<Guid?> GetUserIdFromTokenAsync()
+        {
+            var token = await GetTokenAsync();
+            if (string.IsNullOrWhiteSpace(token))
+                return null;
+
+            var handler = new JwtSecurityTokenHandler();
+            var jsonToken = handler.ReadToken(token) as JwtSecurityToken;
+
+            if (jsonToken != null && jsonToken.Payload.TryGetValue("sub", out var sub))
+            {
+                // Return the 'sub' claim as a Guid
+                return Guid.Parse(sub.ToString());
+            }
+
+
+            return null;
         }
     }
 }

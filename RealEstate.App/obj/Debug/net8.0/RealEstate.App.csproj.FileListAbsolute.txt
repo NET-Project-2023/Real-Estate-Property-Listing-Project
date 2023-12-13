@@ -2130,3 +2130,28 @@ C:\Users\ycarp\Desktop\AndiV3\Real-Estate-Property-Listing-Project\RealEstate.Ap
 C:\Users\ycarp\Desktop\AndiV3\Real-Estate-Property-Listing-Project\RealEstate.App\obj\Debug\net8.0\refint\RealEstate.App.dll
 C:\Users\ycarp\Desktop\AndiV3\Real-Estate-Property-Listing-Project\RealEstate.App\obj\Debug\net8.0\RealEstate.App.pdb
 C:\Users\ycarp\Desktop\AndiV3\Real-Estate-Property-Listing-Project\RealEstate.App\obj\Debug\net8.0\ref\RealEstate.App.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\RealEstate.App\bin\Debug\net8.0\wwwroot\_framework\Microsoft.IdentityModel.Abstractions.wasm
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\RealEstate.App\bin\Debug\net8.0\wwwroot\_framework\Microsoft.IdentityModel.JsonWebTokens.wasm
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\RealEstate.App\bin\Debug\net8.0\wwwroot\_framework\Microsoft.IdentityModel.Logging.wasm
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\RealEstate.App\bin\Debug\net8.0\wwwroot\_framework\Microsoft.IdentityModel.Tokens.wasm
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\RealEstate.App\bin\Debug\net8.0\wwwroot\_framework\System.IdentityModel.Tokens.Jwt.wasm
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\RealEstate.App\bin\Debug\net8.0\wwwroot\_framework\System.IdentityModel.Tokens.Jwt.wasm.gz
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\RealEstate.App\bin\Debug\net8.0\wwwroot\_framework\Microsoft.IdentityModel.Abstractions.wasm.gz
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\RealEstate.App\bin\Debug\net8.0\wwwroot\_framework\Microsoft.IdentityModel.Tokens.wasm.gz
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\RealEstate.App\bin\Debug\net8.0\wwwroot\_framework\Microsoft.IdentityModel.JsonWebTokens.wasm.gz
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\RealEstate.App\bin\Debug\net8.0\wwwroot\_framework\Microsoft.IdentityModel.Logging.wasm.gz
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\RealEstate.App\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\RealEstate.App\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\RealEstate.App\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\RealEstate.App\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\RealEstate.App\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\RealEstate.App\obj\Debug\net8.0\webcil\Microsoft.IdentityModel.Abstractions.wasm
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\RealEstate.App\obj\Debug\net8.0\webcil\Microsoft.IdentityModel.JsonWebTokens.wasm
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\RealEstate.App\obj\Debug\net8.0\webcil\Microsoft.IdentityModel.Logging.wasm
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\RealEstate.App\obj\Debug\net8.0\webcil\Microsoft.IdentityModel.Tokens.wasm
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\RealEstate.App\obj\Debug\net8.0\webcil\System.IdentityModel.Tokens.Jwt.wasm
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\RealEstate.App\obj\Debug\net8.0\compressed\91z0jlhhja.gz
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\RealEstate.App\obj\Debug\net8.0\compressed\lddu42poa9.gz
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\RealEstate.App\obj\Debug\net8.0\compressed\ycfb5qhtda.gz
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\RealEstate.App\obj\Debug\net8.0\compressed\c45xx4eml0.gz
+C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\RealEstate.App\obj\Debug\net8.0\compressed\62ofiup7ve.gz

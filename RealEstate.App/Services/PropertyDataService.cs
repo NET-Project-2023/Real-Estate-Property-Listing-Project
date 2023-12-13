@@ -19,21 +19,21 @@ namespace RealEstate.App.Services
             this.tokenService = tokenService;
         }
 
-        //public async Task<ApiResponse<PropertyDto>> CreatePropertyAsync(PropertyViewModel propertyViewModel)
-        //{
-        //    httpClient.DefaultRequestHeaders.Authorization
-        //        = new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
-        //    var result = await httpClient.PostAsJsonAsync(RequestUri, propertyViewModel);
-        //    result.EnsureSuccessStatusCode();
-        //    var response = await result.Content.ReadFromJsonAsync<ApiResponse<PropertyDto>>();
-        //    response!.IsSuccess = result.IsSuccessStatusCode;
-        //    return response!;
-        //}
         public async Task<ApiResponse<PropertyDto>> CreatePropertyAsync(PropertyViewModel propertyViewModel)
         {
             try
             {
+                var loggedInUserId = await tokenService.GetUserIdFromTokenAsync();
+                if (!loggedInUserId.HasValue)
+                {
+                    throw new InvalidOperationException("Logged-in user ID not available.");
+                }
+                Console.WriteLine($"Logged-in User ID: {loggedInUserId}");
+
+
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
+
+                propertyViewModel.OwnerId = loggedInUserId.Value; 
 
                 var result = await httpClient.PostAsJsonAsync(RequestUri, propertyViewModel);
                 result.EnsureSuccessStatusCode();
