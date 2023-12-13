@@ -102,6 +102,15 @@ namespace Infrastructure.Repositories
             return Result<T>.Success(entity);
         }
 
+        public async Task<Result<T>> FindByConditionAsync(Expression<Func<T, bool>> predicate)
+        {
+            var entity = await context.Set<T>().FirstOrDefaultAsync(predicate);
+            if (entity == null)
+            {
+                return Result<T>.Failure("Entity not found.");
+            }
+            return Result<T>.Success(entity);
+        }
 
     }
 }

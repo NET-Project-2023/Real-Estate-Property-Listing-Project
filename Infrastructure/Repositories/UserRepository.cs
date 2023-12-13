@@ -13,9 +13,9 @@ namespace Infrastructure.Repositories
 
         }
 
-        public async Task<bool> UserExistsAsync(Guid userId)
+        public async Task<bool> UserExistsAsync(string userName)
         {
-            return await ExistsAsync(u => u.UserId == userId);
+            return await ExistsAsync(u => u.UserName == userName);
         }
     }
 }

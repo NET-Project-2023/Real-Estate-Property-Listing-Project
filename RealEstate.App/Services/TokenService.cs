@@ -29,21 +29,21 @@ namespace RealEstate.App.Services
             await localStorageService.RemoveItemAsync(TOKEN);
         }
 
-        public async Task<Guid?> GetUserIdFromTokenAsync()
+
+        public async Task<string> GetUsernameFromTokenAsync()
         {
             var token = await GetTokenAsync();
+
             if (string.IsNullOrWhiteSpace(token))
                 return null;
 
             var handler = new JwtSecurityTokenHandler();
             var jsonToken = handler.ReadToken(token) as JwtSecurityToken;
 
-            if (jsonToken != null && jsonToken.Payload.TryGetValue("sub", out var sub))
+            if (jsonToken != null && jsonToken.Payload.TryGetValue("unique_name", out var uniqueName))
             {
-                // Return the 'sub' claim as a Guid
-                return Guid.Parse(sub.ToString());
+                return uniqueName.ToString();
             }
-
 
             return null;
         }

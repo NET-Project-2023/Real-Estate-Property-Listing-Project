@@ -31,7 +31,7 @@ namespace Real_estate.Application.Features.Listings.Queries.GetAll
                    NumberOfBedrooms= c.NumberOfBedrooms,
                    Images = c.Images,
                    PropertyStatus= c.PropertyStatus,
-                   OwnerId= c.OwnerId
+                    OwnerUniqueName = c.OwnerUniqueName
                 }).ToList();
             }
             return response;

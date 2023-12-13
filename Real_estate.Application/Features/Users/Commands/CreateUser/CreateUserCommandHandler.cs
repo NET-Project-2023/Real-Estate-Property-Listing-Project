@@ -27,7 +27,7 @@ namespace Real_estate.Application.Features.Listings.Commands.CreateUser
                     ValidationsErrors = validationResult.Errors.Select(e => e.ErrorMessage).ToList()
                 };
             }
-            var userResult = User.Create(request.Name, request.Email, request.Password, request.UserRole, request.PhoneNumber);
+            var userResult = User.Create(request.Name, request.UserName, request.Email, request.Password, request.UserRole, request.PhoneNumber);
 
 
             System.Console.WriteLine(request.UserRole);
@@ -49,6 +49,7 @@ namespace Real_estate.Application.Features.Listings.Commands.CreateUser
                 {
                     UserId = userResult.Value.UserId,
                     Name = userResult.Value.Name,
+                    UserName = userResult.Value.UserName,
                     Email = userResult.Value.Email,
                     Password = userResult.Value.Password,
                     PhoneNumber = userResult.Value.PhoneNumber,

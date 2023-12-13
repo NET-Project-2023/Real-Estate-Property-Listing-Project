@@ -36,9 +36,9 @@ namespace Real_estate.Application.Features.Listings.Commands.CreateProperty
             RuleFor(p => p.PropertyStatus)
                 .IsInEnum().WithMessage(ValidationMessages.NotValidEnumMessage);
 
-            RuleFor(p => p.OwnerId)
+            RuleFor(p => p.OwnerUniqueName)
                 .NotEmpty().WithMessage(ValidationMessages.RequiredMessage)
-                .NotEqual(Guid.Empty).WithMessage(ValidationMessages.NotEmptyGuidMessage);
+                .NotEqual(string.Empty).WithMessage(ValidationMessages.NotEmptyGuidMessage);
         }
     }
     

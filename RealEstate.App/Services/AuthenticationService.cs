@@ -43,5 +43,15 @@ namespace RealEstate.App.Services
             }
             result.EnsureSuccessStatusCode();
         }
+
+        public async Task DeleteUserByUsername(string username)
+        {
+            var result = await httpClient.DeleteAsync($"api/v1/authentication/deleteByUsername/{username}");
+            if (result.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                throw new Exception("User not found");
+            }
+            result.EnsureSuccessStatusCode();
+        }
     }
 }

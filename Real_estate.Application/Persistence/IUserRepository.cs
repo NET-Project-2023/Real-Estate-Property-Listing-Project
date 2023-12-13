@@ -6,6 +6,6 @@ namespace Real_estate.Application.Persistence
 {
     public interface IUserRepository : IAsyncRepository<User>
     {
-        Task<bool> UserExistsAsync(Guid userId);
+        Task<bool> UserExistsAsync(string userName);
     }
 }

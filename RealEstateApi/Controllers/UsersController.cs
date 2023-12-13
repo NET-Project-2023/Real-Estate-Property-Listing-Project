@@ -2,7 +2,6 @@
 using Real_estate.Application.Features.Listings.Commands.CreateUser;
 using Real_estate.Application.Features.Listings.Queries.GetAll;
 using Real_estate.Application.Features.Listings.Queries.GetById;
-using Real_estate.Application.Features.Listings.Commands.DeleteUser;
 using Real_estate.Application.Features.Users.Commands.UpdateUser;
 
 namespace RealEstate.API.Controllers
@@ -38,12 +37,15 @@ namespace RealEstate.API.Controllers
             return Ok(result);
         }
 
-        [HttpDelete("{userId}")]
+        [HttpDelete("deleteByUsername/{username}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> Delete(Guid userId)
+        public async Task<IActionResult> DeleteByUsername(string username)
         {
-            var command = new DeleteUserCommand { UserId = userId };
+
+            Console.WriteLine("Attempting to delete user with username: {0}", username);
+
+            var command = new DeleteUserByUsernameCommand { Username = username };
             var result = await Mediator.Send(command);
             if (!result.Success)
             {

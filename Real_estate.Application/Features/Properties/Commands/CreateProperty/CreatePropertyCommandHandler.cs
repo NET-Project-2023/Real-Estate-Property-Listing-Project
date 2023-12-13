@@ -30,7 +30,7 @@ namespace Real_estate.Application.Features.Listings.Commands.CreateProperty
             }
 
             // Check if the user exists
-            var userExists = await userRepository.UserExistsAsync(request.OwnerId);
+            var userExists = await userRepository.UserExistsAsync(request.OwnerUniqueName);
             if (!userExists)
             {
                 return new CreatePropertyCommandResponse
@@ -41,7 +41,7 @@ namespace Real_estate.Application.Features.Listings.Commands.CreateProperty
             }
 
             // TODO: CreatedBy
-            var property = Property.Create(request.Title, request.Address, request.Size, request.Price, request.PropertyStatus, request.OwnerId, request.NumberOfBedrooms);
+            var property = Property.Create(request.Title, request.Address, request.Size, request.Price, request.PropertyStatus, request.OwnerUniqueName, request.NumberOfBedrooms);
             if (!property.IsSuccess)
             {
                 return new CreatePropertyCommandResponse
@@ -64,7 +64,7 @@ namespace Real_estate.Application.Features.Listings.Commands.CreateProperty
                     Size = property.Value.Size,
                     Price = property.Value.Price,
                     PropertyStatus = property.Value.PropertyStatus,
-                    OwnerId = property.Value.OwnerId,
+                    OwnerUniqueName = property.Value.OwnerUniqueName,
                     NumberOfBedrooms = property.Value.NumberOfBedrooms
                     // TODO: CreatedBy
                 }

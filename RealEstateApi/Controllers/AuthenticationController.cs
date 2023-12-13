@@ -76,7 +76,8 @@ namespace RealEstate.API.Controllers
 
                 var createUserCommand = new CreateUserCommand
                 {
-                    Name = model.Name, 
+                    Name = model.Name,
+                    UserName = model.Username,
                     Email = model.Email,
                     Password = model.Password,
                     UserRole = Role.User, 

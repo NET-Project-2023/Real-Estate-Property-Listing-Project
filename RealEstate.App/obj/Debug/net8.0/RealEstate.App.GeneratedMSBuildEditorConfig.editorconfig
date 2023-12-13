@@ -30,6 +30,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkUHJvcGVydHkucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/andim/OneDrive/Documente/AN_3/Introducere .NET/Real-Estate-Property-Listing-Project/RealEstate.App/Pages/DeleteUser.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVsZXRlVXNlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/andim/OneDrive/Documente/AN_3/Introducere .NET/Real-Estate-Property-Listing-Project/RealEstate.App/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -40,6 +44,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/andim/OneDrive/Documente/AN_3/Introducere .NET/Real-Estate-Property-Listing-Project/RealEstate.App/Pages/PropertyOverview.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvcGVydHlPdmVydmlldy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/andim/OneDrive/Documente/AN_3/Introducere .NET/Real-Estate-Property-Listing-Project/RealEstate.App/Pages/Register.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/andim/OneDrive/Documente/AN_3/Introducere .NET/Real-Estate-Property-Listing-Project/RealEstate.App/_Imports.razor]

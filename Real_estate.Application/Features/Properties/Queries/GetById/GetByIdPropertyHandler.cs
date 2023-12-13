@@ -28,7 +28,7 @@ namespace Real_estate.Application.Features.Listings.Queries.GetById
                     NumberOfBedrooms = result .Value.NumberOfBedrooms,
                     Images = result.Value.Images,
                     PropertyStatus = result.Value.PropertyStatus,
-                    OwnerId = result.Value.OwnerId
+                    OwnerUniqueName = result.Value.OwnerUniqueName
                 };
             }
             return new PropertyDto();

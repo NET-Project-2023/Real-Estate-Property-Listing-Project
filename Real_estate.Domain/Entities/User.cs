@@ -15,16 +15,21 @@ namespace Real_estate.Domain.Entities
         }
         public Guid UserId { get; private set; }
         public string? Name { get; private set; }
+        public string? UserName { get; private set; }
         public string? Email { get; private set; }
         public string? Password { get; private set; }
         public Role UserRole { get; private set; }
         public string PhoneNumber { get; private set; } = string.Empty;
 
-        public static Result<User> Create(string name, string email, string password, Role userRole, string? phoneNumber = null)
+        public static Result<User> Create(string name, string userName, string email, string password, Role userRole, string? phoneNumber = null)
         {
             if (string.IsNullOrWhiteSpace(name))
             {
-                return Result<User>.Failure("User Name is required.");
+                return Result<User>.Failure("Name is required.");
+            }
+            if (string.IsNullOrWhiteSpace(userName))
+            {
+                return Result<User>.Failure("Username is required.");
             }
             if (string.IsNullOrWhiteSpace(email))
             {
@@ -32,7 +37,7 @@ namespace Real_estate.Domain.Entities
             }
             if (string.IsNullOrWhiteSpace(password))
             {
-                return Result<User>.Failure("password is required.");
+                return Result<User>.Failure("Password is required.");
             }
             if (userRole != Role.User && userRole != Role.Admin)
             {

@@ -1,0 +1,47 @@
+﻿@page "/deleteuser"
+@using Microsoft.AspNetCore.Components.Authorization
+@using RealEstate.App.Auth
+@using RealEstate.App.Contracts
+@using RealEstate.App.ViewModels
+@inject IAuthenticationService authService
+@inject NavigationManager navigationManager
+@inject AuthenticationStateProvider authStateProvider
+<h1 class="h2 font-weight-normal login-title">
+    Delete User
+</h1>
+
+<EditForm class="form-deleteuser" OnValidSubmit="OnSubmit" Model="deleteUserRequest">
+    <DataAnnotationsValidator />
+
+    <label for="inputUsername" class="sr-only">Username</label>
+    <InputText id="inputUsername" class="form-control" @bind-Value="deleteUserRequest.Username" autofocus placeholder="Username" />
+    <ValidationMessage For="@(() => deleteUserRequest.Username)" />
+
+    <br />
+
+    <button class="btn btn-lg btn-danger btn-block" type="submit">Delete User</button>
+
+    <label class="text-danger">@error</label>
+
+    <NavLink href="/">
+        <h6 class="font-weight-normal text-center">Back to Home</h6>
+    </NavLink>
+</EditForm>
+@code {
+    DeleteViewModel deleteUserRequest { get; set; } = new DeleteViewModel();
+    string error { get; set; }
+
+    async Task OnSubmit()
+    {
+        error = null;
+        try
+        {
+            await authService.DeleteUserByUsername(deleteUserRequest.Username);
+            navigationManager.NavigateTo("/");
+        }
+        catch (Exception ex)
+        {
+            error = ex.Message;
+        }
+    }
+}

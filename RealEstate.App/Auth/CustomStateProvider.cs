@@ -50,5 +50,11 @@ namespace RealEstate.App.Auth
             await authService.Register(registerParameters);
             NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
         }
+
+        public async Task DeleteUserByUsername(string username)
+        {
+            await authService.DeleteUserByUsername(username);
+            NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
+        }
     }
 }

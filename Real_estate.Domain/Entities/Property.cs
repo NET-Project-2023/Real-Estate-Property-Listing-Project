@@ -5,15 +5,15 @@ namespace Real_estate.Domain.Entities
 {
     public class Property : AuditableEntity
     {
-        private Property(string title, string address, int size, int price, Status propertyStatus, Guid ownerId, int numberOfBedrooms)
+        private Property(string title, string address, int size, int price, Status propertyStatus, string ownerUniqueName, int numberOfBedrooms)
         {
             PropertyId = Guid.NewGuid();
             Title = title;
             Address = address;
             Size = size;
             Price = price;
+            OwnerUniqueName = ownerUniqueName;
             PropertyStatus = propertyStatus;
-            OwnerId = ownerId;
             NumberOfBedrooms = numberOfBedrooms;
             Images = new List<byte[]>(); // Update this line
         }
@@ -29,13 +29,12 @@ namespace Real_estate.Domain.Entities
         public List<byte[]> Images { get; private set; }
 
         public Status PropertyStatus { get; private set; }
-        public Guid OwnerId { get; private set; }
+        public string OwnerUniqueName { get; private set; }
 
-        public static Result<Property> Create(string title, string address, int size, int price, Status propertyStatus, Guid ownerId, int numberOfBedrooms)
+        public static Result<Property> Create(string title, string address, int size, int price, Status propertyStatus, string ownerUniqueName, int numberOfBedrooms)
         {
-
             // Create the property
-            return Result<Property>.Success(new Property(title, address, size, price, propertyStatus, ownerId, numberOfBedrooms));
+            return Result<Property>.Success(new Property(title, address, size, price, propertyStatus, ownerUniqueName, numberOfBedrooms));
         }
 
 

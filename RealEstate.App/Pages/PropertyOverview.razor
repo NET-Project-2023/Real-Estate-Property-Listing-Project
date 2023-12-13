@@ -2,11 +2,11 @@
 @using RealEstate.App.Contracts
 @using RealEstate.App.ViewModels
 
-<h3>PropertyOverview</h3>
+<h3 class="mt-4 mb-4">Property Overview</h3>
 
 <br />
 
-<p><input class="custom-checkbox" type="checkbox" id="includeHistory" @onchange="OnIncludeHistoryChanged" />   Include past events?</p>
+<p><input class="custom-checkbox" type="checkbox" id="includeHistory" @onchange="OnIncludeHistoryChanged" /> Include past events?</p>
 
 @if (Properties == null)
 {
@@ -14,42 +14,24 @@
 }
 else
 {
-    <table>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Property Title</th>
+                <th>Address</th>
+                <th>Price</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var cat in Properties)
+            @foreach (var property in Properties)
             {
                 <tr>
-                    <td>@cat.Title </td>
-
-                </tr>
-                <tr>
+                    <td>@property.Title</td>
+                    <td>@property.Address</td>
+                    <td>@property.Price</td>
                     <td>
-                        <table class="nested-table ms-auto me-auto">
-                            @*  <thead>
-                                <tr>
-                                    <th>Event name</th>
-                                    <th class="category-event-header">Event date</th>
-                                    <th class="category-event-header">Artist</th>
-                                    <th class="category-event-header">Price</th>
-                                </tr>
-                            </thead> *@
-                            <tbody>
-                                @*  @foreach (var ev in cat.Events)
-                                {
-                                    <tr>
-                                        <td class="event-name">@ev.Name </td>
-                                        <td class="event-date">@ev.Date.ToShortDateString() </td>
-                                        <td class="event-artist">@ev.Artist</td>
-                                        <td class="event-price">@ev.Price</td>
-                                    </tr>
-                                } *@
-                            </tbody>
-                        </table>
+                        <button class="btn btn-primary btn-sm" @onclick="() => ViewDetails(property.PropertyId)">View Details</button>
                     </td>
                 </tr>
             }
@@ -66,9 +48,6 @@ else
 
     public List<PropertyViewModel> Properties { get; set; }
 
-}
-
-@functions {
     protected override async Task OnInitializedAsync()
     {
         Properties = (await PropertyDataService.GetPropertiesAsync()).ToList();
@@ -85,5 +64,9 @@ else
             NavigationManager.NavigateTo("/propertyoverview");
         }
     }
-} 
 
+    private void ViewDetails(Guid propertyId)
+    {
+        NavigationManager.NavigateTo($"/propertydetails/{propertyId}");
+    }
+}

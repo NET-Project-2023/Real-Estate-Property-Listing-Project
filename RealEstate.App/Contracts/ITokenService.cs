@@ -5,6 +5,6 @@
         Task<string> GetTokenAsync();
         Task RemoveTokenAsync();
         Task SetTokenAsync(string token);
-        Task<Guid?> GetUserIdFromTokenAsync();
+        Task<string?> GetUsernameFromTokenAsync();
     }
 }

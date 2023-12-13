@@ -14,6 +14,6 @@ namespace RealEstate.App.ViewModels
         public int NumberOfBathrooms { get; set; }
         public List<byte[]> Images { get; set; }
         public Status PropertyStatus { get; set; }
-        public Guid OwnerId { get; set; }
+        public string OwnerUniqueName { get; set; }
     }
 }

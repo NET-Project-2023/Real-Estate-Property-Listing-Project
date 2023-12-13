@@ -14,7 +14,7 @@ namespace Real_estate.Application.Features.Listings.Queries
         public int NumberOfBathrooms { get; set; } = default!;
         public List<byte[]> Images { get; set; } = default!;
         public Status PropertyStatus { get; set; }
-        public Guid OwnerId { get; set; }
+        public string OwnerUniqueName { get; set; }
 
     }
 }

@@ -4,6 +4,8 @@ using RealEstate.App.ViewModels;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text.Json;
+using System.Text.Json.Serialization;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace RealEstate.App.Services
 {
@@ -23,20 +25,23 @@ namespace RealEstate.App.Services
         {
             try
             {
-                var loggedInUserId = await tokenService.GetUserIdFromTokenAsync();
-                if (!loggedInUserId.HasValue)
+                var loggedInUsername = await tokenService.GetUsernameFromTokenAsync();
+                if (string.IsNullOrEmpty(loggedInUsername))
                 {
-                    throw new InvalidOperationException("Logged-in user ID not available.");
+                    throw new InvalidOperationException("Logged-in username not available.");
                 }
-                Console.WriteLine($"Logged-in User ID: {loggedInUserId}");
+                Console.WriteLine($"Logged-in User ID: {loggedInUsername}");
 
 
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
 
-                propertyViewModel.OwnerId = loggedInUserId.Value; 
+                propertyViewModel.OwnerUniqueName = loggedInUsername;
+               
+                propertyViewModel.Images = new List<byte[]> { new byte[0] };
 
                 var result = await httpClient.PostAsJsonAsync(RequestUri, propertyViewModel);
                 result.EnsureSuccessStatusCode();
+
 
                 var responseContent = await result.Content.ReadAsStringAsync();
                 Console.WriteLine($"API Response: {responseContent}");
@@ -56,8 +61,6 @@ namespace RealEstate.App.Services
                 throw;
             }
         }
-
-
         public async Task<List<PropertyViewModel>> GetPropertiesAsync()
         {
             // Ensure the token is included in the request headers

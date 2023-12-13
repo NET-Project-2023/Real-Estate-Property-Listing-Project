@@ -14,6 +14,11 @@ namespace Real_estate.Application.Features.Listings.Commands.CreateUser
                 .NotNull()
                 .MaximumLength(100).WithMessage(ValidationMessages.MaxLengthMessage);
 
+            RuleFor(p => p.UserName)
+                .NotEmpty().WithMessage(ValidationMessages.RequiredMessage)
+                .NotNull()
+                .MaximumLength(100).WithMessage(ValidationMessages.MaxLengthMessage);
+
             // Validating Email
             RuleFor(p => p.Email)
                 .NotEmpty().WithMessage(ValidationMessages.RequiredMessage)
