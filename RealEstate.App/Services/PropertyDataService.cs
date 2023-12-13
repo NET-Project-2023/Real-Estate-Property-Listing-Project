@@ -83,5 +83,27 @@ namespace RealEstate.App.Services
 
             return properties!;
         }
+
+        public async Task<PropertyViewModel> GetPropertyByIdAsync(Guid propertyId)
+        {
+            // Ensure the token is included in the request headers
+            httpClient.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
+
+            var result = await httpClient.GetAsync($"{RequestUri}/{propertyId}", HttpCompletionOption.ResponseHeadersRead);
+            result.EnsureSuccessStatusCode();
+
+            var content = await result.Content.ReadAsStringAsync();
+
+            if (!result.IsSuccessStatusCode)
+            {
+                throw new ApplicationException(content);
+            }
+
+            var response = JsonSerializer.Deserialize<PropertiesResponse>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+            var property = response?.Property ?? new PropertyViewModel();
+            return property!;
+        }
     }
 }

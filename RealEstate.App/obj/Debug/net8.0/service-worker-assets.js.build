@@ -25,7 +25,7 @@
       "url": "icon-512.png"
     },
     {
-      "hash": "sha256-IsU3JKdoOH\/jIPSlOa95O1cc6qlEDH2cbqUPBOiWQdo=",
+      "hash": "sha256-\/8fLaPIKRhuO0Zv4CChP2\/c+BUptaHbZlSBvSeZQp7w=",
       "url": "index.html"
     },
     {
@@ -889,17 +889,17 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-cglmNVTXGAklhjWzvLsePrhv8Jqkf2jTgDoCZCarHlQ=",
+      "hash": "sha256-Uz\/ET9w6Yg9kcTkVJC1iVZbWcnxg6zn8D6K\/iZy5UhU=",
       "url": "_framework\/RealEstate.App.wasm"
     },
     {
-      "hash": "sha256-wLMzwf8iFXQRS1eAxF1stGsEmWzGoQL5uOu6+uj7aYg=",
+      "hash": "sha256-z+wtiKQ7ShZPq3hR0uzyJ6Vu\/CBWG5+P5qQTTBganHU=",
       "url": "_framework\/RealEstate.App.pdb"
     },
     {
-      "hash": "sha256-k2Snfuq3pkPe77pALoOfZMRsXTZ4ZnUJNWy\/WP48gSA=",
+      "hash": "sha256-k7zzfJXePopxSVZR4CScR5Jzvvy0Nxb3zRQ5FDszI0U=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "tDSK1htC"
+  "version": "iaSHEHAY"
 };
