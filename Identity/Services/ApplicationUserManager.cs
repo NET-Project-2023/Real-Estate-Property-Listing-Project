@@ -96,10 +96,10 @@ namespace Identity.Services
             return updateResult.Succeeded ? Result<UserDto>.Success(MapToUserDto(userToUpdate)) : Result<UserDto>.Failure($"User with id {userDto.UserId} not updated");
         }
 
-        public async Task<bool> UserExistsAsync(string userId) 
-        { 
-            return await ExistsAsync(u => u.UserId == userId); 
-        }
+        //public async Task<bool> UserExistsAsync(string userId) 
+        //{ 
+        //    return await ExistsAsync(u => u.UserId == userId); 
+        //}
 
 
         private void UpdateUserProperties(ApplicationUser user, UserDto userDto)

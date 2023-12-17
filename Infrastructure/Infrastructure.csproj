@@ -18,7 +18,4 @@
     <ProjectReference Include="..\Real_estate.Application\Real_estate.Application.csproj" />
     <ProjectReference Include="..\Real_estate.Domain\Real_estate.Domain.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
 </Project>

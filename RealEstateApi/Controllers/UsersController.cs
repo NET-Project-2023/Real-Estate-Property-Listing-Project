@@ -59,7 +59,7 @@ namespace RealEstate.API.Controllers
 
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<IActionResult> Update(Guid id, UpdateUserCommand command)
+        public async Task<IActionResult> Update(string id, UpdateUserCommand command)
         {
             if (id != command.UserId)
             {
