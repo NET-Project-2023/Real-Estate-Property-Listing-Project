@@ -1,6 +1,5 @@
 ﻿using Identity.Models;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Real_estate.Application.Contracts.Identity;
 using Real_estate.Application.Contracts.Interfaces;
@@ -65,7 +64,7 @@ namespace RealEstate.API.Controllers
                     return BadRequest("Invalid payload");
                 }
 
-                var (status, message) = await _authService.Registeration(model, UserRoles.User);
+                var (status, message) = await _authService.Registeration(model, UserRoles.Admin);
 
                 if (status == 0)
                 {

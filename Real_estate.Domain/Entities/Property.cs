@@ -1,5 +1,4 @@
 ﻿using Real_estate.Domain.Common;
-using static Real_estate.Domain.Enums.Enums;
 namespace Real_estate.Domain.Entities
 
 {

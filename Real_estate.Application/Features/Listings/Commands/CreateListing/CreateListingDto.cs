@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Real_estate.Domain.Enums.Enums;
+﻿using static Real_estate.Domain.Enums.Enums;
 
 namespace Real_estate.Application.Features.Listings.Commands.CreateListing
 {

@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using Real_estate.Application.Contracts;
 using Real_estate.Application.Persistence;
 using Real_estate.Domain.Entities;
 
@@ -54,6 +53,10 @@ namespace Real_estate.Application.Features.Properties.Commands.UpdateProperty
             if (request.Size.HasValue)
             {
                 property.UpdateSize(request.Size.Value);
+            }
+            if (request.Description.Length > 0)
+            {
+                property.UpdateDescription(request.Description);
             }
             if (request.Price.HasValue)
             {

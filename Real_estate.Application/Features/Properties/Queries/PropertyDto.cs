@@ -1,6 +1,4 @@
-﻿using static Real_estate.Domain.Enums.Enums;
-
-namespace Real_estate.Application.Features.Properties.Queries
+﻿namespace Real_estate.Application.Features.Properties.Queries
 {
     public class PropertyDto
     {

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Real_estate.Application.Features.Properties.Commands.CreateProperty;
 using Real_estate.Application.Features.Properties.Commands.DeleteProperty;
+using Real_estate.Application.Features.Properties.Commands.UpdateProperty;
 using Real_estate.Application.Features.Properties.Queries.GetAll;
 using Real_estate.Application.Features.Properties.Queries.GetById;
 using Real_estate.Application.Features.Properties.Queries.GetByName;
@@ -63,6 +64,25 @@ namespace RealEstate.API.Controllers
             {
                 return NotFound(result.Message);
             }
+            return Ok(result.Message);
+        }
+        [Authorize(Roles = "User")]
+        [HttpPut("{propertyId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Update(Guid propertyId, UpdatePropertyCommand command)
+        {
+            if (propertyId != command.PropertyId)
+            {
+                return BadRequest("Property ID mismatch.");
+            }
+
+            var result = await Mediator.Send(command);
+            if (!result.Success)
+            {
+                return BadRequest(result.Message);
+            }
+
             return Ok(result.Message);
         }
     }

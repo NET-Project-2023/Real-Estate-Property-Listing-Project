@@ -1,9 +1,5 @@
-﻿using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.EntityFrameworkCore;
-using Real_estate.Application.Contracts.Interfaces;
-using Real_estate.Domain.Common;
+﻿using Microsoft.EntityFrameworkCore;
 using Real_estate.Domain.Entities;
-using System.Threading;
 
 namespace Infrastructure
 {

@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Real_estate.Application.Features.Listings.Queries.GetAll;
 using Real_estate.Application.Features.Listings.Queries.GetById;
 using Real_estate.Application.Features.Users.Commands.UpdateUser;
-using Real_estate.Application.Features.Users.Commands.DeleteUser;
 
 namespace RealEstate.API.Controllers
 {

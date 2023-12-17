@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using static Real_estate.Domain.Enums.Enums;
 
 namespace Real_estate.Application.Features.Listings.Commands.UpdateListing
 {

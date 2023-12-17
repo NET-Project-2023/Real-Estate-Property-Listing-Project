@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Real_estate.Application.Persistence;
-using Real_estate.Domain.Common;
+﻿using Real_estate.Application.Persistence;
 using Real_estate.Domain.Entities;
 
 namespace Infrastructure.Repositories

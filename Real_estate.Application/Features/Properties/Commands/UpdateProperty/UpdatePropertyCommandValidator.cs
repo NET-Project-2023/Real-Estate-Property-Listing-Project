@@ -1,6 +1,5 @@
 ﻿using FluentValidation;
 using static Real_estate.Domain.Enums.Enums;
-using System.Text.RegularExpressions;
 
 
 namespace Real_estate.Application.Features.Properties.Commands.UpdateProperty

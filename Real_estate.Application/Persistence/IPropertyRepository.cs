@@ -1,5 +1,4 @@
-﻿using Real_estate.Domain.Common;
-using Real_estate.Domain.Entities;
+﻿using Real_estate.Domain.Entities;
 
 
 namespace Real_estate.Application.Persistence
