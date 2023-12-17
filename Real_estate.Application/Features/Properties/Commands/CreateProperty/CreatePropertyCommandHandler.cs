@@ -2,7 +2,7 @@
 using Real_estate.Application.Persistence;
 using Real_estate.Domain.Entities;
 
-namespace Real_estate.Application.Features.Listings.Commands.CreateProperty
+namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
 {
     public class CreatePropertyCommandHandler : IRequestHandler<CreatePropertyCommand, CreatePropertyCommandResponse>
     {
@@ -32,7 +32,7 @@ namespace Real_estate.Application.Features.Listings.Commands.CreateProperty
             // Check if the user exists
             //var userExists = await userRepository.UserExistsAsync(request.UserId);
             var userExists = await userRepository.FindByIdAsync(request.UserId);
-            if (userExists != null)
+            if (userExists == null)
             {
                 return new CreatePropertyCommandResponse
                 {

@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Real_estate.Application.Persistence;
 
-namespace Real_estate.Application.Features.Listings.Queries.GetById
+namespace Real_estate.Application.Features.Properties.Queries.GetById
 {
     public class GetByIdPropertyHandler : IRequestHandler<GetByIdPropertyQuery, PropertyDto>
     {

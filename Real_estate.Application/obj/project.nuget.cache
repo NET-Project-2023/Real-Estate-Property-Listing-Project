@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "bAeXulD+AXrGyML/tnBioHtohwCOpCu3J/v0UEHTLUz79Z1Bhu9KJjnQzY0xLYcWDDXL8kniUbEYVhxvSEV/0Q==",
+  "dgSpecHash": "ojMC6uwB/bY8GVzde0lDLwtiHP1wGI8VX92Dk6p01T7lo/cLt1fnf8HSjIDbEVqJPogw1OjdkteVPnEOV+aomA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj",
+  "projectFilePath": "C:\\Users\\ycarp\\Desktop\\refactor\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\andim\\.nuget\\packages\\fluentvalidation\\11.8.0\\fluentvalidation.11.8.0.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.8.0\\fluentvalidation.dependencyinjectionextensions.11.8.0.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+    "C:\\Users\\ycarp\\.nuget\\packages\\fluentvalidation\\11.8.0\\fluentvalidation.11.8.0.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.8.0\\fluentvalidation.dependencyinjectionextensions.11.8.0.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

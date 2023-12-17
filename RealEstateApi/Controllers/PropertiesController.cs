@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Real_estate.Application.Features.Listings.Commands.CreateProperty;
-using Real_estate.Application.Features.Listings.Commands.DeleteProperty;
-using Real_estate.Application.Features.Listings.Queries.GetAll;
-using Real_estate.Application.Features.Listings.Queries.GetById;
-using Real_estate.Application.Features.Listings.Queries.GetByName;
+using Real_estate.Application.Features.Properties.Commands.CreateProperty;
+using Real_estate.Application.Features.Properties.Commands.DeleteProperty;
+using Real_estate.Application.Features.Properties.Queries.GetAll;
+using Real_estate.Application.Features.Properties.Queries.GetById;
+using Real_estate.Application.Features.Properties.Queries.GetByName;
 
 namespace RealEstate.API.Controllers
 {
@@ -33,7 +33,7 @@ namespace RealEstate.API.Controllers
         }
 
         [Authorize(Roles = "User")]
-        [HttpGet("{id}")]
+        [HttpGet("ById/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> Get(Guid id)
         {
@@ -43,7 +43,7 @@ namespace RealEstate.API.Controllers
 
 
         [Authorize(Roles = "User")]
-        [HttpGet("{name}")]
+        [HttpGet("ByName/{name}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> Get(string name)
         {
