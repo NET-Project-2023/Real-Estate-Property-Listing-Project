@@ -9,10 +9,10 @@ namespace Real_estate.Domain.Enums
             ForRent = 1,
             SoldOrRented = 0
         }
-        public enum Role
-        {
-            User,
-            Admin
-        }
+        //public enum Role
+        //{
+        //    User,
+        //    Admin
+        //}
     }
 }

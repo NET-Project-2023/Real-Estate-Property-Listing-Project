@@ -20,8 +20,8 @@ namespace Real_estate.Application.Features.Listings.Commands.CreateListing
             // Validating UserId
             RuleFor(p => p.UserId)
                 .NotEmpty().WithMessage("{PropertyName} is required.")
-                .NotNull()
-                .Must(BeAValidGuid).WithMessage("{PropertyName} must be a valid GUID.");
+                .NotNull();
+                // check if UserId exists
 
             // Validating PropertyId
             RuleFor(p => p.PropertyId)
@@ -34,7 +34,9 @@ namespace Real_estate.Application.Features.Listings.Commands.CreateListing
                 .NotEmpty().WithMessage("{PropertyName} is required.")
                 .NotNull();
 
-            // Custom method to validate GUID
+            // Validating PropertyStatus
+            
+
             bool BeAValidGuid(Guid guid)
             {
                 return guid != Guid.Empty;

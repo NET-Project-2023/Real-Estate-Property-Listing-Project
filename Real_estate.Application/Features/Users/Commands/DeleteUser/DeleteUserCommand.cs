@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Real_estate.Application.Features.Users.Commands.DeleteUser;
 
-public class DeleteUserByUsernameCommand : IRequest<DeleteUserCommandResponse>
+public class DeleteUserCommand : IRequest<DeleteUserCommandResponse>
 {
-    public string Username { get; set; }
+    public Guid UserId { get; set; }
 }

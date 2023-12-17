@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Real_estate.Application.Features.Users.Queries.GetById;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,5 +8,8 @@ using System.Threading.Tasks;
 
 namespace Real_estate.Application.Features.Listings.Queries.GetById
 {
-    public record GetByIdUserQuery(Guid Id) : IRequest<UserDto>;
+    public class GetByIdUserQuery : IRequest<GetByIdUserQueryResponse>
+    {
+        public string UserId { get; set; }
+    }
 }

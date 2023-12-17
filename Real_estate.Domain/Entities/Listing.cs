@@ -1,4 +1,5 @@
 ﻿using Real_estate.Domain.Common;
+using System.Net;
 using static Real_estate.Domain.Enums.Enums;
 namespace Real_estate.Domain.Entities
 {
@@ -8,29 +9,33 @@ namespace Real_estate.Domain.Entities
         {
             // EF Core needs this constructor
         }
-        private Listing(string title, User user, Property property, string description) : this()
+
+        public Listing(string? title, decimal price, string userId, Guid propertyId, string description, Status propertyStatus)
         {
             ListingId = Guid.NewGuid();
             Title = title;
-            User = user;
-            Property = property;
+            Price = price;
+            UserId = userId;
+            PropertyId = propertyId;
             Description = description;
+            PropertyStatus = propertyStatus;
         }
 
         public Guid ListingId { get; private set; }
-        public string Title { get; private set; } = string.Empty;
-        public User User { get; private set; }
-        public Property Property { get; private set; }
+        public string? Title { get; private set; }
+        public decimal Price { get; private set; }
+        public string UserId { get; private set; }
+        public Guid PropertyId { get; private set; }
         public string Description { get; private set; }
+        public Status PropertyStatus { get; private set; }
 
-        public static Result<Listing> Create(string title, User user, Property property, string description)
+
+        public static Result<Listing> Create(string title, decimal price, string userId, Guid propertyId, string description, Status propertyStatus)
         {
-            if (user == null || property == null)
+            if (string.IsNullOrWhiteSpace(userId) || propertyId == Guid.Empty)
             {
                 return Result<Listing>.Failure("User and Property are required.");
             }
-
-            Role userRole = user.UserRole;
 
             if (string.IsNullOrWhiteSpace(title))
             {
@@ -42,11 +47,14 @@ namespace Real_estate.Domain.Entities
                 return Result<Listing>.Failure("Description is required.");
             }
 
-            if (userRole != Role.User)
+            if (price <= 0)
             {
-                return Result<Listing>.Failure("Listing creator must be logged in");
+                return Result<Listing>.Failure("Price can't be smaller than 0.");
             }
-            return Result<Listing>.Success(new Listing(title, user, property, description));
+
+            // de validat PropertyStatus
+
+            return Result<Listing>.Success(new Listing(title, price, userId, propertyId, description, propertyStatus));
         }
         public void UpdateTitle(string newTitle)
         {
@@ -73,6 +81,13 @@ namespace Real_estate.Domain.Entities
             Description = newDescription;
         }
 
+        public void UpdateStatus(Status propertyStatus)
+        {
+            if (!propertyStatus.Equals(Status.ForRent) && !propertyStatus.Equals(Status.ForSale) && !propertyStatus.Equals(Status.SoldOrRented)) 
+            {
+                throw new ArgumentException("Invalid status for this listing.");
+            }
+        }
 
     }
 }

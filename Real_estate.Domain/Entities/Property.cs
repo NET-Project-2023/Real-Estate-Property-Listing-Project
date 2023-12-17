@@ -28,7 +28,6 @@ namespace Real_estate.Domain.Entities
         public int NumberOfBathrooms { get; private set; }
         public List<byte[]> Images { get; private set; }
 
-        public Status PropertyStatus { get; private set; }
         public string OwnerUniqueName { get; private set; }
 
         public static Result<Property> Create(string title, string address, int size, int price, Status propertyStatus, string ownerUniqueName, int numberOfBedrooms)
