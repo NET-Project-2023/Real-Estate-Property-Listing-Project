@@ -1,6 +1,7 @@
 ﻿using RealEstate.App.Contracts;
 using RealEstate.App.Services.Responses;
 using RealEstate.App.ViewModels;
+using System.Diagnostics;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text.Json;
@@ -24,17 +25,18 @@ namespace RealEstate.App.Services
         {
             try
             {
-                var loggedInUsername = await tokenService.GetUsernameFromTokenAsync();
-                if (string.IsNullOrEmpty(loggedInUsername))
+                Console.WriteLine("HELLOOOOOOOOOOOOOOOOOOOOOOOO");
+                string loggedInUserId = await tokenService.GetUsernameFromTokenAsync();
+                if (string.IsNullOrEmpty(loggedInUserId))
                 {
                     throw new InvalidOperationException("Logged-in username not available.");
                 }
-                Console.WriteLine($"Logged-in User ID: {loggedInUsername}");
+                Console.WriteLine($"Logged-in User ID: {loggedInUserId}");
 
 
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
 
-                propertyViewModel.OwnerUniqueName = loggedInUsername;
+                propertyViewModel.UserId = loggedInUserId;
                
                 propertyViewModel.Images = new List<byte[]> { new byte[0] };
 

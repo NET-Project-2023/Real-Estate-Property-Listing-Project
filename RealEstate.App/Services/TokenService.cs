@@ -8,10 +8,11 @@ namespace RealEstate.App.Services
     {
         private const string TOKEN = "token";
         private readonly ILocalStorageService localStorageService;
-
+        //private readonly IUserManager userManager;
         public TokenService(ILocalStorageService localStorageService)
         {
             this.localStorageService = localStorageService;
+            //this.userManager = userManager;
         }
 
         public async Task SetTokenAsync(string token)
@@ -28,7 +29,6 @@ namespace RealEstate.App.Services
         {
             await localStorageService.RemoveItemAsync(TOKEN);
         }
-
 
         public async Task<string> GetUsernameFromTokenAsync()
         {
@@ -48,4 +48,6 @@ namespace RealEstate.App.Services
             return null;
         }
     }
+
+
 }

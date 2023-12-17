@@ -1,5 +1,4 @@
-﻿using static RealEstate.App.Enums;
-
+﻿
 namespace RealEstate.App.ViewModels
 {
     public class PropertyViewModel
@@ -13,7 +12,6 @@ namespace RealEstate.App.ViewModels
         public int NumberOfBedrooms { get; set; }
         public int NumberOfBathrooms { get; set; }
         public List<byte[]> Images { get; set; }
-        public Status PropertyStatus { get; set; }
-        public string OwnerUniqueName { get; set; }
+        public string UserId { get; set; }
     }
 }
