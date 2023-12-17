@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Identity;
 using Real_estate.Application.Features.Listings;
 using Real_estate.Application.Persistence;
 using Real_estate.Domain.Common;
-using System.Linq.Expressions;
 
 namespace Identity.Services
 {
@@ -97,9 +96,9 @@ namespace Identity.Services
             return updateResult.Succeeded ? Result<UserDto>.Success(MapToUserDto(userToUpdate)) : Result<UserDto>.Failure($"User with id {userDto.UserId} not updated");
         }
 
-        public async Task<bool> ExistsAsync(Expression<Func<T, bool>> predicate)
-        {
-            return await context.Set<T>().AnyAsync(predicate);
+        public async Task<bool> UserExistsAsync(string userId) 
+        { 
+            return await ExistsAsync(u => u.UserId == userId); 
         }
 
 

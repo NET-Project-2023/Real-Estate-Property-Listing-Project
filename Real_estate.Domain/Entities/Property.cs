@@ -5,15 +5,14 @@ namespace Real_estate.Domain.Entities
 {
     public class Property : AuditableEntity
     {
-        private Property(string title, string address, int size, int price, Status propertyStatus, string ownerUniqueName, int numberOfBedrooms)
+        private Property(string title, string address, int size, int price, string userId, int numberOfBedrooms)
         {
             PropertyId = Guid.NewGuid();
             Title = title;
             Address = address;
             Size = size;
             Price = price;
-            OwnerUniqueName = ownerUniqueName;
-            PropertyStatus = propertyStatus;
+            UserId = userId;
             NumberOfBedrooms = numberOfBedrooms;
             Images = new List<byte[]>(); // Update this line
         }
@@ -27,13 +26,12 @@ namespace Real_estate.Domain.Entities
         public int NumberOfBedrooms { get; private set; }
         public int NumberOfBathrooms { get; private set; }
         public List<byte[]> Images { get; private set; }
+        public string UserId { get; private set; }
 
-        public string OwnerUniqueName { get; private set; }
-
-        public static Result<Property> Create(string title, string address, int size, int price, Status propertyStatus, string ownerUniqueName, int numberOfBedrooms)
+        public static Result<Property> Create(string title, string address, int size, int price, string ownerUniqueName, int numberOfBedrooms)
         {
             // Create the property
-            return Result<Property>.Success(new Property(title, address, size, price, propertyStatus, ownerUniqueName, numberOfBedrooms));
+            return Result<Property>.Success(new Property(title, address, size, price, ownerUniqueName, numberOfBedrooms));
         }
 
 
@@ -125,14 +123,14 @@ namespace Real_estate.Domain.Entities
             NumberOfBathrooms = newNumberOfBathrooms;
         }
 
-        public void UpdatePropertyStatus(Status newStatus)
-        {
-            // Assuming you have a validation for status or you might want to check if it's a valid enum
-            if (!Enum.IsDefined(typeof(Status), newStatus))
-            {
-                throw new ArgumentException("Invalid property status.", nameof(newStatus));
-            }
-            PropertyStatus = newStatus;
-        }
+        //public void UpdatePropertyStatus(Status newStatus)
+        //{
+        //    // Assuming you have a validation for status or you might want to check if it's a valid enum
+        //    if (!Enum.IsDefined(typeof(Status), newStatus))
+        //    {
+        //        throw new ArgumentException("Invalid property status.", nameof(newStatus));
+        //    }
+        //    PropertyStatus = newStatus;
+        //}
     }
 }

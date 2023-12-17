@@ -64,12 +64,7 @@ namespace Real_estate.Application.Features.Properties.Commands.UpdateProperty
                 .Must(images => images != null && images.Any()).When(p => p.Images != null)
                 .WithMessage(ValidationMessages.NotEmptyListMessage);
 
-            // Conditional validation for PropertyStatus
-            When(p => p.PropertyStatus.HasValue, () =>
-            {
-                RuleFor(p => p.PropertyStatus.Value)
-                    .Must(BeAValidStatus).WithMessage(ValidationMessages.NotValidStatusMessage);
-            });
+
         }
 
         private bool BeAValidStatus(Status status)

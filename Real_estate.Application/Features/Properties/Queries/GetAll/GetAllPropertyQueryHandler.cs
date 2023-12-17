@@ -30,8 +30,7 @@ namespace Real_estate.Application.Features.Listings.Queries.GetAll
                    NumberOfBathrooms= c.NumberOfBathrooms,
                    NumberOfBedrooms= c.NumberOfBedrooms,
                    Images = c.Images,
-                   PropertyStatus= c.PropertyStatus,
-                    OwnerUniqueName = c.OwnerUniqueName
+                   UserId = c.UserId
                 }).ToList();
             }
             return response;

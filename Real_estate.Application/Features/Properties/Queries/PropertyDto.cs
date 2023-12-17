@@ -13,8 +13,7 @@ namespace Real_estate.Application.Features.Listings.Queries
         public int NumberOfBedrooms { get; set; } = default!;
         public int NumberOfBathrooms { get; set; } = default!;
         public List<byte[]> Images { get; set; } = default!;
-        public Status PropertyStatus { get; set; }
-        public string OwnerUniqueName { get; set; }
+        public string UserId { get; set; }
 
     }
 }
