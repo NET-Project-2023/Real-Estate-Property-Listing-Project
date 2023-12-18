@@ -12,7 +12,6 @@ namespace RealEstate.App.Services
         public TokenService(ILocalStorageService localStorageService)
         {
             this.localStorageService = localStorageService;
-            //this.userManager = userManager;
         }
 
         public async Task SetTokenAsync(string token)

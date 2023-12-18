@@ -26,6 +26,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/andim/OneDrive/Documente/AN_3/Introducere .NET/Real-Estate-Property-Listing-Project/RealEstate.App/Pages/AddListing.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkTGlzdGluZy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/andim/OneDrive/Documente/AN_3/Introducere .NET/Real-Estate-Property-Listing-Project/RealEstate.App/Pages/AddProperty.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkUHJvcGVydHkucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -36,6 +40,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/andim/OneDrive/Documente/AN_3/Introducere .NET/Real-Estate-Property-Listing-Project/RealEstate.App/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/andim/OneDrive/Documente/AN_3/Introducere .NET/Real-Estate-Property-Listing-Project/RealEstate.App/Pages/ListingOverview.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlzdGluZ092ZXJ2aWV3LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/andim/OneDrive/Documente/AN_3/Introducere .NET/Real-Estate-Property-Listing-Project/RealEstate.App/Pages/Login.razor]

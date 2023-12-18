@@ -63,17 +63,6 @@
         Properties = (await PropertyDataService.GetPropertiesAsync()).ToList();
     }
 
-    private void OnIncludeHistoryChanged(ChangeEventArgs e)
-    {
-        if ((bool)e.Value)
-        {
-            NavigationManager.NavigateTo("/propertyoverview?includeHistory=true");
-        }
-        else
-        {
-            NavigationManager.NavigateTo("/propertyoverview");
-        }
-    }
 
     private void ViewDetails(Guid propertyId)
     {

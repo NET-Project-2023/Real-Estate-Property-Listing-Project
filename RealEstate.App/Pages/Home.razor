@@ -1,45 +1,63 @@
-﻿@page "/"
+﻿@attribute [Authorize(Roles = "Admin")]
+@page "/admin/deleteuser"
+@using Microsoft.AspNetCore.Authorization
 @using RealEstate.App.Contracts
-@using Microsoft.AspNetCore.Components.Authorization
+@using RealEstate.App.ViewModels
+@inject IAuthenticationService AuthenticationService
+@inject NavigationManager NavigationManager
 
-<PageTitle>Home</PageTitle>
+<h3>Delete User</h3>
 
-<h1>Hello, world!</h1>
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-danger">@errorMessage</div>
+}
 
-Welcome to your new app.
+<div class="row mb-2">
+    <div class="col-md-6">
+        <input @bind="UserToDeleteName" class="form-control" placeholder="Enter username" />
+    </div>
+    <div class="col-md-6">
+        <button @onclick="HandleValidSubmit" class="btn btn-danger">Delete User</button>
+    </div>
+</div>
+@* <div class="row mb-2">
+    <div class="col-md-6">
+        <input @bind="PropertyName" class="form-control" placeholder="Enter property name" />
+    </div>
+    <div class="col-md-6">
+        <button @onclick="SearchProperty" class="btn btn-primary">Search</button>
+    </div>
+</div>
+@code {
+    private string PropertyName { get; set; } = string.Empty;
+    private PropertyViewModel Property { get; set; }
+    private bool SearchAttempted { get; set; } = false;
 
-<br/>
-<CascadingAuthenticationState>
-<Microsoft.AspNetCore.Components.Authorization.AuthorizeView>
-    <Authorized>
-            <button class="btn btn-lg btn-primary btn-block"  @onclick="Logout">Logout</button>
-    </Authorized>
-    <NotAuthorized>
-            <button class="btn btn-lg btn-primary btn-block" @onclick="NavigateToLogin">Click here to log in</button>
-        <br />
-            <button class="btn btn-lg btn-primary btn-block" @onclick="NavigateToRegister">Click here to register</button>
-    </NotAuthorized>
-</Microsoft.AspNetCore.Components.Authorization.AuthorizeView>
-</CascadingAuthenticationState>
-@functions{
-    [Inject]
-    public NavigationManager NavigationManager { get; set; }
-    [Inject]
-    public IAuthenticationService AuthenticationService { get; set; }
-
-    private void NavigateToLogin()
+    private async Task SearchProperty()
     {
-        NavigationManager.NavigateTo("/login");
+        SearchAttempted = true;
+        Property = await PropertyDataService.GetPropertyByNameAsync(PropertyName);
     }
+} *@
 
-    private void NavigateToRegister()
-    {
-        NavigationManager.NavigateTo("/register");
-    }
+@code {
+    //private DeleteViewModel deleteUserModel { get; set; }
+    private string UserToDeleteName { get; set; } = string.Empty;
+    private string errorMessage;
 
-    private async Task Logout()
+    private async Task HandleValidSubmit()
     {
-        await AuthenticationService.Logout();
-        NavigationManager.NavigateTo("/login");
+        try
+        {
+            Console.WriteLine("username-ul din patratel: ", UserToDeleteName);
+
+            await AuthenticationService.DeleteUserByUsername(UserToDeleteName);
+            NavigationManager.NavigateTo("/"); // Navigate to user management page or homepage
+        }
+        catch (Exception ex)
+        {
+            errorMessage = ex.Message;
+        }
     }
 }

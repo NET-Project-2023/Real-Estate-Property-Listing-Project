@@ -21,11 +21,10 @@ namespace RealEstate.App.Services
             this.tokenService = tokenService;
         }
 
-        public async Task<ApiResponse<PropertyDto>> CreatePropertyAsync(PropertyViewModel propertyViewModel)
+        public async Task<ApiResponse<PropertyViewModel>> CreatePropertyAsync(PropertyViewModel propertyViewModel)
         {
             try
             {
-                Console.WriteLine("HELLOOOOOOOOOOOOOOOOOOOOOOOO");
                 string loggedInUserId = await tokenService.GetUsernameFromTokenAsync();
                 if (string.IsNullOrEmpty(loggedInUserId))
                 {
@@ -47,7 +46,7 @@ namespace RealEstate.App.Services
                 var responseContent = await result.Content.ReadAsStringAsync();
                 Console.WriteLine($"API Response: {responseContent}");
 
-                var response = await result.Content.ReadFromJsonAsync<ApiResponse<PropertyDto>>();
+                var response = await result.Content.ReadFromJsonAsync<ApiResponse<PropertyViewModel>>();
                 response!.IsSuccess = result.IsSuccessStatusCode;
                 return response!;
             }
@@ -62,6 +61,7 @@ namespace RealEstate.App.Services
                 throw;
             }
         }
+       
         public async Task<List<PropertyViewModel>> GetPropertiesAsync()
         {
             // Ensure the token is included in the request headers

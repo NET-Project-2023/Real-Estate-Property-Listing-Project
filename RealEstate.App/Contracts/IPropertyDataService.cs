@@ -6,7 +6,7 @@ namespace RealEstate.App.Contracts
     public interface IPropertyDataService
     {
         Task<List<PropertyViewModel>> GetPropertiesAsync();
-        Task<ApiResponse<PropertyDto>> CreatePropertyAsync(PropertyViewModel propertyViewModel);
+        Task<ApiResponse<PropertyViewModel>> CreatePropertyAsync(PropertyViewModel propertyViewModel);
         Task<PropertyViewModel> GetPropertyByIdAsync(Guid propertyId);
     }
 }

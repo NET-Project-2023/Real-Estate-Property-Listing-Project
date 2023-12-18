@@ -6,7 +6,6 @@ namespace Real_estate.Application.Features.Listings.Queries.GetAll
     public class GetAllListingQueryHandler : IRequestHandler<GetAllListingQuery, GetAllListingResponse>
     {
         private readonly IListingRepository repository;
-        // Trebuie user identity
 
         public GetAllListingQueryHandler(IListingRepository repository)
         {
