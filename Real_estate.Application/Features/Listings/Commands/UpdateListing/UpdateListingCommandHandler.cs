@@ -27,7 +27,7 @@ namespace Real_estate.Application.Features.Listings.Commands.UpdateListing
                 };
             }
 
-            var listingResult = await listingRepository.FindByIdAsync(request.ListingId);
+            var listingResult = await listingRepository.FindByNameAsync(request.Title);
             if (!listingResult.IsSuccess)
             {
                 return new UpdateListingCommandResponse
@@ -45,6 +45,14 @@ namespace Real_estate.Application.Features.Listings.Commands.UpdateListing
             if (request.Description != null)
             {
                 listing.UpdateDescription(request.Description);
+            }
+            if (request.Price != null)
+            {
+                listing.UpdatePrice(request.Price.Value);
+            }
+            if(request.Status != null)
+            {
+                listing.UpdateStatus(request.Status);
             }
 
             var updateResult = await listingRepository.UpdateAsync(listing);

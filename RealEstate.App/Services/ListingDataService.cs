@@ -67,39 +67,6 @@ namespace RealEstate.App.Services
             }
         }
 
-        //public async Task<ApiResponse<Guid>> DeleteListingAsync(Guid id)
-        //{
-        //    throw new NotImplementedException();
-        //    //try
-        //    //{
-        //    //    httpClient.DefaultRequestHeaders.Authorization =
-        //    //        new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
-
-        //    //    var deleteResult = await httpClient.DeleteAsync($"{RequestUri}/{id}");
-
-        //    //    if (deleteResult.IsSuccessStatusCode)
-        //    //    {
-        //    //        var deletedListing = await deleteResult.Content.ReadFromJsonAsync<ListingViewModel>();
-        //    //        return new ApiResponse<ListingViewModel> { Data = deletedListing, IsSuccess = true };
-        //    //    }
-        //    //    else
-        //    //    {
-        //    //        var errorResponse = await deleteResult.Content.ReadFromJsonAsync<ErrorResponse>();
-        //    //        return new ApiResponse<ListingViewModel> { ErrorMessage = errorResponse?.Message ?? "An error occurred", IsSuccess = false };
-        //    //    }
-        //    //}
-        //    //catch (HttpRequestException ex)
-        //    //{
-        //    //    Console.WriteLine($"HTTP Request Exception: {ex.Message}");
-        //    //    throw; // Rethrow the exception after logging
-        //    //}
-        //    //catch (Exception ex)
-        //    //{
-        //    //    Console.WriteLine($"An unexpected exception occurred: {ex.Message}");
-        //    //    throw;
-        //    //}
-
-        //}
 
         public Task<ListingViewModel> GetListingByIdAsync(Guid id)
         {
@@ -107,10 +74,51 @@ namespace RealEstate.App.Services
         }
 
 
-        public Task<ApiResponse<ListingViewModel>> UpdateListingAsync(ListingViewModel listingViewModel)
+        public async Task<ApiResponse<ListingViewModel>> UpdateListingAsync(ListingViewModel updateListingViewModel, string listingTitle)
         {
-            throw new NotImplementedException();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
 
+            var response = await httpClient.PutAsJsonAsync($"api/v1/listings/update/{listingTitle}", updateListingViewModel);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var apiResponse = await response.Content.ReadFromJsonAsync<ApiResponse<ListingViewModel>>();
+                apiResponse.IsSuccess = response.IsSuccessStatusCode;
+                return apiResponse;
+            }
+            else
+            {
+                var errorContent = await response.Content.ReadAsStringAsync();
+                return new ApiResponse<ListingViewModel>
+                {
+                    IsSuccess = false,
+                    Message = "There was an error updating the listing.",
+                    ValidationErrors = errorContent
+                };
+            }
+        }
+        public async Task<ListingViewModel> GetListingByTitleAsync(string title)
+        {
+            httpClient.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
+
+            // Assuming your controller is set up as 'api/v1/listings' and your GetById action is 'ByTitle/{title}'
+            var response = await httpClient.GetAsync($"api/v1/listings/ByTitle/{title}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var apiResponse = await response.Content.ReadFromJsonAsync<ListingViewModel>();
+                return apiResponse;
+
+   
+            }
+            else
+            {
+                // Log the error or throw an exception
+                var errorContent = await response.Content.ReadAsStringAsync();
+                Console.WriteLine($"Error getting listing by title: {errorContent}");
+                throw new ApplicationException($"Error getting listing by title: {errorContent}");
+            }
         }
     }
 }

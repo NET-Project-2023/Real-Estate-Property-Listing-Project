@@ -862,7 +862,7 @@
     },
     {
       "hash": "sha256-Le2jqNcVgX63P2OF2bKuy86lTKLIhDyZBoPWDbZGNa8=",
-      "url": "_framework\/dotnet.native.8.0.0.6vrnrm5ozq.js"
+      "url": "_framework\/dotnet.native.8.0.0.7ukoabwfpe.js"
     },
     {
       "hash": "sha256-Vr6ZXKoP77zgabrMIxQ1GbOkrxfx5XGqHO0odLhUIMY=",
@@ -870,7 +870,7 @@
     },
     {
       "hash": "sha256-VoD3+0OGewD69WP0MNGcsochUUSyaLHXAWkAbSsDTz4=",
-      "url": "_framework\/dotnet.runtime.8.0.0.hfqcydujc6.js"
+      "url": "_framework\/dotnet.runtime.8.0.0.13w7gbwbjs.js"
     },
     {
       "hash": "sha256-nrQOPUqGOUp4H+hxg3zCwjSAa5h6ATED3lf8Xsh4r8I=",
@@ -889,17 +889,17 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-LBjmuMOkFCzHcMFv3pPXlm4S0RIB6pke2kiihfEpJUw=",
+      "hash": "sha256-r\/STBVisBmVxDExVPfHBgKomGYqs\/CYlFdKlC6DT9WQ=",
       "url": "_framework\/RealEstate.App.wasm"
     },
     {
-      "hash": "sha256-wZRttQ+APJlw4uMafMpJwY\/XY97GufzKOxxXH\/Cm0bU=",
+      "hash": "sha256-WJ3IeQTocsMh7GdWeKDaa6l9y99lXbul7A7GwJPl4fw=",
       "url": "_framework\/RealEstate.App.pdb"
     },
     {
-      "hash": "sha256-h\/gfx+DoOKWto+r4AAsuhC36iPnrOuXQUtKdUbRQfDg=",
+      "hash": "sha256-YMpX5+Ia8vk\/txM+geZL8uDN2w4pzQBsWShKw73DUAs=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "fmKIEX8G"
+  "version": "vnbycV3E"
 };

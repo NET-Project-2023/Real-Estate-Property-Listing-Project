@@ -32,15 +32,15 @@ namespace RealEstate.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("ById/{id}")]
+        [HttpGet("ByTitle/{title}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<IActionResult> Get(Guid id)
+        public async Task<IActionResult> Get(string title)
         {
-            var result = await Mediator.Send(new GetByIdListingQuery(id));
+            var result = await Mediator.Send(new GetByIdListingQuery(title));
             return Ok(result);
         }
 
-        [HttpDelete("{listingId}")]
+        [HttpDelete("/delete/{listingId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(Guid listingId)
@@ -53,12 +53,12 @@ namespace RealEstate.API.Controllers
             }
             return Ok(result.Message);
         }
-        [HttpPut("{listingId}")]
+        [HttpPut("/update/{listingTitle}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Update(Guid listingId, UpdateListingCommand command)
+        public async Task<IActionResult> Update(string listingTitle, UpdateListingCommand command)
         {
-            if (listingId != command.ListingId)
+            if (listingTitle != command.Title)
             {
                 return BadRequest("Listing ID mismatch.");
             }

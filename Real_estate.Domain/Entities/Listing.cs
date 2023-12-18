@@ -87,6 +87,14 @@ namespace Real_estate.Domain.Entities
                 throw new ArgumentException("Invalid status for this listing.");
             }
         }
+        public void UpdatePrice(decimal price)
+        {
+            if (price <= 0)
+            {
+                throw new ArgumentException("Price cannot be smaller than 0.", nameof(price));
+            }   
+ 
+        }
 
     }
 }
