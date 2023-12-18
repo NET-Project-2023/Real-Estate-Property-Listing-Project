@@ -23,8 +23,8 @@ namespace Real_estate.Application.Features.Listings.Queries.GetById
                 {
                     ListingId = result.Value.ListingId,
                     Title = result.Value.Title,
-                    UserId = result.Value.UserId,
-                    PropertyId = result.Value.PropertyId,
+                    Username = result.Value.Username,
+                    PropertyName = result.Value.PropertyName,
                     Description = result.Value.Description,
                     Price = result.Value.Price,
                     PropertyStatus = result.Value.PropertyStatus

@@ -9,13 +9,13 @@ namespace Real_estate.Domain.Entities
             // EF Core needs this constructor
         }
 
-        public Listing(string? title, decimal price, string userId, Guid propertyId, string description, Status propertyStatus)
+        public Listing(string? title, decimal price, string userName, string propertyName, string description, Status propertyStatus)
         {
             ListingId = Guid.NewGuid();
             Title = title;
             Price = price;
-            UserId = userId;
-            PropertyId = propertyId;
+            Username = userName;
+            PropertyName = propertyName;
             Description = description;
             PropertyStatus = propertyStatus;
         }
@@ -23,15 +23,15 @@ namespace Real_estate.Domain.Entities
         public Guid ListingId { get; private set; }
         public string? Title { get; private set; }
         public decimal Price { get; private set; }
-        public string UserId { get; private set; }
-        public Guid PropertyId { get; private set; }
+        public string Username { get; private set; }
+        public string PropertyName { get; private set; }
         public string Description { get; private set; }
         public Status PropertyStatus { get; private set; }
 
 
-        public static Result<Listing> Create(string title, decimal price, string userId, Guid propertyId, string description, Status propertyStatus)
+        public static Result<Listing> Create(string title, decimal price, string username, string propertyName, string description, Status propertyStatus)
         {
-            if (string.IsNullOrWhiteSpace(userId) || propertyId == Guid.Empty)
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(propertyName))
             {
                 return Result<Listing>.Failure("User and Property are required.");
             }
@@ -53,7 +53,7 @@ namespace Real_estate.Domain.Entities
 
             // de validat PropertyStatus
 
-            return Result<Listing>.Success(new Listing(title, price, userId, propertyId, description, propertyStatus));
+            return Result<Listing>.Success(new Listing(title, price, username, propertyName, description, propertyStatus));
         }
         public void UpdateTitle(string newTitle)
         {

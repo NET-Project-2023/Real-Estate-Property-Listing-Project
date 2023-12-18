@@ -13,7 +13,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(RealEstateContext))]
-    [Migration("20231217150828_InitialCreate")]
+    [Migration("20231218171926_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -51,8 +51,9 @@ namespace Infrastructure.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric");
 
-                    b.Property<Guid>("PropertyId")
-                        .HasColumnType("uuid");
+                    b.Property<string>("PropertyName")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<int>("PropertyStatus")
                         .HasColumnType("integer");
@@ -60,7 +61,7 @@ namespace Infrastructure.Migrations
                     b.Property<string>("Title")
                         .HasColumnType("text");
 
-                    b.Property<string>("UserId")
+                    b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("text");
 

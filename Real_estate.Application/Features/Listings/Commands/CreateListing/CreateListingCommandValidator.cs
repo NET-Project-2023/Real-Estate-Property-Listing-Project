@@ -13,16 +13,15 @@ namespace Real_estate.Application.Features.Listings.Commands.CreateListing
                 .MaximumLength(200).WithMessage("{PropertyName} must not exceed 200 characters.");
 
             // Validating UserId
-            RuleFor(p => p.UserId)
+            RuleFor(p => p.Username)
                 .NotEmpty().WithMessage("{PropertyName} is required.")
                 .NotNull();
-                // check if UserId exists
+            // check if UserId exists
 
             // Validating PropertyId
-            RuleFor(p => p.PropertyId)
+            RuleFor(p => p.PropertyName)
                 .NotEmpty().WithMessage("{PropertyName} is required.")
-                .NotNull()
-                .Must(BeAValidGuid).WithMessage("{PropertyName} must be a valid GUID.");
+                .NotNull();
 
             // Validating Description
             RuleFor(p => p.Description)
