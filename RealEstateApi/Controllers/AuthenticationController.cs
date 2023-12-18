@@ -64,7 +64,7 @@ namespace RealEstate.API.Controllers
                     return BadRequest("Invalid payload");
                 }
 
-                var (status, message) = await _authService.Registeration(model, UserRoles.Admin);
+                var (status, message) = await _authService.Registeration(model, UserRoles.User);// AICI SCHIMB DIN USEER IN ADMIN VICE VERSA
 
                 if (status == 0)
                 {

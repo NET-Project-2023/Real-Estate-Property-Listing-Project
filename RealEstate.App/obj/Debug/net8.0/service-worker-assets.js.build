@@ -5,7 +5,7 @@
       "url": "css\/app.css"
     },
     {
-      "hash": "sha256-z8OR40MowJ8GgK6P89Y+hiJK5+cclzFHzLhFQLL92bg=",
+      "hash": "sha256-SiIVMGgRhdXjKSTIddX7mh9IbOXVcwQWc7\/p4nS6D\/0=",
       "url": "css\/bootstrap\/bootstrap.min.css"
     },
     {
@@ -853,7 +853,7 @@
       "url": "_framework\/System.Private.CoreLib.wasm"
     },
     {
-      "hash": "sha256-GhUDBeylTPHdJKKlfWVTLPy0keFtUZvPAYva+5GOiD4=",
+      "hash": "sha256-poakCeJYzF3a3fAWsdu9oVUk2TvUW523ItgUMgPb5gw=",
       "url": "_framework\/dotnet.js"
     },
     {
@@ -861,16 +861,16 @@
       "url": "_framework\/dotnet.js.map"
     },
     {
-      "hash": "sha256-LjLDIz9+J7uuiwMlQ4HbNx2BnSpphOtO2MwkoI28vdI=",
-      "url": "_framework\/dotnet.native.8.0.0.6vrnrm5ozq.js"
+      "hash": "sha256-Le2jqNcVgX63P2OF2bKuy86lTKLIhDyZBoPWDbZGNa8=",
+      "url": "_framework\/dotnet.native.8.0.0.7ukoabwfpe.js"
     },
     {
       "hash": "sha256-Vr6ZXKoP77zgabrMIxQ1GbOkrxfx5XGqHO0odLhUIMY=",
       "url": "_framework\/dotnet.native.wasm"
     },
     {
-      "hash": "sha256-WdSX3HQvnBYF0KJLZoOyHvTzMHetaob6PV0Kn2K+QXw=",
-      "url": "_framework\/dotnet.runtime.8.0.0.hfqcydujc6.js"
+      "hash": "sha256-VoD3+0OGewD69WP0MNGcsochUUSyaLHXAWkAbSsDTz4=",
+      "url": "_framework\/dotnet.runtime.8.0.0.13w7gbwbjs.js"
     },
     {
       "hash": "sha256-nrQOPUqGOUp4H+hxg3zCwjSAa5h6ATED3lf8Xsh4r8I=",
@@ -889,17 +889,17 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-GcBqMOijm8Xuy1wBwb09gYKPWwY1PUgT7bzL72Ynwuw=",
+      "hash": "sha256-HVlR64rNUSsaGaw\/ZDXz\/+ZtzfwSPIBzmxQbUygL65I=",
       "url": "_framework\/RealEstate.App.wasm"
     },
     {
-      "hash": "sha256-3OQPMa7aN5ELKe4To3rSy5h9OieqHsZnNYRWG3Ts9OM=",
+      "hash": "sha256-mbSpzij7D2+8EsJyuwePOZZT8gvu94Qd7sxPQssXVSI=",
       "url": "_framework\/RealEstate.App.pdb"
     },
     {
-      "hash": "sha256-7FRrRJFZw6unLSQ3wxZkcp6StIDeZ4a1\/phUpU6sjAw=",
+      "hash": "sha256-7LLgFqvmQQA5tfdLynOCHfqFsyhElRnKL5RYLWEWz6k=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "mAJiWp9b"
+  "version": "AFfuwoDb"
 };

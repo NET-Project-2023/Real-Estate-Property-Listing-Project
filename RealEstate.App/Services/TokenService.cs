@@ -8,11 +8,9 @@ namespace RealEstate.App.Services
     {
         private const string TOKEN = "token";
         private readonly ILocalStorageService localStorageService;
-        //private readonly IUserManager userManager;
         public TokenService(ILocalStorageService localStorageService)
         {
             this.localStorageService = localStorageService;
-            //this.userManager = userManager;
         }
 
         public async Task SetTokenAsync(string token)
@@ -46,6 +44,18 @@ namespace RealEstate.App.Services
             }
 
             return null;
+        }
+        public async Task<string> GetRoleFromTokenAsync()
+        {
+            var token = await GetTokenAsync();
+            if (string.IsNullOrWhiteSpace(token))
+                return null;
+
+            var handler = new JwtSecurityTokenHandler();
+            var jwtToken = handler.ReadToken(token) as JwtSecurityToken;
+            var roleClaim = jwtToken?.Claims.FirstOrDefault(claim => claim.Type == "role");
+            Console.WriteLine($"Role from token: {roleClaim?.Value}");
+            return roleClaim?.Value;
         }
     }
 

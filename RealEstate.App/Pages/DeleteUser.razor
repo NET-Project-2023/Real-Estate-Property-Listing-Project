@@ -1,47 +1,50 @@
-﻿@page "/deleteuser"
-@using Microsoft.AspNetCore.Components.Authorization
-@using RealEstate.App.Auth
+﻿@attribute [Authorize(Roles = "Admin")]
+@page "/admin/deleteuser"
+@using Microsoft.AspNetCore.Authorization
 @using RealEstate.App.Contracts
 @using RealEstate.App.ViewModels
-@inject IAuthenticationService authService
-@inject NavigationManager navigationManager
-@inject AuthenticationStateProvider authStateProvider
-<h1 class="h2 font-weight-normal login-title">
-    Delete User
-</h1>
+@inject IAuthenticationService AuthenticationService
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
 
-<EditForm class="form-deleteuser" OnValidSubmit="OnSubmit" Model="deleteUserRequest">
-    <DataAnnotationsValidator />
+<h3>Delete User</h3>
 
-    <label for="inputUsername" class="sr-only">Username</label>
-    <InputText id="inputUsername" class="form-control" @bind-Value="deleteUserRequest.Username" autofocus placeholder="Username" />
-    <ValidationMessage For="@(() => deleteUserRequest.Username)" />
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-danger">@errorMessage</div>
+}
 
-    <br />
+<div class="row mb-2">
+    <div class="col-md-6">
+        <input value="@deleteUserModel.Username" @oninput="HandleUsernameInput" class="form-control" placeholder="Enter username" />
+    </div>
+    <div class="col-md-6">
+        <button @onclick="HandleValidSubmit" class="btn btn-danger">Delete User</button>
+    </div>
+</div>
 
-    <button class="btn btn-lg btn-danger btn-block" type="submit">Delete User</button>
-
-    <label class="text-danger">@error</label>
-
-    <NavLink href="/">
-        <h6 class="font-weight-normal text-center">Back to Home</h6>
-    </NavLink>
-</EditForm>
 @code {
-    DeleteViewModel deleteUserRequest { get; set; } = new DeleteViewModel();
-    string error { get; set; }
+    private DeleteViewModel deleteUserModel = new DeleteViewModel();
+    private string errorMessage;
 
-    async Task OnSubmit()
+    private void HandleUsernameInput(ChangeEventArgs e)
     {
-        error = null;
+        deleteUserModel.Username = e.Value.ToString();
+    }
+
+    private async Task HandleValidSubmit()
+    {
         try
         {
-            await authService.DeleteUserByUsername(deleteUserRequest.Username);
-            navigationManager.NavigateTo("/");
+            var message = $"Username from input: {deleteUserModel.Username}";
+            await JSRuntime.InvokeVoidAsync("console.log", message);
+
+            await AuthenticationService.DeleteUserByUsername(deleteUserModel.Username);
+            NavigationManager.NavigateTo("/");
         }
         catch (Exception ex)
         {
-            error = ex.Message;
+            errorMessage = ex.Message;
         }
     }
 }

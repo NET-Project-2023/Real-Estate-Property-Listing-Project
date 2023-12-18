@@ -106,5 +106,20 @@ namespace RealEstate.App.Services
             var property = response?.Property ?? new PropertyViewModel();
             return property!;
         }
+        public async Task<PropertyViewModel> GetPropertyByNameAsync(string propertyName)
+        {
+            // Ensure the token is included in the request headers
+            httpClient.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
+
+            var response = await httpClient.GetAsync($"{RequestUri}/ByName/{propertyName}");
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new HttpRequestException($"Error fetching property: {response.ReasonPhrase}");
+            }
+
+            var property = await response.Content.ReadFromJsonAsync<PropertyViewModel>();
+            return property ?? new PropertyViewModel();
+        }
     }
 }

@@ -25,6 +25,7 @@ builder.Services.AddBlazoredLocalStorage(config =>
 });
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<CustomStateProvider>();
+builder.Services.AddScoped<AuthenticationStateProvider, CustomStateProvider>();
 builder.Services.AddHttpClient<IPropertyDataService, PropertyDataService>(client =>
 {
     client.BaseAddress = new Uri("https://localhost:7165/");

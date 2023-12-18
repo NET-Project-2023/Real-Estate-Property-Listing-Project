@@ -55,7 +55,21 @@ namespace RealEstate.API.Controllers
             }
             return Ok(result);
         }
+        [Authorize(Roles = "Admin")]
+        [HttpDelete("deleteByUsername/{username}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> DeleteByUsername(string username)
+        {
+            Console.WriteLine("HELLOOOOOOOOOOOOOOOOOOOOOOOO");
 
+            var command = new DeleteUserByUsernameCommand { Username = username };
+            var result = await Mediator.Send(command);
+            if (!result.Success)
+            {
+                return BadRequest(result);
+            }
+            return Ok(result);
+        }
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> Update(string id, UpdateUserCommand command)

@@ -7,6 +7,8 @@
         Task SetTokenAsync(string token);
         Task<string?> GetUsernameFromTokenAsync();
         //Task<string?> GetUsernameFromTokenAsync();
+        Task<string?> GetRoleFromTokenAsync();
+
         //Task<string?> GetUserIdFromTokenAsync();
     }
 }

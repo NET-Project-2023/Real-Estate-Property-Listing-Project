@@ -1,79 +1,48 @@
-﻿@page "/propertydetails/{propertyId:guid}"
+﻿@page "/findproperty"
 @using RealEstate.App.Contracts
 @using RealEstate.App.ViewModels
 
-<h3>PropertyById</h3>
+@inject IPropertyDataService PropertyDataService
 
-<br />
+<h3>Find Property</h3>
 
-<p><input class="custom-checkbox" type="checkbox" id="includeHistory" @onchange="OnIncludeHistoryChanged" />   Include past events?</p>
+<div class="row mb-2">
+    <div class="col-md-6">
+        <input @bind="PropertyName" class="form-control" placeholder="Enter property name" />
+    </div>
+    <div class="col-md-6">
+        <button @onclick="SearchProperty" class="btn btn-primary">Search</button>
+    </div>
+</div>
 
-@if (Property == null)
+@if (Property != null)
 {
-    <p><em>Loading...</em></p>
+    <div class="card mt-3">
+        <div class="card-body">
+            <h5 class="card-title">@Property.Title</h5>
+            <p class="card-text">@Property.Description</p>
+            <p class="card-text"><strong>Address:</strong> @Property.Address</p>
+            <p class="card-text"><strong>Size:</strong> @Property.Size</p>
+            <p class="card-text"><strong>Price:</strong> @Property.Price</p>
+            <p class="card-text"><strong>Bedrooms:</strong> @Property.NumberOfBedrooms</p>
+            <p class="card-text"><strong>Bathrooms:</strong> @Property.NumberOfBathrooms</p>
+            <!-- Add more property details as needed -->
+        </div>
+    </div>
 }
-else
+else if (SearchAttempted)
 {
-    <table>
-        <thead>
-            <tr>
-                <th>Property Title</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>@Property.Title </td>
-            </tr>
-            <tr>
-                <td>
-                    <table class="nested-table ms-auto me-auto">
-                        @*  <thead>
-                    <tr>
-                    <th>Event name</th>
-                    <th class="category-event-header">Event date</th>
-                    <th class="category-event-header">Artist</th>
-                    <th class="category-event-header">Price</th>
-                    </tr>
-                    </thead> *@
-                        <tbody>
-                            @*  @foreach (var ev in Property.Events)
-                        {
-                        <tr>
-                        <td class="event-name">@ev.Name </td>
-                        <td class="event-date">@ev.Date.ToShortDateString() </td>
-                        <td class="event-artist">@ev.Artist</td>
-                        <td class="event-price">@ev.Price</td>
-                        </tr>
-                        } *@
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <p>No property found with the name '@PropertyName'.</p>
 }
-
 
 @code {
-    [Inject]
-    public IPropertyDataService PropertyDataService { get; set; }
+    private string PropertyName { get; set; } = string.Empty;
+    private PropertyViewModel Property { get; set; }
+    private bool SearchAttempted { get; set; } = false;
 
-    [Inject]
-    public NavigationManager NavigationManager { get; set; }
-
-    [Parameter]
-    public Guid PropertyId { get; set; }
-
-    public PropertyViewModel Property { get; set; }
-
-    protected override async Task OnInitializedAsync()
+    private async Task SearchProperty()
     {
-        Property = await PropertyDataService.GetPropertyByIdAsync(PropertyId);
-    }
-
-
-    private Task OnIncludeHistoryChanged(ChangeEventArgs e)
-    {
-        throw new NotImplementedException();
+        SearchAttempted = true;
+        Property = await PropertyDataService.GetPropertyByNameAsync(PropertyName);
     }
 }

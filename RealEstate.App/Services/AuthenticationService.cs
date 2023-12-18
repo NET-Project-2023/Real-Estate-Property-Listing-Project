@@ -45,8 +45,10 @@ namespace RealEstate.App.Services
         }
 
         public async Task DeleteUserByUsername(string username)
-        {
-            var result = await httpClient.DeleteAsync($"api/v1/authentication/deleteByUsername/{username}");
+        {//
+            var result = await httpClient.DeleteAsync($"api/v1/deleteByUsername/{username}");
+            Console.WriteLine("Numele username-ului", username);
+
             if (result.StatusCode == System.Net.HttpStatusCode.NotFound)
             {
                 throw new Exception("User not found");
