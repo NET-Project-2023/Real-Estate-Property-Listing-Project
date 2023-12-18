@@ -1,59 +1,59 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "Id": "C:\\Users\\ycarp\\Desktop\\ACuma\\Real-Estate-Property-Listing-Project\\RealEstate.App\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
       "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
     },
     {
-      "Id": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\obj\\Debug\\net8.0\\compressed\\tp9zqjgqfg.gz",
+      "Id": "C:\\Users\\ycarp\\Desktop\\ACuma\\Real-Estate-Property-Listing-Project\\RealEstate.App\\obj\\Debug\\net8.0\\compressed\\pltv5eam89.gz",
       "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
     },
     {
-      "Id": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\obj\\Debug\\net8.0\\scopedcss\\bundle\\RealEstate.App.styles.css",
+      "Id": "C:\\Users\\ycarp\\Desktop\\ACuma\\Real-Estate-Property-Listing-Project\\RealEstate.App\\obj\\Debug\\net8.0\\scopedcss\\bundle\\RealEstate.App.styles.css",
       "PackagePath": "staticwebassets\\RealEstate.App.styles.css"
     },
     {
-      "Id": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\obj\\Debug\\net8.0\\service-worker-assets.js",
+      "Id": "C:\\Users\\ycarp\\Desktop\\ACuma\\Real-Estate-Property-Listing-Project\\RealEstate.App\\obj\\Debug\\net8.0\\service-worker-assets.js",
       "PackagePath": "staticwebassets\\service-worker-assets.js"
     },
     {
-      "Id": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\obj\\Debug\\net8.0\\service-worker\\service-worker.published.js",
+      "Id": "C:\\Users\\ycarp\\Desktop\\ACuma\\Real-Estate-Property-Listing-Project\\RealEstate.App\\obj\\Debug\\net8.0\\service-worker\\service-worker.published.js",
       "PackagePath": "staticwebassets\\service-worker.js"
     },
     {
-      "Id": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\wwwroot\\css\\app.css",
+      "Id": "C:\\Users\\ycarp\\Desktop\\ACuma\\Real-Estate-Property-Listing-Project\\RealEstate.App\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },
     {
-      "Id": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Id": "C:\\Users\\ycarp\\Desktop\\ACuma\\Real-Estate-Property-Listing-Project\\RealEstate.App\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\ycarp\\Desktop\\ACuma\\Real-Estate-Property-Listing-Project\\RealEstate.App\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\wwwroot\\favicon.png",
+      "Id": "C:\\Users\\ycarp\\Desktop\\ACuma\\Real-Estate-Property-Listing-Project\\RealEstate.App\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
-      "Id": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\wwwroot\\icon-192.png",
+      "Id": "C:\\Users\\ycarp\\Desktop\\ACuma\\Real-Estate-Property-Listing-Project\\RealEstate.App\\wwwroot\\icon-192.png",
       "PackagePath": "staticwebassets\\icon-192.png"
     },
     {
-      "Id": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\wwwroot\\icon-512.png",
+      "Id": "C:\\Users\\ycarp\\Desktop\\ACuma\\Real-Estate-Property-Listing-Project\\RealEstate.App\\wwwroot\\icon-512.png",
       "PackagePath": "staticwebassets\\icon-512.png"
     },
     {
-      "Id": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\wwwroot\\index.html",
+      "Id": "C:\\Users\\ycarp\\Desktop\\ACuma\\Real-Estate-Property-Listing-Project\\RealEstate.App\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
     {
-      "Id": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\wwwroot\\manifest.webmanifest",
+      "Id": "C:\\Users\\ycarp\\Desktop\\ACuma\\Real-Estate-Property-Listing-Project\\RealEstate.App\\wwwroot\\manifest.webmanifest",
       "PackagePath": "staticwebassets\\manifest.webmanifest"
     },
     {
-      "Id": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\wwwroot\\sample-data\\weather.json",
+      "Id": "C:\\Users\\ycarp\\Desktop\\ACuma\\Real-Estate-Property-Listing-Project\\RealEstate.App\\wwwroot\\sample-data\\weather.json",
       "PackagePath": "staticwebassets\\sample-data\\weather.json"
     },
     {

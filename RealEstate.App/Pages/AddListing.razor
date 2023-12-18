@@ -1,6 +1,8 @@
 ﻿@page "/addlisting"
 @using RealEstate.App.Contracts
 @using RealEstate.App.ViewModels
+@using static RealEstate.App.Enums
+
 
 <h3>New Listing</h3>
 
@@ -16,8 +18,48 @@
             <ValidationMessage For="@(() => ListingViewModel.Title)" />
         </div>
     </div>
+    
+    <!-- User Name -->
+    <div class="row mb-3 ms-2">
+        <label for="username" class="col-sm-3 form-label">User Name:</label>
+        <div class="col-sm-5">
+            <InputText id="username" class="form-control" @bind-Value="@ListingViewModel.UserName" placeholder="Enter your username"></InputText>
+            <ValidationMessage For="@(() => ListingViewModel.UserName)" />
+        </div>
+    </div>
 
-    <!-- Additional fields specific to a listing, e.g., availability dates, conditions -->
+    <!-- Property Name -->
+    <div class="row mb-3 ms-2">
+        <label for="propertyName" class="col-sm-3 form-label">Property Name:</label>
+        <div class="col-sm-5">
+            <InputText id="propertyName" class="form-control" @bind-Value="@ListingViewModel.PropertyName" placeholder="Enter property name"></InputText>
+            <ValidationMessage For="@(() => ListingViewModel.PropertyName)" />
+        </div>
+    </div>
+
+    <!-- Description -->
+    <div class="row mb-3 ms-2">
+        <label for="description" class="col-sm-3 form-label">Description:</label>
+        <div class="col-sm-5">
+            <InputTextArea id="description" class="form-control" @bind-Value="@ListingViewModel.Description" placeholder="Enter listing description"></InputTextArea>
+            <ValidationMessage For="@(() => ListingViewModel.Description)" />
+        </div>
+    </div>
+
+    <!-- Property Status -->
+    <div class="row mb-3 ms-2">
+        <label for="propertyStatus" class="col-sm-3 form-label">Property Status:</label>
+        <div class="col-sm-5">
+            <InputSelect @bind-Value="@ListingViewModel.PropertyStatus" class="form-control">
+                <option value="">Select status</option>
+                @foreach (var status in Enum.GetValues<Status>())
+                {
+                    <option value="@status">@status</option>
+                }
+            </InputSelect>
+            <ValidationMessage For="@(() => ListingViewModel.PropertyStatus)" />
+        </div>
+    </div>
 
     <div class="row mb-3 ms-2">
         <label for="price" class="col-sm-3 form-label">Price:</label>
@@ -68,11 +110,7 @@
         }
         else
         {
-            Message = result.Message;
-            if (!string.IsNullOrWhiteSpace(result.ValidationErrors))
-            {
-                Message += result.ValidationErrors;
-            }
+            Message = result.Message; // Here, use the correct property 'Message' instead of 'E'
         }
     }
 

@@ -39,9 +39,28 @@ namespace RealEstate.App.Services
 
             return listings!;
         }
-        public Task<ApiResponse<Guid>> CreateListingAsync(ListingViewModel listingViewModel)
+        public async Task<ApiResponse<Guid>> CreateListingAsync(ListingViewModel listingViewModel)
         {
-            throw new NotImplementedException();
+            httpClient.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
+
+            var response = await httpClient.PostAsJsonAsync(RequestUri, listingViewModel);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var apiResponse = await response.Content.ReadFromJsonAsync<ApiResponse<Guid>>();
+                return apiResponse;
+            }
+            else
+            {
+                var errorContent = await response.Content.ReadAsStringAsync();
+                return new ApiResponse<Guid>
+                {
+                    IsSuccess = false,
+                    Message = "There was an error creating the listing.",
+                    ValidationErrors = errorContent
+                };
+            }
         }
 
         //public async Task<ApiResponse<Guid>> DeleteListingAsync(Guid id)
