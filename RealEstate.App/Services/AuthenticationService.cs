@@ -1,5 +1,6 @@
 ﻿using RealEstate.App.Contracts;
 using RealEstate.App.ViewModels;
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
 
 namespace RealEstate.App.Services
@@ -45,15 +46,22 @@ namespace RealEstate.App.Services
         }
 
         public async Task DeleteUserByUsername(string username)
-        {//
-            var result = await httpClient.DeleteAsync($"api/v1/deleteByUsername/{username}");
-            Console.WriteLine("Numele username-ului", username);
+        {
+            var request = new HttpRequestMessage(HttpMethod.Delete, $"api/v1/users/deleteByUsername/{username}");
 
-            if (result.StatusCode == System.Net.HttpStatusCode.NotFound)
+            // Add the bearer token to the request
+            var token = await tokenService.GetTokenAsync();
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            var response = await httpClient.SendAsync(request);
+
+            Console.WriteLine("Numele username-ului: " + username);
+
+            if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
             {
                 throw new Exception("User not found");
             }
-            result.EnsureSuccessStatusCode();
+            response.EnsureSuccessStatusCode();
         }
     }
 }
