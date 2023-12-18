@@ -90,6 +90,8 @@ else
 
     private async Task HandleValidSubmit()
     {
+        Console.WriteLine($"Updating listing with price: {UpdateListingModel.Price}");
+
         var result = await ListingDataService.UpdateListingAsync(UpdateListingModel, UpdateListingModel.Title);
         if (result.IsSuccess)
         {
