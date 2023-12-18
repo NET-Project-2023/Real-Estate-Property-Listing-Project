@@ -71,21 +71,6 @@ namespace RealEstate.API.Controllers
                     return BadRequest(message);
                 }
 
-                //var createUserCommand = new CreateUserCommand
-                //{
-                //    Name = model.Name,
-                //    UserName = model.Username,
-                //    Email = model.Email,
-                //    Password = model.Password,
-                //    UserRole = Role.User, 
-                //};
-
-                //var createUserResult = await _mediator.Send(createUserCommand);
-                //if (!createUserResult.Success)
-                //{
-                //    return BadRequest(createUserResult);
-                //}
-
                 return CreatedAtAction(nameof(Register), model);
             }
             catch (Exception ex)

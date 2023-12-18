@@ -46,7 +46,7 @@ namespace RealEstate.App.Services
 
             var response = await httpClient.PostAsJsonAsync(RequestUri, listingViewModel);
             response.EnsureSuccessStatusCode();
-            Console.WriteLine($"RESPONSE TATI: {response.StatusCode}"); // Aici da ok
+            Console.WriteLine($"RESPONSE TATI: {response.StatusCode}"); 
             if (response.IsSuccessStatusCode)
             {
                 var apiResponse = await response.Content.ReadFromJsonAsync<ApiResponse<ListingViewModel>>();
@@ -55,7 +55,7 @@ namespace RealEstate.App.Services
             }
             else
             {
-                // Aici nu intra
+                
                 var errorContent = await response.Content.ReadAsStringAsync();
                 
                 return new ApiResponse<ListingViewModel>
@@ -107,9 +107,10 @@ namespace RealEstate.App.Services
         }
 
 
-        //public Task<ApiResponse<Guid>> UpdateListingAsync(ListingViewModel listingViewModel)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public Task<ApiResponse<ListingViewModel>> UpdateListingAsync(ListingViewModel listingViewModel)
+        {
+            throw new NotImplementedException();
+
+        }
     }
 }
