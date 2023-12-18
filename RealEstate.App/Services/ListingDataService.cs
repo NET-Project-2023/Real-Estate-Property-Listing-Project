@@ -66,6 +66,37 @@ namespace RealEstate.App.Services
                 };
             }
         }
+        public async Task<ApiResponse<ListingViewModel>> UpdateListingAsync(ListingViewModel updateListingViewModel, string listingTitle)
+        {
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
+
+            var response = await httpClient.PutAsJsonAsync($"/listings/update/{listingTitle}", updateListingViewModel);
+
+            // Read the response content as a string
+            var responseContent = await response.Content.ReadAsStringAsync();
+
+            // Log the raw response content
+            Console.WriteLine($"Response Content: {responseContent}");
+
+            // Now you can see the raw response and determine why it's not valid JSON
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new ApplicationException($"Error updating listing: {responseContent}");
+            }
+
+            try
+            {
+                // Attempt to deserialize the response content to your ApiResponse object
+                var apiResponse = JsonSerializer.Deserialize<ApiResponse<ListingViewModel>>(responseContent);
+                apiResponse!.IsSuccess = response.IsSuccessStatusCode;
+                return apiResponse;
+            }
+            catch (JsonException jsonEx)
+            {
+                Console.WriteLine($"JSON Deserialization Exception: {jsonEx.Message}");
+                throw;
+            }
+        }
 
 
         public Task<ListingViewModel> GetListingByIdAsync(Guid id)
@@ -97,35 +128,6 @@ namespace RealEstate.App.Services
 			}
 		}
 
-        public async Task<ApiResponse<ListingViewModel>> UpdateListingAsync(ListingViewModel updateListingViewModel, string listingTitle)
-        {
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
-
-            var response = await httpClient.PutAsJsonAsync($"/listings/update/{listingTitle}", updateListingViewModel);
-
-            // Read the response content as a string
-            var responseContent = await response.Content.ReadAsStringAsync();
-
-            // Log the raw response content
-            Console.WriteLine($"Response Content: {responseContent}");
-
-            // Now you can see the raw response and determine why it's not valid JSON
-            if (!response.IsSuccessStatusCode)
-            {
-                throw new ApplicationException($"Error updating listing: {responseContent}");
-            }
-
-            try
-            {
-                // Attempt to deserialize the response content to your ApiResponse object
-                var apiResponse = JsonSerializer.Deserialize<ApiResponse<ListingViewModel>>(responseContent);
-                return apiResponse;
-            }
-            catch (JsonException jsonEx)
-            {
-                Console.WriteLine($"JSON Deserialization Exception: {jsonEx.Message}");
-                throw;
-            }
-        }
+      
     }
 }

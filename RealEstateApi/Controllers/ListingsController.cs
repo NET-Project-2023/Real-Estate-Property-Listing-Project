@@ -60,16 +60,16 @@ namespace RealEstate.API.Controllers
         {
             if (listingTitle != command.Title)
             {
-                return BadRequest("Listing ID mismatch.");
+                return BadRequest(new { Message = "Listing ID mismatch." });
             }
 
             var result = await Mediator.Send(command);
             if (!result.Success)
             {
-                return BadRequest(result.Message);
+                return BadRequest(new { Message = result.Message });
             }
 
-            return Ok(result.Message);
+            return Ok(new { Message = "Listing updated successfully." });
         }
     }
 }

@@ -5939,19 +5939,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\andim\\.nuget\\packages\\": {}
+    "C:\\Users\\ycarp\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstateApi\\RealEstate.API.csproj",
+      "projectUniqueName": "C:\\Users\\ycarp\\Desktop\\secondTry\\Real-Estate-Property-Listing-Project\\RealEstateApi\\RealEstate.API.csproj",
       "projectName": "RealEstate.API",
-      "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstateApi\\RealEstate.API.csproj",
-      "packagesPath": "C:\\Users\\andim\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstateApi\\obj\\",
+      "projectPath": "C:\\Users\\ycarp\\Desktop\\secondTry\\Real-Estate-Property-Listing-Project\\RealEstateApi\\RealEstate.API.csproj",
+      "packagesPath": "C:\\Users\\ycarp\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ycarp\\Desktop\\secondTry\\Real-Estate-Property-Listing-Project\\RealEstateApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\andim\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ycarp\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5965,14 +5965,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Identity\\Identity.csproj": {
-              "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Identity\\Identity.csproj"
+            "C:\\Users\\ycarp\\Desktop\\secondTry\\Real-Estate-Property-Listing-Project\\Identity\\Identity.csproj": {
+              "projectPath": "C:\\Users\\ycarp\\Desktop\\secondTry\\Real-Estate-Property-Listing-Project\\Identity\\Identity.csproj"
             },
-            "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Infrastructure\\Infrastructure.csproj"
+            "C:\\Users\\ycarp\\Desktop\\secondTry\\Real-Estate-Property-Listing-Project\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\ycarp\\Desktop\\secondTry\\Real-Estate-Property-Listing-Project\\Infrastructure\\Infrastructure.csproj"
             },
-            "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj": {
-              "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj"
+            "C:\\Users\\ycarp\\Desktop\\secondTry\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj": {
+              "projectPath": "C:\\Users\\ycarp\\Desktop\\secondTry\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj"
             }
           }
         }
