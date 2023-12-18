@@ -1,0 +1,68 @@
+﻿@page "/listingoverview"
+@using RealEstate.App.Contracts
+@using RealEstate.App.ViewModels
+
+<div class="container mt-5">
+    <h3>Listing Overview</h3>
+
+    @if (Listings == null)
+    {
+        <div class="text-center">
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    }
+    else if (Listings.Count == 0)
+    {
+        <p>No listings available.</p>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Listing Title</th>
+                        <th>Availability</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var listing in Listings)
+                    {
+                        <tr>
+                            <td>@listing.Title</td>
+                            <td>@listing.PropertyStatus.ToString()</td>
+                            <td>$@listing.Price.ToString("N0")</td>
+                            <td>
+                                <button class="btn btn-info btn-sm" @onclick="() => ViewDetails(listing.ListingId)">View Details</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+@code {
+    [Inject]
+    public IListingDataService ListingDataService { get; set; }
+
+    [Inject]
+    public NavigationManager NavigationManager { get; set; }
+
+    public List<ListingViewModel> Listings { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Listings = (await ListingDataService.GetListingsAsync()).ToList();
+    }
+
+    private void ViewDetails(Guid listingId)
+    {
+        NavigationManager.NavigateTo($"/listingdetails/{listingId}");
+    }
+}

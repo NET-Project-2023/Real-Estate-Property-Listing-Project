@@ -4,11 +4,13 @@ using Real_estate.Application.Features.Listings.Commands.DeleteListing;
 using Real_estate.Application.Features.Listings.Queries.GetAll;
 using Real_estate.Application.Features.Listings.Queries.GetById;
 using Real_estate.Application.Features.Listings.Commands.UpdateListing;
+using Microsoft.AspNetCore.Authorization;
 
 namespace RealEstate.API.Controllers
 {
     public class ListingsController : ApiControllerBase
     {
+        [Authorize(Roles = "User")]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         public async Task<IActionResult> Create(CreateListingCommand command)
@@ -21,7 +23,8 @@ namespace RealEstate.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("GetAllListings")]
+        [Authorize(Roles = "User")]
+        [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll()
         {

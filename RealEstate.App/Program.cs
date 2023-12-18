@@ -30,6 +30,10 @@ builder.Services.AddHttpClient<IPropertyDataService, PropertyDataService>(client
 {
     client.BaseAddress = new Uri("https://localhost:7165/");
 });
+builder.Services.AddHttpClient<IListingDataService, ListingDataService>(client =>
+{
+    client.BaseAddress = new Uri("https://localhost:7165/");
+});
 builder.Services.AddScoped<AuthenticationStateProvider>(s => s.GetRequiredService<CustomStateProvider>());
 builder.Services.AddHttpClient<IAuthenticationService, AuthenticationService>(client =>
 {
