@@ -8,9 +8,15 @@
 
 <h3>Update Listing</h3>
 
+<div class="form-group">
+    <label for="listingTitle">Listing Title:</label>
+    <InputText id="listingTitle" class="form-control" @bind-Value="@ListingTitle" />
+    <button @onclick="LoadListing">Load Listing</button>
+</div>
+
 @if (UpdateListingModel == null)
 {
-    <p>Loading...</p>
+    <p>Enter a title and click 'Load Listing'...</p>
 }
 else
 {
@@ -59,13 +65,11 @@ else
     </div>
 }
 @code {
-    [Parameter]
-    public string ListingTitle { get; set; }
-
+    private string ListingTitle { get; set; }
     private ListingViewModel UpdateListingModel;
     private string Message = string.Empty;
 
-    protected override async Task OnInitializedAsync()
+    private async Task LoadListing()
     {
         var currentListing = await ListingDataService.GetListingByTitleAsync(ListingTitle);
         if (currentListing != null)
@@ -86,7 +90,7 @@ else
 
     private async Task HandleValidSubmit()
     {
-        var result = await ListingDataService.UpdateListingAsync(UpdateListingModel, ListingTitle);
+        var result = await ListingDataService.UpdateListingAsync(UpdateListingModel, UpdateListingModel.Title);
         if (result.IsSuccess)
         {
             NavigationManager.NavigateTo("/listingoverview");

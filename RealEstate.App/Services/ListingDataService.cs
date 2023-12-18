@@ -73,51 +73,58 @@ namespace RealEstate.App.Services
             throw new NotImplementedException();
         }
 
+		public async Task<ListingViewModel> GetListingByTitleAsync(string title)
+		{
+			httpClient.DefaultRequestHeaders.Authorization =
+				new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
+
+			// Assuming your controller is set up as 'api/v1/listings' and your GetById action is 'ByTitle/{title}'
+			var response = await httpClient.GetAsync($"api/v1/listings/ByTitle/{title}");
+
+			if (response.IsSuccessStatusCode)
+			{
+				var apiResponse = await response.Content.ReadFromJsonAsync<ListingViewModel>();
+				return apiResponse;
+
+
+			}
+			else
+			{
+				// Log the error or throw an exception
+				var errorContent = await response.Content.ReadAsStringAsync();
+				Console.WriteLine($"Error getting listing by title: {errorContent}");
+				throw new ApplicationException($"Error getting listing by title: {errorContent}");
+			}
+		}
 
         public async Task<ApiResponse<ListingViewModel>> UpdateListingAsync(ListingViewModel updateListingViewModel, string listingTitle)
         {
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
 
-            var response = await httpClient.PutAsJsonAsync($"api/v1/listings/update/{listingTitle}", updateListingViewModel);
+            var response = await httpClient.PutAsJsonAsync($"/listings/update/{listingTitle}", updateListingViewModel);
 
-            if (response.IsSuccessStatusCode)
+            // Read the response content as a string
+            var responseContent = await response.Content.ReadAsStringAsync();
+
+            // Log the raw response content
+            Console.WriteLine($"Response Content: {responseContent}");
+
+            // Now you can see the raw response and determine why it's not valid JSON
+            if (!response.IsSuccessStatusCode)
             {
-                var apiResponse = await response.Content.ReadFromJsonAsync<ApiResponse<ListingViewModel>>();
-                apiResponse.IsSuccess = response.IsSuccessStatusCode;
+                throw new ApplicationException($"Error updating listing: {responseContent}");
+            }
+
+            try
+            {
+                // Attempt to deserialize the response content to your ApiResponse object
+                var apiResponse = JsonSerializer.Deserialize<ApiResponse<ListingViewModel>>(responseContent);
                 return apiResponse;
             }
-            else
+            catch (JsonException jsonEx)
             {
-                var errorContent = await response.Content.ReadAsStringAsync();
-                return new ApiResponse<ListingViewModel>
-                {
-                    IsSuccess = false,
-                    Message = "There was an error updating the listing.",
-                    ValidationErrors = errorContent
-                };
-            }
-        }
-        public async Task<ListingViewModel> GetListingByTitleAsync(string title)
-        {
-            httpClient.DefaultRequestHeaders.Authorization =
-                new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
-
-            // Assuming your controller is set up as 'api/v1/listings' and your GetById action is 'ByTitle/{title}'
-            var response = await httpClient.GetAsync($"api/v1/listings/ByTitle/{title}");
-
-            if (response.IsSuccessStatusCode)
-            {
-                var apiResponse = await response.Content.ReadFromJsonAsync<ListingViewModel>();
-                return apiResponse;
-
-   
-            }
-            else
-            {
-                // Log the error or throw an exception
-                var errorContent = await response.Content.ReadAsStringAsync();
-                Console.WriteLine($"Error getting listing by title: {errorContent}");
-                throw new ApplicationException($"Error getting listing by title: {errorContent}");
+                Console.WriteLine($"JSON Deserialization Exception: {jsonEx.Message}");
+                throw;
             }
         }
     }

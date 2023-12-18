@@ -40,7 +40,7 @@ namespace RealEstate.API.Controllers
             return Ok(result);
         }
 
-        [HttpDelete("/delete/{listingId}")]
+        [HttpDelete("listings/delete/{listingId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(Guid listingId)
@@ -53,7 +53,7 @@ namespace RealEstate.API.Controllers
             }
             return Ok(result.Message);
         }
-        [HttpPut("/update/{listingTitle}")]
+        [HttpPut("/listings/update/{listingTitle}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Update(string listingTitle, UpdateListingCommand command)

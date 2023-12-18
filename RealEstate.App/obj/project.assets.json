@@ -2776,19 +2776,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ycarp\\.nuget\\packages\\": {}
+    "C:\\Users\\andim\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ycarp\\Desktop\\UPDATEEE\\Real-Estate-Property-Listing-Project\\RealEstate.App\\RealEstate.App.csproj",
+      "projectUniqueName": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\RealEstate.App.csproj",
       "projectName": "RealEstate.App",
-      "projectPath": "C:\\Users\\ycarp\\Desktop\\UPDATEEE\\Real-Estate-Property-Listing-Project\\RealEstate.App\\RealEstate.App.csproj",
-      "packagesPath": "C:\\Users\\ycarp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ycarp\\Desktop\\UPDATEEE\\Real-Estate-Property-Listing-Project\\RealEstate.App\\obj\\",
+      "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\RealEstate.App.csproj",
+      "packagesPath": "C:\\Users\\andim\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ycarp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\andim\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
