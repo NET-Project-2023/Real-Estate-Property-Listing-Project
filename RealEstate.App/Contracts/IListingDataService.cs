@@ -7,7 +7,7 @@ namespace RealEstate.App.Contracts
     {
         Task<List<ListingViewModel>> GetListingsAsync();
         Task<ListingViewModel> GetListingByIdAsync(Guid id);
-        Task<ApiResponse<Guid>> CreateListingAsync(ListingViewModel listingViewModel);
+        Task<ApiResponse<ListingViewModel>> CreateListingAsync(ListingViewModel listingViewModel);
         //Task<ApiResponse<ListingViewModel>> UpdateListingAsync(ListingViewModel listingViewModel);
         //Task<ApiResponse<Guid>> DeleteListingAsync(Guid id);
     }

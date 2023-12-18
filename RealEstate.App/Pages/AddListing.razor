@@ -103,20 +103,23 @@
     private async Task HandleValidSubmit()
     {
         var result = await ListingDataService.CreateListingAsync(ListingViewModel);
+        Console.WriteLine("RESULT ok?");
         if (result.IsSuccess)
         {
             Message = "Listing created successfully";
-            NavigationManager.NavigateTo("/listingoverview");
+            Console.WriteLine("MESAJ INAINTE: " + Message);
+            // Schedule the navigation on the next render cycle
+            await InvokeAsync(() => NavigationManager.NavigateTo("/listingoverview"));
         }
         else
         {
-            Message = result.Message; // Here, use the correct property 'Message' instead of 'E'
+            Message = result.Message; 
+            Console.WriteLine("Error Message: " + Message); // Add this line to check the error message
         }
     }
 
     private void Cancel()
     {
-        // Consider adding a confirmation dialog or message before navigating
         NavigationManager.NavigateTo("/listingoverview");
     }
 }

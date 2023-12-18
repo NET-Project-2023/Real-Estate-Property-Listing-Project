@@ -39,22 +39,26 @@ namespace RealEstate.App.Services
 
             return listings!;
         }
-        public async Task<ApiResponse<Guid>> CreateListingAsync(ListingViewModel listingViewModel)
+        public async Task<ApiResponse<ListingViewModel>> CreateListingAsync(ListingViewModel listingViewModel)
         {
             httpClient.DefaultRequestHeaders.Authorization =
                 new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
 
             var response = await httpClient.PostAsJsonAsync(RequestUri, listingViewModel);
-
+            response.EnsureSuccessStatusCode();
+            Console.WriteLine($"RESPONSE TATI: {response.StatusCode}"); // Aici da ok
             if (response.IsSuccessStatusCode)
             {
-                var apiResponse = await response.Content.ReadFromJsonAsync<ApiResponse<Guid>>();
-                return apiResponse;
+                var apiResponse = await response.Content.ReadFromJsonAsync<ApiResponse<ListingViewModel>>();
+                apiResponse!.IsSuccess = response.IsSuccessStatusCode;
+                return apiResponse!;
             }
             else
             {
+                // Aici nu intra
                 var errorContent = await response.Content.ReadAsStringAsync();
-                return new ApiResponse<Guid>
+                
+                return new ApiResponse<ListingViewModel>
                 {
                     IsSuccess = false,
                     Message = "There was an error creating the listing.",
