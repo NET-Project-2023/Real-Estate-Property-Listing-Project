@@ -4,7 +4,6 @@ namespace Real_estate.Application.Features.Properties.Commands.UpdateProperty
 {
     public class UpdatePropertyCommand : IRequest<UpdatePropertyCommandResponse>
     {
-        public Guid PropertyId { get; set; }
         public string? Title { get; set; } // Optional update
         public string? Description { get; set; } // Optional update
         public string? Address { get; set; } // Optional update

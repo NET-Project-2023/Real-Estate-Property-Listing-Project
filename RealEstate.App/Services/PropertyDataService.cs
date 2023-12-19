@@ -106,20 +106,49 @@ namespace RealEstate.App.Services
             var property = response?.Property ?? new PropertyViewModel();
             return property!;
         }
-        public async Task<PropertyViewModel> GetPropertyByNameAsync(string propertyName)
+       public async Task<PropertyDto> GetPropertyByNameAsync(string propertyName)
+{
+    // Ensure the token is included in the request headers
+    httpClient.DefaultRequestHeaders.Authorization =
+        new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
+
+    var response = await httpClient.GetAsync($"{RequestUri}/ByName/{propertyName}");
+    if (!response.IsSuccessStatusCode)
+    {
+        throw new HttpRequestException($"Error fetching property: {response.ReasonPhrase}");
+    }
+
+    var propertyDto = await response.Content.ReadFromJsonAsync<PropertyDto>();
+    return propertyDto ?? new PropertyDto();
+}
+
+        public async Task<ApiResponse<PropertyDto>> UpdatePropertyAsync(PropertyDto propertyDto)
         {
-            // Ensure the token is included in the request headers
-            httpClient.DefaultRequestHeaders.Authorization =
-                new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
+            string jsonPayload = JsonSerializer.Serialize(propertyDto);
+            Console.WriteLine($"Sending JSON Payload: {jsonPayload}");
 
-            var response = await httpClient.GetAsync($"{RequestUri}/ByName/{propertyName}");
-            if (!response.IsSuccessStatusCode)
+            var token = await tokenService.GetTokenAsync();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            // Ensure the URL matches the server-side expectation
+            string requestUri = $"api/v1/properties/{propertyDto.title}";
+
+            var response = await httpClient.PutAsJsonAsync(requestUri, propertyDto);
+
+            if (response.IsSuccessStatusCode)
             {
-                throw new HttpRequestException($"Error fetching property: {response.ReasonPhrase}");
+                var apiResponse = await response.Content.ReadFromJsonAsync<ApiResponse<PropertyDto>>();
+                return apiResponse ?? new ApiResponse<PropertyDto> { IsSuccess = true };
             }
-
-            var property = await response.Content.ReadFromJsonAsync<PropertyViewModel>();
-            return property ?? new PropertyViewModel();
+            else
+            {
+                var errorContent = await response.Content.ReadAsStringAsync();
+                return new ApiResponse<PropertyDto>
+                {
+                    IsSuccess = false,
+                    Message = "Failed to update property: " + errorContent
+                };
+            }
         }
     }
 }

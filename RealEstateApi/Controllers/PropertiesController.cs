@@ -6,11 +6,19 @@ using Real_estate.Application.Features.Properties.Commands.UpdateProperty;
 using Real_estate.Application.Features.Properties.Queries.GetAll;
 using Real_estate.Application.Features.Properties.Queries.GetById;
 using Real_estate.Application.Features.Properties.Queries.GetByName;
+using System.Text.Json;
 
 namespace RealEstate.API.Controllers
 {
+
     public class PropertiesController : ApiControllerBase
     {
+        private readonly ILogger<PropertiesController> _logger;
+        public PropertiesController(ILogger<PropertiesController> logger)
+        {
+            _logger = logger;
+        }
+
         [Authorize(Roles = "User")]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -67,22 +75,30 @@ namespace RealEstate.API.Controllers
             return Ok(result.Message);
         }
         [Authorize(Roles = "User")]
-        [HttpPut("{propertyId}")]
+        [HttpPut("{title}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Update(Guid propertyId, UpdatePropertyCommand command)
+        public async Task<IActionResult> Update(string title, UpdatePropertyCommand command)
         {
-            if (propertyId != command.PropertyId)
+            _logger.LogInformation($"Received update request for title: {title} with command: {JsonSerializer.Serialize(command)}");
+
+            if (title != command.Title)
             {
+                _logger.LogWarning("Property ID mismatch. Provided title: {ProvidedTitle}, Command title: {CommandTitle}", title, command.Title);
                 return BadRequest("Property ID mismatch.");
             }
 
             var result = await Mediator.Send(command);
+
+            _logger.LogInformation("Update command result: Success = {Success}, Message = {Message}", result.Success, result.Message);
+
             if (!result.Success)
             {
+                _logger.LogWarning("Update command failed: {Message}", result.Message);
                 return BadRequest(result.Message);
             }
 
+            _logger.LogInformation("Property updated successfully: {Title}", command.Title);
             return Ok(result.Message);
         }
     }
