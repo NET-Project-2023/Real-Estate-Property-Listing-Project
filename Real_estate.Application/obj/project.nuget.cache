@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "GcHrPiKV5dARt8n7spcJ0es2IEn7H534kQi6u/is7tKnVMjQKmGgUEtfMmDOPLla6nfHJNy44NuI+aiODUaskg==",
+  "dgSpecHash": "YufhgYdy4w+jMpJTtLcibgeTzaa36AGhPM7MDaG8VkaSxGZV5Mft2WLuc/XfLhaqILTWgii/WdMxadv0dhWTCQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Andrada\\Documents\\GitHub\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj",
+  "projectFilePath": "C:\\Users\\Andrada\\Desktop\\.net\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Andrada\\.nuget\\packages\\fluentvalidation\\11.8.0\\fluentvalidation.11.8.0.nupkg.sha512",
-    "C:\\Users\\Andrada\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.8.0\\fluentvalidation.dependencyinjectionextensions.11.8.0.nupkg.sha512",
-    "C:\\Users\\Andrada\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
+    "C:\\Users\\Andrada\\.nuget\\packages\\fluentvalidation\\11.8.1\\fluentvalidation.11.8.1.nupkg.sha512",
+    "C:\\Users\\Andrada\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.8.1\\fluentvalidation.dependencyinjectionextensions.11.8.1.nupkg.sha512",
+    "C:\\Users\\Andrada\\.nuget\\packages\\mediatr\\12.2.0\\mediatr.12.2.0.nupkg.sha512",
     "C:\\Users\\Andrada\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
-    "C:\\Users\\Andrada\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+    "C:\\Users\\Andrada\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
   ],
   "logs": []
 }

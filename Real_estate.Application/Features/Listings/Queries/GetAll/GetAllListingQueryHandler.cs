@@ -1,18 +1,12 @@
 ﻿using MediatR;
-using Real_estate.Application.Features.Properties.Queries.GetAll;
-using Real_estate.Application.Features.Properties.Queries;
 using Real_estate.Application.Persistence;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Real_estate.Application.Features.Listings.Queries.GetAll
 {
     public class GetAllListingQueryHandler : IRequestHandler<GetAllListingQuery, GetAllListingResponse>
     {
         private readonly IListingRepository repository;
+        // Trebuie user identity
 
         public GetAllListingQueryHandler(IListingRepository repository)
         {
@@ -26,12 +20,15 @@ namespace Real_estate.Application.Features.Listings.Queries.GetAll
             if (result.IsSuccess)
             {
                 response.Listings = result.Value.Select(c => new ListingDto
-                {  
-                    ListingId= c.ListingId,
-                    Title= c.Title,
-                    UserId=c.UserId,
-                    PropertyId = c.PropertyId,
-                   Description= c.Description
+                {
+                    ListingId = c.ListingId,
+                    Title = c.Title,
+                    Username = c.Username,
+                    PropertyName = c.PropertyName,
+                    Description = c.Description,
+                    PropertyStatus = c.PropertyStatus,
+                    Price = c.Price
+                    
                 }).ToList();
             }
             return response;

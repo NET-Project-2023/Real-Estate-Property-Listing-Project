@@ -1,4 +1,3 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
@@ -28,7 +27,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{FF2C3009-C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Real_estate.Application", "Real_estate.Application\Real_estate.Application.csproj", "{210C2C32-1CBF-4262-9E05-5E41571D5721}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstate.API", "RealEstateApi\RealEstate.API.csproj", "{A03AE7CD-1582-47CB-9244-BEB963DC7E99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstate.API", "RealEstateApi\RealEstate.API.csproj", "{A03AE7CD-1582-47CB-9244-BEB963DC7E99}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identity", "Identity\Identity.csproj", "{B4315A94-71ED-4981-895F-5192DF8CCF73}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstate.App", "RealEstate.App\RealEstate.App.csproj", "{A1A3C497-D87A-4C18-BCAD-2F351AFB693D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Real_estate.Domain.Tests", "Real_estate.Domain.Texts\Real_estate.Domain.Tests.csproj", "{81C39D3F-6249-4394-9051-AA1D78FA3511}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,6 +57,18 @@ Global
 		{A03AE7CD-1582-47CB-9244-BEB963DC7E99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A03AE7CD-1582-47CB-9244-BEB963DC7E99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A03AE7CD-1582-47CB-9244-BEB963DC7E99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4315A94-71ED-4981-895F-5192DF8CCF73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4315A94-71ED-4981-895F-5192DF8CCF73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4315A94-71ED-4981-895F-5192DF8CCF73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4315A94-71ED-4981-895F-5192DF8CCF73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1A3C497-D87A-4C18-BCAD-2F351AFB693D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1A3C497-D87A-4C18-BCAD-2F351AFB693D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1A3C497-D87A-4C18-BCAD-2F351AFB693D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1A3C497-D87A-4C18-BCAD-2F351AFB693D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81C39D3F-6249-4394-9051-AA1D78FA3511}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81C39D3F-6249-4394-9051-AA1D78FA3511}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81C39D3F-6249-4394-9051-AA1D78FA3511}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81C39D3F-6249-4394-9051-AA1D78FA3511}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +84,9 @@ Global
 		{D370C1CD-0826-48EB-ABC2-5BDE07693145} = {5AF75852-2642-4996-817B-E384B3742F7C}
 		{210C2C32-1CBF-4262-9E05-5E41571D5721} = {8AD51C42-C57D-4098-BC03-0C3E9E3E9B4C}
 		{A03AE7CD-1582-47CB-9244-BEB963DC7E99} = {372CA947-4C05-4F54-BCEA-BB38ABAFD311}
+		{B4315A94-71ED-4981-895F-5192DF8CCF73} = {5AF75852-2642-4996-817B-E384B3742F7C}
+		{A1A3C497-D87A-4C18-BCAD-2F351AFB693D} = {DCA7AB83-1399-4109-8576-D33C70A70D97}
+		{81C39D3F-6249-4394-9051-AA1D78FA3511} = {FF2C3009-CB5C-42BB-8117-CACB0B89EA9C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F10BB791-E26F-47A5-8B36-C0F42F7C3E0D}

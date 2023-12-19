@@ -1,0 +1,48 @@
+﻿@page "/findproperty"
+@using RealEstate.App.Contracts
+@using RealEstate.App.ViewModels
+
+@inject IPropertyDataService PropertyDataService
+
+<h3>Find Property</h3>
+
+<div class="row mb-2">
+    <div class="col-md-6">
+        <input @bind="PropertyName" class="form-control" placeholder="Enter property name" />
+    </div>
+    <div class="col-md-6">
+        <button @onclick="SearchProperty" class="btn btn-primary">Search</button>
+    </div>
+</div>
+
+@if (Property != null)
+{
+    <div class="card mt-3">
+        <div class="card-body">
+            <h5 class="card-title">@Property.Title</h5>
+            <p class="card-text">@Property.Description</p>
+            <p class="card-text"><strong>Address:</strong> @Property.Address</p>
+            <p class="card-text"><strong>Size:</strong> @Property.Size</p>
+            <p class="card-text"><strong>Price:</strong> @Property.Price</p>
+            <p class="card-text"><strong>Bedrooms:</strong> @Property.NumberOfBedrooms</p>
+            <p class="card-text"><strong>Bathrooms:</strong> @Property.NumberOfBathrooms</p>
+            <!-- Add more property details as needed -->
+        </div>
+    </div>
+}
+else if (SearchAttempted)
+{
+    <p>No property found with the name '@PropertyName'.</p>
+}
+
+@code {
+    private string PropertyName { get; set; } = string.Empty;
+    private PropertyViewModel Property { get; set; }
+    private bool SearchAttempted { get; set; } = false;
+
+    private async Task SearchProperty()
+    {
+        SearchAttempted = true;
+        Property = await PropertyDataService.GetPropertyByNameAsync(PropertyName);
+    }
+}

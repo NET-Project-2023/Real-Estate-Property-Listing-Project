@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Andrada\\Documents\\GitHub\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj": {}
+    "C:\\Users\\Andrada\\Desktop\\.net\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Andrada\\Documents\\GitHub\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj": {
+    "C:\\Users\\Andrada\\Desktop\\.net\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Andrada\\Documents\\GitHub\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj",
+        "projectUniqueName": "C:\\Users\\Andrada\\Desktop\\.net\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj",
         "projectName": "Real_estate.Application",
-        "projectPath": "C:\\Users\\Andrada\\Documents\\GitHub\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj",
+        "projectPath": "C:\\Users\\Andrada\\Desktop\\.net\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj",
         "packagesPath": "C:\\Users\\Andrada\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Andrada\\Documents\\GitHub\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\obj\\",
+        "outputPath": "C:\\Users\\Andrada\\Desktop\\.net\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -22,7 +22,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -30,11 +30,11 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Andrada\\Documents\\GitHub\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj": {
-                "projectPath": "C:\\Users\\Andrada\\Documents\\GitHub\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj"
+              "C:\\Users\\Andrada\\Desktop\\.net\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj": {
+                "projectPath": "C:\\Users\\Andrada\\Desktop\\.net\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj"
               }
             }
           }
@@ -46,20 +46,20 @@
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "FluentValidation": {
               "target": "Package",
-              "version": "[11.8.0, )"
+              "version": "[11.8.1, )"
             },
             "FluentValidation.DependencyInjectionExtensions": {
               "target": "Package",
-              "version": "[11.8.0, )"
+              "version": "[11.8.1, )"
             },
             "MediatR": {
               "target": "Package",
-              "version": "[12.1.1, )"
+              "version": "[12.2.0, )"
             }
           },
           "imports": [
@@ -78,18 +78,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Andrada\\Documents\\GitHub\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj": {
+    "C:\\Users\\Andrada\\Desktop\\.net\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Andrada\\Documents\\GitHub\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Andrada\\Desktop\\.net\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj",
         "projectName": "Real_estate.Domain",
-        "projectPath": "C:\\Users\\Andrada\\Documents\\GitHub\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj",
+        "projectPath": "C:\\Users\\Andrada\\Desktop\\.net\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj",
         "packagesPath": "C:\\Users\\Andrada\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Andrada\\Documents\\GitHub\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Andrada\\Desktop\\.net\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -100,7 +100,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -108,8 +108,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -120,8 +120,8 @@
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "imports": [
             "net461",
             "net462",
@@ -138,7 +138,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

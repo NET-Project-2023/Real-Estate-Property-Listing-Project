@@ -1,0 +1,110 @@
+﻿@page "/addproperty"
+@using RealEstate.App.Contracts
+@using RealEstate.App.ViewModels
+
+<h3>New Property</h3>
+
+<EditForm Model="@PropertyViewModel" OnValidSubmit="@HandleValidSubmit">
+
+    <DataAnnotationsValidator />
+    <ValidationSummary></ValidationSummary>
+
+    <div class="row mb-3 ms-2">
+        <label for="title" class="col-sm-3 form-label">Property title:</label>
+        <div class="col-sm-5">
+            <InputText id="title" class="form-control" @bind-Value="@PropertyViewModel.Title" placeholder="Enter property name"></InputText>
+            <ValidationMessage For="@(() => PropertyViewModel.Title)" />
+        </div>
+    </div>
+
+    <div class="row mb-3 ms-2">
+        <label for="address" class="col-sm-3 form-label">Address:</label>
+        <div class="col-sm-5">
+            <InputText id="address" class="form-control" @bind-Value="@PropertyViewModel.Address" placeholder="Enter property address"></InputText>
+            <ValidationMessage For="@(() => PropertyViewModel.Address)" />
+        </div>
+    </div>
+
+    <div class="row mb-3 ms-2">
+        <label for="size" class="col-sm-3 form-label">Size:</label>
+        <div class="col-sm-5">
+            <InputNumber id="size" class="form-control" @bind-Value="@PropertyViewModel.Size"></InputNumber>
+            <ValidationMessage For="@(() => PropertyViewModel.Size)" />
+        </div>
+    </div>
+
+    <div class="row mb-3 ms-2">
+        <label for="price" class="col-sm-3 form-label">Price:</label>
+        <div class="col-sm-5">
+            <InputNumber id="price" class="form-control" @bind-Value="@PropertyViewModel.Price"></InputNumber>
+            <ValidationMessage For="@(() => PropertyViewModel.Price)" />
+        </div>
+    </div>
+
+    <div class="row mb-3 ms-2">
+        <label for="numberOfBedrooms" class="col-sm-3 form-label">Number of Bedrooms:</label>
+        <div class="col-sm-5">
+            <InputNumber id="numberOfBedrooms" class="form-control" @bind-Value="@PropertyViewModel.NumberOfBedrooms"></InputNumber>
+            <ValidationMessage For="@(() => PropertyViewModel.NumberOfBedrooms)" />
+        </div>
+    </div>
+
+    <div class="row mb-3 ms-2">
+        <label for="numberOfBathrooms" class="col-sm-3 form-label">Number of Bathrooms:</label>
+        <div class="col-sm-5">
+            <InputNumber id="numberOfBathrooms" class="form-control" @bind-Value="@PropertyViewModel.NumberOfBathrooms"></InputNumber>
+            <ValidationMessage For="@(() => PropertyViewModel.NumberOfBathrooms)" />
+        </div>
+    </div>
+
+    <div class="row mb-3 ms-2">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-5">
+            <button type="submit" class="btn btn-success me-2">Save property</button>
+            <button class="btn btn-secondary" @onclick="Cancel">Cancel</button>
+        </div>
+    </div>
+</EditForm>
+
+@if (!string.IsNullOrWhiteSpace(Message))
+{
+    <div class="alert alert-info ms-2">
+        @Message
+    </div>
+}
+
+@code {
+    [Inject]
+    public IPropertyDataService PropertyDataService { get; set; }
+
+    [Inject]
+    public NavigationManager NavigationManager { get; set; }
+
+    public PropertyViewModel PropertyViewModel { get; set; } = new PropertyViewModel();
+
+    public string Message { get; set; }
+
+    private async Task HandleValidSubmit()
+    {
+        var result = await PropertyDataService.CreatePropertyAsync(PropertyViewModel);
+        if (result.IsSuccess)
+        {
+            Message = "Property created successfully";
+            NavigationManager.NavigateTo("/propertyoverview");
+        }
+        else
+        {
+            Message = result.Message;
+            if (!string.IsNullOrWhiteSpace(result.ValidationErrors))
+            {
+                Message += result.ValidationErrors;
+            }
+        }
+    }
+
+    private void Cancel()
+    {
+        // Consider adding a confirmation dialog or message before navigating
+        NavigationManager.NavigateTo("/propertyoverview");
+    }
+}

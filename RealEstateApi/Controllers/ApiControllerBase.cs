@@ -1,9 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GlobalBuyTicket.API.Controllers
+namespace RealEstate.API.Controllers
 {
-    [Route("api/v2/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class ApiControllerBase : ControllerBase
     {

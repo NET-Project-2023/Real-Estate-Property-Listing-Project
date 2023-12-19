@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Real_estate.Application.Contracts;
 using Real_estate.Application.Persistence;
 
 namespace Infrastructure
@@ -22,11 +21,13 @@ namespace Infrastructure
                     builder.MigrationsAssembly(
                         typeof(RealEstateContext)
                         .Assembly.FullName)));
+
             services.AddScoped
                 (typeof(IAsyncRepository<>),
                 typeof(BaseRepository<>));
-            services.AddScoped<IUserRepository, UserRepository>();
+
             services.AddScoped<IPropertyRepository, PropertyRepository>();
+            services.AddScoped<IListingRepository, ListingRepository>();
             return services;
         }
     }

@@ -1,0 +1,77 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Andrada\\Downloads\\Real-Estate-Property-Listing-Project-RefactorizareBD\\RealEstate.App\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "C:\\Users\\Andrada\\Downloads\\Real-Estate-Property-Listing-Project-RefactorizareBD\\RealEstate.App\\obj\\Debug\\net8.0\\compressed\\0y46wi6jol.gz",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "C:\\Users\\Andrada\\Downloads\\Real-Estate-Property-Listing-Project-RefactorizareBD\\RealEstate.App\\obj\\Debug\\net8.0\\scopedcss\\bundle\\RealEstate.App.styles.css",
+      "PackagePath": "staticwebassets\\RealEstate.App.styles.css"
+    },
+    {
+      "Id": "C:\\Users\\Andrada\\Downloads\\Real-Estate-Property-Listing-Project-RefactorizareBD\\RealEstate.App\\obj\\Debug\\net8.0\\service-worker-assets.js",
+      "PackagePath": "staticwebassets\\service-worker-assets.js"
+    },
+    {
+      "Id": "C:\\Users\\Andrada\\Downloads\\Real-Estate-Property-Listing-Project-RefactorizareBD\\RealEstate.App\\obj\\Debug\\net8.0\\service-worker\\service-worker.published.js",
+      "PackagePath": "staticwebassets\\service-worker.js"
+    },
+    {
+      "Id": "C:\\Users\\Andrada\\Downloads\\Real-Estate-Property-Listing-Project-RefactorizareBD\\RealEstate.App\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\Andrada\\Downloads\\Real-Estate-Property-Listing-Project-RefactorizareBD\\RealEstate.App\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Andrada\\Downloads\\Real-Estate-Property-Listing-Project-RefactorizareBD\\RealEstate.App\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Andrada\\Downloads\\Real-Estate-Property-Listing-Project-RefactorizareBD\\RealEstate.App\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\Andrada\\Downloads\\Real-Estate-Property-Listing-Project-RefactorizareBD\\RealEstate.App\\wwwroot\\icon-192.png",
+      "PackagePath": "staticwebassets\\icon-192.png"
+    },
+    {
+      "Id": "C:\\Users\\Andrada\\Downloads\\Real-Estate-Property-Listing-Project-RefactorizareBD\\RealEstate.App\\wwwroot\\icon-512.png",
+      "PackagePath": "staticwebassets\\icon-512.png"
+    },
+    {
+      "Id": "C:\\Users\\Andrada\\Downloads\\Real-Estate-Property-Listing-Project-RefactorizareBD\\RealEstate.App\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\Andrada\\Downloads\\Real-Estate-Property-Listing-Project-RefactorizareBD\\RealEstate.App\\wwwroot\\manifest.webmanifest",
+      "PackagePath": "staticwebassets\\manifest.webmanifest"
+    },
+    {
+      "Id": "C:\\Users\\Andrada\\Downloads\\Real-Estate-Property-Listing-Project-RefactorizareBD\\RealEstate.App\\wwwroot\\sample-data\\weather.json",
+      "PackagePath": "staticwebassets\\sample-data\\weather.json"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.RealEstate.App.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.RealEstate.App.props",
+      "PackagePath": "build\\RealEstate.App.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.RealEstate.App.props",
+      "PackagePath": "buildMultiTargeting\\RealEstate.App.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.RealEstate.App.props",
+      "PackagePath": "buildTransitive\\RealEstate.App.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
