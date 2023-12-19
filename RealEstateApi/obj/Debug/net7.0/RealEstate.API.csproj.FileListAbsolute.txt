@@ -51,3 +51,13 @@ C:\Users\ycarp\Desktop\Real-Estate\Real-Estate-Property-Listing-Project\RealEsta
 C:\Users\ycarp\Desktop\Real-Estate\Real-Estate-Property-Listing-Project\RealEstateApi\bin\Debug\net7.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Users\ycarp\Desktop\Real-Estate\Real-Estate-Property-Listing-Project\RealEstateApi\bin\Debug\net7.0\Infrastructure.dll
 C:\Users\ycarp\Desktop\Real-Estate\Real-Estate-Property-Listing-Project\RealEstateApi\bin\Debug\net7.0\Infrastructure.pdb
+C:\Users\Andrada\Documents\GitHub\Real-Estate-Property-Listing-Project\RealEstateApi\obj\Debug\net7.0\RealEstate.API.csproj.AssemblyReference.cache
+C:\Users\Andrada\Documents\GitHub\Real-Estate-Property-Listing-Project\RealEstateApi\obj\Debug\net7.0\RealEstate.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Andrada\Documents\GitHub\Real-Estate-Property-Listing-Project\RealEstateApi\obj\Debug\net7.0\RealEstate.API.AssemblyInfoInputs.cache
+C:\Users\Andrada\Documents\GitHub\Real-Estate-Property-Listing-Project\RealEstateApi\obj\Debug\net7.0\RealEstate.API.AssemblyInfo.cs
+C:\Users\Andrada\Documents\GitHub\Real-Estate-Property-Listing-Project\RealEstateApi\obj\Debug\net7.0\RealEstate.API.csproj.CoreCompileInputs.cache
+C:\Users\Andrada\Documents\GitHub\Real-Estate-Property-Listing-Project\RealEstateApi\obj\Debug\net7.0\RealEstate.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Andrada\Documents\GitHub\Real-Estate-Property-Listing-Project\RealEstateApi\obj\Debug\net7.0\RealEstate.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Andrada\Documents\GitHub\Real-Estate-Property-Listing-Project\RealEstateApi\obj\Debug\net7.0\RealEstate.API.dll
+C:\Users\Andrada\Documents\GitHub\Real-Estate-Property-Listing-Project\RealEstateApi\obj\Debug\net7.0\refint\RealEstate.API.dll
+C:\Users\Andrada\Documents\GitHub\Real-Estate-Property-Listing-Project\RealEstateApi\obj\Debug\net7.0\RealEstate.API.pdb

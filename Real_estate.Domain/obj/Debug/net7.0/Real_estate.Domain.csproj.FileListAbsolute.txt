@@ -42,3 +42,14 @@ C:\Users\ycarp\Desktop\Real-Estate\Real-Estate-Property-Listing-Project\Real_est
 C:\Users\ycarp\Desktop\Real-Estate\Real-Estate-Property-Listing-Project\Real_estate.Domain\obj\Debug\net7.0\refint\Real_estate.Domain.dll
 C:\Users\ycarp\Desktop\Real-Estate\Real-Estate-Property-Listing-Project\Real_estate.Domain\obj\Debug\net7.0\Real_estate.Domain.pdb
 C:\Users\ycarp\Desktop\Real-Estate\Real-Estate-Property-Listing-Project\Real_estate.Domain\obj\Debug\net7.0\ref\Real_estate.Domain.dll
+C:\Users\Andrada\Documents\GitHub\Real-Estate-Property-Listing-Project\Real_estate.Domain\bin\Debug\net7.0\Real_estate.Domain.deps.json
+C:\Users\Andrada\Documents\GitHub\Real-Estate-Property-Listing-Project\Real_estate.Domain\bin\Debug\net7.0\Real_estate.Domain.dll
+C:\Users\Andrada\Documents\GitHub\Real-Estate-Property-Listing-Project\Real_estate.Domain\bin\Debug\net7.0\Real_estate.Domain.pdb
+C:\Users\Andrada\Documents\GitHub\Real-Estate-Property-Listing-Project\Real_estate.Domain\obj\Debug\net7.0\Real_estate.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Andrada\Documents\GitHub\Real-Estate-Property-Listing-Project\Real_estate.Domain\obj\Debug\net7.0\Real_estate.Domain.AssemblyInfoInputs.cache
+C:\Users\Andrada\Documents\GitHub\Real-Estate-Property-Listing-Project\Real_estate.Domain\obj\Debug\net7.0\Real_estate.Domain.AssemblyInfo.cs
+C:\Users\Andrada\Documents\GitHub\Real-Estate-Property-Listing-Project\Real_estate.Domain\obj\Debug\net7.0\Real_estate.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Andrada\Documents\GitHub\Real-Estate-Property-Listing-Project\Real_estate.Domain\obj\Debug\net7.0\Real_estate.Domain.dll
+C:\Users\Andrada\Documents\GitHub\Real-Estate-Property-Listing-Project\Real_estate.Domain\obj\Debug\net7.0\refint\Real_estate.Domain.dll
+C:\Users\Andrada\Documents\GitHub\Real-Estate-Property-Listing-Project\Real_estate.Domain\obj\Debug\net7.0\Real_estate.Domain.pdb
+C:\Users\Andrada\Documents\GitHub\Real-Estate-Property-Listing-Project\Real_estate.Domain\obj\Debug\net7.0\ref\Real_estate.Domain.dll
