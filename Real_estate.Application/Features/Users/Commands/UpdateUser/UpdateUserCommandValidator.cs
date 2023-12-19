@@ -7,9 +7,6 @@ namespace Real_estate.Application.Features.Users.Commands.UpdateUser
     {
         public UpdateUserCommandValidator()
         {
-            RuleFor(x => x.UserId)
-                .NotEmpty().WithMessage("Id is required")
-                .NotNull().WithMessage("Id is required");
 
             RuleFor(x => x.Username)
                 .NotEmpty().WithMessage("Username is required")

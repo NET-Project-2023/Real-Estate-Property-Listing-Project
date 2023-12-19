@@ -16,13 +16,13 @@ namespace Real_estate.Application.Features.Users.Commands.UpdateUser
         {
             var response = new UpdateUserCommandResponse();
 
-            var user = await userRepository.FindByIdAsync(request.UserId);
+            var user = await userRepository.FindByUsernameAsync(request.Username);
             if (!user.IsSuccess)
             {
                 return new UpdateUserCommandResponse
                 {
                     Success = false,
-                    ValidationsErrors = new List<string> { "User with id this does not exists" }
+                    ValidationsErrors = new List<string> { "User with that Username does not exists" }
                 };
             }
             request.Name ??= user.Value.Name;
@@ -60,7 +60,6 @@ namespace Real_estate.Application.Features.Users.Commands.UpdateUser
             }
             UserDto userDto = new()
             {
-                UserId = user.Value.UserId,
                 Name = request.Name,
                 UserName = request.Username,
                 Email = request.Email,
@@ -82,7 +81,8 @@ namespace Real_estate.Application.Features.Users.Commands.UpdateUser
                     Name = result.Value.Name,
                     Username = result.Value.UserName,
                     Email = result.Value.Email,
-                }
+                    PhoneNumber = result.Value.PhoneNumber
+                }   
             };
         }
     }

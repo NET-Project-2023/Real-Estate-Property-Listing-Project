@@ -13,7 +13,7 @@ namespace Real_estate.Application.Features.Listings.Queries.GetById
         }
         public async Task<GetByIdUserQueryResponse> Handle(GetByIdUserQuery request, CancellationToken cancellationToken)
         {
-            var result = await userRepository.FindByIdAsync(request.UserId);
+            var result = await userRepository.FindByUsernameAsync(request.Name);
             if (!result.IsSuccess)
                 return new GetByIdUserQueryResponse { Success = false, Message = result.Error };
             var userDto = result.Value;

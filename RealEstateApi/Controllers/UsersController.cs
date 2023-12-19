@@ -29,11 +29,11 @@ namespace RealEstate.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("ById/{id}")]
+        [HttpGet("ByName/{name}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetUserById(string id)
+        public async Task<IActionResult> GetUserByName(string name)
         {
-            var query = new GetByIdUserQuery { UserId = id };
+            var query = new GetByIdUserQuery { Name = name };
             var result = await Mediator.Send(query);
             if (!result.Success)
             {
@@ -70,11 +70,11 @@ namespace RealEstate.API.Controllers
             }
             return Ok(result);
         }
-        [HttpPut("{id}")]
+        [HttpPut("update/{username}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<IActionResult> Update(string id, UpdateUserCommand command)
+        public async Task<IActionResult> Update(string username, UpdateUserCommand command)
         {
-            if (id != command.UserId)
+            if (username != command.Username)
             {
                 return BadRequest("The ids must be the same!");
             }

@@ -86,14 +86,14 @@ namespace Identity.Services
 
         public async Task<Result<UserDto>> UpdateAsync(UserDto userDto)
         {
-            var userToUpdate = await userManager.FindByIdAsync(userDto.UserId.ToString());
+            var userToUpdate = await userManager.FindByNameAsync(userDto.UserName.ToString());
             if (userToUpdate == null)
-                return Result<UserDto>.Failure($"User with id {userDto.UserId} not found");
+                return Result<UserDto>.Failure($"User with id {userDto.UserName} not found");
 
             UpdateUserProperties(userToUpdate, userDto);
 
             var updateResult = await userManager.UpdateAsync(userToUpdate);
-            return updateResult.Succeeded ? Result<UserDto>.Success(MapToUserDto(userToUpdate)) : Result<UserDto>.Failure($"User with id {userDto.UserId} not updated");
+            return updateResult.Succeeded ? Result<UserDto>.Success(MapToUserDto(userToUpdate)) : Result<UserDto>.Failure($"User with name {userDto.UserName} not updated");
         }
 
         //public async Task<bool> UserExistsAsync(string userId) 
