@@ -3,13 +3,13 @@ namespace RealEstate.App.ViewModels
 {
     public class PropertyDto
     {
-        public string title { get; set; }
-        public string? description { get; set; }
-        public string address { get; set; }
-        public int size { get; set; }
-        public int price { get; set; }
-        public int numberOfBedrooms { get; set; }
-        public int numberOfBathrooms { get; set; }
-        public List<byte[]> images { get; set; }
+        public string? Title { get; set; } 
+        public string? Description { get; set; } 
+        public string? Address { get; set; } 
+        public int? Size { get; set; } // Optional update
+        public int? Price { get; set; } // Optional update
+        public int? NumberOfBedrooms { get; set; } // Optional update
+        public int? NumberOfBathrooms { get; set; } // Optional update
+        public List<byte[]>? Images { get; set; } // Optional update
     }
 }

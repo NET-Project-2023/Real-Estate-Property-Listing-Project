@@ -25,7 +25,6 @@ namespace RealEstate.App.Services
         {
             try
             {
-                Console.WriteLine("HELLOOOOOOOOOOOOOOOOOOOOOOOO");
                 string loggedInUserId = await tokenService.GetUsernameFromTokenAsync();
                 if (string.IsNullOrEmpty(loggedInUserId))
                 {
@@ -124,30 +123,38 @@ namespace RealEstate.App.Services
 
         public async Task<ApiResponse<PropertyDto>> UpdatePropertyAsync(PropertyDto propertyDto)
         {
-            string jsonPayload = JsonSerializer.Serialize(propertyDto);
-            Console.WriteLine($"Sending JSON Payload: {jsonPayload}");
+            //string jsonPayload = JsonSerializer.Serialize(propertyDto);
+            //Console.WriteLine($"Sending JSON Payload: {jsonPayload}");
 
             var token = await tokenService.GetTokenAsync();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             // Ensure the URL matches the server-side expectation
-            string requestUri = $"api/v1/properties/{propertyDto.title}";
+            string requestUri = $"api/v1/Properties/update/{propertyDto.Title}";
+            propertyDto.Images = new List<byte[]> { new byte[0] };
 
             var response = await httpClient.PutAsJsonAsync(requestUri, propertyDto);
 
-            if (response.IsSuccessStatusCode)
+            // Log the response content
+            var responseContent = await response.Content.ReadAsStringAsync();
+            Console.WriteLine($"Response Content: {responseContent}");
+
+            if (!response.IsSuccessStatusCode)
             {
-                var apiResponse = await response.Content.ReadFromJsonAsync<ApiResponse<PropertyDto>>();
-                return apiResponse ?? new ApiResponse<PropertyDto> { IsSuccess = true };
+                throw new ApplicationException($"Error updating listing: {responseContent}");
             }
-            else
+
+            try
             {
-                var errorContent = await response.Content.ReadAsStringAsync();
-                return new ApiResponse<PropertyDto>
-                {
-                    IsSuccess = false,
-                    Message = "Failed to update property: " + errorContent
-                };
+                // Attempt to deserialize the response content to your ApiResponse object
+                var apiResponse = JsonSerializer.Deserialize<ApiResponse<PropertyDto>>(responseContent);
+                apiResponse!.IsSuccess = response.IsSuccessStatusCode;
+                return apiResponse;
+            }
+            catch (JsonException jsonEx)
+            {
+                Console.WriteLine($"JSON Deserialization Exception: {jsonEx.Message}");
+                throw;
             }
         }
     }

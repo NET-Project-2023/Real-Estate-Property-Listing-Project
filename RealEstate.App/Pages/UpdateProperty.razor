@@ -21,37 +21,37 @@
         <!-- Description -->
         <div class="form-group">
             <label for="description">Description:</label>
-            <InputTextArea id="description" class="form-control" @bind-Value="@UpdatePropertyDto.description" />
+            <InputTextArea id="description" class="form-control" @bind-Value="@UpdatePropertyDto.Description" />
         </div>
 
         <!-- Address -->
         <div class="form-group">
             <label for="address">Address:</label>
-            <InputText id="address" class="form-control" @bind-Value="@UpdatePropertyDto.address" />
+            <InputText id="address" class="form-control" @bind-Value="@UpdatePropertyDto.Address" />
         </div>
 
         <!-- Size -->
         <div class="form-group">
             <label for="size">Size (sq ft):</label>
-            <InputNumber id="size" class="form-control" @bind-Value="@UpdatePropertyDto.size" />
+            <InputNumber id="size" class="form-control" @bind-Value="@UpdatePropertyDto.Size" />
         </div>
 
         <!-- Price -->
         <div class="form-group">
             <label for="price">Price ($):</label>
-            <InputNumber id="price" class="form-control" @bind-Value="@UpdatePropertyDto.price" />
+            <InputNumber id="price" class="form-control" @bind-Value="@UpdatePropertyDto.Price" />
         </div>
 
         <!-- Number of Bedrooms -->
         <div class="form-group">
             <label for="bedrooms">Number of Bedrooms:</label>
-            <InputNumber id="bedrooms" class="form-control" @bind-Value="@UpdatePropertyDto.numberOfBedrooms" />
+            <InputNumber id="bedrooms" class="form-control" @bind-Value="@UpdatePropertyDto.NumberOfBedrooms" />
         </div>
 
         <!-- Number of Bathrooms -->
         <div class="form-group">
             <label for="bathrooms">Number of Bathrooms:</label>
-            <InputNumber id="bathrooms" class="form-control" @bind-Value="@UpdatePropertyDto.numberOfBathrooms" />
+            <InputNumber id="bathrooms" class="form-control" @bind-Value="@UpdatePropertyDto.NumberOfBathrooms" />
         </div>
 
         <!-- Submit Button -->
@@ -88,8 +88,8 @@ else
 
     private async Task HandleValidSubmit()
     {
-        UpdatePropertyDto.images = new List<byte[]>(); // Assuming this is the desired behavior
-        UpdatePropertyDto.title = UpdatePropertyDto.title.Trim();
+        UpdatePropertyDto.Images = new List<byte[]>(); // Assuming this is the desired behavior
+        UpdatePropertyDto.Title = UpdatePropertyDto.Title.Trim();
 
         var result = await PropertyDataService.UpdatePropertyAsync(UpdatePropertyDto);
         if (result.IsSuccess)

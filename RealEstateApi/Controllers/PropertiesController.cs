@@ -75,7 +75,7 @@ namespace RealEstate.API.Controllers
             return Ok(result.Message);
         }
         [Authorize(Roles = "User")]
-        [HttpPut("{title}")]
+        [HttpPut("update/{title}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Update(string title, UpdatePropertyCommand command)
