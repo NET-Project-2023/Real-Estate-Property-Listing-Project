@@ -4,7 +4,7 @@ namespace Real_estate.Domain.Entities
 {
     public class Property : AuditableEntity
     {
-        private Property(string title, string address, int size, int price, string userId, int numberOfBedrooms)
+        public Property(string title, string address, int size, int price, string userId, int numberOfBedrooms)
         {
             PropertyId = Guid.NewGuid();
             Title = title;
@@ -30,13 +30,40 @@ namespace Real_estate.Domain.Entities
         public static Result<Property> Create(string title, string address, int size, int price, string ownerUniqueName, int numberOfBedrooms)
         {
             // Create the property
+            if (string.IsNullOrWhiteSpace(title))
+            {
+                return Result<Property>.Failure("Title is required.");
+            }
+
+            if (string.IsNullOrWhiteSpace(address))
+            {
+                return Result<Property>.Failure("Address is required.");
+            }
+            if (size <= 0)
+            {
+                return Result<Property>.Failure("Size must be greater than zero.");
+            }
+
+            if (price < 0)
+            {
+                return Result<Property>.Failure("Price cannot be negative.");
+            }
+
+            if (numberOfBedrooms < 0)
+            {
+                return Result<Property>.Failure("Number of bedrooms cannot be negative.");
+            }
+            if (string.IsNullOrWhiteSpace(ownerUniqueName))
+            {
+                return Result<Property>.Failure("Unique owner name is required.");
+            }
             return Result<Property>.Success(new Property(title, address, size, price, ownerUniqueName, numberOfBedrooms));
         }
 
 
         public void AttachDescription(string description)
         {
-            if (string.IsNullOrWhiteSpace(description))
+            if (!string.IsNullOrWhiteSpace(description))
             {
                 Description = description;
             }

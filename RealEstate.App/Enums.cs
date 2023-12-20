@@ -6,7 +6,9 @@
         {
             ForSale = 2,
             ForRent = 1,
-            SoldOrRented = 0
+            SoldOrRented = 0,
+            Unknown = -1
+
         }
         public enum Role
         {
