@@ -7,5 +7,10 @@ namespace RealEstate.App.Contracts
     {
         Task<List<PropertyViewModel>> GetPropertiesAsync();
         Task<ApiResponse<PropertyDto>> CreatePropertyAsync(PropertyViewModel propertyViewModel);
+        Task<PropertyViewModel> GetPropertyByIdAsync(Guid propertyId);
+        Task<PropertyDto> GetPropertyByNameAsync(string propertyName);
+
+        Task<ApiResponse<PropertyDto>> UpdatePropertyAsync(PropertyDto propertyDto);
+
     }
 }

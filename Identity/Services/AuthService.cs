@@ -29,6 +29,9 @@ namespace Identity.Services
             if (userExists != null)
                 return (0, "User already exists");
 
+            if (model.Password != model.ConfirmedPassword)
+                return (0, "Password and confirmed password do not match");
+
             ApplicationUser user = new ApplicationUser()
             {
                 Email = model.Email,

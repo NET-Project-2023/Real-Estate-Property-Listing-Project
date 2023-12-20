@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "RealEstate.App",
   "resources": {
-    "hash": "sha256-po/REKOgcT0ksqfabwYmE2yiwTXRvLgP2X16OCw4V54=",
+    "hash": "sha256-ye4fWslBtDeP3qIcIGKRSM9y3gutOxN54xkc35T6Rco=",
     "jsModuleNative": {
       "dotnet.native.8.0.0.6vrnrm5ozq.js": "sha256-LjLDIz9+J7uuiwMlQ4HbNx2BnSpphOtO2MwkoI28vdI="
     },
@@ -43,8 +43,13 @@
       "Microsoft.Extensions.Options.wasm": "sha256-HPL9mH3zbRHz2Dv2qcWF0dUEk69pohDoiXzfTp2UMyE=",
       "Microsoft.Extensions.Options.ConfigurationExtensions.wasm": "sha256-C8ZA1VhhrMRPf8Qqv+OrW9za3ggJkCM9i1d8R/F1ETc=",
       "Microsoft.Extensions.Primitives.wasm": "sha256-pVrYOTfjb2ITls3LKIByW1t8jwOAWFhmkIVDewtJ1GE=",
+      "Microsoft.IdentityModel.Abstractions.wasm": "sha256-2cJOnI4hJsalrl3l7+l7z8xELQ63nBwl9dsfN9o78A8=",
+      "Microsoft.IdentityModel.JsonWebTokens.wasm": "sha256-qT1vlW+xhqgRUvfb4p2bGOplWwTbCaYYamlD2MUCPEc=",
+      "Microsoft.IdentityModel.Logging.wasm": "sha256-/Nb7gaeY1/Hp8kjOOVnFp006iq1UwKI8kUlu3CURltg=",
+      "Microsoft.IdentityModel.Tokens.wasm": "sha256-1T2S7qNrv4RBnmAAnGRfwiDIIUGahr2Pa5cPmDLjxho=",
       "Microsoft.JSInterop.wasm": "sha256-sm2HpM+aEsdu8kPTluhkGijieh9Fr/JLihBU0ZZvtVI=",
       "Microsoft.JSInterop.WebAssembly.wasm": "sha256-3wQR1/VN+SB8r7Gkqf93l8O4F1aSbaghQWV2PoaJByI=",
+      "System.IdentityModel.Tokens.Jwt.wasm": "sha256-s+VxoEwYCFpg0EA+X/ZcWGvfP1QNu9AujN+1wk5xJ2Y=",
       "System.IO.Pipelines.wasm": "sha256-JqVBy6SV+3qk+IK3VJiyIDt9CsVk6b1/ytTXmrI4mTM=",
       "Microsoft.CSharp.wasm": "sha256-ZpkICZtm/DHNuGrRDRfVyuTokNnwnPl7dxJGrPk6z5g=",
       "Microsoft.VisualBasic.Core.wasm": "sha256-coGIpdzImgRuQzGOx9iJkE/euOSMnY1mLy59OHmdq7k=",
@@ -214,10 +219,10 @@
       "mscorlib.wasm": "sha256-cDuLeL3OCtVtiid/dyex1MVgbuzDSRwZxKzuP2Dp4mg=",
       "netstandard.wasm": "sha256-A0h86SDieTMoU/wU2JTszWCsUmMuguDcbap0b0BzsmI=",
       "System.Private.CoreLib.wasm": "sha256-/0DNIm/T0C07X7Tuz5uR8JvVCoAfEE2MnfPUSjyS9xc=",
-      "RealEstate.App.wasm": "sha256-GINR952DdYBEW9j3uMWPjEnM5sLqZxI0zB+/wKwCvc4="
+      "RealEstate.App.wasm": "sha256-9Xz44SeHaOGPrWEKvKIz4UX10SUm091H/vIQYQeN6NU="
     },
     "pdb": {
-      "RealEstate.App.pdb": "sha256-ttV8ZJKzUW1Uob/Q2L9PDPkFnR8+mehtwEcq16eo+VU="
+      "RealEstate.App.pdb": "sha256-5E6b7yK440XShS123+gv/r1dvpznXbUBDkIiZxQxGPo="
     }
   },
   "cacheBootResources": true,

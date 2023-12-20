@@ -1,6 +1,5 @@
 ﻿using FluentValidation;
 using static Real_estate.Domain.Enums.Enums;
-using System.Text.RegularExpressions;
 
 
 namespace Real_estate.Application.Features.Properties.Commands.UpdateProperty
@@ -60,16 +59,11 @@ namespace Real_estate.Application.Features.Properties.Commands.UpdateProperty
 
             // Conditional validation for Images
 
-            RuleFor(p => p.Images)
-                .Must(images => images != null && images.Any()).When(p => p.Images != null)
-                .WithMessage(ValidationMessages.NotEmptyListMessage);
+            //RuleFor(p => p.Images)
+            //    .Must(images => images != null && images.Any()).When(p => p.Images != null)
+            //    .WithMessage(ValidationMessages.NotEmptyListMessage);
 
-            // Conditional validation for PropertyStatus
-            When(p => p.PropertyStatus.HasValue, () =>
-            {
-                RuleFor(p => p.PropertyStatus.Value)
-                    .Must(BeAValidStatus).WithMessage(ValidationMessages.NotValidStatusMessage);
-            });
+
         }
 
         private bool BeAValidStatus(Status status)

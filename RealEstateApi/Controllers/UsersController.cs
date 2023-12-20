@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Real_estate.Application.Features.Listings.Commands.CreateUser;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Real_estate.Application.Features.Listings.Queries.GetAll;
 using Real_estate.Application.Features.Listings.Queries.GetById;
-using Real_estate.Application.Features.Listings.Commands.DeleteUser;
 using Real_estate.Application.Features.Users.Commands.UpdateUser;
 
 namespace RealEstate.API.Controllers
@@ -10,19 +9,19 @@ namespace RealEstate.API.Controllers
 
     public class UsersController : ApiControllerBase
     {
-        [HttpPost]
-        [ProducesResponseType(StatusCodes.Status201Created)]
-        public async Task<IActionResult> Create(CreateUserCommand command)
-        {
-            var result = await Mediator.Send(command);
-            if (!result.Success)
-            {
-                return BadRequest(result);
-            }
-            return Ok(result);
-        }
+        //[HttpPost]
+        //[ProducesResponseType(StatusCodes.Status201Created)]
+        //public async Task<IActionResult> Create(CreateUserCommand command)
+        //{
+        //    var result = await Mediator.Send(command);
+        //    if (!result.Success)
+        //    {
+        //        return BadRequest(result);
+        //    }
+        //    return Ok(result);
+        //}
 
-        [HttpGet("GetAllUsers")]
+        [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll()
         {
@@ -30,44 +29,61 @@ namespace RealEstate.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("ByName/{name}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<IActionResult> Get(Guid id)
+        public async Task<IActionResult> GetUserByName(string name)
         {
-            var result = await Mediator.Send(new GetByIdUserQuery(id));
+            var query = new GetByIdUserQuery { Name = name };
+            var result = await Mediator.Send(query);
+            if (!result.Success)
+            {
+                return BadRequest(result);
+            }
             return Ok(result);
         }
 
-        [HttpDelete("{userId}")]
+        [Authorize(Roles = "Admin")]
+        [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> Delete(Guid userId)
+        public async Task<IActionResult> Delete(Guid id)
         {
-            var command = new DeleteUserCommand { UserId = userId };
+            var command = new DeleteUserCommand { UserId = id };
             var result = await Mediator.Send(command);
             if (!result.Success)
             {
-                return NotFound(result.Message);
+                return BadRequest(result);
             }
-            return Ok(result.Message);
+            return Ok(result);
         }
-
-        [HttpPut("{userId}")]
+        [Authorize(Roles = "Admin")]
+        [HttpDelete("deleteByUsername/{username}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Update(Guid userId, UpdateUserCommand command)
+        public async Task<IActionResult> DeleteByUsername(string username)
         {
-            if (userId != command.UserId)
-            {
-                return BadRequest("User ID mismatch.");
-            }
+            Console.WriteLine("HELLOOOOOOOOOOOOOOOOOOOOOOOO");
 
+            var command = new DeleteUserByUsernameCommand { Username = username };
             var result = await Mediator.Send(command);
             if (!result.Success)
             {
-                return BadRequest(result.Message);
+                return BadRequest(result);
             }
-            return Ok(result.Message);
+            return Ok(result);
+        }
+        [HttpPut("update/{username}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> Update(string username, UpdateUserCommand command)
+        {
+            if (username != command.Username)
+            {
+                return BadRequest("The ids must be the same!");
+            }
+            var result = await Mediator.Send(command);
+            if (!result.Success)
+            {
+                return BadRequest(result);
+            }
+            return Ok(result);
         }
     }
 }

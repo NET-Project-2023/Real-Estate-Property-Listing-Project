@@ -1,6 +1,6 @@
 ﻿using Real_estate.Application.Responses;
 
-namespace Real_estate.Application.Features.Listings.Commands.CreateProperty
+namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
 {
     public class CreatePropertyCommandResponse : BaseResponse
     {

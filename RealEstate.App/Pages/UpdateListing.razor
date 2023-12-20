@@ -1,0 +1,105 @@
+﻿@page "/updatelisting"
+@using RealEstate.App.Contracts
+@using RealEstate.App.ViewModels
+@using static RealEstate.App.Enums
+@inject IListingDataService ListingDataService
+@inject NavigationManager NavigationManager
+
+
+<h3>Update Listing</h3>
+
+<div class="form-group">
+    <label for="listingTitle">Listing Title:</label>
+    <InputText id="listingTitle" class="form-control" @bind-Value="@ListingTitle" />
+    <button @onclick="LoadListing">Load Listing</button>
+</div>
+
+@if (UpdateListingModel == null)
+{
+    <p>Enter a title and click 'Load Listing'...</p>
+}
+else
+{
+    <EditForm Model="@UpdateListingModel" OnValidSubmit="@HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <!-- Title -->
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <InputText id="title" class="form-control" @bind-Value="@UpdateListingModel.Title" />
+        </div>
+
+        <!-- Description -->
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <InputTextArea id="description" class="form-control" @bind-Value="@UpdateListingModel.Description" />
+        </div>
+
+        <!-- Price -->
+        <div class="form-group">
+            <label for="price">Price:</label>
+            <InputNumber id="price" class="form-control" @bind-Value="@UpdateListingModel.Price" />
+        </div>
+
+        <!-- Property Status -->
+        <div class="form-group">
+            <label for="status">Property Status:</label>
+            <InputSelect @bind-Value="@UpdateListingModel.PropertyStatus" class="form-control">
+                @foreach (var status in Enum.GetValues<Status>())
+                {
+                    <option value="@status">@status</option>
+                }
+            </InputSelect>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Update Listing</button>
+    </EditForm>
+}
+
+@if (!string.IsNullOrWhiteSpace(Message))
+{
+    <div class="alert alert-info">
+        @Message
+    </div>
+}
+@code {
+    private string ListingTitle { get; set; }
+    private ListingViewModel UpdateListingModel;
+    private string Message = string.Empty;
+
+    private async Task LoadListing()
+    {
+        var currentListing = await ListingDataService.GetListingByTitleAsync(ListingTitle);
+        if (currentListing != null)
+        {
+            UpdateListingModel = new ListingViewModel
+                {
+                    Title = currentListing.Title,
+                    Description = currentListing.Description,
+                    Price = currentListing.Price,
+                    PropertyStatus = currentListing.PropertyStatus
+                };
+        }
+        else
+        {
+            Message = "Listing not found.";
+        }
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        Console.WriteLine($"Updating listing with price: {UpdateListingModel.Price}");
+
+        var result = await ListingDataService.UpdateListingAsync(UpdateListingModel, UpdateListingModel.Title);
+        if (result.IsSuccess)
+        {
+            NavigationManager.NavigateTo("/listingoverview");
+        }
+        else
+        {
+            Message = result.Message;
+        }
+    }
+}

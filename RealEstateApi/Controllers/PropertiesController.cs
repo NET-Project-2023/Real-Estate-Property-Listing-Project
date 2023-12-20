@@ -1,15 +1,24 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Real_estate.Application.Features.Listings.Commands.CreateProperty;
-using Real_estate.Application.Features.Listings.Commands.DeleteProperty;
-using Real_estate.Application.Features.Listings.Queries.GetAll;
-using Real_estate.Application.Features.Listings.Queries.GetById;
-using Real_estate.Application.Features.Listings.Queries.GetByName;
+using Real_estate.Application.Features.Properties.Commands.CreateProperty;
+using Real_estate.Application.Features.Properties.Commands.DeleteProperty;
+using Real_estate.Application.Features.Properties.Commands.UpdateProperty;
+using Real_estate.Application.Features.Properties.Queries.GetAll;
+using Real_estate.Application.Features.Properties.Queries.GetById;
+using Real_estate.Application.Features.Properties.Queries.GetByName;
+using System.Text.Json;
 
 namespace RealEstate.API.Controllers
 {
+
     public class PropertiesController : ApiControllerBase
     {
+        private readonly ILogger<PropertiesController> _logger;
+        public PropertiesController(ILogger<PropertiesController> logger)
+        {
+            _logger = logger;
+        }
+
         [Authorize(Roles = "User")]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -33,7 +42,7 @@ namespace RealEstate.API.Controllers
         }
 
         [Authorize(Roles = "User")]
-        [HttpGet("{id}")]
+        [HttpGet("ById/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> Get(Guid id)
         {
@@ -43,7 +52,7 @@ namespace RealEstate.API.Controllers
 
 
         [Authorize(Roles = "User")]
-        [HttpGet("{name}")]
+        [HttpGet("ByName/{name}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> Get(string name)
         {
@@ -64,6 +73,33 @@ namespace RealEstate.API.Controllers
                 return NotFound(result.Message);
             }
             return Ok(result.Message);
+        }
+        [Authorize(Roles = "User")]
+        [HttpPut("update/{title}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Update(string title, UpdatePropertyCommand command)
+        {
+
+            if (title != command.Title)
+            {
+                _logger.LogWarning("Property ID mismatch. Provided title: {ProvidedTitle}, Command title: {CommandTitle}", title, command.Title);
+                return BadRequest("Property ID mismatch.");
+            }
+
+            var result = await Mediator.Send(command);
+
+            _logger.LogInformation("Update command result: Success = {Success}, Message = {Message}", result.Success, result.Message);
+
+            if (!result.Success)
+            {
+                //_logger.LogWarning("Update command failed: {Message}", result.Message);
+                return BadRequest(result.Message);
+            }
+
+            //return Ok(result.Message);
+            return Ok(new { Message = "Property updated successfully." });
+
         }
     }
 }

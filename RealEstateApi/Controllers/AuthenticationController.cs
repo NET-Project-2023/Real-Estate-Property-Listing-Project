@@ -1,13 +1,10 @@
 ﻿using Identity.Models;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Real_estate.Application.Contracts.Identity;
 using Real_estate.Application.Contracts.Interfaces;
-using Real_estate.Application.Features.Listings.Commands.CreateUser;
 using Real_estate.Application.Models.Identity;
 using RealEstate.API.Models;
-using static Real_estate.Domain.Enums.Enums;
 
 namespace RealEstate.API.Controllers
 {
@@ -67,25 +64,11 @@ namespace RealEstate.API.Controllers
                     return BadRequest("Invalid payload");
                 }
 
-                var (status, message) = await _authService.Registeration(model, UserRoles.User);
+                var (status, message) = await _authService.Registeration(model, UserRoles.User);// AICI SCHIMB DIN USEER IN ADMIN VICE VERSA
 
                 if (status == 0)
                 {
                     return BadRequest(message);
-                }
-
-                var createUserCommand = new CreateUserCommand
-                {
-                    Name = model.Name, 
-                    Email = model.Email,
-                    Password = model.Password,
-                    UserRole = Role.User, 
-                };
-
-                var createUserResult = await _mediator.Send(createUserCommand);
-                if (!createUserResult.Success)
-                {
-                    return BadRequest(createUserResult);
                 }
 
                 return CreatedAtAction(nameof(Register), model);

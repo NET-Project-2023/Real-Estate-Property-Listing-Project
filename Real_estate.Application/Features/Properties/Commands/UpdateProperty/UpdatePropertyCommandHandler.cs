@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using Real_estate.Application.Contracts;
 using Real_estate.Application.Persistence;
 using Real_estate.Domain.Entities;
 
@@ -28,7 +27,7 @@ namespace Real_estate.Application.Features.Properties.Commands.UpdateProperty
                 };
             }
 
-            var propertyResult = await propertyRepository.FindByIdAsync(request.PropertyId);
+            var propertyResult = await propertyRepository.FindByNameAsync(request.Title);
             if (!propertyResult.IsSuccess)
             {
                 return new UpdatePropertyCommandResponse
@@ -55,6 +54,10 @@ namespace Real_estate.Application.Features.Properties.Commands.UpdateProperty
             {
                 property.UpdateSize(request.Size.Value);
             }
+            if (!string.IsNullOrEmpty(request.Description))
+            {
+                property.UpdateDescription(request.Description);
+            }
             if (request.Price.HasValue)
             {
                 property.UpdatePrice(request.Price.Value);
@@ -70,10 +73,6 @@ namespace Real_estate.Application.Features.Properties.Commands.UpdateProperty
             if (request.Images != null && request.Images.Any())
             {
                 property.AttachImageUrls(request.Images);
-            }
-            if (request.PropertyStatus.HasValue)
-            {
-                property.UpdatePropertyStatus(request.PropertyStatus.Value);
             }
 
             var updateResult = await propertyRepository.UpdateAsync(property);

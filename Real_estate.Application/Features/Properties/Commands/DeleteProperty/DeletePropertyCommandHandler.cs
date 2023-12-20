@@ -1,9 +1,8 @@
 ﻿using MediatR;
-using Real_estate.Application.Features.Listings.Commands.DeleteProperty;
 using Real_estate.Application.Persistence;
 using Real_estate.Domain.Entities;
 
-namespace Real_estate.Application.Features.Listings.Commands.DeleteProperty
+namespace Real_estate.Application.Features.Properties.Commands.DeleteProperty
 {
     public class DeletePropertyCommandHandler : IRequestHandler<DeletePropertyCommand, DeletePropertyCommandResponse>
     {

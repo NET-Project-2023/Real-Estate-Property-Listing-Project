@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Real_estate.Application.Persistence;
 
-namespace Real_estate.Application.Features.Listings.Queries.GetById
+namespace Real_estate.Application.Features.Properties.Queries.GetById
 {
     public class GetByIdPropertyHandler : IRequestHandler<GetByIdPropertyQuery, PropertyDto>
     {
@@ -27,8 +27,7 @@ namespace Real_estate.Application.Features.Listings.Queries.GetById
                     NumberOfBathrooms = result.Value.NumberOfBathrooms,
                     NumberOfBedrooms = result .Value.NumberOfBedrooms,
                     Images = result.Value.Images,
-                    PropertyStatus = result.Value.PropertyStatus,
-                    OwnerId = result.Value.OwnerId
+                    UserId = result.Value.UserId,
                 };
             }
             return new PropertyDto();

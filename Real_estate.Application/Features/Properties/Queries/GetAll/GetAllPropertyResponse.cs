@@ -1,4 +1,4 @@
-﻿namespace Real_estate.Application.Features.Listings.Queries.GetAll
+﻿namespace Real_estate.Application.Features.Properties.Queries.GetAll
 {
     public  class GetAllPropertyResponse
     {

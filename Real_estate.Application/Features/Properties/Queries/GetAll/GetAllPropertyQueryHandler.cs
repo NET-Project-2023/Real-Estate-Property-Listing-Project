@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Real_estate.Application.Persistence;
 
-namespace Real_estate.Application.Features.Listings.Queries.GetAll
+namespace Real_estate.Application.Features.Properties.Queries.GetAll
 {
 
     public class GetAllPropertyQueryHandler : IRequestHandler<GetAllPropertyQuery, GetAllPropertyResponse>
@@ -30,8 +30,7 @@ namespace Real_estate.Application.Features.Listings.Queries.GetAll
                    NumberOfBathrooms= c.NumberOfBathrooms,
                    NumberOfBedrooms= c.NumberOfBedrooms,
                    Images = c.Images,
-                   PropertyStatus= c.PropertyStatus,
-                   OwnerId= c.OwnerId
+                   UserId = c.UserId
                 }).ToList();
             }
             return response;

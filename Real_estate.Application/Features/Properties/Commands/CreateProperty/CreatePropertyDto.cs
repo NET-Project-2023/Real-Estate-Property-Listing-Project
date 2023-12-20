@@ -1,6 +1,4 @@
-﻿using static Real_estate.Domain.Enums.Enums;
-
-namespace Real_estate.Application.Features.Listings.Commands.CreateProperty
+﻿namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
 {
     public class CreatePropertyDto
     {
@@ -13,8 +11,7 @@ namespace Real_estate.Application.Features.Listings.Commands.CreateProperty
         public int NumberOfBedrooms { get; set; } = default!;
         public int NumberOfBathrooms { get; set; } = default!;
         public List<byte[]> Images { get; set; } = default!;
-        public Status PropertyStatus { get; set; }
-        public Guid OwnerId { get; set; }
+        public string UserId { get; set; }
 
     }
 }

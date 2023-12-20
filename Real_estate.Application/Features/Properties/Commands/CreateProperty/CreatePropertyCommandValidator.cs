@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 
 
-namespace Real_estate.Application.Features.Listings.Commands.CreateProperty
+namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
 {
     public class CreatePropertyCommandValidator : AbstractValidator<CreatePropertyCommand>
     {
@@ -33,12 +33,10 @@ namespace Real_estate.Application.Features.Listings.Commands.CreateProperty
                 .Must(images => images != null && images.Any()).When(p => p.Images != null)
                 .WithMessage(ValidationMessages.NotEmptyListMessage);
 
-            RuleFor(p => p.PropertyStatus)
-                .IsInEnum().WithMessage(ValidationMessages.NotValidEnumMessage);
 
-            RuleFor(p => p.OwnerId)
+            RuleFor(p => p.UserId)
                 .NotEmpty().WithMessage(ValidationMessages.RequiredMessage)
-                .NotEqual(Guid.Empty).WithMessage(ValidationMessages.NotEmptyGuidMessage);
+                .NotEqual(string.Empty).WithMessage(ValidationMessages.NotEmptyGuidMessage);
         }
     }
     

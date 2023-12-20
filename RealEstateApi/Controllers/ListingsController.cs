@@ -4,11 +4,13 @@ using Real_estate.Application.Features.Listings.Commands.DeleteListing;
 using Real_estate.Application.Features.Listings.Queries.GetAll;
 using Real_estate.Application.Features.Listings.Queries.GetById;
 using Real_estate.Application.Features.Listings.Commands.UpdateListing;
+using Microsoft.AspNetCore.Authorization;
 
 namespace RealEstate.API.Controllers
 {
     public class ListingsController : ApiControllerBase
     {
+        [Authorize(Roles = "User")]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         public async Task<IActionResult> Create(CreateListingCommand command)
@@ -21,7 +23,8 @@ namespace RealEstate.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("GetAllListings")]
+        [Authorize(Roles = "User")]
+        [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll()
         {
@@ -29,15 +32,15 @@ namespace RealEstate.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("ById/{id}")]
+        [HttpGet("ByTitle/{title}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<IActionResult> Get(Guid id)
+        public async Task<IActionResult> Get(string title)
         {
-            var result = await Mediator.Send(new GetByIdListingQuery(id));
+            var result = await Mediator.Send(new GetByIdListingQuery(title));
             return Ok(result);
         }
 
-        [HttpDelete("{listingId}")]
+        [HttpDelete("listings/delete/{listingId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(Guid listingId)
@@ -50,23 +53,23 @@ namespace RealEstate.API.Controllers
             }
             return Ok(result.Message);
         }
-        [HttpPut("{listingId}")]
+        [HttpPut("/listings/update/{listingTitle}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Update(Guid listingId, UpdateListingCommand command)
+        public async Task<IActionResult> Update(string listingTitle, UpdateListingCommand command)
         {
-            if (listingId != command.ListingId)
+            if (listingTitle != command.Title)
             {
-                return BadRequest("Listing ID mismatch.");
+                return BadRequest(new { Message = "Listing ID mismatch." });
             }
 
             var result = await Mediator.Send(command);
             if (!result.Success)
             {
-                return BadRequest(result.Message);
+                return BadRequest(new { Message = result.Message });
             }
 
-            return Ok(result.Message);
+            return Ok(new { Message = "Listing updated successfully." });
         }
     }
 }

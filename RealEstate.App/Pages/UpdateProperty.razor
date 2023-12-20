@@ -1,0 +1,104 @@
+﻿@page "/updateproperty"
+@using RealEstate.App.Contracts
+@using RealEstate.App.ViewModels
+@inject IPropertyDataService PropertyDataService
+@inject NavigationManager NavigationManager
+
+<h3>Update Property</h3>
+
+<div class="form-group">
+    <label for="propertyTitle">Property Title:</label>
+    <InputText id="propertyTitle" class="form-control" @bind-Value="@PropertyTitle" />
+    <button @onclick="LoadProperty">Load Property</button>
+</div>
+
+@if (UpdatePropertyDto != null)
+{
+    <EditForm Model="@UpdatePropertyDto" OnValidSubmit="@HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+ 
+        <!-- Description -->
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <InputTextArea id="description" class="form-control" @bind-Value="@UpdatePropertyDto.Description" />
+        </div>
+
+        <!-- Address -->
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <InputText id="address" class="form-control" @bind-Value="@UpdatePropertyDto.Address" />
+        </div>
+
+        <!-- Size -->
+        <div class="form-group">
+            <label for="size">Size (sq ft):</label>
+            <InputNumber id="size" class="form-control" @bind-Value="@UpdatePropertyDto.Size" />
+        </div>
+
+        <!-- Price -->
+        <div class="form-group">
+            <label for="price">Price ($):</label>
+            <InputNumber id="price" class="form-control" @bind-Value="@UpdatePropertyDto.Price" />
+        </div>
+
+        <!-- Number of Bedrooms -->
+        <div class="form-group">
+            <label for="bedrooms">Number of Bedrooms:</label>
+            <InputNumber id="bedrooms" class="form-control" @bind-Value="@UpdatePropertyDto.NumberOfBedrooms" />
+        </div>
+
+        <!-- Number of Bathrooms -->
+        <div class="form-group">
+            <label for="bathrooms">Number of Bathrooms:</label>
+            <InputNumber id="bathrooms" class="form-control" @bind-Value="@UpdatePropertyDto.NumberOfBathrooms" />
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Update Property</button>
+    </EditForm>
+}
+else
+{
+    <p>Enter a title and click 'Load Property' to start editing...</p>
+}
+
+@if (!string.IsNullOrWhiteSpace(Message))
+{
+    <div class="alert alert-info">@Message</div>
+}
+
+@code {
+    private string PropertyTitle { get; set; }
+    private PropertyDto UpdatePropertyDto;
+    private string Message = string.Empty;
+
+    private async Task LoadProperty()
+    {
+        var currentProperty = await PropertyDataService.GetPropertyByNameAsync(PropertyTitle);
+        if (currentProperty != null)
+        {
+            UpdatePropertyDto = currentProperty;
+        }
+        else
+        {
+            Message = "Property not found.";
+        }
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        UpdatePropertyDto.Images = new List<byte[]>(); // Assuming this is the desired behavior
+        UpdatePropertyDto.Title = UpdatePropertyDto.Title.Trim();
+
+        var result = await PropertyDataService.UpdatePropertyAsync(UpdatePropertyDto);
+        if (result.IsSuccess)
+        {
+            NavigationManager.NavigateTo("/propertyoverview");
+        }
+        else
+        {
+            Message = result.Message;
+        }
+    }
+}

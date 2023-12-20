@@ -1,32 +1,36 @@
 ﻿using Real_estate.Application.Persistence;
 using MediatR;
+using Real_estate.Application.Features.Users.Queries.GetById;
 
 namespace Real_estate.Application.Features.Listings.Queries.GetById
 {
-    public class GetByIdCategoryHandler : IRequestHandler<GetByIdUserQuery, UserDto>
+    public class GetByIdUserQueryHandler : IRequestHandler<GetByIdUserQuery, GetByIdUserQueryResponse>
     {
-        private readonly IUserRepository repository;
-
-        public GetByIdCategoryHandler(IUserRepository repository)
+        private readonly IUserManager userRepository;
+        public GetByIdUserQueryHandler(IUserManager userRepository)
         {
-            this.repository = repository;
+            this.userRepository = userRepository;
         }
-        public async Task<UserDto> Handle(GetByIdUserQuery request, CancellationToken cancellationToken)
+        public async Task<GetByIdUserQueryResponse> Handle(GetByIdUserQuery request, CancellationToken cancellationToken)
         {
-            var c = await repository.FindByIdAsync(request.Id);
-            if (c.IsSuccess)
+            var result = await userRepository.FindByUsernameAsync(request.Name);
+            if (!result.IsSuccess)
+                return new GetByIdUserQueryResponse { Success = false, Message = result.Error };
+            var userDto = result.Value;
+            return new GetByIdUserQueryResponse
             {
-                return new UserDto
+                Success = true,
+                User = new UserDto
                 {
-                    UserId = c.Value.UserId,
-                    Name = c.Value.Name,
-                    Email = c.Value.Email,
-                    Password = c.Value.Password,
-                    UserRole = c.Value.UserRole,
-                    PhoneNumber = c.Value.PhoneNumber
-                };
-            }
-            return new UserDto();
+                    UserId = userDto.UserId,
+                    Name = userDto.Name,
+                    UserName = userDto.UserName,
+                    Email = userDto.Email,
+                    Roles = userDto.Roles,
+                    PhoneNumber = userDto.PhoneNumber
+                }
+            };
+
         }
     }
 }

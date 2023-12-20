@@ -7,6 +7,6 @@ namespace Real_estate.Application.Features.Users.Commands.UpdateUser
         public UpdateUserCommandResponse() : base()
         {
         }
-        public string Message { get; set; }
+        public UpdateUserDto User { get; set; }
     }
 }

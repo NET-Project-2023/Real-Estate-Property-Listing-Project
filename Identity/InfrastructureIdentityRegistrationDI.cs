@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Real_estate.Application.Contracts.Identity;
+using Real_estate.Application.Persistence;
 using System.Text;
 
 namespace Identity
@@ -56,6 +57,7 @@ namespace Identity
                         });
             services.AddScoped
                <IAuthService, AuthService>();
+            services.AddScoped<IUserManager, ApplicationUserManager >();
             return services;
         }
 

@@ -2,14 +2,14 @@
 using Real_estate.Application.Persistence;
 using Real_estate.Domain.Entities;
 
-namespace Real_estate.Application.Features.Listings.Commands.CreateProperty
+namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
 {
     public class CreatePropertyCommandHandler : IRequestHandler<CreatePropertyCommand, CreatePropertyCommandResponse>
     {
         private readonly IPropertyRepository propertyRepository;
-        private readonly IUserRepository userRepository;
+        private readonly IUserManager userRepository;
 
-        public CreatePropertyCommandHandler(IPropertyRepository propertyRepository, IUserRepository userRepository)
+        public CreatePropertyCommandHandler(IPropertyRepository propertyRepository, IUserManager userRepository)
         {
             this.propertyRepository = propertyRepository;
             this.userRepository = userRepository;
@@ -30,8 +30,9 @@ namespace Real_estate.Application.Features.Listings.Commands.CreateProperty
             }
 
             // Check if the user exists
-            var userExists = await userRepository.UserExistsAsync(request.OwnerId);
-            if (!userExists)
+            //var userExists = await userRepository.UserExistsAsync(request.UserId);
+            var userExists = await userRepository.FindByIdAsync(request.UserId);
+            if (userExists == null)
             {
                 return new CreatePropertyCommandResponse
                 {
@@ -41,7 +42,7 @@ namespace Real_estate.Application.Features.Listings.Commands.CreateProperty
             }
 
             // TODO: CreatedBy
-            var property = Property.Create(request.Title, request.Address, request.Size, request.Price, request.PropertyStatus, request.OwnerId, request.NumberOfBedrooms);
+            var property = Property.Create(request.Title, request.Address, request.Size, request.Price, request.UserId, request.NumberOfBedrooms);
             if (!property.IsSuccess)
             {
                 return new CreatePropertyCommandResponse
@@ -63,10 +64,8 @@ namespace Real_estate.Application.Features.Listings.Commands.CreateProperty
                     Address = property.Value.Address,
                     Size = property.Value.Size,
                     Price = property.Value.Price,
-                    PropertyStatus = property.Value.PropertyStatus,
-                    OwnerId = property.Value.OwnerId,
+                    UserId = property.Value.UserId,
                     NumberOfBedrooms = property.Value.NumberOfBedrooms
-                    // TODO: CreatedBy
                 }
             };
         }

@@ -15,24 +15,32 @@ namespace RealEstate.App.Auth
             this.authService = authService;
             this.tokenService = tokenService;
         }
+
         public override async Task<AuthenticationState> GetAuthenticationStateAsync()
         {
             var identity = new ClaimsIdentity();
             try
             {
-                var userInfo = await tokenService.GetTokenAsync();
-                if (userInfo!=null)
+                var token = await tokenService.GetTokenAsync();
+                if (!string.IsNullOrWhiteSpace(token))
                 {
-                    var claims = new[] { new Claim(ClaimTypes.Name, "user logged") };
-                    identity = new ClaimsIdentity(claims, "Server authentication");
+                    var username = await tokenService.GetUsernameFromTokenAsync();
+                    var role = await tokenService.GetRoleFromTokenAsync();
+                    var claims = new List<Claim>
+                    {
+                        new Claim(ClaimTypes.Name, username),
+                        new Claim(ClaimTypes.Role, role)
+                    };
+                    identity = new ClaimsIdentity(claims, "jwt");
                 }
             }
-            catch (HttpRequestException ex)
+            catch (Exception ex)
             {
-                Console.WriteLine("Request failed:" + ex.ToString());
+                Console.WriteLine($"Error in GetAuthenticationStateAsync: {ex.Message}");
             }
 
-            return new AuthenticationState(new ClaimsPrincipal(identity));
+            var user = new ClaimsPrincipal(identity);
+            return new AuthenticationState(user);
         }
 
         public async Task Logout()
@@ -40,14 +48,22 @@ namespace RealEstate.App.Auth
             await authService.Logout();
             NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
         }
+
         public async Task Login(LoginViewModel loginParameters)
         {
             await authService.Login(loginParameters);
             NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
         }
+
         public async Task Register(RegisterViewModel registerParameters)
         {
             await authService.Register(registerParameters);
+            NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
+        }
+
+        public async Task DeleteUserByUsername(string username)
+        {
+            await authService.DeleteUserByUsername(username);
             NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
         }
     }
