@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "olqf75pz/eotdrtcjoxoSndMiQsm9vZOTFyVHpA1XkgYVQkWLk96uybYK9PvTHvsrdkzaAc1pmGf0eQ5/Peshw==",
+  "dgSpecHash": "LWuTtPBBbAJ2vt7XiY4OCfp3xWQyYjhksRHEi0x6/TV38XF+xxK3B+gNI7wesKBvor6roYIv5UYN9rFR0ArErw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dragos\\Desktop\\dotnet\\Real-Estate-Property-Listing-Project\\RealEstateApi\\RealEstate.API.csproj",
+  "projectFilePath": "C:\\Users\\Dragos\\Documents\\GitHub\\Real-Estate-Property-Listing-Project\\RealEstateApi\\RealEstate.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dragos\\.nuget\\packages\\azure.core\\1.36.0\\azure.core.1.36.0.nupkg.sha512",
     "C:\\Users\\Dragos\\.nuget\\packages\\azure.identity\\1.10.4\\azure.identity.1.10.4.nupkg.sha512",

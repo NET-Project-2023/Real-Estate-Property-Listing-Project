@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QVAbH6VY+A4o6DcpSlKvC2SlZfqbkBKgkz9McanOcZV8u8zBOtiLqaioOTffGfS5mxPsXaAApXI2A13NDL3W0w==",
+  "dgSpecHash": "j8uenKOXdqAwnj4rda539rghloIlr7pGlXS5dUnd7paFcu9+QRmH0umX5kQ49EI3+N6KHLM5/fEKzi3jjsuqZQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dragos\\Desktop\\dotnet\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj",
+  "projectFilePath": "C:\\Users\\Dragos\\Documents\\GitHub\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
