@@ -97,8 +97,9 @@ namespace RealEstate.API.Controllers
                 return BadRequest(result.Message);
             }
 
-            //_logger.LogInformation("Property updated successfully: {Title}", command.Title);
+            //return Ok(result.Message);
             return Ok(new { Message = "Property updated successfully." });
+
         }
     }
 }

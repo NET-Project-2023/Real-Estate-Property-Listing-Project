@@ -27,6 +27,11 @@
     <InputText type="password" id="inputPassword" class="form-control" placeholder="Password" @bind-Value="registerRequest.Password" />
     <ValidationMessage For="@(() => registerRequest.Password)" />
 
+    <!-- New Confirmed Password Field -->
+    <label for="inputConfirmedPassword" class="sr-only">Confirm Password</label>
+    <InputText type="password" id="inputConfirmedPassword" class="form-control" placeholder="Confirm Password" @bind-Value="registerRequest.ConfirmedPassword" />
+    <ValidationMessage For="@(() => registerRequest.ConfirmedPassword)" />
+
     <br />
 
     <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
@@ -47,6 +52,12 @@
         error = null;
         try
         {
+            // Add password confirmation check here
+            if (registerRequest.Password != registerRequest.ConfirmedPassword)
+            {
+                throw new ApplicationException("Password and Confirmed Password must match.");
+            }
+
             await authStateProvider.Register(registerRequest);
             navigationManager.NavigateTo("/login");
         }
