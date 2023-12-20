@@ -106,20 +106,20 @@ namespace RealEstate.App.Services
             return property!;
         }
        public async Task<PropertyDto> GetPropertyByNameAsync(string propertyName)
-{
-    // Ensure the token is included in the request headers
-    httpClient.DefaultRequestHeaders.Authorization =
-        new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
+       {
+            
+            httpClient.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
 
-    var response = await httpClient.GetAsync($"{RequestUri}/ByName/{propertyName}");
-    if (!response.IsSuccessStatusCode)
-    {
-        throw new HttpRequestException($"Error fetching property: {response.ReasonPhrase}");
-    }
+            var response = await httpClient.GetAsync($"{RequestUri}/ByName/{propertyName}");
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new HttpRequestException($"Error fetching property: {response.ReasonPhrase}");
+            }
 
-    var propertyDto = await response.Content.ReadFromJsonAsync<PropertyDto>();
-    return propertyDto ?? new PropertyDto();
-}
+            var propertyDto = await response.Content.ReadFromJsonAsync<PropertyDto>();
+            return propertyDto ?? new PropertyDto();
+       }
 
         public async Task<ApiResponse<PropertyDto>> UpdatePropertyAsync(PropertyDto propertyDto)
         {
@@ -129,13 +129,12 @@ namespace RealEstate.App.Services
             var token = await tokenService.GetTokenAsync();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-            // Ensure the URL matches the server-side expectation
             string requestUri = $"api/v1/Properties/update/{propertyDto.Title}";
             propertyDto.Images = new List<byte[]> { new byte[0] };
 
             var response = await httpClient.PutAsJsonAsync(requestUri, propertyDto);
 
-            // Log the response content
+            // Aici primesc response asa: "Property updated successfully."
             var responseContent = await response.Content.ReadAsStringAsync();
             Console.WriteLine($"Response Content: {responseContent}");
 

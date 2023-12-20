@@ -75,8 +75,8 @@ namespace RealEstate.App.Services
             // Read the response content as a string
             var responseContent = await response.Content.ReadAsStringAsync();
 
-            // Log the raw response content
-            Console.WriteLine($"Response Content: {responseContent}");
+            // Aici primesc reponse asa: {"message":"Listing updated successfully."}
+            Console.WriteLine($"RESPONSE CONTENTTT: {responseContent}");
 
             // Now you can see the raw response and determine why it's not valid JSON
             if (!response.IsSuccessStatusCode)

@@ -80,7 +80,6 @@ namespace RealEstate.API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Update(string title, UpdatePropertyCommand command)
         {
-            _logger.LogInformation($"Received update request for title: {title} with command: {JsonSerializer.Serialize(command)}");
 
             if (title != command.Title)
             {
@@ -94,12 +93,12 @@ namespace RealEstate.API.Controllers
 
             if (!result.Success)
             {
-                _logger.LogWarning("Update command failed: {Message}", result.Message);
+                //_logger.LogWarning("Update command failed: {Message}", result.Message);
                 return BadRequest(result.Message);
             }
 
-            _logger.LogInformation("Property updated successfully: {Title}", command.Title);
-            return Ok(result.Message);
+            //_logger.LogInformation("Property updated successfully: {Title}", command.Title);
+            return Ok(new { Message = "Property updated successfully." });
         }
     }
 }
