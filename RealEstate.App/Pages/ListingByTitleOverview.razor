@@ -1,26 +1,25 @@
-﻿@page "/findlisting"
+﻿@page "/listingdetails/{title}"
 @using RealEstate.App.Contracts
 @using RealEstate.App.ViewModels
 
 @inject IListingDataService ListingDataService
 
-<h3>Find Listing</h3>
 
-<div class="row mb-2">
+@* <div class="row mb-2">
     <div class="col-md-6">
         <input @bind="ListingTitle" class="form-control" placeholder="Enter listing title" />
     </div>
     <div class="col-md-6">
         <button @onclick="SearchListing" class="btn btn-primary">Search</button>
     </div>
-</div>
+</div> *@
 
 @if (Listing != null)
 {
+    <h3>@Listing.Title</h3>
     <div class="card mt-3">
         <div class="card-body">
-            <h5 class="card-title">@Listing.Title</h5>
-            <p class="card-text">@Listing.Description</p>
+            <p class="card-text"><strong>Description</strong> @Listing.Description</p>
             <p class="card-text"><strong>Property Name:</strong> @Listing.PropertyName</p>
             <p class="card-text"><strong>Status:</strong> @Listing.PropertyStatus</p>
             <p class="card-text"><strong>Price:</strong> @Listing.Price</p>
@@ -38,9 +37,15 @@ else if (SearchAttempted)
     private ListingViewModel Listing { get; set; }
     private bool SearchAttempted { get; set; } = false;
 
-    private async Task SearchListing()
+    [Inject]
+    public NavigationManager NavigationManager { get; set; }
+    [Parameter]
+    public string title { get; set; }
+
+    protected override async Task OnInitializedAsync()
     {
-        SearchAttempted = true;
+        ListingTitle = NavigationManager.Uri.Split('/').LastOrDefault();
         Listing = await ListingDataService.GetListingByTitleAsync(ListingTitle);
+        SearchAttempted = true;
     }
 }

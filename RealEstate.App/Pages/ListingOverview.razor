@@ -37,7 +37,7 @@
                             <td>@listing.PropertyStatus.ToString()</td>
                             <td>$@listing.Price.ToString("N0")</td>
                             <td>
-                                <button class="btn btn-info btn-sm" @onclick="() => ViewDetails(listing.Title)">View Details</button>
+                                <button class="btn btn-primary" @onclick="() => ViewListingDetails(listing.Title)">View Details</button>
                             </td>
                         </tr>
                     }
@@ -61,8 +61,8 @@
         Listings = (await ListingDataService.GetListingsAsync()).ToList();
     }
 
-    private void ViewDetails(string listingId)
+    private void ViewListingDetails(string listingTitle)
     {
-        NavigationManager.NavigateTo($"/listingdetails/{listingId}");
+        NavigationManager.NavigateTo($"/listingdetails/{listingTitle}");
     }
 }
