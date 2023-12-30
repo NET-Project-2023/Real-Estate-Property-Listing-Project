@@ -39,8 +39,10 @@
                             <td>@property.Address</td>
                             <td>$@property.Price.ToString("N0")</td>
                             <td>
-                                <button class="btn btn-info btn-sm" @onclick="() => ViewDetails(property.PropertyId)">View Details</button>
+                                <!-- Add the "View Details" button with a click event handler -->
+                                <button class="btn btn-primary" @onclick="() => ViewPropertyDetails(property.Title)">View Details</button>
                             </td>
+
                         </tr>
                     }
                 </tbody>
@@ -75,8 +77,10 @@
         }
     }
 
-    private void ViewDetails(Guid propertyId)
+    private void ViewPropertyDetails(string propertyTitle)
     {
-        NavigationManager.NavigateTo($"/propertydetails/{propertyId}");
+        // Navigate to the "Find Property" page with the selected property's title
+        NavigationManager.NavigateTo($"/findproperty/{propertyTitle}");
     }
+
 }

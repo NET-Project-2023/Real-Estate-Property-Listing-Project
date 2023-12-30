@@ -1,4 +1,4 @@
-﻿@page "/findproperty"
+﻿@page "/findproperty/{title}"
 @using RealEstate.App.Contracts
 @using RealEstate.App.ViewModels
 
@@ -6,14 +6,14 @@
 
 <h3>Find Property</h3>
 
-<div class="row mb-2">
+@* <div class="row mb-2">
     <div class="col-md-6">
         <input @bind="PropertyName" class="form-control" placeholder="Enter property name" />
     </div>
     <div class="col-md-6">
         <button @onclick="SearchProperty" class="btn btn-primary">Search</button>
     </div>
-</div>
+</div> *@
 
 @if (Property != null)
 {
@@ -32,17 +32,28 @@
 }
 else if (SearchAttempted)
 {
-    <p>No property found with the name '@PropertyName'.</p>
+    <p>No property found with the specified title.</p>
 }
 
 @code {
     private string PropertyName { get; set; } = string.Empty;
     private PropertyDto Property { get; set; }
     private bool SearchAttempted { get; set; } = false;
+    [Inject]
+    public NavigationManager NavigationManager { get; set; }
+    [Parameter]
+    public string title { get; set; }
 
-    private async Task SearchProperty()
+    // private async Task SearchProperty()
+    // {
+    //     SearchAttempted = true;
+    //     Property = await PropertyDataService.GetPropertyByNameAsync(PropertyName);
+    // }
+
+    protected override async Task OnInitializedAsync()
     {
-        SearchAttempted = true;
+        PropertyName = NavigationManager.Uri.Split('/').LastOrDefault();
         Property = await PropertyDataService.GetPropertyByNameAsync(PropertyName);
+        SearchAttempted = true;
     }
 }
