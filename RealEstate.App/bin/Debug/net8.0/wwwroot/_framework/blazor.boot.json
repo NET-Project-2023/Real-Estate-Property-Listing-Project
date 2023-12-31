@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "RealEstate.App",
   "resources": {
-    "hash": "sha256-3Wk9E54AgDwOroWrFFQmCaNKsA7KiJCFPB7ClM/Yno0=",
+    "hash": "sha256-NcII+4fAkpKfj5pUL67hkooLyg9HCCqNgFQfIvUpafk=",
     "jsModuleNative": {
       "dotnet.native.8.0.0.6vrnrm5ozq.js": "sha256-LjLDIz9+J7uuiwMlQ4HbNx2BnSpphOtO2MwkoI28vdI="
     },
@@ -219,10 +219,10 @@
       "mscorlib.wasm": "sha256-cDuLeL3OCtVtiid/dyex1MVgbuzDSRwZxKzuP2Dp4mg=",
       "netstandard.wasm": "sha256-A0h86SDieTMoU/wU2JTszWCsUmMuguDcbap0b0BzsmI=",
       "System.Private.CoreLib.wasm": "sha256-/0DNIm/T0C07X7Tuz5uR8JvVCoAfEE2MnfPUSjyS9xc=",
-      "RealEstate.App.wasm": "sha256-yHAChCCtytTa0QslMfF7Ln1xgQ0YrTIObW9OoWXi18Y="
+      "RealEstate.App.wasm": "sha256-KonAXj+APm37oPdD5U1bGyDjlkupeFydbpsEt5MNzSU="
     },
     "pdb": {
-      "RealEstate.App.pdb": "sha256-K/g90ZSdfprd/weSt/W5lK3ByktxYZYLy7drAewTfIc="
+      "RealEstate.App.pdb": "sha256-/KJlCNYVgq0DY7oq3/m39+BVOTHIObDAKdo2AFtqiT0="
     }
   },
   "cacheBootResources": true,

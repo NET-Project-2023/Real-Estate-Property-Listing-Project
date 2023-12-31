@@ -6,7 +6,7 @@ using Real_estate.Application.Features.Properties.Commands.UpdateProperty;
 using Real_estate.Application.Features.Properties.Queries.GetAll;
 using Real_estate.Application.Features.Properties.Queries.GetById;
 using Real_estate.Application.Features.Properties.Queries.GetByName;
-using System.Text.Json;
+using Real_estate.Application.Features.Properties.Queries.GetByOwnerUsername;
 
 namespace RealEstate.API.Controllers
 {
@@ -100,6 +100,18 @@ namespace RealEstate.API.Controllers
             //return Ok(result.Message);
             return Ok(new { Message = "Property updated successfully." });
 
+        }
+
+        [Authorize(Roles = "User")]
+        [HttpGet("ByCurrentUser/{ownerUsername}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetByCurrentUser(string ownerUsername)
+        {
+            //var username = User.FindFirst(ClaimTypes.Name)?.Value;
+            //Console.WriteLine("Username extracted: ", username);
+            Console.WriteLine("USERNAME in the api: ", ownerUsername);
+            var result = await Mediator.Send(new GetByOwnerUsernamePropertyQuery(ownerUsername));
+            return Ok(result);
         }
     }
 }

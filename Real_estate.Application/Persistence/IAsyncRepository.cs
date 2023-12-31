@@ -14,7 +14,5 @@ namespace Real_estate.Application.Persistence
         Task<Result<IReadOnlyList<T>>> GetPagedReponseAsync(int page, int size);
         Task<Result<T>> FindByNameAsync(string title);
         Task<Result<T>> FindByConditionAsync(Expression<Func<T, bool>> predicate);
-
-
     }
 }

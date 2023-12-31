@@ -1,7 +1,6 @@
 ﻿using RealEstate.App.Contracts;
 using RealEstate.App.Services.Responses;
 using RealEstate.App.ViewModels;
-using System.Diagnostics;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text.Json;
@@ -25,17 +24,17 @@ namespace RealEstate.App.Services
         {
             try
             {
-                string loggedInUserId = await tokenService.GetUsernameFromTokenAsync();
-                if (string.IsNullOrEmpty(loggedInUserId))
+                string loggedInUser = await tokenService.GetUsernameFromTokenAsync();
+                if (string.IsNullOrEmpty(loggedInUser))
                 {
                     throw new InvalidOperationException("Logged-in username not available.");
                 }
-                Console.WriteLine($"Logged-in User ID: {loggedInUserId}");
+                Console.WriteLine($"Logged-in User ID: {loggedInUser}");
 
 
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
 
-                propertyViewModel.UserId = loggedInUserId;
+                propertyViewModel.UserId = loggedInUser;
                
                 propertyViewModel.Images = new List<byte[]> { new byte[0] };
 
@@ -53,7 +52,7 @@ namespace RealEstate.App.Services
             catch (HttpRequestException ex)
             {
                 Console.WriteLine($"HTTP Request Exception: {ex.Message}");
-                throw; // Rethrow the exception after logging
+                throw; 
             }
             catch (Exception ex)
             {
@@ -153,6 +152,43 @@ namespace RealEstate.App.Services
             catch (JsonException jsonEx)
             {
                 Console.WriteLine($"JSON Deserialization Exception: {jsonEx.Message}");
+                throw;
+            }
+        }
+
+        public async Task<List<PropertyViewModel>> GetPropertiesByCurrentUserAsync(string ownerUsername)
+        {
+            try
+            {
+                string token = await tokenService.GetTokenAsync();
+                string loggedInUser = await tokenService.GetUsernameFromTokenAsync();
+
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                Console.WriteLine("OwnerUsername in UI: ", loggedInUser);
+                var result = await httpClient.GetAsync($"api/v1/Properties/ByOwner/{loggedInUser}");
+                result.EnsureSuccessStatusCode();
+
+                var content = await result.Content.ReadAsStringAsync();
+
+                if (!result.IsSuccessStatusCode)
+                {
+                    throw new ApplicationException(content);
+                }
+
+                var response = JsonSerializer.Deserialize<PropertiesResponse>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+                var properties = response?.Properties ?? new List<PropertyViewModel>();
+
+                return properties;
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine($"HTTP Request Exception: {ex.Message}");
+                Console.WriteLine($"Request URL: {httpClient.BaseAddress}/{RequestUri}/ByOwner/{ownerUsername}");
+                throw; // Rethrow the exception after logging
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An unexpected exception occurred: {ex.Message}");
                 throw;
             }
         }
