@@ -8,7 +8,7 @@ namespace Infrastructure.Repositories
 {
     public class BaseRepository<T> : IAsyncRepository<T> where T : class
     {
-        private readonly RealEstateContext context;
+        protected readonly RealEstateContext context;
 
         public BaseRepository(RealEstateContext context)
         {

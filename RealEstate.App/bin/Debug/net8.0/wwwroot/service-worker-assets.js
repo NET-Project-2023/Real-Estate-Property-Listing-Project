@@ -853,7 +853,7 @@
       "url": "_framework\/System.Private.CoreLib.wasm"
     },
     {
-      "hash": "sha256-poakCeJYzF3a3fAWsdu9oVUk2TvUW523ItgUMgPb5gw=",
+      "hash": "sha256-GhUDBeylTPHdJKKlfWVTLPy0keFtUZvPAYva+5GOiD4=",
       "url": "_framework\/dotnet.js"
     },
     {
@@ -861,7 +861,7 @@
       "url": "_framework\/dotnet.js.map"
     },
     {
-      "hash": "sha256-Le2jqNcVgX63P2OF2bKuy86lTKLIhDyZBoPWDbZGNa8=",
+      "hash": "sha256-LjLDIz9+J7uuiwMlQ4HbNx2BnSpphOtO2MwkoI28vdI=",
       "url": "_framework\/dotnet.native.8.0.0.6vrnrm5ozq.js"
     },
     {
@@ -869,7 +869,7 @@
       "url": "_framework\/dotnet.native.wasm"
     },
     {
-      "hash": "sha256-VoD3+0OGewD69WP0MNGcsochUUSyaLHXAWkAbSsDTz4=",
+      "hash": "sha256-WdSX3HQvnBYF0KJLZoOyHvTzMHetaob6PV0Kn2K+QXw=",
       "url": "_framework\/dotnet.runtime.8.0.0.hfqcydujc6.js"
     },
     {
@@ -889,17 +889,17 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-wQVoRmSIX9khk3xG+oTGDwGW0q4xB3j7EHnP6dnOowk=",
+      "hash": "sha256-XJckQ2rAPoLAG4ZKrLcmzUlkhBAknaD\/l8kqCPZjFH0=",
       "url": "_framework\/RealEstate.App.wasm"
     },
     {
-      "hash": "sha256-+TPymmR2Z15kDeZmzgnTi2h0AcBr7x3jLQ0ZxpznZY4=",
+      "hash": "sha256-GWfhi+jzp5QvjDLjw44nEeZj8+fdJaQ6u2LMX51fZuM=",
       "url": "_framework\/RealEstate.App.pdb"
     },
     {
-      "hash": "sha256-tZmgNXTIbi5k2QUJXmZQF7IBxC6m\/NFLnxNdFXfpF3U=",
+      "hash": "sha256-J\/pa2Bb8hnEvB5TO75ywoFdiKLKE94e6fV+qFDjbuTA=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "NI8X7rMH"
+  "version": "V2VwS3bP"
 };
