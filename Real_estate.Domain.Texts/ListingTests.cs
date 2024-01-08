@@ -219,7 +219,7 @@ namespace Real_estate.Domain.Texts
             string description = "Test Description";
             Status propertyStatus = Status.ForRent;
             var listing = new Listing(title, price, username, propertyName, description, propertyStatus);
-            Status newStatus=Status.Unknown;
+            Status newStatus=Status.;
 
             // Assert
            Assert.Throws<ArgumentException>(() => listing.UpdateStatus(newStatus));
