@@ -19,7 +19,6 @@ namespace RealEstate.App.Services
             this.httpClient = httpClient;
             this.tokenService = tokenService;
         }
-
         public async Task<ApiResponse<PropertyDto>> CreatePropertyAsync(PropertyViewModel propertyViewModel)
         {
             try

@@ -11,5 +11,7 @@ namespace RealEstate.App.ViewModels
         public int? NumberOfBedrooms { get; set; } // Optional update
         public int? NumberOfBathrooms { get; set; } // Optional update
         public List<byte[]>? Images { get; set; } // Optional update
+        public string UserId { get; set; } = string.Empty;
+
     }
 }

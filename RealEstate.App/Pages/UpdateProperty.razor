@@ -1,9 +1,11 @@
 ﻿@page "/updateproperty/{title}"
+@using Microsoft.AspNetCore.Components.Authorization
 @using RealEstate.App.Contracts
+@using RealEstate.App.Services
 @using RealEstate.App.ViewModels
 @inject IPropertyDataService PropertyDataService
+@inject ITokenService tokenService
 @inject NavigationManager NavigationManager
-
 
 <h3>Edit Property</h3>
 
@@ -13,6 +15,7 @@
 }
 else
 {
+
     <EditForm Model="@UpdatePropertyModel" OnValidSubmit="@HandleValidSubmit">
         <DataAnnotationsValidator />
         <ValidationSummary />
@@ -57,9 +60,8 @@ else
         <!-- Submit Button -->
         <button type="submit" class="btn btn-primary">Update Property</button>
     </EditForm>
+
 }
-
-
 
 
 @code {
@@ -70,10 +72,33 @@ else
     [Parameter]
     public string title { get; set; }
 
+
+    // protected override async Task OnInitializedAsync()
+    // {
+    //     Check if the logged-in user owns the property
+    //     var loggedInUsername = await tokenService.GetUsernameFromTokenAsync();
+    //     UpdatePropertyModel = await PropertyDataService.GetPropertyByNameAsync(PropertyTitle);
+
+    //     if (UpdatePropertyModel == null || UpdatePropertyModel.UserId != loggedInUsername)
+    //     {
+    //         Redirect to unauthorized page or handle accordingly
+    //         NavigationManager.NavigateTo("/unauthorized");
+    //     }
+
+    //     SearchAttempted = true;
+    // }
+
     protected override async Task OnInitializedAsync()
     {
         PropertyTitle = NavigationManager.Uri.Split('/').LastOrDefault();
         UpdatePropertyModel = await PropertyDataService.GetPropertyByNameAsync(PropertyTitle);
+        string loggedInUsername = await tokenService.GetUsernameFromTokenAsync();
+        Console.WriteLine("LOGGEDIN pentru UPDATE: ", loggedInUsername); // aici tot timpu e gol
+        if(UpdatePropertyModel.UserId != loggedInUsername && loggedInUsername != null)
+        {
+            NavigationManager.NavigateTo("/unauthorized");
+        }
+
         SearchAttempted = true;
     }
 
@@ -91,4 +116,5 @@ else
             Console.WriteLine($"Error updating property: {result.Message}");
         }
     }
+
 }
