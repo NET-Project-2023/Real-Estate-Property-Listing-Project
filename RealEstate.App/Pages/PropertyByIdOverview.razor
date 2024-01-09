@@ -56,18 +56,9 @@ else if (SearchAttempted)
         string loggedInUsername = await tokenService.GetUsernameFromTokenAsync();
 
         Property = await PropertyDataService.GetPropertyByNameAsync(PropertyName);
-        userViewModel = await authService.GetUser(Property.UserId);
-        Console.WriteLine("USERUL ESTE AICI: ", userViewModel.Username); // Aici e gol. why?
 
-        if (Property.UserId == loggedInUsername)
-        {
-            showEdit = true;
-        }
-        else
-        {
-            showEdit = false;
-        }
-        SearchAttempted = true;
+        userViewModel = await authService.GetUser(Property.UserId);
+        Console.WriteLine("USERUL ESTE AICI: ", userViewModel.Username); // Aici e GOL
     }
 
     private void NavigateToEdit(string propertyTitle)
