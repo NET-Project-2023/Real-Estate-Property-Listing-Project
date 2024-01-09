@@ -1,9 +1,9 @@
 ﻿@page "/findproperty/{title}"
 @using RealEstate.App.Contracts
 @using RealEstate.App.ViewModels
-
+@inject ITokenService tokenService
 @inject IPropertyDataService PropertyDataService
-
+@inject IAuthenticationService authService
 
 @if (Property != null)
 {
@@ -17,10 +17,15 @@
             <p class="card-text"><strong>Price:</strong> @Property.Price</p>
             <p class="card-text"><strong>Bedrooms:</strong> @Property.NumberOfBedrooms</p>
             <p class="card-text"><strong>Bathrooms:</strong> @Property.NumberOfBathrooms</p>
-            <td>
-                <button class="btn btn-primary" @onclick="() => NavigateToEdit(Property.Title)">Edit</button>
-            </td>
+            <p class="card-text"><strong>Contact number:</strong> @userViewModel.PhoneNumber</p>
+            <p class="card-text"><strong>Email:</strong> @userViewModel.Email</p>
+
             <!-- and other property details -->
+            
+            @if (showEdit)
+            {
+                <button class="btn btn-primary" @onclick="() => NavigateToEdit(Property.Title)">Edit</button>
+            }
         </div>
     </div>
 }
@@ -33,21 +38,35 @@ else if (SearchAttempted)
     private string PropertyName { get; set; } = string.Empty;
     private PropertyDto Property { get; set; }
     private bool SearchAttempted { get; set; } = false;
+    private bool showEdit { get; set; } = false;
+    private string phoneNumber { get; set; } = string.Empty;
+    UpdateUserViewModel userViewModel { get; set; }
+
     [Inject]
     public NavigationManager NavigationManager { get; set; }
+
     [Parameter]
     public string title { get; set; }
 
-    // private async Task SearchProperty()
-    // {
-    //     SearchAttempted = true;
-    //     Property = await PropertyDataService.GetPropertyByNameAsync(PropertyName);
-    // }
+
 
     protected override async Task OnInitializedAsync()
     {
         PropertyName = NavigationManager.Uri.Split('/').LastOrDefault();
+        string loggedInUsername = await tokenService.GetUsernameFromTokenAsync();
+
         Property = await PropertyDataService.GetPropertyByNameAsync(PropertyName);
+        userViewModel = await authService.GetUser(Property.UserId);
+        Console.WriteLine("USERUL ESTE AICI: ", userViewModel.Username); // Aici e gol. why?
+
+        if (Property.UserId == loggedInUsername)
+        {
+            showEdit = true;
+        }
+        else
+        {
+            showEdit = false;
+        }
         SearchAttempted = true;
     }
 
@@ -55,4 +74,5 @@ else if (SearchAttempted)
     {
         NavigationManager.NavigateTo($"/updateproperty/{propertyTitle}");
     }
+
 }

@@ -106,5 +106,20 @@ namespace RealEstate.App.Services
             }
         }
 
+        public async Task<UpdateUserViewModel> GetUser(string username)
+        {
+            var requestUri = $"api/v1/users/ByName/{username}";
+            httpClient.DefaultRequestHeaders.Authorization =
+               new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
+
+            var response = await httpClient.GetAsync(requestUri);
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new HttpRequestException($"Error fetching user: {response.ReasonPhrase}");
+            }
+            var userViewModel = await response.Content.ReadFromJsonAsync<UpdateUserViewModel>();
+            return userViewModel ?? new UpdateUserViewModel();
+        }
+
     }
 }

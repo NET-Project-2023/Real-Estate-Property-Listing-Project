@@ -72,28 +72,12 @@ else
     [Parameter]
     public string title { get; set; }
 
-
-    // protected override async Task OnInitializedAsync()
-    // {
-    //     Check if the logged-in user owns the property
-    //     var loggedInUsername = await tokenService.GetUsernameFromTokenAsync();
-    //     UpdatePropertyModel = await PropertyDataService.GetPropertyByNameAsync(PropertyTitle);
-
-    //     if (UpdatePropertyModel == null || UpdatePropertyModel.UserId != loggedInUsername)
-    //     {
-    //         Redirect to unauthorized page or handle accordingly
-    //         NavigationManager.NavigateTo("/unauthorized");
-    //     }
-
-    //     SearchAttempted = true;
-    // }
-
     protected override async Task OnInitializedAsync()
     {
         PropertyTitle = NavigationManager.Uri.Split('/').LastOrDefault();
         UpdatePropertyModel = await PropertyDataService.GetPropertyByNameAsync(PropertyTitle);
         string loggedInUsername = await tokenService.GetUsernameFromTokenAsync();
-        Console.WriteLine("LOGGEDIN pentru UPDATE: ", loggedInUsername); // aici tot timpu e gol
+        Console.WriteLine("LOGGEDIN pentru UPDATE: ", loggedInUsername); 
         if(UpdatePropertyModel.UserId != loggedInUsername && loggedInUsername != null)
         {
             NavigationManager.NavigateTo("/unauthorized");
