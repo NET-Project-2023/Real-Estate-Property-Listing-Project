@@ -1,0 +1,94 @@
+﻿@page "/updateproperty/{title}"
+@using RealEstate.App.Contracts
+@using RealEstate.App.ViewModels
+@inject IPropertyDataService PropertyDataService
+@inject NavigationManager NavigationManager
+
+
+<h3>Edit Property</h3>
+
+@if (UpdatePropertyModel == null)
+{
+    <p>No property found with this title...</p>
+}
+else
+{
+    <EditForm Model="@UpdatePropertyModel" OnValidSubmit="@HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <!-- Description -->
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <InputTextArea id="description" class="form-control" @bind-Value="@UpdatePropertyModel.Description" />
+        </div>
+
+        <!-- Address -->
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <InputTextArea id="address" class="form-control" @bind-Value="@UpdatePropertyModel.Address" />
+        </div>
+
+        <!-- Price -->
+        <div class="form-group">
+            <label for="price">Price:</label>
+            <InputNumber id="price" class="form-control" @bind-Value="@UpdatePropertyModel.Price" />
+        </div>
+
+        <!-- Size -->
+        <div class="form-group">
+            <label for="size">Size:</label>
+            <InputNumber id="size" class="form-control" @bind-Value="@UpdatePropertyModel.Size" />
+        </div>
+
+        <!-- Bedrooms -->
+        <div class="form-group">
+            <label for="bedroom">Bedrooms:</label>
+            <InputNumber id="bedroom" class="form-control" @bind-Value="@UpdatePropertyModel.NumberOfBedrooms" />
+        </div>
+
+        <!-- Bathrooms -->
+        <div class="form-group">
+            <label for="bathroom">Bathrooms:</label>
+            <InputNumber id="bathroom" class="form-control" @bind-Value="@UpdatePropertyModel.NumberOfBathrooms" />
+        </div>
+
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Update Property</button>
+    </EditForm>
+}
+
+
+
+
+@code {
+    private PropertyDto UpdatePropertyModel;
+    private string PropertyTitle { get; set; } = string.Empty;
+    private bool SearchAttempted { get; set; } = false;
+
+    [Parameter]
+    public string title { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        PropertyTitle = NavigationManager.Uri.Split('/').LastOrDefault();
+        UpdatePropertyModel = await PropertyDataService.GetPropertyByNameAsync(PropertyTitle);
+        SearchAttempted = true;
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        // Handle the form submission logic here
+        var result = await PropertyDataService.UpdatePropertyAsync(UpdatePropertyModel);
+        if (result.IsSuccess)
+        {
+            NavigationManager.NavigateTo("/myproperties");
+        }
+        else
+        {
+            // Handle error scenario
+            Console.WriteLine($"Error updating property: {result.Message}");
+        }
+    }
+}

@@ -5,15 +5,6 @@
 @inject IPropertyDataService PropertyDataService
 
 
-@* <div class="row mb-2">
-    <div class="col-md-6">
-        <input @bind="PropertyName" class="form-control" placeholder="Enter property name" />
-    </div>
-    <div class="col-md-6">
-        <button @onclick="SearchProperty" class="btn btn-primary">Search</button>
-    </div>
-</div> *@
-
 @if (Property != null)
 {
     <h3>@Property.Title</h3>
@@ -26,6 +17,9 @@
             <p class="card-text"><strong>Price:</strong> @Property.Price</p>
             <p class="card-text"><strong>Bedrooms:</strong> @Property.NumberOfBedrooms</p>
             <p class="card-text"><strong>Bathrooms:</strong> @Property.NumberOfBathrooms</p>
+            <td>
+                <button class="btn btn-primary" @onclick="() => NavigateToEdit(Property.Title)">Edit</button>
+            </td>
             <!-- and other property details -->
         </div>
     </div>
@@ -55,5 +49,10 @@ else if (SearchAttempted)
         PropertyName = NavigationManager.Uri.Split('/').LastOrDefault();
         Property = await PropertyDataService.GetPropertyByNameAsync(PropertyName);
         SearchAttempted = true;
+    }
+
+    private void NavigateToEdit(string propertyTitle)
+    {
+        NavigationManager.NavigateTo($"/updateproperty/{propertyTitle}");
     }
 }

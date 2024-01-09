@@ -122,14 +122,5 @@ namespace Real_estate.Domain.Entities
             NumberOfBathrooms = newNumberOfBathrooms;
         }
 
-        //public void UpdatePropertyStatus(Status newStatus)
-        //{
-        //    // Assuming you have a validation for status or you might want to check if it's a valid enum
-        //    if (!Enum.IsDefined(typeof(Status), newStatus))
-        //    {
-        //        throw new ArgumentException("Invalid property status.", nameof(newStatus));
-        //    }
-        //    PropertyStatus = newStatus;
-        //}
     }
 }
