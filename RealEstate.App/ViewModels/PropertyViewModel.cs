@@ -11,7 +11,7 @@ namespace RealEstate.App.ViewModels
         public int Price { get; set; }
         public int NumberOfBedrooms { get; set; }
         public int NumberOfBathrooms { get; set; }
-        public List<byte[]> Images { get; set; }
+        public List<byte[]> Images { get; set; } 
         public string UserId { get; set; }
     }
 }

@@ -109,7 +109,7 @@ namespace RealEstate.API.Controllers
         {
             //var username = User.FindFirst(ClaimTypes.Name)?.Value;
             //Console.WriteLine("Username extracted: ", username);
-            Console.WriteLine("USERNAME in the api: ", ownerUsername);
+            Console.WriteLine("USERNAME in the api for MYPROP: ", ownerUsername);
             var result = await Mediator.Send(new GetByOwnerUsernamePropertyQuery(ownerUsername));
             return Ok(result);
         }
