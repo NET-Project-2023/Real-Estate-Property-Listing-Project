@@ -19,7 +19,6 @@ namespace RealEstate.App.Services
             this.httpClient = httpClient;
             this.tokenService = tokenService;
         }
-
         public async Task<ApiResponse<PropertyDto>> CreatePropertyAsync(PropertyViewModel propertyViewModel)
         {
             try
@@ -35,12 +34,13 @@ namespace RealEstate.App.Services
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
 
                 propertyViewModel.UserId = loggedInUser;
-               
+                
+                // TODO: adauga imagini reale!
                 propertyViewModel.Images = new List<byte[]> { new byte[0] };
 
                 var result = await httpClient.PostAsJsonAsync(RequestUri, propertyViewModel);
                 result.EnsureSuccessStatusCode();
-
+                    
 
                 var responseContent = await result.Content.ReadAsStringAsync();
                 Console.WriteLine($"API Response: {responseContent}");
@@ -60,6 +60,52 @@ namespace RealEstate.App.Services
                 throw;
             }
         }
+        public async Task<List<PropertyViewModel>> GetPropertiesByCurrentUserAsync()
+        {
+            try
+            {
+                string loggedInUserId = await tokenService.GetUsernameFromTokenAsync();
+                if (string.IsNullOrEmpty(loggedInUserId))
+                {
+                    throw new InvalidOperationException("Logged-in username not available.");
+                }
+                Console.WriteLine($"Logged-in User ID from Blazor: {loggedInUserId}");
+
+
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
+                
+                // Trebuie sa cautam toate Properties cu UserId==loggedInUserId
+
+                var result = await httpClient.GetAsync($"api/v1/Properties/ByCurrentUser/{loggedInUserId}", HttpCompletionOption.ResponseHeadersRead);
+
+                result.EnsureSuccessStatusCode();
+
+                var content = await result.Content.ReadAsStringAsync();
+                Console.WriteLine($"Bad Content from BLAZOR: {content}");
+
+                if (!result.IsSuccessStatusCode)
+                {
+                    throw new ApplicationException(content);
+                }
+
+                // Aici e problema!
+                var response = JsonSerializer.Deserialize<PropertiesResponse>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+                var properties = response?.Properties ?? new List<PropertyViewModel>();
+
+                return properties!;
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine($"HTTP Request Exception: {ex.Message}");
+                Console.WriteLine($"Request URL: {httpClient.BaseAddress}/{RequestUri}/ByOwner/");
+                throw; // Rethrow the exception after logging
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An unexpected exception occurred: {ex.Message}");
+                throw;
+            }
+        }
         public async Task<List<PropertyViewModel>> GetPropertiesAsync()
         {
             // Ensure the token is included in the request headers
@@ -70,6 +116,7 @@ namespace RealEstate.App.Services
             result.EnsureSuccessStatusCode();
 
             var content = await result.Content.ReadAsStringAsync();
+            Console.WriteLine($"Good Content from BLAZOR: {content}");
 
             if (!result.IsSuccessStatusCode)
             {
@@ -82,29 +129,7 @@ namespace RealEstate.App.Services
 
             return properties!;
         }
-
-        public async Task<PropertyViewModel> GetPropertyByIdAsync(Guid propertyId)
-        {
-            // Ensure the token is included in the request headers
-            httpClient.DefaultRequestHeaders.Authorization =
-                new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
-
-            var result = await httpClient.GetAsync($"{RequestUri}/{propertyId}", HttpCompletionOption.ResponseHeadersRead);
-            result.EnsureSuccessStatusCode();
-
-            var content = await result.Content.ReadAsStringAsync();
-
-            if (!result.IsSuccessStatusCode)
-            {
-                throw new ApplicationException(content);
-            }
-
-            var response = JsonSerializer.Deserialize<PropertiesResponse>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-
-            var property = response?.Property ?? new PropertyViewModel();
-            return property!;
-        }
-       public async Task<PropertyDto> GetPropertyByNameAsync(string propertyName)
+        public async Task<PropertyDto> GetPropertyByNameAsync(string propertyName)
        {
             
             httpClient.DefaultRequestHeaders.Authorization =
@@ -119,7 +144,6 @@ namespace RealEstate.App.Services
             var propertyDto = await response.Content.ReadFromJsonAsync<PropertyDto>();
             return propertyDto ?? new PropertyDto();
        }
-
         public async Task<ApiResponse<PropertyDto>> UpdatePropertyAsync(PropertyDto propertyDto)
         {
             //string jsonPayload = JsonSerializer.Serialize(propertyDto);
@@ -155,42 +179,28 @@ namespace RealEstate.App.Services
                 throw;
             }
         }
-
-        public async Task<List<PropertyViewModel>> GetPropertiesByCurrentUserAsync(string ownerUsername)
+        public async Task<List<PropertyViewModel>> GetPropertyByIdAsync(Guid propertyId)
         {
-            try
+            // Ensure the token is included in the request headers
+            httpClient.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
+
+            var result = await httpClient.GetAsync($"{RequestUri}/{propertyId}", HttpCompletionOption.ResponseHeadersRead);
+            result.EnsureSuccessStatusCode();
+
+            var content = await result.Content.ReadAsStringAsync();
+
+            if (!result.IsSuccessStatusCode)
             {
-                string token = await tokenService.GetTokenAsync();
-                string loggedInUser = await tokenService.GetUsernameFromTokenAsync();
-
-                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                Console.WriteLine("OwnerUsername in UI: ", loggedInUser);
-                var result = await httpClient.GetAsync($"api/v1/Properties/ByOwner/{loggedInUser}");
-                result.EnsureSuccessStatusCode();
-
-                var content = await result.Content.ReadAsStringAsync();
-
-                if (!result.IsSuccessStatusCode)
-                {
-                    throw new ApplicationException(content);
-                }
-
-                var response = JsonSerializer.Deserialize<PropertiesResponse>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-                var properties = response?.Properties ?? new List<PropertyViewModel>();
-
-                return properties;
+                throw new ApplicationException(content);
             }
-            catch (HttpRequestException ex)
-            {
-                Console.WriteLine($"HTTP Request Exception: {ex.Message}");
-                Console.WriteLine($"Request URL: {httpClient.BaseAddress}/{RequestUri}/ByOwner/{ownerUsername}");
-                throw; // Rethrow the exception after logging
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"An unexpected exception occurred: {ex.Message}");
-                throw;
-            }
+
+            var response = JsonSerializer.Deserialize<PropertiesResponse>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+            var properties = response?.Properties ?? new List<PropertyViewModel>();
+            return properties!;
         }
+
+
     }
 }

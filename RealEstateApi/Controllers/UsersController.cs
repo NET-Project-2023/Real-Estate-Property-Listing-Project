@@ -60,8 +60,6 @@ namespace RealEstate.API.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> DeleteByUsername(string username)
         {
-            Console.WriteLine("HELLOOOOOOOOOOOOOOOOOOOOOOOO");
-
             var command = new DeleteUserByUsernameCommand { Username = username };
             var result = await Mediator.Send(command);
             if (!result.Success)

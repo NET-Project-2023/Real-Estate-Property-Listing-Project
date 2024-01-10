@@ -1,0 +1,77 @@
+﻿@page "/myproperties"
+@using RealEstate.App.Contracts
+@using RealEstate.App.ViewModels
+
+
+<div class="container mt-5">
+    <h3>Properties Owned by You</h3>
+
+    @if (Properties == null)
+    {
+        <div class="text-center">
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    }
+    else if (Properties.Count == 0)
+    {
+        <p>You don't have any properties added yet.</p>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Property Title</th>
+                        <th>Address</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var property in Properties)
+                    {
+                        <tr>
+                            <td>@property.Title</td>
+                            <td>@property.Address</td>
+                            <td>$@property.Price.ToString("N0")</td>
+                            <td>
+                                <button class="btn btn-primary" @onclick="() => ViewPropertyDetails(property.Title)">View Details</button>
+                            </td>
+                            <td>
+                                <button class="btn btn-primary" @onclick="() => UpdateProperty(property.Title)">Edit</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+@code {
+    [Inject]
+    public IPropertyDataService PropertyDataService { get; set; }
+
+    public List<PropertyViewModel> Properties { get; set; }
+
+    [Inject]
+    public NavigationManager NavigationManager { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Properties = (await PropertyDataService.GetPropertiesByCurrentUserAsync()).ToList();   
+    }
+
+    private void ViewPropertyDetails(string propertyTitle)
+    {
+        // Navigate to the "Find Property" page with the selected property's title
+        NavigationManager.NavigateTo($"/findproperty/{propertyTitle}");
+    }
+
+    private void UpdateProperty(string propertyTitle)
+    {
+        NavigationManager.NavigateTo($"/updateproperty/{propertyTitle}");
+    }
+}

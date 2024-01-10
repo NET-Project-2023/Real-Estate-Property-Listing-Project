@@ -1,67 +1,104 @@
-﻿@page "/propertiesbyowner"
+﻿@page "/updateproperty/{title}"
+@using Microsoft.AspNetCore.Components.Authorization
 @using RealEstate.App.Contracts
+@using RealEstate.App.Services
 @using RealEstate.App.ViewModels
+@inject IPropertyDataService PropertyDataService
+@inject ITokenService tokenService
+@inject NavigationManager NavigationManager
 
+<h3>Edit Property</h3>
 
-<div class="container mt-5">
-    <h3>Properties Owned by You</h3>
+@if (UpdatePropertyModel == null)
+{
+    <p>No property found with this title...</p>
+}
+else
+{
 
-    @if (Properties == null)
-    {
-        <div class="text-center">
-            <div class="spinner-border text-primary" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
+    <EditForm Model="@UpdatePropertyModel" OnValidSubmit="@HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <!-- Description -->
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <InputTextArea id="description" class="form-control" @bind-Value="@UpdatePropertyModel.Description" />
         </div>
-    }
-    else if (Properties.Count == 0)
-    {
-        <p>You don't have any properties yet.</p>
-    }
-    else
-    {
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>Property Title</th>
-                        <th>Address</th>
-                        <th>Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var property in Properties)
-                    {
-                        <tr>
-                            <td>@property.Title</td>
-                            <td>@property.Address</td>
-                            <td>$@property.Price.ToString("N0")</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+
+        <!-- Address -->
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <InputTextArea id="address" class="form-control" @bind-Value="@UpdatePropertyModel.Address" />
         </div>
-    }
-</div>
+
+        <!-- Price -->
+        <div class="form-group">
+            <label for="price">Price:</label>
+            <InputNumber id="price" class="form-control" @bind-Value="@UpdatePropertyModel.Price" />
+        </div>
+
+        <!-- Size -->
+        <div class="form-group">
+            <label for="size">Size:</label>
+            <InputNumber id="size" class="form-control" @bind-Value="@UpdatePropertyModel.Size" />
+        </div>
+
+        <!-- Bedrooms -->
+        <div class="form-group">
+            <label for="bedroom">Bedrooms:</label>
+            <InputNumber id="bedroom" class="form-control" @bind-Value="@UpdatePropertyModel.NumberOfBedrooms" />
+        </div>
+
+        <!-- Bathrooms -->
+        <div class="form-group">
+            <label for="bathroom">Bathrooms:</label>
+            <InputNumber id="bathroom" class="form-control" @bind-Value="@UpdatePropertyModel.NumberOfBathrooms" />
+        </div>
+
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Update Property</button>
+    </EditForm>
+
+}
+
 
 @code {
-    [Inject]
-    public IPropertyDataService PropertyDataService { get; set; }
+    private PropertyDto UpdatePropertyModel;
+    private string PropertyTitle { get; set; } = string.Empty;
+    private bool SearchAttempted { get; set; } = false;
 
-    [Inject]
-    public ITokenService TokenService { get; set; }
-
-    public List<PropertyViewModel> Properties { get; set; }
+    [Parameter]
+    public string title { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        var username = await TokenService.GetUsernameFromTokenAsync();
-        //Console.WriteLine("USERNAME extracted: ", username);
-
-        if (!string.IsNullOrWhiteSpace(username))
+        PropertyTitle = NavigationManager.Uri.Split('/').LastOrDefault();
+        UpdatePropertyModel = await PropertyDataService.GetPropertyByNameAsync(PropertyTitle);
+        string loggedInUsername = await tokenService.GetUsernameFromTokenAsync();
+        Console.WriteLine("LOGGEDIN pentru UPDATE: ", loggedInUsername); 
+        if(UpdatePropertyModel.UserId != loggedInUsername && loggedInUsername != null)
         {
-            // Use your data service to get properties by owner's username
-            Properties = (await PropertyDataService.GetPropertiesByCurrentUserAsync(username)).ToList();
+            NavigationManager.NavigateTo("/unauthorized");
+        }
+
+        SearchAttempted = true;
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        // Handle the form submission logic here
+        var result = await PropertyDataService.UpdatePropertyAsync(UpdatePropertyModel);
+        if (result.IsSuccess)
+        {
+            NavigationManager.NavigateTo("/myproperties");
+        }
+        else
+        {
+            // Handle error scenario
+            Console.WriteLine($"Error updating property: {result.Message}");
         }
     }
+
 }

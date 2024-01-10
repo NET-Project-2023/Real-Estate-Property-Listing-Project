@@ -1,9 +1,11 @@
 ﻿using MediatR;
+using Real_estate.Application.Features.Properties.Queries.GetAll;
+using Real_estate.Application.Features.Properties.Queries.GetByName;
 using Real_estate.Application.Persistence;
 
 namespace Real_estate.Application.Features.Properties.Queries.GetByOwnerUsername
 {
-    public class GetByOwnerUsernamePropertyHandler : IRequestHandler<GetByOwnerUsernamePropertyQuery, List<PropertyDto>>
+    public class GetByOwnerUsernamePropertyHandler : IRequestHandler<GetByOwnerUsernamePropertyQuery, GetByOwnerUsernamePropertyResponse>
     {
         private readonly IPropertyRepository propertyRepository;
 
@@ -12,12 +14,13 @@ namespace Real_estate.Application.Features.Properties.Queries.GetByOwnerUsername
             this.propertyRepository = propertyRepository;
         }
 
-        public async Task<List<PropertyDto>> Handle(GetByOwnerUsernamePropertyQuery request, CancellationToken cancellationToken)
+        public async Task<GetByOwnerUsernamePropertyResponse> Handle(GetByOwnerUsernamePropertyQuery request, CancellationToken cancellationToken)
         {
+            GetByOwnerUsernamePropertyResponse response = new();
             var result = await propertyRepository.FindByOwnerUsernameAsync(request.Username);
             if (result.IsSuccess)
             {
-                return result.Value.Select(property => new PropertyDto
+                response.Properties = result.Value.Select(property => new PropertyDto
                 {
                     PropertyId = property.PropertyId,
                     Title = property.Title,
@@ -31,7 +34,7 @@ namespace Real_estate.Application.Features.Properties.Queries.GetByOwnerUsername
                     UserId = property.UserId
                 }).ToList();
             }
-            return new List<PropertyDto>();
+            return response;
         }
     }
 }
