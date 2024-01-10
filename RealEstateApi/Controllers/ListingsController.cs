@@ -5,11 +5,19 @@ using Real_estate.Application.Features.Listings.Queries.GetAll;
 using Real_estate.Application.Features.Listings.Queries.GetById;
 using Real_estate.Application.Features.Listings.Commands.UpdateListing;
 using Microsoft.AspNetCore.Authorization;
+using MediatR;
 
 namespace RealEstate.API.Controllers
 {
     public class ListingsController : ApiControllerBase
     {
+        private IMediator @object;
+
+        public ListingsController(IMediator @object)
+        {
+            this.@object = @object;
+        }
+
         [Authorize(Roles = "User")]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -49,9 +57,9 @@ namespace RealEstate.API.Controllers
             var result = await Mediator.Send(command);
             if (!result.Success)
             {
-                return NotFound(result.Message);
+                return NotFound(result);
             }
-            return Ok(result.Message);
+            return Ok(result);
         }
         [HttpPut("/listings/update/{listingTitle}")]
         [ProducesResponseType(StatusCodes.Status200OK)]

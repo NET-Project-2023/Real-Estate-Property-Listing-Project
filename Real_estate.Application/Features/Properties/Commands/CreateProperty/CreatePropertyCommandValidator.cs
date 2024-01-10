@@ -29,9 +29,9 @@ namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
             RuleFor(p => p.NumberOfBathrooms)
                 .GreaterThan(0).WithMessage(ValidationMessages.GreaterThanZeroMessage);
 
-            RuleFor(p => p.Images)
-                .Must(images => images != null && images.Any()).When(p => p.Images != null)
-                .WithMessage(ValidationMessages.NotEmptyListMessage);
+           // RuleFor(p => p.Images)
+               // .Must(images => images != null && images.Any()).When(p => p.Images != null)
+                //.WithMessage(ValidationMessages.NotEmptyListMessage);
 
 
             RuleFor(p => p.UserId)
