@@ -289,6 +289,23 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Http.Features/5.0.17": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "5.0.1",
+          "System.IO.Pipelines": "5.0.2"
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Http.Features.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Http.Features.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore/8.0.0": {
         "type": "package",
         "dependencies": {
@@ -2232,6 +2249,8 @@
           "FluentValidation": "11.8.1",
           "FluentValidation.DependencyInjectionExtensions": "11.8.1",
           "MediatR": "12.2.0",
+          "Microsoft.AspNetCore.Http.Features": "5.0.17",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.0",
           "Real_estate.Domain": "1.0.0"
         },
         "compile": {
@@ -2244,6 +2263,9 @@
       "Real_estate.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.0"
+        },
         "compile": {
           "bin/placeholder/Real_estate.Domain.dll": {}
         },
@@ -2577,6 +2599,25 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.DataProtection.Abstractions.xml",
         "microsoft.aspnetcore.dataprotection.abstractions.8.0.0.nupkg.sha512",
         "microsoft.aspnetcore.dataprotection.abstractions.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Http.Features/5.0.17": {
+      "sha512": "3jG2xS+dx8DDCGV/F+STdPTg89lX3ao3dF/VEPvJaz3wzBIjuadipTtYNEXDIVuOPZwb6jdmhrX9jkzOIBm5cw==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.http.features/5.0.17",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.AspNetCore.Http.Features.dll",
+        "lib/net461/Microsoft.AspNetCore.Http.Features.xml",
+        "lib/net5.0/Microsoft.AspNetCore.Http.Features.dll",
+        "lib/net5.0/Microsoft.AspNetCore.Http.Features.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.xml",
+        "microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+        "microsoft.aspnetcore.http.features.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore/8.0.0": {
@@ -5939,19 +5980,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\andim\\.nuget\\packages\\": {}
+    "C:\\Users\\ycarp\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstateApi\\RealEstate.API.csproj",
+      "projectUniqueName": "C:\\Users\\ycarp\\Desktop\\dotnet\\2\\Real-Estate-Property-Listing-Project\\RealEstateApi\\RealEstate.API.csproj",
       "projectName": "RealEstate.API",
-      "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstateApi\\RealEstate.API.csproj",
-      "packagesPath": "C:\\Users\\andim\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstateApi\\obj\\",
+      "projectPath": "C:\\Users\\ycarp\\Desktop\\dotnet\\2\\Real-Estate-Property-Listing-Project\\RealEstateApi\\RealEstate.API.csproj",
+      "packagesPath": "C:\\Users\\ycarp\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ycarp\\Desktop\\dotnet\\2\\Real-Estate-Property-Listing-Project\\RealEstateApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\andim\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ycarp\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5965,14 +6006,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Identity\\Identity.csproj": {
-              "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Identity\\Identity.csproj"
+            "C:\\Users\\ycarp\\Desktop\\dotnet\\2\\Real-Estate-Property-Listing-Project\\Identity\\Identity.csproj": {
+              "projectPath": "C:\\Users\\ycarp\\Desktop\\dotnet\\2\\Real-Estate-Property-Listing-Project\\Identity\\Identity.csproj"
             },
-            "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Infrastructure\\Infrastructure.csproj"
+            "C:\\Users\\ycarp\\Desktop\\dotnet\\2\\Real-Estate-Property-Listing-Project\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\ycarp\\Desktop\\dotnet\\2\\Real-Estate-Property-Listing-Project\\Infrastructure\\Infrastructure.csproj"
             },
-            "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj": {
-              "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj"
+            "C:\\Users\\ycarp\\Desktop\\dotnet\\2\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj": {
+              "projectPath": "C:\\Users\\ycarp\\Desktop\\dotnet\\2\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj"
             }
           }
         }

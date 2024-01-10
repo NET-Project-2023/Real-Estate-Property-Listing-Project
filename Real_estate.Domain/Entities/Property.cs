@@ -1,10 +1,13 @@
-﻿using Real_estate.Domain.Common;
+﻿using Microsoft.Extensions.Logging;
+using Real_estate.Domain.Common;
+using static System.Net.Mime.MediaTypeNames;
 namespace Real_estate.Domain.Entities
 
 {
     public class Property : AuditableEntity
     {
-        private Property(string title, string address, int size, int price, string userId, int numberOfBedrooms)
+          
+        private Property(string title, string address, int size, int price, string userId, int numberOfBedrooms, List<byte[]> images)
         {
             PropertyId = Guid.NewGuid();
             Title = title;
@@ -13,8 +16,11 @@ namespace Real_estate.Domain.Entities
             Price = price;
             UserId = userId;
             NumberOfBedrooms = numberOfBedrooms;
-            Images = new List<byte[]>(); // Update this line
+            Images = images ?? new List<byte[]>();
+            Console.WriteLine($"PUSCAAAAAAAAAAAAAAAAA {Images} images.");
+            // Assign the passed images or initialize a new list if null is passed.
         }
+     
 
         public Guid PropertyId { get; private set; }
         public string Title { get; private set; }
@@ -27,10 +33,11 @@ namespace Real_estate.Domain.Entities
         public List<byte[]> Images { get; private set; }
         public string UserId { get; private set; }
 
-        public static Result<Property> Create(string title, string address, int size, int price, string ownerUniqueName, int numberOfBedrooms)
+        public static Result<Property> Create(string title, string address, int size, int price, string ownerUniqueName, int numberOfBedrooms, List<byte[]> images)
         {
-            // Create the property
-            return Result<Property>.Success(new Property(title, address, size, price, ownerUniqueName, numberOfBedrooms));
+            var property = new Property(title, address, size, price, ownerUniqueName, numberOfBedrooms, images);
+            Console.WriteLine($"PUSCAAAAAAAAAAAAAAAAA {images} images.");
+            return Result<Property>.Success(property);
         }
 
 

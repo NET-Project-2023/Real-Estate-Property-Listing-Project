@@ -18,18 +18,50 @@ namespace RealEstate.API.Controllers
         {
             _logger = logger;
         }
-
         [Authorize(Roles = "User")]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
-        public async Task<IActionResult> Create(CreatePropertyCommand command)
+        public async Task<IActionResult> Create([FromForm] CreatePropertyCommand command)
         {
+            Console.WriteLine("MERGEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
+            _logger.LogInformation("MERGEEEEEEEEEEEEEEEEEEEEEEEEEEEE result:");
+           
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+
+            if (command.ImagesFiles != null) // Assuming ImagesFiles is a List<IFormFile>
+            {
+                command.Images = await ConvertToByteArrayAsync(command.ImagesFiles);
+            }
+            _logger.LogInformation($"{command.Images} result:");
+
+
             var result = await Mediator.Send(command);
             if (!result.Success)
             {
                 return BadRequest(result);
             }
             return Ok(result);
+        }
+
+        private async Task<List<byte[]>> ConvertToByteArrayAsync(List<IFormFile> formFiles)
+        {
+            var byteArrays = new List<byte[]>();
+            foreach (var file in formFiles)
+            {
+                if (file.Length > 0)
+                {
+                    using (var ms = new MemoryStream())
+                    {
+                        await file.CopyToAsync(ms);
+                        byteArrays.Add(ms.ToArray());
+                    }
+                }
+            }
+            return byteArrays;
         }
 
         [Authorize(Roles = "User")]
@@ -107,7 +139,7 @@ namespace RealEstate.API.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetByCurrentUser(string ownerUsername)
         {
-            //var username = User.FindFirst(ClaimTypes.Name)?.Value;
+            //var username = User.FindFirst(ClaimTypes.Name)?.Value;    
             //Console.WriteLine("Username extracted: ", username);
             Console.WriteLine("USERNAME in the api for MYPROP: ", ownerUsername);
             var result = await Mediator.Send(new GetByOwnerUsernamePropertyQuery(ownerUsername));

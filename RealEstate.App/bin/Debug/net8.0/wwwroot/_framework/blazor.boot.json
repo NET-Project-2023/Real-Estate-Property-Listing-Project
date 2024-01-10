@@ -1,12 +1,12 @@
 {
   "mainAssemblyName": "RealEstate.App",
   "resources": {
-    "hash": "sha256-L6O/0ezMUamAEOQedSxUFoeIY2sQF3yY0zROrEU81Bo=",
+    "hash": "sha256-VgKQALXp4IWP7RuBih5X4oIYCCnOl30+n78nB5P9Y5w=",
     "jsModuleNative": {
-      "dotnet.native.8.0.0.6vrnrm5ozq.js": "sha256-LjLDIz9+J7uuiwMlQ4HbNx2BnSpphOtO2MwkoI28vdI="
+      "dotnet.native.8.0.0.7ukoabwfpe.js": "sha256-LjLDIz9+J7uuiwMlQ4HbNx2BnSpphOtO2MwkoI28vdI="
     },
     "jsModuleRuntime": {
-      "dotnet.runtime.8.0.0.hfqcydujc6.js": "sha256-WdSX3HQvnBYF0KJLZoOyHvTzMHetaob6PV0Kn2K+QXw="
+      "dotnet.runtime.8.0.0.13w7gbwbjs.js": "sha256-WdSX3HQvnBYF0KJLZoOyHvTzMHetaob6PV0Kn2K+QXw="
     },
     "wasmNative": {
       "dotnet.native.wasm": "sha256-Vr6ZXKoP77zgabrMIxQ1GbOkrxfx5XGqHO0odLhUIMY="
@@ -18,12 +18,17 @@
     },
     "assembly": {
       "Blazored.LocalStorage.wasm": "sha256-xHBGFCMjDjvvTwtMvgaMBNmQk9JdVhGmws2/GMZlxrI=",
+      "FluentValidation.wasm": "sha256-PvJTlSq+z51HYDMtXLJOzvc4F2g6E7pEuw5Xy7y6HaM=",
+      "FluentValidation.DependencyInjectionExtensions.wasm": "sha256-lNnHy8LkaQQuMeNyblw3t4bNwlSFcVfp3k4IXDVHctg=",
+      "MediatR.wasm": "sha256-l/eqjhSQY9za5jvF4fnQHZKwXY2P68EAcOrqt9an6VU=",
+      "MediatR.Contracts.wasm": "sha256-/db+nahzjeSd5EhxUqFrpFzJ998Up6Vgs1PHrV3jqkU=",
       "Microsoft.AspNetCore.Authorization.wasm": "sha256-j29bzsbGr0GXbz3saSOBqDtWxNOK08Or3b1HgnZ+pvA=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-0SRqG4hZOVUUFxERmD93PJWBJR6d4gCf5UB9vF6jB9A=",
       "Microsoft.AspNetCore.Components.Authorization.wasm": "sha256-EFv+L1YnGvKwdvpSUAgxwhBJoxTLebypp66mmnzNKr4=",
       "Microsoft.AspNetCore.Components.Forms.wasm": "sha256-v5x7jiwdpMdHj54wA/JoDsrCrnr89XklOokSoWNJzF0=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-H1qHk5Kqn+R+8t/eTsZzQ5/5ZvgjmC8+ZPyuEp5nals=",
       "Microsoft.AspNetCore.Components.WebAssembly.wasm": "sha256-GDJfIU7XS7MlmrwWZh/CD4wNkm+PPO7FFLZ4Qo0jCPU=",
+      "Microsoft.AspNetCore.Http.Features.wasm": "sha256-Wv/L2DCI0TXDORvAS5pea7Slkttfwv+ZHiwJv2cRvq8=",
       "Microsoft.AspNetCore.Metadata.wasm": "sha256-95QlbMRtZIDBAVihWRdLt5//Rwcm+0Utb0u4Brzx+L4=",
       "Microsoft.Extensions.Configuration.wasm": "sha256-UDGEQR7J3WTfzYMgOzxVIBwFQtKEeJvO8UgrWagypdE=",
       "Microsoft.Extensions.Configuration.Abstractions.wasm": "sha256-yNdqbqDWGiJo943D7LPak5xryCBEsNH0wtdiuU1R9VE=",
@@ -219,10 +224,14 @@
       "mscorlib.wasm": "sha256-cDuLeL3OCtVtiid/dyex1MVgbuzDSRwZxKzuP2Dp4mg=",
       "netstandard.wasm": "sha256-A0h86SDieTMoU/wU2JTszWCsUmMuguDcbap0b0BzsmI=",
       "System.Private.CoreLib.wasm": "sha256-/0DNIm/T0C07X7Tuz5uR8JvVCoAfEE2MnfPUSjyS9xc=",
-      "RealEstate.App.wasm": "sha256-d08cjfLOJjRUKMBoiqXNN/sIeR0HLws1HSAViPmEgOs="
+      "Real_estate.Application.wasm": "sha256-kEknVa8Z7cxVxlwv0v7Xcllv+d8RRaQ/AlFlUeSZF90=",
+      "Real_estate.Domain.wasm": "sha256-fBX7/dsQnvedQbbuPSPt0mNTtKou8T+2SNHIgSZE+W8=",
+      "RealEstate.App.wasm": "sha256-foDmsAXxmMFaddn46aD7E3/6lj7JLZTeqDdSkWexgEc="
     },
     "pdb": {
-      "RealEstate.App.pdb": "sha256-SOO7aHVo4X555iutqo8gO42EqnwYP8tKuWepOKjUDYc="
+      "Real_estate.Application.pdb": "sha256-xBjtABW0ecdp2C/0+tAQbQNXVD2NKFxMpx6vrLVjjEY=",
+      "Real_estate.Domain.pdb": "sha256-bG2ttRHO+dlJPWZPs/aAVTDCS0ePORx9vQP3pkWz0W0=",
+      "RealEstate.App.pdb": "sha256-i/z1g8Bc05Y3Q59PdRpp3Sfd4IDDtIh+m6Y3iJE+wRU="
     }
   },
   "cacheBootResources": true,

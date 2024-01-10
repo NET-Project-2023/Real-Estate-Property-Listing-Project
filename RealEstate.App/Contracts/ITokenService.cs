@@ -9,6 +9,6 @@
         //Task<string?> GetUsernameFromTokenAsync();
         Task<string?> GetRoleFromTokenAsync();
 
-        //Task<string?> GetUserIdFromTokenAsync();
+        Task<string?> GetUserIdFromTokenAsync();
     }
 }
