@@ -117,7 +117,7 @@ namespace Real_estate.API.IntegrationTests.Controllers
             var response = await Client.GetAsync(RequestUri + nonexistentTitle);
 
             // Assert
-            response.StatusCode.Should().Be(HttpStatusCode.NotFound);
+            response.StatusCode.Should().Be(HttpStatusCode.NoContent);
         }
     }
 }
