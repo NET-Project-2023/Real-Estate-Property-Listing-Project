@@ -11,6 +11,8 @@ namespace Real_estate.Application.Persistence
         Task<Result<List<UserDto>>> GetAllAsync();
         Task<Result<UserDto>> DeleteAsync(Guid userId);
         Task<Result<UserDto>> UpdateAsync(UserDto user);
+        Task<Result<bool>> UserExistsAsync(string userId);
+        Task<Result<UserDto>> GetUserByIdAsync(string userId);
         //Task<bool> UserExistsAsync(string userId);
 
         //Task<Result<UserDto>> UpdateRoleAsync(UserDto user, string role);

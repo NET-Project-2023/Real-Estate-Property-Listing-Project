@@ -16,7 +16,17 @@ namespace Identity.Services
             this.userManager = userManager;
             this.roleManager = roleManager;
         }
-
+        public async Task<Result<UserDto>> GetUserByIdAsync(string userId)
+        {
+            // Assuming you want to delegate to FindByIdAsync
+            return await FindByIdAsync(userId);
+        }
+        public async Task<Result<bool>> UserExistsAsync(string userId)
+        {
+            // Assuming you want to check if a user with the given ID exists
+            var user = await userManager.FindByIdAsync(userId);
+            return Result<bool>.Success(user != null);
+        }
         public async Task<Result<UserDto>> FindByIdAsync(string userId)
         {
             var user = await userManager.FindByIdAsync(userId.ToString());
@@ -29,6 +39,7 @@ namespace Identity.Services
             userDtos.Roles = roles.ToList();
             return Result<UserDto>.Success(userDtos);
         }
+
         public async Task<Result<UserDto>> FindByEmailAsync(string email)
         {
             var user = await userManager.FindByEmailAsync(email);

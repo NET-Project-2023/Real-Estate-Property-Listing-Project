@@ -30,9 +30,8 @@ namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
             }
 
             // Check if the user exists
-            //var userExists = await userRepository.UserExistsAsync(request.UserId);
-            var userExists = await userRepository.FindByIdAsync(request.UserId);
-            if (userExists == null)
+            var userResult = await userRepository.FindByIdAsync(request.UserId);
+            if (!userResult.IsSuccess)
             {
                 return new CreatePropertyCommandResponse
                 {

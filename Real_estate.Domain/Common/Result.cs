@@ -1,6 +1,6 @@
 ﻿namespace Real_estate.Domain.Common
 {
-    public class Result<T> where T : class
+    public class Result<T>
     {
         public Result(bool isSuccess, T value, string error)
         {
@@ -12,14 +12,15 @@
         public bool IsSuccess { get; }
         public T Value { get; }
         public string Error { get; }
-        public static Result<T> Success(T valeu)
+
+        public static Result<T> Success(T value)
         {
-            return new Result<T>(true, valeu, null!);
+            return new Result<T>(true, value, null!);
         }
+
         public static Result<T> Failure(string error)
         {
-            return new Result<T>(false, null!, error);
+            return new Result<T>(false, default!, error);
         }
     }
 }
-

@@ -29,6 +29,25 @@ namespace Real_estate.Domain.Entities
 
         public static Result<Property> Create(string title, string address, int size, int price, string ownerUniqueName, int numberOfBedrooms)
         {
+            // Validation logic
+            if (string.IsNullOrEmpty(title))
+                return Result<Property>.Failure("Title cannot be null or empty.");
+
+            if (string.IsNullOrEmpty(address))
+                return Result<Property>.Failure("Address cannot be null or empty.");
+
+            if (size <= 0)
+                return Result<Property>.Failure("Size must be greater than 0.");
+
+            if (price <= 0)
+                return Result<Property>.Failure("Price must be greater than 0.");
+
+            if (string.IsNullOrEmpty(ownerUniqueName))
+                return Result<Property>.Failure("Owner's unique name cannot be null or empty.");
+
+            if (numberOfBedrooms <= 0)
+                return Result<Property>.Failure("Number of bedrooms must be greater than 0.");
+
             // Create the property
             return Result<Property>.Success(new Property(title, address, size, price, ownerUniqueName, numberOfBedrooms));
         }
@@ -121,6 +140,18 @@ namespace Real_estate.Domain.Entities
             }
             NumberOfBathrooms = newNumberOfBathrooms;
         }
+        public static Result<Property> CreateWithDescription(string title, string address, int size, int price, string userId, int numberOfBedrooms, string description)
+        {
+            // Validation logic
+            // ...
+
+            // Create the property
+            var property = new Property(title, address, size, price, userId, numberOfBedrooms);
+            property.Description = description;
+
+            return Result<Property>.Success(property);
+        }
+
 
     }
 }
