@@ -43,7 +43,7 @@ namespace RealEstate.API.Controllers
             return Ok(result);
         }
 
-        [Authorize(Roles = "User")]
+        //[Authorize(Roles = "User")]
         //[Authorize(Roles = "Admin")]
 
         [HttpGet("ById/{id}")]
@@ -55,9 +55,8 @@ namespace RealEstate.API.Controllers
         }
 
 
-        [Authorize(Roles = "User")]
+       //[Authorize(Roles = "User")]
         //[Authorize(Roles = "Admin")]
-
         [HttpGet("ByName/{name}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> Get(string name)
