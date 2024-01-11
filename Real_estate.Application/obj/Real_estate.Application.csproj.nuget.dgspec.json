@@ -46,11 +46,11 @@
           "dependencies": {
             "FluentValidation": {
               "target": "Package",
-              "version": "[11.9.0, )"
+              "version": "[11.8.1, )"
             },
             "FluentValidation.DependencyInjectionExtensions": {
               "target": "Package",
-              "version": "[11.9.0, )"
+              "version": "[11.8.1, )"
             },
             "MediatR": {
               "target": "Package",

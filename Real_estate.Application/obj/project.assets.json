@@ -2,23 +2,23 @@
   "version": 3,
   "targets": {
     "net8.0": {
-      "FluentValidation/11.9.0": {
+      "FluentValidation/11.8.1": {
         "type": "package",
         "compile": {
-          "lib/net8.0/FluentValidation.dll": {
+          "lib/net7.0/FluentValidation.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net8.0/FluentValidation.dll": {
+          "lib/net7.0/FluentValidation.dll": {
             "related": ".xml"
           }
         }
       },
-      "FluentValidation.DependencyInjectionExtensions/11.9.0": {
+      "FluentValidation.DependencyInjectionExtensions/11.8.1": {
         "type": "package",
         "dependencies": {
-          "FluentValidation": "11.9.0",
+          "FluentValidation": "11.8.1",
           "Microsoft.Extensions.Dependencyinjection.Abstractions": "2.1.0"
         },
         "compile": {
@@ -156,16 +156,16 @@
     }
   },
   "libraries": {
-    "FluentValidation/11.9.0": {
-      "sha512": "VneVlTvwYDkfHV5av3QrQ0amALgrLX6LV94wlYyEsh0B/klJBW7C8y2eAtj5tOZ3jH6CAVpr4s1ZGgew/QWyig==",
+    "FluentValidation/11.8.1": {
+      "sha512": "N72rnlE99XYB7EGA1u9y7m7kNTTynqOPBhZqDE8zr1Y0aSR4t5si94LRA7UVdAV09GaXWCErW+EiFhfbg3DSbg==",
       "type": "package",
-      "path": "fluentvalidation/11.9.0",
+      "path": "fluentvalidation/11.8.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "README.md",
         "fluent-validation-icon.png",
-        "fluentvalidation.11.9.0.nupkg.sha512",
+        "fluentvalidation.11.8.1.nupkg.sha512",
         "fluentvalidation.nuspec",
         "lib/net5.0/FluentValidation.dll",
         "lib/net5.0/FluentValidation.xml",
@@ -173,24 +173,22 @@
         "lib/net6.0/FluentValidation.xml",
         "lib/net7.0/FluentValidation.dll",
         "lib/net7.0/FluentValidation.xml",
-        "lib/net8.0/FluentValidation.dll",
-        "lib/net8.0/FluentValidation.xml",
         "lib/netstandard2.0/FluentValidation.dll",
         "lib/netstandard2.0/FluentValidation.xml",
         "lib/netstandard2.1/FluentValidation.dll",
         "lib/netstandard2.1/FluentValidation.xml"
       ]
     },
-    "FluentValidation.DependencyInjectionExtensions/11.9.0": {
-      "sha512": "Ko++xvN7HUf4WlHJL6bhsybUj/uho8ApOYIdxGjpF8Ot7Fukz6LRfRJ06H0KXhWqmMHWEbu89hJbjKJHtg7b9g==",
+    "FluentValidation.DependencyInjectionExtensions/11.8.1": {
+      "sha512": "Yyme2uCHnf+HawEHUEj7PguR54TPkx1HJT93/POvHT4xONvUrNfLg3Zt2NUAmIbhMjplb6TPLN8DD9AA7B/3QA==",
       "type": "package",
-      "path": "fluentvalidation.dependencyinjectionextensions/11.9.0",
+      "path": "fluentvalidation.dependencyinjectionextensions/11.8.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "README.md",
         "fluent-validation-icon.png",
-        "fluentvalidation.dependencyinjectionextensions.11.9.0.nupkg.sha512",
+        "fluentvalidation.dependencyinjectionextensions.11.8.1.nupkg.sha512",
         "fluentvalidation.dependencyinjectionextensions.nuspec",
         "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll",
         "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.xml",
@@ -408,8 +406,8 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "FluentValidation >= 11.9.0",
-      "FluentValidation.DependencyInjectionExtensions >= 11.9.0",
+      "FluentValidation >= 11.8.1",
+      "FluentValidation.DependencyInjectionExtensions >= 11.8.1",
       "MediatR >= 12.2.0",
       "Microsoft.AspNetCore.Http.Features >= 5.0.17",
       "Microsoft.Extensions.Logging.Abstractions >= 8.0.0",
@@ -461,11 +459,11 @@
         "dependencies": {
           "FluentValidation": {
             "target": "Package",
-            "version": "[11.9.0, )"
+            "version": "[11.8.1, )"
           },
           "FluentValidation.DependencyInjectionExtensions": {
             "target": "Package",
-            "version": "[11.9.0, )"
+            "version": "[11.8.1, )"
           },
           "MediatR": {
             "target": "Package",

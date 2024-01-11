@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "cwpYd8UtklXjjvbh3iqLBO7ocq93g7cXkd8U9TM/S5OVle5/GLG0TGp6+POIDfi/5I+ueHvEKbNCUJVBy2Ukng==",
+  "dgSpecHash": "v4E3mSd/xHl3krIJhGAoIiXfvLOm1aV0DuWBI5bDun4zxzWYJzPk0ppxGl3PwbmRpDk1n85xJYRCf9+RUrr19g==",
   "success": true,
   "projectFilePath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\andim\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.9.0\\fluentvalidation.dependencyinjectionextensions.11.9.0.nupkg.sha512",
+    "C:\\Users\\andim\\.nuget\\packages\\fluentvalidation\\11.8.1\\fluentvalidation.11.8.1.nupkg.sha512",
+    "C:\\Users\\andim\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.8.1\\fluentvalidation.dependencyinjectionextensions.11.8.1.nupkg.sha512",
     "C:\\Users\\andim\\.nuget\\packages\\mediatr\\12.2.0\\mediatr.12.2.0.nupkg.sha512",
     "C:\\Users\\andim\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\andim\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
