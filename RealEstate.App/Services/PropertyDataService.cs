@@ -39,25 +39,9 @@ namespace RealEstate.App.Services
                 var rawResponseContent = await userResponse.Content.ReadAsStringAsync();
                 Console.WriteLine($"Raw API Response: {rawResponseContent}");
 
-                //var userResult = await userResponse.Content.ReadFromJsonAsync<GetByIdUserQueryResponse>();
-                //if (userResult == null)
-                //{
-                //    Console.WriteLine("User result is null.");
-                //}
-                //else
-                //{
-                //    Console.WriteLine($"User result: {userResult}");
-                //}
-
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
 
-
-
                 propertyViewModel.UserId = loggedInUsername;
-
-
-                Console.WriteLine($"sssss{propertyViewModel.UserId}.");
-
 
 
                 using var formContent = new MultipartFormDataContent();
@@ -76,7 +60,6 @@ namespace RealEstate.App.Services
                     var fileContent = new StreamContent(browserFile.OpenReadStream(maxFileSize));
                     fileContent.Headers.ContentType = new MediaTypeHeaderValue(browserFile.ContentType);
                     formContent.Add(fileContent, "ImagesFiles", browserFile.Name);
-
 
                 }
                 // Send POST request with form content
@@ -198,7 +181,24 @@ namespace RealEstate.App.Services
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             string requestUri = $"api/v1/Properties/update/{propertyDto.Title}";
-            propertyDto.Images = new List<byte[]> { new byte[0] };
+            using var formContent = new MultipartFormDataContent();
+
+            //formContent.Add(new StringContent(propertyDto.Title ?? string.Empty), "Title");
+            formContent.Add(new StringContent(propertyDto.Address ?? string.Empty), "Address");
+            formContent.Add(new StringContent(propertyDto.Size.ToString()), "Size");
+            formContent.Add(new StringContent(propertyDto.Price.ToString()), "Price");
+            formContent.Add(new StringContent(propertyDto.NumberOfBedrooms.ToString()), "NumberOfBedrooms");
+            formContent.Add(new StringContent(propertyDto.NumberOfBathrooms.ToString()), "NumberOfBathrooms");
+            formContent.Add(new StringContent(propertyDto.UserId), "UserId");
+
+            // Add files to the form content
+            foreach (var browserFile in propertyDto.ImagesFiles)
+            {
+                var fileContent = new StreamContent(browserFile.OpenReadStream(maxFileSize));
+                fileContent.Headers.ContentType = new MediaTypeHeaderValue(browserFile.ContentType);
+                formContent.Add(fileContent, "ImagesFiles", browserFile.Name);
+
+            }
 
             var response = await httpClient.PutAsJsonAsync(requestUri, propertyDto);
 

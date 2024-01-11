@@ -7,6 +7,7 @@ using Real_estate.Application.Features.Properties.Queries.GetAll;
 using Real_estate.Application.Features.Properties.Queries.GetById;
 using Real_estate.Application.Features.Properties.Queries.GetByName;
 using Real_estate.Application.Features.Properties.Queries.GetByOwnerUsername;
+using RealEstate.API.Utility;
 
 namespace RealEstate.API.Controllers
 {
@@ -18,6 +19,7 @@ namespace RealEstate.API.Controllers
         {
             _logger = logger;
         }
+
         [Authorize(Roles = "User")]
         //[Authorize(Roles = "Admin")]
         [HttpPost]
@@ -31,9 +33,9 @@ namespace RealEstate.API.Controllers
             }
 
 
-            if (command.ImagesFiles != null) // Assuming ImagesFiles is a List<IFormFile>
+            if (command.ImagesFiles != null) 
             {
-                command.Images = await ConvertToByteArrayAsync(command.ImagesFiles);
+                command.Images = await UtilityFunctions.ConvertToByteArrayAsync(command.ImagesFiles);
             }
             _logger.LogInformation($"{command.Images} result:");
 
@@ -46,22 +48,36 @@ namespace RealEstate.API.Controllers
             return Ok(result);
         }
 
-        private async Task<List<byte[]>> ConvertToByteArrayAsync(List<IFormFile> formFiles)
+
+        [Authorize(Roles = "User")]
+        //[Authorize(Roles = "Admin")]
+        [HttpPut("update/{title}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Update(string title, [FromForm] UpdatePropertyCommand command)
         {
-            var byteArrays = new List<byte[]>();
-            foreach (var file in formFiles)
+
+            if (title != command.Title)
             {
-                if (file.Length > 0)
-                {
-                    using (var ms = new MemoryStream())
-                    {
-                        await file.CopyToAsync(ms);
-                        byteArrays.Add(ms.ToArray());
-                    }
-                }
+                _logger.LogWarning("Property ID mismatch. Provided title: {ProvidedTitle}, Command title: {CommandTitle}", title, command.Title);
+                return BadRequest("Property ID mismatch.");
             }
-            return byteArrays;
+
+            if (command.ImagesFiles != null) 
+            {
+                command.Images = await UtilityFunctions.ConvertToByteArrayAsync(command.ImagesFiles);
+            }
+
+            var result = await Mediator.Send(command);
+
+            if (!result.Success)
+            {
+                return BadRequest(result.Message);
+            }
+
+            return Ok(new { Message = "Property updated successfully." });
         }
+
 
         [Authorize(Roles = "User")]
         //[Authorize(Roles = "Admin")]
@@ -73,9 +89,6 @@ namespace RealEstate.API.Controllers
             return Ok(result);
         }
 
-        //[Authorize(Roles = "User")]
-        //[Authorize(Roles = "Admin")]
-
         [HttpGet("ById/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> Get(Guid id)
@@ -85,8 +98,6 @@ namespace RealEstate.API.Controllers
         }
 
 
-       //[Authorize(Roles = "User")]
-        //[Authorize(Roles = "Admin")]
         [HttpGet("ByName/{name}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> Get(string name)
@@ -111,34 +122,7 @@ namespace RealEstate.API.Controllers
             }
             return Ok(result.Message);
         }
-        [Authorize(Roles = "User")]
-        //[Authorize(Roles = "Admin")]
-        [HttpPut("update/{title}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Update(string title, UpdatePropertyCommand command)
-        {
 
-            if (title != command.Title)
-            {
-                _logger.LogWarning("Property ID mismatch. Provided title: {ProvidedTitle}, Command title: {CommandTitle}", title, command.Title);
-                return BadRequest("Property ID mismatch.");
-            }
-
-            var result = await Mediator.Send(command);
-
-            _logger.LogInformation("Update command result: Success = {Success}, Message = {Message}", result.Success, result.Message);
-
-            if (!result.Success)
-            {
-                //_logger.LogWarning("Update command failed: {Message}", result.Message);
-                return BadRequest(result.Message);
-            }
-
-            //return Ok(result.Message);
-            return Ok(new { Message = "Property updated successfully." });
-
-        }
 
         [Authorize(Roles = "User")]
         //[Authorize(Roles = "Admin")]

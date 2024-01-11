@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 
 namespace Real_estate.Application.Features.Properties.Commands.UpdateProperty
 {
@@ -12,6 +13,7 @@ namespace Real_estate.Application.Features.Properties.Commands.UpdateProperty
         public int? NumberOfBedrooms { get; set; } // Optional update
         public int? NumberOfBathrooms { get; set; } // Optional update
         public List<byte[]>? Images { get; set; } // Optional update
+        public List<IFormFile> ImagesFiles { get; set; } = new List<IFormFile>();
 
     }
 }

@@ -8,7 +8,7 @@ namespace Real_estate.Application.Features.Users.Commands.UpdateUser
         public string? Username { get; set; }
         public string? Email { get; set; } 
         public string? Password { get; set; }
-        public string UserRole { get; set; } // Change this to string if you want to accept single role
+        public string UserRole { get; set; }
         public string? PhoneNumber { get; set; } 
     }
 }

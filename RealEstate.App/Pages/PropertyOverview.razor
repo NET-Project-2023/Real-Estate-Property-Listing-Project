@@ -21,35 +21,29 @@
     }
     else
     {
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>Property Title</th>
-                        <!-- Image preview -->
-                        <th>Address</th>
-                        <th>Bedrooms</th>
-                        <th>Price</th>
-                        <th>Action</th>
-                    
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var property in Properties)
-                    {
-                        <tr>
-                            <td>@property.Title</td>
-                            <td>@property.Address</td>
-                            <td>@property.NumberOfBedrooms</td>
-                            <td>$@property.Price.ToString("N0")</td>
-                            <td>
-                                <button class="btn btn-primary" @onclick="() => ViewPropertyDetails(property.Title)">View Details</button>
-                            </td>
-
-                        </tr>
-                    }
-                </tbody>
-            </table>
+        <div class="row">
+            @foreach (var property in Properties)
+            {
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <!-- Image preview -->
+                                <img src="@($"data:image/png;base64,{Convert.ToBase64String(property.Images.FirstOrDefault())}")" alt="Property Image" class="card-img" />
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">@property.Title</h5>
+                                    <p class="card-text">Location: @property.Address</p>
+                                    <p class="card-text">Bedrooms: @property.NumberOfBedrooms</p>
+                                    <p class="card-text">Price: $@property.Price.ToString("N0")</p>
+                                    <button class="btn btn-primary" @onclick="() => ViewPropertyDetails(property.Title)">View Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
         </div>
     }
 </div>

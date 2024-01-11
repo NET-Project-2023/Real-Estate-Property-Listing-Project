@@ -21,19 +21,12 @@
             <p class="card-text"><strong>Email:</strong> @userViewModel.Email</p>
             <p class="card-text"><strong>Photos:</strong></p>
 
-            <!-- Display images -->
-            @foreach (var image in Property.Images)
-            {
-                <img src="@($"data:image/png;base64,{Convert.ToBase64String(image)}")" alt="Property Image" class="img-fluid" style="width: 640px; height: 360px;" />
-            }
-
-            <!-- Display images like carousel -->
             <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     @foreach (var (image, index) in Property.Images.Select((value, i) => (value, i)))
                     {
                         <div class="carousel-item @(index == 0 ? "active" : "")">
-                            <img src="@($"data:image/png;base64,{Convert.ToBase64String(image)}")" alt="Property Image" class="d-block w-100" />
+                            <img src="@($"data:image/png;base64,{Convert.ToBase64String(image)}")" alt="Property Image" class="d-block w-100" style="width: 300px; height: 360px;" />
                         </div>
                     }
                 </div>
