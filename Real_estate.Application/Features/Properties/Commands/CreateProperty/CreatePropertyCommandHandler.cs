@@ -1,6 +1,8 @@
 ﻿using MediatR;
+using Microsoft.Extensions.Logging;
 using Real_estate.Application.Persistence;
 using Real_estate.Domain.Entities;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
 {
@@ -8,11 +10,14 @@ namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
     {
         private readonly IPropertyRepository propertyRepository;
         private readonly IUserManager userRepository;
+        private readonly ILogger<CreatePropertyCommandHandler> _logger;
 
-        public CreatePropertyCommandHandler(IPropertyRepository propertyRepository, IUserManager userRepository)
+
+        public CreatePropertyCommandHandler(IPropertyRepository propertyRepository, IUserManager userRepository, ILogger<CreatePropertyCommandHandler> logger)
         {
             this.propertyRepository = propertyRepository;
             this.userRepository = userRepository;
+            _logger = logger;
         }
 
         public async Task<CreatePropertyCommandResponse> Handle(CreatePropertyCommand request, CancellationToken cancellationToken)
@@ -40,9 +45,14 @@ namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
                     ValidationsErrors = new List<string> { "User with the specified ID does not exist." }
                 };
             }
+            var image = request.Images[0];
 
-            // TODO: CreatedBy
-            var property = Property.Create(request.Title, request.Address, request.Size, request.Price, request.UserId, request.NumberOfBedrooms);
+            var base64Data = Convert.ToBase64String(image);
+            _logger.LogInformation($"Image {0} Base64 data: {base64Data}");
+
+            _logger.LogInformation($"Received image with byte length: {request.Images}");
+
+            var property = Property.Create(request.Title, request.Address, request.Size, request.Price, request.UserId, request.NumberOfBedrooms, request.Images);
             if (!property.IsSuccess)
             {
                 return new CreatePropertyCommandResponse
@@ -65,7 +75,8 @@ namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
                     Size = property.Value.Size,
                     Price = property.Value.Price,
                     UserId = property.Value.UserId,
-                    NumberOfBedrooms = property.Value.NumberOfBedrooms
+                    NumberOfBedrooms = property.Value.NumberOfBedrooms,
+                    Images = property.Value.Images
                 }
             };
         }

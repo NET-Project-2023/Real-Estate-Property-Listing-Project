@@ -49,6 +49,22 @@
       "url": "_framework\/Blazored.LocalStorage.wasm"
     },
     {
+      "hash": "sha256-PvJTlSq+z51HYDMtXLJOzvc4F2g6E7pEuw5Xy7y6HaM=",
+      "url": "_framework\/FluentValidation.wasm"
+    },
+    {
+      "hash": "sha256-lNnHy8LkaQQuMeNyblw3t4bNwlSFcVfp3k4IXDVHctg=",
+      "url": "_framework\/FluentValidation.DependencyInjectionExtensions.wasm"
+    },
+    {
+      "hash": "sha256-l\/eqjhSQY9za5jvF4fnQHZKwXY2P68EAcOrqt9an6VU=",
+      "url": "_framework\/MediatR.wasm"
+    },
+    {
+      "hash": "sha256-\/db+nahzjeSd5EhxUqFrpFzJ998Up6Vgs1PHrV3jqkU=",
+      "url": "_framework\/MediatR.Contracts.wasm"
+    },
+    {
       "hash": "sha256-j29bzsbGr0GXbz3saSOBqDtWxNOK08Or3b1HgnZ+pvA=",
       "url": "_framework\/Microsoft.AspNetCore.Authorization.wasm"
     },
@@ -71,6 +87,10 @@
     {
       "hash": "sha256-GDJfIU7XS7MlmrwWZh\/CD4wNkm+PPO7FFLZ4Qo0jCPU=",
       "url": "_framework\/Microsoft.AspNetCore.Components.WebAssembly.wasm"
+    },
+    {
+      "hash": "sha256-Wv\/L2DCI0TXDORvAS5pea7Slkttfwv+ZHiwJv2cRvq8=",
+      "url": "_framework\/Microsoft.AspNetCore.Http.Features.wasm"
     },
     {
       "hash": "sha256-95QlbMRtZIDBAVihWRdLt5\/\/Rwcm+0Utb0u4Brzx+L4=",

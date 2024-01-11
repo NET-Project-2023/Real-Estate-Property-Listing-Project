@@ -45,6 +45,23 @@ namespace RealEstate.App.Services
 
             return null;
         }
+        public async Task<string> GetUserIdFromTokenAsync()
+        {
+            var token = await GetTokenAsync();
+
+            if (string.IsNullOrWhiteSpace(token))
+                return null;
+
+            var handler = new JwtSecurityTokenHandler();
+            var jsonToken = handler.ReadToken(token) as JwtSecurityToken;
+
+            if (jsonToken != null && jsonToken.Payload.TryGetValue("sub", out var userId))
+            {
+                return userId.ToString();
+            }
+
+            return null;
+        }
         public async Task<string> GetRoleFromTokenAsync()
         {
             var token = await GetTokenAsync();
