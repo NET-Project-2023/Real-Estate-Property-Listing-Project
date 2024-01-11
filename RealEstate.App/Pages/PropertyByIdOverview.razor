@@ -19,8 +19,33 @@
             <p class="card-text"><strong>Bathrooms:</strong> @Property.NumberOfBathrooms</p>
             <p class="card-text"><strong>Contact number:</strong> @userViewModel.PhoneNumber</p>
             <p class="card-text"><strong>Email:</strong> @userViewModel.Email</p>
+            <p class="card-text"><strong>Photos:</strong></p>
 
-            <!-- and other property details -->
+            <!-- Display images -->
+            @foreach (var image in Property.Images)
+            {
+                <img src="@($"data:image/png;base64,{Convert.ToBase64String(image)}")" alt="Property Image" class="img-fluid" style="width: 640px; height: 360px;" />
+            }
+
+            <!-- Display images like carousel -->
+            <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    @foreach (var (image, index) in Property.Images.Select((value, i) => (value, i)))
+                    {
+                        <div class="carousel-item @(index == 0 ? "active" : "")">
+                            <img src="@($"data:image/png;base64,{Convert.ToBase64String(image)}")" alt="Property Image" class="d-block w-100" />
+                        </div>
+                    }
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
             
             @if (showEdit)
             {

@@ -24,8 +24,6 @@ namespace RealEstate.API.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         public async Task<IActionResult> Create([FromForm] CreatePropertyCommand command)
         {
-            Console.WriteLine("MERGEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
-            _logger.LogInformation("MERGEEEEEEEEEEEEEEEEEEEEEEEEEEEE result:");
            
             if (!ModelState.IsValid)
             {

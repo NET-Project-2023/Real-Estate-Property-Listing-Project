@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "F7tpJ3FnqxPCncPBNg/zJwVwHrNTPL3BZMh90JFujoLc+8IfiYhzPgUZlyg/QNqCxl1vZ+69xHMWF7sFkAhFwQ==",
+  "dgSpecHash": "U70Jzzm31XJUx2l8kN7Pq7GkIHvzE+dCNqr7J+TZ4QSzTMCJFXKrWwz8Q7z0gY8pFUwN8HhUiTLeiodk09kamg==",
   "success": true,
   "projectFilePath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\RealEstate.App.csproj",
   "expectedPackageFiles": [
@@ -9,19 +9,19 @@
     "C:\\Users\\andim\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.8.1\\fluentvalidation.dependencyinjectionextensions.11.8.1.nupkg.sha512",
     "C:\\Users\\andim\\.nuget\\packages\\mediatr\\12.2.0\\mediatr.12.2.0.nupkg.sha512",
     "C:\\Users\\andim\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\microsoft.aspnetcore.authorization\\8.0.0\\microsoft.aspnetcore.authorization.8.0.0.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\microsoft.aspnetcore.components\\8.0.0\\microsoft.aspnetcore.components.8.0.0.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\8.0.0\\microsoft.aspnetcore.components.analyzers.8.0.0.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\microsoft.aspnetcore.components.authorization\\8.0.0\\microsoft.aspnetcore.components.authorization.8.0.0.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\8.0.0\\microsoft.aspnetcore.components.forms.8.0.0.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\microsoft.aspnetcore.components.web\\8.0.0\\microsoft.aspnetcore.components.web.8.0.0.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\8.0.0\\microsoft.aspnetcore.components.webassembly.8.0.0.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly.devserver\\8.0.0\\microsoft.aspnetcore.components.webassembly.devserver.8.0.0.nupkg.sha512",
+    "C:\\Users\\andim\\.nuget\\packages\\microsoft.aspnetcore.authorization\\8.0.1\\microsoft.aspnetcore.authorization.8.0.1.nupkg.sha512",
+    "C:\\Users\\andim\\.nuget\\packages\\microsoft.aspnetcore.components\\8.0.1\\microsoft.aspnetcore.components.8.0.1.nupkg.sha512",
+    "C:\\Users\\andim\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\8.0.1\\microsoft.aspnetcore.components.analyzers.8.0.1.nupkg.sha512",
+    "C:\\Users\\andim\\.nuget\\packages\\microsoft.aspnetcore.components.authorization\\8.0.1\\microsoft.aspnetcore.components.authorization.8.0.1.nupkg.sha512",
+    "C:\\Users\\andim\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\8.0.1\\microsoft.aspnetcore.components.forms.8.0.1.nupkg.sha512",
+    "C:\\Users\\andim\\.nuget\\packages\\microsoft.aspnetcore.components.web\\8.0.1\\microsoft.aspnetcore.components.web.8.0.1.nupkg.sha512",
+    "C:\\Users\\andim\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\8.0.1\\microsoft.aspnetcore.components.webassembly.8.0.1.nupkg.sha512",
+    "C:\\Users\\andim\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly.devserver\\8.0.1\\microsoft.aspnetcore.components.webassembly.devserver.8.0.1.nupkg.sha512",
     "C:\\Users\\andim\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\microsoft.aspnetcore.metadata\\8.0.0\\microsoft.aspnetcore.metadata.8.0.0.nupkg.sha512",
+    "C:\\Users\\andim\\.nuget\\packages\\microsoft.aspnetcore.metadata\\8.0.1\\microsoft.aspnetcore.metadata.8.0.1.nupkg.sha512",
     "C:\\Users\\andim\\.nuget\\packages\\microsoft.extensions.configuration\\8.0.0\\microsoft.extensions.configuration.8.0.0.nupkg.sha512",
     "C:\\Users\\andim\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\microsoft.extensions.configuration.binder\\8.0.0\\microsoft.extensions.configuration.binder.8.0.0.nupkg.sha512",
+    "C:\\Users\\andim\\.nuget\\packages\\microsoft.extensions.configuration.binder\\8.0.1\\microsoft.extensions.configuration.binder.8.0.1.nupkg.sha512",
     "C:\\Users\\andim\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\8.0.0\\microsoft.extensions.configuration.fileextensions.8.0.0.nupkg.sha512",
     "C:\\Users\\andim\\.nuget\\packages\\microsoft.extensions.configuration.json\\8.0.0\\microsoft.extensions.configuration.json.8.0.0.nupkg.sha512",
     "C:\\Users\\andim\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
@@ -34,46 +34,23 @@
     "C:\\Users\\andim\\.nuget\\packages\\microsoft.extensions.http\\8.0.0\\microsoft.extensions.http.8.0.0.nupkg.sha512",
     "C:\\Users\\andim\\.nuget\\packages\\microsoft.extensions.logging\\8.0.0\\microsoft.extensions.logging.8.0.0.nupkg.sha512",
     "C:\\Users\\andim\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\microsoft.extensions.options\\8.0.0\\microsoft.extensions.options.8.0.0.nupkg.sha512",
+    "C:\\Users\\andim\\.nuget\\packages\\microsoft.extensions.options\\8.0.1\\microsoft.extensions.options.8.0.1.nupkg.sha512",
     "C:\\Users\\andim\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\8.0.0\\microsoft.extensions.options.configurationextensions.8.0.0.nupkg.sha512",
     "C:\\Users\\andim\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\microsoft.identitymodel.abstractions\\7.0.3\\microsoft.identitymodel.abstractions.7.0.3.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\7.0.3\\microsoft.identitymodel.jsonwebtokens.7.0.3.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\microsoft.identitymodel.logging\\7.0.3\\microsoft.identitymodel.logging.7.0.3.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\microsoft.identitymodel.tokens\\7.0.3\\microsoft.identitymodel.tokens.7.0.3.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\microsoft.jsinterop\\8.0.0\\microsoft.jsinterop.8.0.0.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\microsoft.jsinterop.webassembly\\8.0.0\\microsoft.jsinterop.webassembly.8.0.0.nupkg.sha512",
+    "C:\\Users\\andim\\.nuget\\packages\\microsoft.identitymodel.abstractions\\7.2.0\\microsoft.identitymodel.abstractions.7.2.0.nupkg.sha512",
+    "C:\\Users\\andim\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\7.2.0\\microsoft.identitymodel.jsonwebtokens.7.2.0.nupkg.sha512",
+    "C:\\Users\\andim\\.nuget\\packages\\microsoft.identitymodel.logging\\7.2.0\\microsoft.identitymodel.logging.7.2.0.nupkg.sha512",
+    "C:\\Users\\andim\\.nuget\\packages\\microsoft.identitymodel.tokens\\7.2.0\\microsoft.identitymodel.tokens.7.2.0.nupkg.sha512",
+    "C:\\Users\\andim\\.nuget\\packages\\microsoft.jsinterop\\8.0.1\\microsoft.jsinterop.8.0.1.nupkg.sha512",
+    "C:\\Users\\andim\\.nuget\\packages\\microsoft.jsinterop.webassembly\\8.0.1\\microsoft.jsinterop.webassembly.8.0.1.nupkg.sha512",
     "C:\\Users\\andim\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.0\\microsoft.net.illink.tasks.8.0.0.nupkg.sha512",
     "C:\\Users\\andim\\.nuget\\packages\\microsoft.net.sdk.webassembly.pack\\8.0.0\\microsoft.net.sdk.webassembly.pack.8.0.0.nupkg.sha512",
     "C:\\Users\\andim\\.nuget\\packages\\system.diagnostics.diagnosticsource\\8.0.0\\system.diagnostics.diagnosticsource.8.0.0.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\system.identitymodel.tokens.jwt\\7.0.3\\system.identitymodel.tokens.jwt.7.0.3.nupkg.sha512",
+    "C:\\Users\\andim\\.nuget\\packages\\system.identitymodel.tokens.jwt\\7.2.0\\system.identitymodel.tokens.jwt.7.2.0.nupkg.sha512",
     "C:\\Users\\andim\\.nuget\\packages\\system.io.pipelines\\8.0.0\\system.io.pipelines.8.0.0.nupkg.sha512",
     "C:\\Users\\andim\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
     "C:\\Users\\andim\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512",
     "C:\\Users\\andim\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.0\\microsoft.netcore.app.runtime.mono.browser-wasm.8.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1902",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'System.IdentityModel.Tokens.Jwt' 7.0.3 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-59j7-ghrg-fj52",
-      "libraryId": "System.IdentityModel.Tokens.Jwt",
-      "targetGraphs": [
-        "net8.0",
-        "net8.0/browser-wasm"
-      ]
-    },
-    {
-      "code": "NU1902",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'System.IdentityModel.Tokens.Jwt' 7.0.3 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-8g9c-28fc-mcx2",
-      "libraryId": "System.IdentityModel.Tokens.Jwt",
-      "targetGraphs": [
-        "net8.0",
-        "net8.0/browser-wasm"
-      ]
-    }
-  ]
+  "logs": []
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WLFs3ifv5OYLHGGgcVxcchk/UcGrx/o5lU462mcVupw=",
+  "Hash": "9PjP64HPZfRwIIi38jA1R6o+4sg+X16yvxA1iBnk8lI=",
   "Source": "RealEstate.App",
   "BasePath": "/",
   "Mode": "Root",
@@ -52,7 +52,7 @@
       "AssetTraitValue": "boot",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\andim\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\8.0.0\\build\\net8.0\\blazor.webassembly.js"
+      "OriginalItemSpec": "C:\\Users\\andim\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly\\8.0.1\\build\\net8.0\\blazor.webassembly.js"
     },
     {
       "Identity": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Blazored.LocalStorage.wasm",
@@ -7161,6 +7161,25 @@
       "OriginalItemSpec": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Collections.Concurrent.wasm"
     },
     {
+      "Identity": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\obj\\Debug\\net8.0\\compressed\\pko6aqp4d0.gz",
+      "SourceId": "RealEstate.App",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/blazor.webassembly.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js"
+    },
+    {
       "Identity": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\obj\\Debug\\net8.0\\compressed\\pqe6h8b3gu.gz",
       "SourceId": "RealEstate.App",
       "SourceType": "Computed",
@@ -7672,25 +7691,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Diagnostics.Tracing.wasm"
-    },
-    {
-      "Identity": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\obj\\Debug\\net8.0\\compressed\\tp9zqjgqfg.gz",
-      "SourceId": "RealEstate.App",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/blazor.webassembly.js.gz",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js"
     },
     {
       "Identity": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\obj\\Debug\\net8.0\\compressed\\tqya7r3vzk.gz",

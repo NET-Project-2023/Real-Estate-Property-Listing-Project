@@ -4,7 +4,6 @@ using RealEstate.App.Services.Responses;
 using RealEstate.App.ViewModels;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
-using System.Text;
 using System.Text.Json;
 
 
@@ -32,31 +31,29 @@ namespace RealEstate.App.Services
                 {
                     throw new InvalidOperationException("Logged-in username not available.");
                 }
-                Console.WriteLine($"ssssssss{loggedInUsername}");
 
                 // Fetch user details by username
                 var userResponse = await httpClient.GetAsync($"api/v1/Users/ByName/{loggedInUsername}");
-                Console.WriteLine($"Userssssssssss {userResponse}.");
 
                 // Log raw response content
                 var rawResponseContent = await userResponse.Content.ReadAsStringAsync();
                 Console.WriteLine($"Raw API Response: {rawResponseContent}");
 
-                var userResult = await userResponse.Content.ReadFromJsonAsync<GetByIdUserQueryResponse>();
-                if (userResult == null)
-                {
-                    Console.WriteLine("User result is null.");
-                }
-                else
-                {
-                    Console.WriteLine($"User result: {userResult}");
-                }
+                //var userResult = await userResponse.Content.ReadFromJsonAsync<GetByIdUserQueryResponse>();
+                //if (userResult == null)
+                //{
+                //    Console.WriteLine("User result is null.");
+                //}
+                //else
+                //{
+                //    Console.WriteLine($"User result: {userResult}");
+                //}
 
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
 
 
 
-                propertyViewModel.UserId= userResult!.User.UserId;
+                propertyViewModel.UserId = loggedInUsername;
 
 
                 Console.WriteLine($"sssss{propertyViewModel.UserId}.");
