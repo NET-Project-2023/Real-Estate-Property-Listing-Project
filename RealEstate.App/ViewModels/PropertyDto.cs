@@ -12,9 +12,9 @@ namespace RealEstate.App.ViewModels
         public int? Price { get; set; } // Optional update
         public int? NumberOfBedrooms { get; set; } // Optional update
         public int? NumberOfBathrooms { get; set; } // Optional update
-        public List<byte[]>? Images { get; set; } // Optional update
+        public List<byte[]> Images { get; set; } // Optional update
         public List<IBrowserFile> ImagesFiles { get; set; } = new List<IBrowserFile>();
-        public string UserId { get; set; } = string.Empty;
+        public string UserId { get; set; } 
 
     }
 }

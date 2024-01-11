@@ -183,7 +183,7 @@ namespace RealEstate.App.Services
             string requestUri = $"api/v1/Properties/update/{propertyDto.Title}";
             using var formContent = new MultipartFormDataContent();
 
-            //formContent.Add(new StringContent(propertyDto.Title ?? string.Empty), "Title");
+            formContent.Add(new StringContent(propertyDto.Title ?? string.Empty), "Title");
             formContent.Add(new StringContent(propertyDto.Address ?? string.Empty), "Address");
             formContent.Add(new StringContent(propertyDto.Size.ToString()), "Size");
             formContent.Add(new StringContent(propertyDto.Price.ToString()), "Price");
