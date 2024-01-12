@@ -54,14 +54,14 @@ namespace RealEstate.API.Controllers
         [HttpPut("update/{title}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Update(string title, [FromForm] UpdatePropertyCommand command)
+        public async Task<IActionResult> Update( [FromForm] UpdatePropertyCommand command)
         {
 
-            if (title != command.Title)
-            {
-                _logger.LogWarning("Property ID mismatch. Provided title: {ProvidedTitle}, Command title: {CommandTitle}", title, command.Title);
-                return BadRequest("Property ID mismatch.");
-            }
+           
+            _logger.LogInformation("doamneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+
+            _logger.LogInformation(command.Address,command.UserId,command.Images,command.NumberOfBathrooms, command.Price,  command.Title);
+
 
             if (command.ImagesFiles != null) 
             {

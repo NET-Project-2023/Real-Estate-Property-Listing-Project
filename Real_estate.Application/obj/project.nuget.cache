@@ -1,18 +1,27 @@
 {
   "version": 2,
-  "dgSpecHash": "fOQngDMiH8X/L916NUswajs5BRHg6Gp+12xYMgguY0lNdiKv8kBSJbVNix6fw/pJ6K31iNUFMBqv3mZ4K25B6g==",
+  "dgSpecHash": "1NsdRI8fuiAYFad8IeRQn3sXufE834Pr5wEoKnuGmY3kU3gNRgClOfvUrQ40i16Bn4cYmMo4cxmgBi4Qi8Tgqg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj",
+  "projectFilePath": "C:\\Users\\ycarp\\Desktop\\Andi-Dot\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\andim\\.nuget\\packages\\fluentvalidation\\11.8.1\\fluentvalidation.11.8.1.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.8.1\\fluentvalidation.dependencyinjectionextensions.11.8.1.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\mediatr\\12.2.0\\mediatr.12.2.0.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
-    "C:\\Users\\andim\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
+    "C:\\Users\\ycarp\\.nuget\\packages\\fluentvalidation\\11.8.1\\fluentvalidation.11.8.1.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.8.1\\fluentvalidation.dependencyinjectionextensions.11.8.1.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\mediatr\\12.2.0\\mediatr.12.2.0.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\microsoft.aspnetcore.authorization\\8.0.1\\microsoft.aspnetcore.authorization.8.0.1.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\microsoft.aspnetcore.components\\8.0.1\\microsoft.aspnetcore.components.8.0.1.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\8.0.1\\microsoft.aspnetcore.components.analyzers.8.0.1.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\8.0.1\\microsoft.aspnetcore.components.forms.8.0.1.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\microsoft.aspnetcore.components.web\\8.0.1\\microsoft.aspnetcore.components.web.8.0.1.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\microsoft.aspnetcore.metadata\\8.0.1\\microsoft.aspnetcore.metadata.8.0.1.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\microsoft.extensions.options\\8.0.1\\microsoft.extensions.options.8.0.1.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\microsoft.jsinterop\\8.0.1\\microsoft.jsinterop.8.0.1.nupkg.sha512",
+    "C:\\Users\\ycarp\\.nuget\\packages\\system.io.pipelines\\8.0.0\\system.io.pipelines.8.0.0.nupkg.sha512"
   ],
   "logs": []
 }

@@ -180,6 +180,8 @@ namespace RealEstate.App.Services
             var token = await tokenService.GetTokenAsync();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
+
+
             string requestUri = $"api/v1/Properties/update/{propertyDto.Title}";
             using var formContent = new MultipartFormDataContent();
 
@@ -200,15 +202,17 @@ namespace RealEstate.App.Services
 
             }
 
-            var response = await httpClient.PutAsJsonAsync(requestUri, propertyDto);
+            Console.WriteLine($"sssssssssssssss {propertyDto.Title}, {propertyDto.Address},{propertyDto.Size.ToString()},{propertyDto.Price.ToString()},{propertyDto.NumberOfBedrooms.ToString()},{propertyDto.UserId}, {propertyDto.ImagesFiles} ");
 
+            var response = await httpClient.PutAsync(requestUri, formContent);
+            
             // Aici primesc response asa: "Property updated successfully."
             var responseContent = await response.Content.ReadAsStringAsync();
             Console.WriteLine($"Response Content: {responseContent}");
 
             if (!response.IsSuccessStatusCode)
             {
-                throw new ApplicationException($"Error updating listing: {responseContent}");
+                throw new ApplicationException($"Error updating property: {responseContent}");
             }
 
             try

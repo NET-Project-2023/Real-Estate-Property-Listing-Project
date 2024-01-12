@@ -57,12 +57,10 @@ namespace Real_estate.Application.Features.Properties.Commands.UpdateProperty
                     .GreaterThanOrEqualTo(0).WithMessage(ValidationMessages.GreaterThanZeroMessage);
             });
 
-            // Conditional validation for Images
 
-            //RuleFor(p => p.Images)
-            //    .Must(images => images != null && images.Any()).When(p => p.Images != null)
-            //    .WithMessage(ValidationMessages.NotEmptyListMessage);
-
+            RuleFor(p => p.Images)
+                 .Must(images => images == null || images.Any())
+                    .WithMessage("Images list can be null or must have at least one image.");
 
         }
 

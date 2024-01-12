@@ -1,12 +1,12 @@
 {
   "mainAssemblyName": "RealEstate.App",
   "resources": {
-    "hash": "sha256-ffoptMAeCUeNLXoh4vVviGqnBcjY24uVrS//mxOEvg4=",
+    "hash": "sha256-ne/8idRvecOUuynPBw/WM6fu36JvaC5TnAAsQuEeUpA=",
     "jsModuleNative": {
-      "dotnet.native.8.0.1.gcf9jmee6j.js": "sha256-SGOlISx+3G4kkvpC9Uq3qoPGsnjxGmW61QBev0lyI5U="
+      "dotnet.native.8.0.1.fneyte6lld.js": "sha256-SGOlISx+3G4kkvpC9Uq3qoPGsnjxGmW61QBev0lyI5U="
     },
     "jsModuleRuntime": {
-      "dotnet.runtime.8.0.1.3kp8wv527j.js": "sha256-HZOoaGpz9ekMa/oSmeApSKp3DXNdVUq2UBqsTIIiN8A="
+      "dotnet.runtime.8.0.1.9qa1bibusa.js": "sha256-HZOoaGpz9ekMa/oSmeApSKp3DXNdVUq2UBqsTIIiN8A="
     },
     "wasmNative": {
       "dotnet.native.wasm": "sha256-dqpunZywlYy86b4O6ZjONasmG+4FH0P17FZ0OIf/lIg="
@@ -224,14 +224,14 @@
       "mscorlib.wasm": "sha256-EpWTfh4m/hEcXRFYMCR9YeYHwdUJgcm1laBaxWfq2S4=",
       "netstandard.wasm": "sha256-2kH24/YfHmU3B4eYRyRmiwebYROM4+B9eDWKvMnUdP8=",
       "System.Private.CoreLib.wasm": "sha256-CsySKiP7HYY1pS8LTDE60EkqiX5oHb3WoEZHDNd1yK0=",
-      "Real_estate.Application.wasm": "sha256-VZAixvyYn1ztAl7Zej/IDENoFSq2/pt1UVosjS3qVQw=",
-      "Real_estate.Domain.wasm": "sha256-QM+PXtFDSMgVkTlCiZi+Sc2Ou3izdOKgaGv9Vbp6rAM=",
-      "RealEstate.App.wasm": "sha256-XE7CeYICSgsrMAhsCqKOw6GsDWR/DLrcmQKQdfnlv/4="
+      "Real_estate.Application.wasm": "sha256-NA7knt8izVYDSVtenWMkxefe/wwm/7q+XlkjCV0Zk6U=",
+      "Real_estate.Domain.wasm": "sha256-2gnqhIdLn9dig2Z+jhBUZzq8X/dh+P31NzhDdH3nMck=",
+      "RealEstate.App.wasm": "sha256-5i2ltgC9PkktnHnYBVr/PUDLNIw0g83QG87bUdXkxqA="
     },
     "pdb": {
-      "Real_estate.Application.pdb": "sha256-Ujpms9mXM/Ew2GuLaCKGMS+pVyIH5A+FbcCUhVhAnEk=",
-      "Real_estate.Domain.pdb": "sha256-aJbv/oyDP+do7EnKATY93BQnzZWIIQkhwSmObCKPSwQ=",
-      "RealEstate.App.pdb": "sha256-YdjsFj4I0ebiW+WMb3WlyqsuxBdwQE5I7HtLOpBC0ds="
+      "Real_estate.Application.pdb": "sha256-r7h4R8pVm8rw0fUqE8IkDDawSdZKkOFtXkOthF9plSU=",
+      "Real_estate.Domain.pdb": "sha256-YeGhIXTuUTP3+3RtGE1+FGmF5QRUzfJI7rmePJF5tjo=",
+      "RealEstate.App.pdb": "sha256-55iaBBEq5lFl5reSXxJjC41jSl4ebksT54hCNLq9LEA="
     }
   },
   "cacheBootResources": true,

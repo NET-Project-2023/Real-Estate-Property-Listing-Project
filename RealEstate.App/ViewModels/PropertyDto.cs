@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Http;
 
 namespace RealEstate.App.ViewModels
 {
