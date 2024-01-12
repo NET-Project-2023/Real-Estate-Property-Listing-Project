@@ -201,7 +201,7 @@
       "url": "icon-512.png"
     },
     {
-      "hash": "sha256-yQoOL\/GfhYzP5LDfurto\/htPf9LtGTG4M+7O0q0Lnzc=",
+      "hash": "sha256-8cYwsGpNogLgAOtibCJDfW3yR6WUs3RliBLSYFrB8h8=",
       "url": "index.html"
     },
     {
@@ -1097,17 +1097,17 @@
       "url": "_framework\/Real_estate.Domain.pdb"
     },
     {
-      "hash": "sha256-839aT7WyJ6Zm51\/RUfrO5PnGxh+gQNd4ejCh4BKTd1Q=",
+      "hash": "sha256-MOLCmSRTJoq5CYHfGniGygRF+0qKwAisepQakvwM26M=",
       "url": "_framework\/RealEstate.App.wasm"
     },
     {
-      "hash": "sha256-VNtpYaeqrbyHVswbTG1tAS3AyhJStu2g2KVXrKRO4DA=",
+      "hash": "sha256-fX4Szic0Uk2gUKYE1kw\/tQuk+5eA3Ic\/Qu9StyGRrpE=",
       "url": "_framework\/RealEstate.App.pdb"
     },
     {
-      "hash": "sha256-1ov+PM6S1hFyxLUDlk88hw5YchUd+rVujcAy1PpU+uM=",
+      "hash": "sha256-31yexeCyzs9lL8sSSOiS4p7yMp\/T0x\/LXgmZVfHaYX8=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "ZZ+eGPMs"
+  "version": "4EI4ck1U"
 };
