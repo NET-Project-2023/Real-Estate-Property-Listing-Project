@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Real_estate.API.IntegrationTests\\Real_estate.API.IntegrationTests.csproj": {}
+    "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.API.IntegrationTests\\Real_estate.API.IntegrationTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Identity\\Identity.csproj": {
+    "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Identity\\Identity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Identity\\Identity.csproj",
+        "projectUniqueName": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Identity\\Identity.csproj",
         "projectName": "Identity",
-        "projectPath": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Identity\\Identity.csproj",
-        "packagesPath": "C:\\Users\\carin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Identity\\obj\\",
+        "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Identity\\Identity.csproj",
+        "packagesPath": "C:\\Users\\andim\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Identity\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\carin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\andim\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,15 +22,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Real_estate.Application\\Real_estate.Application.csproj": {
-                "projectPath": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Real_estate.Application\\Real_estate.Application.csproj"
+              "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj": {
+                "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj"
               }
             }
           }
@@ -94,25 +89,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\carin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\andim\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\carin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\andim\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -120,21 +111,20 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Identity\\Identity.csproj": {
-                "projectPath": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Identity\\Identity.csproj"
+              "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Identity\\Identity.csproj": {
+                "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Identity\\Identity.csproj"
               },
-              "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Real_estate.Application\\Real_estate.Application.csproj": {
-                "projectPath": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Real_estate.Application\\Real_estate.Application.csproj"
+              "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj": {
+                "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj"
               },
-              "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Real_estate.Domain\\Real_estate.Domain.csproj": {
-                "projectPath": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Real_estate.Domain\\Real_estate.Domain.csproj"
+              "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj": {
+                "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj"
               }
             }
           }
@@ -194,25 +184,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\RealEstateApi\\RealEstate.API.csproj": {
+    "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstateApi\\RealEstate.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\RealEstateApi\\RealEstate.API.csproj",
+        "projectUniqueName": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstateApi\\RealEstate.API.csproj",
         "projectName": "RealEstate.API",
-        "projectPath": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\RealEstateApi\\RealEstate.API.csproj",
-        "packagesPath": "C:\\Users\\carin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\RealEstateApi\\obj\\",
+        "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstateApi\\RealEstate.API.csproj",
+        "packagesPath": "C:\\Users\\andim\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstateApi\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\carin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\andim\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -220,21 +206,20 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Identity\\Identity.csproj": {
-                "projectPath": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Identity\\Identity.csproj"
+              "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Identity\\Identity.csproj": {
+                "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Identity\\Identity.csproj"
               },
-              "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Infrastructure\\Infrastructure.csproj"
+              "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Infrastructure\\Infrastructure.csproj"
               },
-              "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Real_estate.Application\\Real_estate.Application.csproj": {
-                "projectPath": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Real_estate.Application\\Real_estate.Application.csproj"
+              "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj": {
+                "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj"
               }
             }
           }
@@ -285,25 +270,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Real_estate.API.IntegrationTests\\Real_estate.API.IntegrationTests.csproj": {
+    "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.API.IntegrationTests\\Real_estate.API.IntegrationTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Real_estate.API.IntegrationTests\\Real_estate.API.IntegrationTests.csproj",
+        "projectUniqueName": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.API.IntegrationTests\\Real_estate.API.IntegrationTests.csproj",
         "projectName": "Real_estate.API.IntegrationTests",
-        "projectPath": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Real_estate.API.IntegrationTests\\Real_estate.API.IntegrationTests.csproj",
-        "packagesPath": "C:\\Users\\carin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Real_estate.API.IntegrationTests\\obj\\",
+        "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.API.IntegrationTests\\Real_estate.API.IntegrationTests.csproj",
+        "packagesPath": "C:\\Users\\andim\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.API.IntegrationTests\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\carin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\andim\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -311,21 +292,20 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Infrastructure\\Infrastructure.csproj"
+              "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Infrastructure\\Infrastructure.csproj"
               },
-              "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\RealEstateApi\\RealEstate.API.csproj": {
-                "projectPath": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\RealEstateApi\\RealEstate.API.csproj"
+              "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstateApi\\RealEstate.API.csproj": {
+                "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstateApi\\RealEstate.API.csproj"
               },
-              "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Real_estate.Application\\Real_estate.Application.csproj": {
-                "projectPath": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Real_estate.Application\\Real_estate.Application.csproj"
+              "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj": {
+                "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj"
               }
             }
           }
@@ -389,25 +369,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Real_estate.Application\\Real_estate.Application.csproj": {
+    "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Real_estate.Application\\Real_estate.Application.csproj",
+        "projectUniqueName": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj",
         "projectName": "Real_estate.Application",
-        "projectPath": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Real_estate.Application\\Real_estate.Application.csproj",
-        "packagesPath": "C:\\Users\\carin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Real_estate.Application\\obj\\",
+        "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj",
+        "packagesPath": "C:\\Users\\andim\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\carin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\andim\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -415,15 +391,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Real_estate.Domain\\Real_estate.Domain.csproj": {
-                "projectPath": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Real_estate.Domain\\Real_estate.Domain.csproj"
+              "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj": {
+                "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj"
               }
             }
           }
@@ -467,25 +442,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Real_estate.Domain\\Real_estate.Domain.csproj": {
+    "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Real_estate.Domain\\Real_estate.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj",
         "projectName": "Real_estate.Domain",
-        "projectPath": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Real_estate.Domain\\Real_estate.Domain.csproj",
-        "packagesPath": "C:\\Users\\carin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Real_estate.Domain\\obj\\",
+        "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj",
+        "packagesPath": "C:\\Users\\andim\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\carin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\andim\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -493,7 +464,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -527,7 +497,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

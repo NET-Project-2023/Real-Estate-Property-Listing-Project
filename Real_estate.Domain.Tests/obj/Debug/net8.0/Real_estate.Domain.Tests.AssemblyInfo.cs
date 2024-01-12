@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Real_estate.Domain.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9cd4e33064c22afe6b572709c4fd29396cf92ba1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+27bd665fdc2cb3456603f14f0e742842a7324ab6")]
 [assembly: System.Reflection.AssemblyProductAttribute("Real_estate.Domain.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Real_estate.Domain.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

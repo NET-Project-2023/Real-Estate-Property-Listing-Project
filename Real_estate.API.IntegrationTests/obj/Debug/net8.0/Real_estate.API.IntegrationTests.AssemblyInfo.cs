@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Real_estate.API.IntegrationTests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7fe4e97dd05f41f11ebdb161b328b282a9c8e932")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+27bd665fdc2cb3456603f14f0e742842a7324ab6")]
 [assembly: System.Reflection.AssemblyProductAttribute("Real_estate.API.IntegrationTests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Real_estate.API.IntegrationTests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
