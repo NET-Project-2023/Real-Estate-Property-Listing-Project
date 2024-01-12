@@ -11,8 +11,10 @@ using Real_estate.Domain.Common;
 using Real_estate.Domain.Entities;
 using Real_estate.Domain.Enums;
 
+using Real_estate.Domain.Entities;
 using Xunit;
 using static Real_estate.Domain.Enums.Enums;
+
 
 namespace Real_estate.Domain.Tests
 {
@@ -405,5 +407,13 @@ namespace Real_estate.Domain.Tests
             // Assert
             Assert.Throws<ArgumentException>(() => listing.UpdatePrice(newPrice));
         }
+
+
+
+
+
     }
+
+
+
 }

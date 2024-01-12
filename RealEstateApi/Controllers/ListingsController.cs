@@ -20,7 +20,7 @@ namespace RealEstate.API.Controllers
             {
                 return BadRequest(result);
             }
-            return Ok(result);
+            return Ok(result.Listing);
         }
 
         [Authorize(Roles = "User")]
@@ -29,7 +29,7 @@ namespace RealEstate.API.Controllers
         public async Task<IActionResult> GetAll()
         {
             var result = await Mediator.Send(new GetAllListingQuery());
-            return Ok(result);
+            return Ok(result.Listings);
         }
 
         [HttpGet("ByTitle/{title}")]

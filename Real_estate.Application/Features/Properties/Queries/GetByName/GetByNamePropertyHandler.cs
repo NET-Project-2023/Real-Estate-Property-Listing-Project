@@ -15,7 +15,7 @@ namespace Real_estate.Application.Features.Properties.Queries.GetByName
         public async Task<PropertyDto> Handle(GetByNamePropertyQuery request, CancellationToken cancellationToken)
         {
             var result = await repository.FindByNameAsync(request.Title);
-            if (result.IsSuccess)
+            if (result.IsSuccess && result.Value != null)
             {
                 return new PropertyDto
                 {
@@ -31,7 +31,7 @@ namespace Real_estate.Application.Features.Properties.Queries.GetByName
                     UserId = result.Value.UserId
                 };
             }
-            return new PropertyDto();
+            return null;
         }
     }
 }

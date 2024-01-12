@@ -26,12 +26,9 @@
                 <thead class="thead-dark">
                     <tr>
                         <th>Property Title</th>
-                        <!-- Image preview -->
                         <th>Address</th>
-                        <th>Bedrooms</th>
                         <th>Price</th>
                         <th>Action</th>
-                    
                     </tr>
                 </thead>
                 <tbody>
@@ -40,7 +37,6 @@
                         <tr>
                             <td>@property.Title</td>
                             <td>@property.Address</td>
-                            <td>@property.NumberOfBedrooms</td>
                             <td>$@property.Price.ToString("N0")</td>
                             <td>
                                 <button class="btn btn-primary" @onclick="() => ViewPropertyDetails(property.Title)">View Details</button>

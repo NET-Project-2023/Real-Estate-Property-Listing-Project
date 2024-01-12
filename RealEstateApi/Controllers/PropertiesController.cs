@@ -27,9 +27,9 @@ namespace RealEstate.API.Controllers
             var result = await Mediator.Send(command);
             if (!result.Success)
             {
-                return BadRequest(result);
+                return BadRequest(result.Property);
             }
-            return Ok(result);
+            return Ok(result.Property);
         }
 
         [Authorize(Roles = "User")]
@@ -38,7 +38,7 @@ namespace RealEstate.API.Controllers
         public async Task<IActionResult> GetAll()
         {
             var result = await Mediator.Send(new GetAllPropertyQuery());
-            return Ok(result);
+            return Ok(result.Properties);
         }
 
         [Authorize(Roles = "User")]
@@ -47,6 +47,10 @@ namespace RealEstate.API.Controllers
         public async Task<IActionResult> Get(Guid id)
         {
             var result = await Mediator.Send(new GetByIdPropertyQuery(id));
+            if (result == null)
+            {
+                return NotFound();
+            }
             return Ok(result);
         }
 
@@ -109,6 +113,7 @@ namespace RealEstate.API.Controllers
         {
             //var username = User.FindFirst(ClaimTypes.Name)?.Value;
             //Console.WriteLine("Username extracted: ", username);
+            Console.WriteLine("USERNAME in the api: ", ownerUsername);
             var result = await Mediator.Send(new GetByOwnerUsernamePropertyQuery(ownerUsername));
             return Ok(result);
         }

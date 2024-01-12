@@ -2,6 +2,7 @@
 {
     public class GetAllPropertyResponse
     {
+
         public List<PropertyDto> Properties { get; set; }
     }
 }

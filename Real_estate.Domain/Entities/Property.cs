@@ -13,7 +13,7 @@ namespace Real_estate.Domain.Entities
             Price = price;
             UserId = userId;
             NumberOfBedrooms = numberOfBedrooms;
-            Images = new List<byte[]>(); // Update this line
+            Images = new List<byte[]>();
         }
 
         public Guid PropertyId { get; private set; }
@@ -29,26 +29,37 @@ namespace Real_estate.Domain.Entities
 
         public static Result<Property> Create(string title, string address, int size, int price, string ownerUniqueName, int numberOfBedrooms)
         {
-            // Validation logic
-            if (string.IsNullOrEmpty(title))
-                return Result<Property>.Failure("Title cannot be null or empty.");
+            // Validation checks
+            if (string.IsNullOrWhiteSpace(title))
+            {
+                return Result<Property>.Failure("Title is required.");
+            }
 
-            if (string.IsNullOrEmpty(address))
-                return Result<Property>.Failure("Address cannot be null or empty.");
+            if (string.IsNullOrWhiteSpace(address))
+            {
+                return Result<Property>.Failure("Address is required.");
+            }
 
             if (size <= 0)
-                return Result<Property>.Failure("Size must be greater than 0.");
+            {
+                return Result<Property>.Failure("Size must be greater than zero.");
+            }
 
             if (price <= 0)
-                return Result<Property>.Failure("Price must be greater than 0.");
+            {
+                return Result<Property>.Failure("Price must be greater than zero.");
+            }
 
-            if (string.IsNullOrEmpty(ownerUniqueName))
-                return Result<Property>.Failure("Owner's unique name cannot be null or empty.");
+            if (string.IsNullOrWhiteSpace(ownerUniqueName))
+            {
+                return Result<Property>.Failure("Owner unique name is required.");
+            }
 
-            if (numberOfBedrooms <= 0)
-                return Result<Property>.Failure("Number of bedrooms must be greater than 0.");
-
-            // Create the property
+            if (numberOfBedrooms < 0)
+            {
+                return Result<Property>.Failure("Number of bedrooms cannot be negative.");
+            }
+            // Create the property if all validations pass
             return Result<Property>.Success(new Property(title, address, size, price, ownerUniqueName, numberOfBedrooms));
         }
 
@@ -152,6 +163,14 @@ namespace Real_estate.Domain.Entities
             return Result<Property>.Success(property);
         }
 
-
+        //public void UpdatePropertyStatus(Status newStatus)
+        //{
+        //    // Assuming you have a validation for status or you might want to check if it's a valid enum
+        //    if (!Enum.IsDefined(typeof(Status), newStatus))
+        //    {
+        //        throw new ArgumentException("Invalid property status.", nameof(newStatus));
+        //    }
+        //    PropertyStatus = newStatus;
+        //}
     }
 }

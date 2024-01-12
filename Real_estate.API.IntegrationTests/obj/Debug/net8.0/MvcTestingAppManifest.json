@@ -1,0 +1,7 @@
+{
+  "Identity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Identity",
+  "Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Infrastructure",
+  "RealEstate.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\RealEstateApi",
+  "Real_estate.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Real_estate.Application",
+  "Real_estate.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\carin\\source\\repos\\Real-Estate-Property-Listing\\Real_estate.Domain"
+}
