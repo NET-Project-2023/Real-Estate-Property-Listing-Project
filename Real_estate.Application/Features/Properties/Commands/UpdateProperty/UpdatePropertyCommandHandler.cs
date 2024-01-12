@@ -70,10 +70,10 @@ namespace Real_estate.Application.Features.Properties.Commands.UpdateProperty
             {
                 property.AttachNumberOfBathrooms(request.NumberOfBathrooms.Value);
             }
-            if (request.Images != null && request.Images.Any())
+          /*  if (request.Images != null && request.Images.Any())
             {
                 property.AttachImageUrls(request.Images);
-            }
+            }*/
 
             var updateResult = await propertyRepository.UpdateAsync(property);
 

@@ -1,0 +1,113 @@
+﻿@page "/updateuser"
+@using RealEstate.App.Contracts
+@using RealEstate.App.ViewModels
+@inject IAuthenticationService AuthenticationService
+@inject ITokenService TokenService
+@inject NavigationManager NavigationManager
+
+<h3>Update User Information</h3>
+
+@if (updateUserModel == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <EditForm Model="@updateUserModel" OnValidSubmit="@HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <!-- Username -->
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <InputText id="username" class="form-control" @bind-Value="@updateUserModel.Username" disabled />
+        </div>
+
+        <!-- Name -->
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <InputText id="name" class="form-control" @bind-Value="@updateUserModel.Name" />
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <InputText id="email" class="form-control" @bind-Value="@updateUserModel.Email" />
+        </div>
+
+        <!-- Phone Number -->
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <InputText id="phone" class="form-control" @bind-Value="@updateUserModel.PhoneNumber" />
+        </div>
+
+        <!-- UserRole -->
+        <div class="form-group">
+            <label for="userRole">User Role:</label>
+            <InputSelect id="userRole" class="form-control" @bind-Value="@updateUserModel.UserRole">
+                <option value="">Select a role</option>
+                @foreach (var role in Enum.GetNames(typeof(RealEstate.App.Enums.Role)))
+                {
+                    <option value="@role">@role</option>
+                }
+            </InputSelect>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Update User</button>
+    </EditForm>
+}
+
+@if (!string.IsNullOrWhiteSpace(message))
+{
+    <div class="alert alert-danger">
+        @message
+    </div>
+}
+
+@code {
+    
+    private UpdateUserViewModel updateUserModel = new UpdateUserViewModel();
+    private string message = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var username = await TokenService.GetUsernameFromTokenAsync();
+        if (!string.IsNullOrWhiteSpace(username))
+        {
+            updateUserModel.Username = username;
+        }
+        else
+        {
+            message = "User not found.";
+        }
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        // Check if the name is provided
+        if (string.IsNullOrWhiteSpace(updateUserModel.Name))
+        {
+            message = "The name field is required.";
+            Console.WriteLine(message); // This will print to the browser's console.
+            StateHasChanged(); // This will refresh the UI to display the message.
+            return;
+        }
+
+        try
+        {
+            Console.WriteLine("Attempting to update user..."); // Debug message
+            await AuthenticationService.UpdateUser(updateUserModel);
+            message = "User updated successfully!";
+            Console.WriteLine(message); // Success message
+            NavigationManager.NavigateTo("/");
+        }
+        catch (Exception ex)
+        {
+            message = $"Error updating user: {ex.Message}";
+            Console.WriteLine(message); // Error message
+            StateHasChanged(); // This will refresh the UI to display the error message.
+        }
+    }
+}
+

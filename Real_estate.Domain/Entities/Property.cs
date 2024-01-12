@@ -13,7 +13,7 @@ namespace Real_estate.Domain.Entities
             Price = price;
             UserId = userId;
             NumberOfBedrooms = numberOfBedrooms;
-            Images = new List<byte[]>(); // Update this line
+            Images = new List<byte[]>();
         }
 
         public Guid PropertyId { get; private set; }
@@ -29,7 +29,37 @@ namespace Real_estate.Domain.Entities
 
         public static Result<Property> Create(string title, string address, int size, int price, string ownerUniqueName, int numberOfBedrooms)
         {
-            // Create the property
+            // Validation checks
+            if (string.IsNullOrWhiteSpace(title))
+            {
+                return Result<Property>.Failure("Title is required.");
+            }
+
+            if (string.IsNullOrWhiteSpace(address))
+            {
+                return Result<Property>.Failure("Address is required.");
+            }
+
+            if (size <= 0)
+            {
+                return Result<Property>.Failure("Size must be greater than zero.");
+            }
+
+            if (price <= 0)
+            {
+                return Result<Property>.Failure("Price must be greater than zero.");
+            }
+
+            if (string.IsNullOrWhiteSpace(ownerUniqueName))
+            {
+                return Result<Property>.Failure("Owner unique name is required.");
+            }
+
+            if (numberOfBedrooms < 0)
+            {
+                return Result<Property>.Failure("Number of bedrooms cannot be negative.");
+            }
+            // Create the property if all validations pass
             return Result<Property>.Success(new Property(title, address, size, price, ownerUniqueName, numberOfBedrooms));
         }
 

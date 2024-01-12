@@ -1,12 +1,12 @@
 ﻿using FluentAssertions;
-using MediatR;
-using Moq;
+using Infrastructure;
+using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Real_estate.API.IntegrationTests.Base;
 using Real_estate.Application.Features.Listings.Commands.CreateListing;
 using Real_estate.Application.Features.Listings.Commands.UpdateListing;
 using Real_estate.Application.Features.Listings.Queries;
-using RealEstate.API.Controllers;
+using Real_estate.Application.Features.Properties.Commands.UpdateProperty;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Net.Http.Headers;
@@ -31,11 +31,11 @@ namespace Real_estate.API.IntegrationTests.Controllers
             response.EnsureSuccessStatusCode();
 
             // Assert
-            
+
             var responseString = await response.Content.ReadAsStringAsync();
             var result = JsonConvert.DeserializeObject<List<ListingDto>>(responseString);
 
-           
+
             result?.Count().Should().Be(4);
         }
 
@@ -73,64 +73,54 @@ namespace Real_estate.API.IntegrationTests.Controllers
             result.PropertyStatus.Should().Be(category.PropertyStatus);
             result.Description.Should().Be(category.Description);
         }
-        private const string UpdateUri = "/api/v1/Listings/update/";
-
-        [Fact]
-        public async Task UpdateListing_ReturnsOkStatus()
+        public class ListingsControllerIntegrationTests : BaseApplicationContextTests
         {
-            // Arrange
-            string token = CreateToken();
-            Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            private const string UpdateRequestUri = "/listings/update/";
 
-            var listingTitle = "Apartament"; // Replace with an existing listing title
-            var updateCommand = new UpdateListingCommand
+            [Fact]
+            public async Task UpdateListing_ReturnsOkStatus()
             {
-                Title = "casa3",
-                // Set other properties to update
-            };
+                string token = CreateToken();
+                Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-            // Act
-            var response = await Client.PutAsJsonAsync(UpdateUri + listingTitle, updateCommand);
-            response.EnsureSuccessStatusCode();
+                // Arrange
+                var updateCommand = new UpdateListingCommand
+                {
+                    Title = "House",
+                    Description = "testing description"
+                   
+                };
 
-            // Assert
-            response.StatusCode.Should().Be(HttpStatusCode.OK);
+                // Act
+                var response = await Client.PutAsJsonAsync($"/listings/update/{updateCommand.Title}", updateCommand);
 
-            var responseString = await response.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<object>(responseString); // Adjust the type based on your response
+                // Assert
+                response.EnsureSuccessStatusCode();
+            }
 
-            result.Should().NotBeNull();
-            // Add additional assertions based on the expected result
-
-            // Optionally, you can check if the listing was actually updated in your database
-            // For example, query the database or use a mock repository and verify the changes
-        }
-
-        [Fact]
-        public async Task UpdateListing_WithMismatchedTitle_ReturnsBadRequest()
-        {
-            // Arrange
-            string token = CreateToken();
-            Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-
-            var listingTitle = "ExistingListingTitle"; // Replace with an existing listing title
-            var updateCommand = new UpdateListingCommand
+            [Fact]
+            public async Task UpdateListing_ReturnsBadRequestWhenIdMismatch()
             {
-                Title = "MismatchedTitle", // Mismatched title
-                                           // Set other properties to update
-            };
+                // Arrange
+                var listingId = "House";
+                var updateCommand = new UpdateListingCommand
+                {
+                    Title = "Updated House",
+                    // Alte proprietăți actualizate
+                };
 
-            // Act
-            var response = await Client.PutAsJsonAsync(UpdateUri + listingTitle, updateCommand);
+                // Act
+                var response = await Client.PutAsJsonAsync(UpdateRequestUri + listingId, updateCommand);
 
-            // Assert
-            response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+                // Assert
+                response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
 
-            var responseString = await response.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<object>(responseString); // Adjust the type based on your response
+                var responseString = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeAnonymousType(responseString, new { Message = "" });
 
-            result.Should().NotBeNull();
-            // Add additional assertions based on the expected result
+                result.Should().NotBeNull();
+                result.Message.Should().Be("Listing ID mismatch.");
+            }
         }
 
         private static string CreateToken()
@@ -167,6 +157,7 @@ namespace Real_estate.API.IntegrationTests.Controllers
 
             result.Should().NotBeNull();
             result.Title.Should().Be(titleToRetrieve);
+
         }
 
         [Fact]
@@ -188,9 +179,24 @@ namespace Real_estate.API.IntegrationTests.Controllers
             [Fact]
             public async Task DeleteListing_ReturnsOkStatus()
             {
+
+                string titleToRetrieve = "House"; // Asigură-te că acest titlu există în baza de date de test
+
+                // Act
+                var responseT = await Client.GetAsync("/api/v1/Listings/ByTitle/" + titleToRetrieve);
+
+                // Assert
+                responseT.StatusCode.Should().Be(HttpStatusCode.OK);
+
+                var responseString = await responseT.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<ListingDto>(responseString);
+
+
+
+
+
                 // Arrange
-                Guid listingIdToDelete = Guid.Parse("870068c8-e16f-4e86-91ed-bbf88674bc83");
-                // Asigură-te că acest ID există în baza de date de test
+                Guid listingIdToDelete = result.ListingId;
 
                 // Act
                 var response = await Client.DeleteAsync(RequestUri + listingIdToDelete);
@@ -198,12 +204,11 @@ namespace Real_estate.API.IntegrationTests.Controllers
                 // Assert
                 response.StatusCode.Should().Be(HttpStatusCode.OK);
 
-                var responseString = await response.Content.ReadAsStringAsync();
-                var result = JsonConvert.DeserializeObject<string>(responseString);
+                // ... alte aserțiuni dacă sunt necesare
 
-                result.Should().NotBeNull();
-                
+
             }
+
 
             [Fact]
             public async Task DeleteNonexistentListing_ReturnsNotFoundStatus()
@@ -218,7 +223,6 @@ namespace Real_estate.API.IntegrationTests.Controllers
                 response.StatusCode.Should().Be(HttpStatusCode.NotFound);
             }
         }
+
     }
-
-
 }

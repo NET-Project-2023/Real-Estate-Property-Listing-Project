@@ -65,7 +65,7 @@ namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
                     Size = property.Value.Size,
                     Price = property.Value.Price,
                     UserId = property.Value.UserId,
-                    NumberOfBedrooms = property.Value.NumberOfBedrooms
+                    NumberOfBedrooms = property.Value.NumberOfBedrooms,
                 }
             };
         }

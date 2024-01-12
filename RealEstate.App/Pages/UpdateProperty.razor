@@ -1,0 +1,67 @@
+﻿@page "/propertiesbyowner"
+@using RealEstate.App.Contracts
+@using RealEstate.App.ViewModels
+
+
+<div class="container mt-5">
+    <h3>Properties Owned by You</h3>
+
+    @if (Properties == null)
+    {
+        <div class="text-center">
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    }
+    else if (Properties.Count == 0)
+    {
+        <p>You don't have any properties yet.</p>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Property Title</th>
+                        <th>Address</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var property in Properties)
+                    {
+                        <tr>
+                            <td>@property.Title</td>
+                            <td>@property.Address</td>
+                            <td>$@property.Price.ToString("N0")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+@code {
+    [Inject]
+    public IPropertyDataService PropertyDataService { get; set; }
+
+    [Inject]
+    public ITokenService TokenService { get; set; }
+
+    public List<PropertyViewModel> Properties { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var username = await TokenService.GetUsernameFromTokenAsync();
+        //Console.WriteLine("USERNAME extracted: ", username);
+
+        if (!string.IsNullOrWhiteSpace(username))
+        {
+            // Use your data service to get properties by owner's username
+            Properties = (await PropertyDataService.GetPropertiesByCurrentUserAsync(username)).ToList();
+        }
+    }
+}

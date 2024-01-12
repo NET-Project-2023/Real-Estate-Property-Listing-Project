@@ -27,8 +27,8 @@ namespace Real_estate.Application.Features.Properties.Queries.GetByOwnerUsername
                     Price = property.Price,
                     NumberOfBathrooms = property.NumberOfBathrooms,
                     NumberOfBedrooms = property.NumberOfBedrooms,
-                    Images = property.Images,
-                    UserId = property.UserId
+/*                    Images = property.Images,
+*/                    UserId = property.UserId
                 }).ToList();
             }
             return new List<PropertyDto>();

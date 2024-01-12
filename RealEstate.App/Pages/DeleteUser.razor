@@ -1,0 +1,50 @@
+﻿@attribute [Authorize(Roles = "Admin")]
+@page "/admin/deleteuser"
+@using Microsoft.AspNetCore.Authorization
+@using RealEstate.App.Contracts
+@using RealEstate.App.ViewModels
+@inject IAuthenticationService AuthenticationService
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+
+<h3>Delete User</h3>
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-danger">@errorMessage</div>
+}
+
+<div class="row mb-2">
+    <div class="col-md-6">
+        <input value="@deleteUserModel.Username" @oninput="HandleUsernameInput" class="form-control" placeholder="Enter username" />
+    </div>
+    <div class="col-md-6">
+        <button @onclick="HandleValidSubmit" class="btn btn-danger">Delete User</button>
+    </div>
+</div>
+
+@code {
+    private DeleteViewModel deleteUserModel = new DeleteViewModel();
+    private string errorMessage;
+
+    private void HandleUsernameInput(ChangeEventArgs e)
+    {
+        deleteUserModel.Username = e.Value.ToString();
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        try
+        {
+            var message = $"Username from input: {deleteUserModel.Username}";
+            await JSRuntime.InvokeVoidAsync("console.log", message);
+
+            await AuthenticationService.DeleteUserByUsername(deleteUserModel.Username);
+            NavigationManager.NavigateTo("/");
+        }
+        catch (Exception ex)
+        {
+            errorMessage = ex.Message;
+        }
+    }
+}

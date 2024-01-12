@@ -27,7 +27,7 @@ namespace RealEstate.API.Controllers
             var result = await Mediator.Send(command);
             if (!result.Success)
             {
-                return BadRequest(result);
+                return BadRequest(result.Property);
             }
             return Ok(result.Property);
         }
@@ -47,6 +47,10 @@ namespace RealEstate.API.Controllers
         public async Task<IActionResult> Get(Guid id)
         {
             var result = await Mediator.Send(new GetByIdPropertyQuery(id));
+            if (result == null)
+            {
+                return NotFound();
+            }
             return Ok(result);
         }
 

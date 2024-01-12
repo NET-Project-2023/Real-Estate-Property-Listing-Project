@@ -1,0 +1,31 @@
+﻿@using RealEstate.App.Auth
+@using RealEstate.App.Contracts
+@using RealEstate.App.Services
+@inject NavigationManager navigationManager
+@inject CustomStateProvider authStateProvider
+@inject ITokenService TokenService
+@inherits LayoutComponentBase
+
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+
+@functions {
+    protected override async Task OnInitializedAsync()
+    {
+        var token = await TokenService.GetTokenAsync();
+        if (token == null)
+        {
+            navigationManager.NavigateTo("/login");
+        }
+    }
+}
