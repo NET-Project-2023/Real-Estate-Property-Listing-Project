@@ -65,61 +65,7 @@ namespace RealEstate.App.Services
             }
             response.EnsureSuccessStatusCode();
         }
-        public async Task UpdateUser(UpdateUserViewModel updateUserModel)
-        {
-            var requestUri = $"api/v1/users/update/{updateUserModel.Username}"; // URL should match the backend route parameter
 
-            Console.WriteLine("Preparing to update user...");
-
-            // Serialize the updateUserModel to JSON and print it to the console for debugging
-            var jsonContent = JsonSerializer.Serialize(updateUserModel);
-            Console.WriteLine($"JSON Payload: {jsonContent}");
-
-            // Check if name is null or empty
-            if (string.IsNullOrEmpty(updateUserModel.Name))
-            {
-                Console.WriteLine("The 'Name' field is empty or null. Update operation aborted.");
-                return;
-            }
-
-            var request = new HttpRequestMessage(HttpMethod.Put, requestUri);
-
-            // Add the bearer token to the request
-            var token = await tokenService.GetTokenAsync();
-            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
-
-            // Add the JSON content to the request
-            request.Content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
-
-            // Send the request to update the user
-            var response = await httpClient.SendAsync(request);
-
-            if (!response.IsSuccessStatusCode)
-            {
-                var errorContent = await response.Content.ReadAsStringAsync();
-                Console.WriteLine($"Error updating user: {errorContent}");
-                throw new ApplicationException($"Error updating user: {errorContent}");
-            }
-            else
-            {
-                Console.WriteLine("User updated successfully.");
-            }
-        }
-
-        public async Task<UpdateUserViewModel> GetUser(string username)
-        {
-            var requestUri = $"api/v1/users/ByName/{username}";
-            httpClient.DefaultRequestHeaders.Authorization =
-               new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
-
-            var response = await httpClient.GetAsync(requestUri);
-            if (!response.IsSuccessStatusCode)
-            {
-                throw new HttpRequestException($"Error fetching user: {response.ReasonPhrase}");
-            }
-            var userViewModel = await response.Content.ReadFromJsonAsync<UpdateUserViewModel>();
-            return userViewModel ?? new UpdateUserViewModel();
-        }
 
     }
 }

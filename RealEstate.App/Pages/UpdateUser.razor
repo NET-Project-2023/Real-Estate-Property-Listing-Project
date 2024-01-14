@@ -1,7 +1,6 @@
 ﻿@page "/updateuser"
 @using RealEstate.App.Contracts
 @using RealEstate.App.ViewModels
-@inject IAuthenticationService AuthenticationService
 @inject ITokenService TokenService
 @inject NavigationManager NavigationManager
 
@@ -13,53 +12,108 @@
 }
 else
 {
-    <EditForm Model="@updateUserModel" OnValidSubmit="@HandleValidSubmit">
-        <DataAnnotationsValidator />
-        <ValidationSummary />
+@*      <EditForm Model="@updateUserModel" OnValidSubmit="@HandleValidSubmit">
+         <DataAnnotationsValidator />
+         <ValidationSummary />
 
-        <!-- Username -->
-@*         <div class="form-group">
-            <label for="username">Username:</label>
-            <InputText id="username" class="form-control" @bind-Value="@updateUserModel.Username" disabled />
-        </div> *@
+         <!-- Username -->
+         <div class="form-group">
+             <label for="username">Username:</label>
+             <InputText id="username" class="form-control" @bind-Value="@updateUserModel.Username" disabled />
+         </div>
 
-        <!-- Name -->
-        <div class="form-group">
-            <label for="name">Name:</label>
-            <InputText id="name" class="form-control" @bind-Value="@updateUserModel.Name" />
-        </div>
+         <!-- Name -->
+         <div class="form-group">
+             <label for="name">Name:</label>
+             <InputText id="name" class="form-control" @bind-Value="@updateUserModel.Name" />
+         </div>
 
-        <!-- Email -->
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <InputText id="email" class="form-control" @bind-Value="@updateUserModel.Email" />
-        </div>
+         <!-- Email -->
+         <div class="form-group">
+             <label for="email">Email:</label>
+             <InputText id="email" class="form-control" @bind-Value="@updateUserModel.Email" />
+         </div>
 
-        <!-- Phone Number -->
-        <div class="form-group">
-            <label for="phone">Phone Number:</label>
-            <InputText id="phone" class="form-control" @bind-Value="@updateUserModel.PhoneNumber" />
-        </div>
+         <!-- Phone Number -->
+         <div class="form-group">
+             <label for="phone">Phone Number:</label>
+             <InputText id="phone" class="form-control" @bind-Value="@updateUserModel.PhoneNumber" />
+         </div>
 
-        <!-- UserRole -->
-        @if (role == "Admin")
-        {
-            <div class="form-group">
-                <label for="userRole">User Role:</label>
-                <InputSelect id="userRole" class="form-control" @bind-Value="@updateUserModel.UserRole">
-                    <option value="">Select a role</option>
-                    @foreach (var role in Enum.GetNames(typeof(RealEstate.App.Enums.Role)))
-                    {
-                        <option value="@role">@role</option>
-                    }
-                </InputSelect>
+         <!-- UserRole -->
+         @if (role == "Admin")
+         {
+             <div class="form-group">
+                 <label for="userRole">User Role:</label>
+                 <InputSelect id="userRole" class="form-control" @bind-Value="@updateUserModel.UserRole">
+                     <option value="">Select a role</option>
+                     @foreach (var role in Enum.GetNames(typeof(RealEstate.App.Enums.Role)))
+                     {
+                         <option value="@role">@role</option>
+                     }
+                 </InputSelect>
+             </div>
+         }
+
+         <!-- Submit Button -->
+         <button type="submit" class="btn btn-primary">Update User</button>
+     </EditForm> *@
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5 cool-form" style="margin-top:5rem;">
+                <h3>Profile</h3>
+                <div class="mb-3">
+                    <label class="form-label cool-label">Username:</label>
+                    <input class="form-control cool-input" @bind="updateUserModel.Username" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label cool-label">Name:</label>
+                    <input class="form-control cool-input" @bind="updateUserModel.Name" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label cool-label">Email:</label>
+                    <input class="form-control cool-input" @bind="updateUserModel.Email" />
+                </div>
+                <div class="column">
+                    <button class="btn btn-primary cool-button" @onclick="UpdateProfile">Update Profile</button>
+                    <button class="btn btn-primary cool-button" @onclick="Logout">Logout</button>
+                </div>
+
+                @if (!string.IsNullOrEmpty(error))
+                {
+                    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                        <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast-header">
+                                <strong class="me-auto">Update Profile Error</strong>
+                                <button type="button" class="btn-close" @onclick="DismissError" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body" style="color:red">
+                                @error
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (!string.IsNullOrEmpty(message))
+                {
+
+                    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                        <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast-header">
+                                <strong class="me-auto">Update Profile</strong>
+                                <button type="button" class="btn-close" @onclick="DismissMessage" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body" style="color:green">
+                                @message
+                            </div>
+                        </div>
+                    </div>
+                }
             </div>
-        }
-
-
-        <!-- Submit Button -->
-        <button type="submit" class="btn btn-primary">Update User</button>
-    </EditForm>
+        </div>
+    </div>
 }
 
 @if (!string.IsNullOrWhiteSpace(message))
@@ -71,26 +125,39 @@ else
 
 @code {
 
+    [Inject]
+    public IUserService userService { get; set; }
+
+    [Inject]
+    public IAuthenticationService authService { get; set; }
+
     private UpdateUserViewModel updateUserModel = new UpdateUserViewModel();
-    private string message = string.Empty;
+    private string error;
+    public string message { get; set; }
 
     private string role = string.Empty;
 
     protected override async Task OnInitializedAsync()
     {
-        var username = await TokenService.GetUsernameFromTokenAsync();
+        string username = await TokenService.GetUsernameFromTokenAsync();
+        UpdateUserViewModel foundUser = await userService.GetUser(username);
         role = await TokenService.GetRoleFromTokenAsync();
-        if (!string.IsNullOrWhiteSpace(username))
+        //Console.WriteLine("AM GASIT asa: ", foundUser.Username);
+        Console.WriteLine("Avem username asa totusi: ", username);
+        if (!string.IsNullOrWhiteSpace(username) )
         {
             updateUserModel.Username = username;
+            updateUserModel.Name = foundUser.Name;
+            updateUserModel.Email = foundUser.Email;
         }
         else
         {
-            message = "User not found.";
+            Console.WriteLine("NUJ CE ARE FOUND USER");
         }
+
     }
 
-    private async Task HandleValidSubmit()
+    private async Task UpdateProfile()
     {
         // Check if the name is provided
         if (string.IsNullOrWhiteSpace(updateUserModel.Name))
@@ -105,17 +172,37 @@ else
         {
             Console.WriteLine("Attempting to update user..."); // Debug message
             updateUserModel.UserRole = "User";
-            await AuthenticationService.UpdateUser(updateUserModel);
+            await userService.UpdateUser(updateUserModel);
             message = "User updated successfully!";
             Console.WriteLine(message); // Success message
             NavigationManager.NavigateTo("/");
         }
         catch (Exception ex)
         {
-            message = $"Error updating user: {ex.Message}";
-            Console.WriteLine(message); // Error message
+            //message = $"Error updating user: {ex.Message}";
+            error = "Something went wrong updating the profile";
+            //Console.WriteLine(message); // Error message
             StateHasChanged(); // This will refresh the UI to display the error message.
         }
+    }
+}
+
+@functions
+{
+    private void DismissError()
+    {
+        error = null;
+    }
+
+    private void DismissMessage()
+    {
+        message = null;
+    }
+
+    private async Task Logout()
+    {
+        await authService.Logout();
+        NavigationManager.NavigateTo("/login");
     }
 }
 

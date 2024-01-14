@@ -50,18 +50,15 @@ namespace RealEstate.API.Controllers
 
 
         [Authorize(Roles = "User")]
-        //[Authorize(Roles = "Admin")]
         [HttpPut("update/{title}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Update( [FromForm] UpdatePropertyCommand command)
         {
-
-           
-            _logger.LogInformation("doamneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-
-            _logger.LogInformation(command.Address,command.UserId,command.Images,command.NumberOfBathrooms, command.Price,  command.Title);
-
+            if (string.IsNullOrEmpty(command.Title))
+            {
+                return BadRequest("Title is required for property update.");
+            }
 
             if (command.ImagesFiles != null) 
             {

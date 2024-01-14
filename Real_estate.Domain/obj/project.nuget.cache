@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "axqLNgWxsu0/PI8tdWe55zZ1f3UOXaVWcPf9PiwJZ8PGW7ZKsmQW2hkKwRha1wEbSwHnR6Nj3Bs5nhP6DdaSZA==",
+  "dgSpecHash": "0zksl4tiN6Jhu4Bouwx2+5SGdmkBZAkDI5MlJ9aOg8Q/WaNRoxqGB8SKa72ACPO2S6ItcNeyOqNbeVpXnw86gQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ycarp\\Desktop\\Andi-Dot\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj",
+  "projectFilePath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ycarp\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
-    "C:\\Users\\ycarp\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512"
+    "C:\\Users\\andim\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\andim\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512"
   ],
   "logs": []
 }

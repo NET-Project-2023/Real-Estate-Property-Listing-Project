@@ -2,6 +2,7 @@ using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using Real_estate.Application.Persistence;
 using RealEstate.App;
 using RealEstate.App.Auth;
 using RealEstate.App.Contracts;
@@ -39,6 +40,9 @@ builder.Services.AddHttpClient<IAuthenticationService, AuthenticationService>(cl
 {
     client.BaseAddress = new Uri("https://localhost:7165/");
 });
-
+builder.Services.AddHttpClient<IUserService, UserService>(client =>
+{
+    client.BaseAddress = new Uri("https://localhost:7165/");
+});
 
 await builder.Build().RunAsync();

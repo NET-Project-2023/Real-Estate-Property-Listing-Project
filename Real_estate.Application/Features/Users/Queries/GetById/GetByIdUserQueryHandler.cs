@@ -13,7 +13,9 @@ namespace Real_estate.Application.Features.Listings.Queries.GetById
         }
         public async Task<GetByIdUserQueryResponse> Handle(GetByIdUserQuery request, CancellationToken cancellationToken)
         {
-            var result = await userRepository.FindByUsernameAsync(request.Name);
+            Console.WriteLine($"Este in QUERY request username gol?: {request.Username}");
+            var result = await userRepository.FindByUsernameAsync(request.Username);
+            Console.WriteLine($"In QUERY am gasit username: {result.Value.Username}");
             if (!result.IsSuccess)
                 return new GetByIdUserQueryResponse { Success = false, Message = result.Error };
             var userDto = result.Value;
@@ -24,7 +26,7 @@ namespace Real_estate.Application.Features.Listings.Queries.GetById
                 {
                     UserId = userDto.UserId,
                     Name = userDto.Name,
-                    UserName = userDto.UserName,
+                    Username = userDto.Username,
                     Email = userDto.Email,
                     Roles = userDto.Roles,
                     PhoneNumber = userDto.PhoneNumber

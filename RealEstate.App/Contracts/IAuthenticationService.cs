@@ -8,7 +8,5 @@ namespace RealEstate.App.Contracts
         Task Register(RegisterViewModel registerRequest);
         Task Logout(); // Logout deoarece stergem local storage-ul din browser; la urmatoarea logare obtinem alt token
         Task DeleteUserByUsername(string username);
-        Task UpdateUser(UpdateUserViewModel updateUserModel);
-        Task<UpdateUserViewModel> GetUser(string username);
     }
 }

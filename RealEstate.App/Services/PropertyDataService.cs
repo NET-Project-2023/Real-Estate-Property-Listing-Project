@@ -174,13 +174,9 @@ namespace RealEstate.App.Services
        }
         public async Task<ApiResponse<PropertyDto>> UpdatePropertyAsync(PropertyDto propertyDto)
         {
-            //string jsonPayload = JsonSerializer.Serialize(propertyDto);
-            //Console.WriteLine($"Sending JSON Payload: {jsonPayload}");
 
             var token = await tokenService.GetTokenAsync();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-
-
 
             string requestUri = $"api/v1/Properties/update/{propertyDto.Title}";
             using var formContent = new MultipartFormDataContent();
@@ -202,11 +198,9 @@ namespace RealEstate.App.Services
 
             }
 
-            Console.WriteLine($"sssssssssssssss {propertyDto.Title}, {propertyDto.Address},{propertyDto.Size.ToString()},{propertyDto.Price.ToString()},{propertyDto.NumberOfBedrooms.ToString()},{propertyDto.UserId}, {propertyDto.ImagesFiles} ");
 
             var response = await httpClient.PutAsync(requestUri, formContent);
             
-            // Aici primesc response asa: "Property updated successfully."
             var responseContent = await response.Content.ReadAsStringAsync();
             Console.WriteLine($"Response Content: {responseContent}");
 
@@ -230,7 +224,6 @@ namespace RealEstate.App.Services
         }
         public async Task<List<PropertyViewModel>> GetPropertyByIdAsync(Guid propertyId)
         {
-            // Ensure the token is included in the request headers
             httpClient.DefaultRequestHeaders.Authorization =
                 new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
 

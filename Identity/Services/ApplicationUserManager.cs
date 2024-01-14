@@ -1,5 +1,6 @@
 ﻿using Identity.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
 using Real_estate.Application.Features.Listings;
 using Real_estate.Application.Persistence;
 using Real_estate.Domain.Common;
@@ -10,11 +11,12 @@ namespace Identity.Services
     {
         private readonly UserManager<ApplicationUser> userManager;
         private readonly RoleManager<IdentityRole> roleManager;
-
-        public ApplicationUserManager(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+        private ILogger<IUserManager> _logger;
+        public ApplicationUserManager(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, ILogger<IUserManager> logger)
         {
             this.userManager = userManager;
             this.roleManager = roleManager;
+            _logger = logger;
         }
 
         public async Task<Result<UserDto>> FindByIdAsync(string userId)
@@ -43,6 +45,7 @@ namespace Identity.Services
         {
 
             var user = await userManager.FindByNameAsync(username);
+            _logger.LogInformation("USERMANAGER user: ", user.Email);
             if (user == null)
                 return Result<UserDto>.Failure($"User with username {username} not found");
             var userDtos = MapToUserDto(user);
@@ -86,14 +89,14 @@ namespace Identity.Services
 
         public async Task<Result<UserDto>> UpdateAsync(UserDto userDto)
         {
-            var userToUpdate = await userManager.FindByNameAsync(userDto.UserName.ToString());
+            var userToUpdate = await userManager.FindByNameAsync(userDto.Username.ToString());
             if (userToUpdate == null)
-                return Result<UserDto>.Failure($"User with id {userDto.UserName} not found");
+                return Result<UserDto>.Failure($"User with id {userDto.Username} not found");
 
             UpdateUserProperties(userToUpdate, userDto);
 
             var updateResult = await userManager.UpdateAsync(userToUpdate);
-            return updateResult.Succeeded ? Result<UserDto>.Success(MapToUserDto(userToUpdate)) : Result<UserDto>.Failure($"User with name {userDto.UserName} not updated");
+            return updateResult.Succeeded ? Result<UserDto>.Success(MapToUserDto(userToUpdate)) : Result<UserDto>.Failure($"User with name {userDto.Username} not updated");
         }
 
         //public async Task<bool> UserExistsAsync(string userId) 
@@ -105,7 +108,7 @@ namespace Identity.Services
         private void UpdateUserProperties(ApplicationUser user, UserDto userDto)
         {
             user.Name = userDto.Name;
-            user.UserName = userDto.UserName;
+            user.UserName = userDto.Username;
             user.Email = userDto.Email;
             user.PhoneNumber = userDto.PhoneNumber;
         }
@@ -115,7 +118,7 @@ namespace Identity.Services
             {
                 UserId = user.Id,
                 Name = user.Name,
-                UserName = user.UserName,
+                Username = user.UserName,
                 Email = user.Email,
                 PhoneNumber = user.PhoneNumber
             };

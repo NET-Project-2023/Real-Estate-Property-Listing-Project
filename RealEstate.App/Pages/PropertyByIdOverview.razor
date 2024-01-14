@@ -3,7 +3,7 @@
 @using RealEstate.App.ViewModels
 @inject ITokenService tokenService
 @inject IPropertyDataService PropertyDataService
-@inject IAuthenticationService authService
+@inject IUserService userService
 
 @if (Property != null)
 {
@@ -81,7 +81,7 @@ else if (SearchAttempted)
 
         Property = await PropertyDataService.GetPropertyByNameAsync(PropertyName);
 
-        userViewModel = await authService.GetUser(Property.UserId);
+        userViewModel = await userService.GetUser(Property.UserId);
         Console.WriteLine("USERUL ESTE AICI: ", userViewModel.Username); // Aici e GOL
     }
 
