@@ -213,6 +213,10 @@
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
+      "Id": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\wwwroot\\homebg.jpg",
+      "PackagePath": "staticwebassets\\homebg.jpg"
+    },
+    {
       "Id": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\wwwroot\\icon-192.png",
       "PackagePath": "staticwebassets\\icon-192.png"
     },

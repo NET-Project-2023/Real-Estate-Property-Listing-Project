@@ -193,6 +193,10 @@
       "url": "favicon.png"
     },
     {
+      "hash": "sha256-05J2LogDl20KWq+pu0wUTn4gV7Li+suA9UXsLq0pVeI=",
+      "url": "homebg.jpg"
+    },
+    {
       "hash": "sha256-DbpQaq68ZSb5IoPosBErM1QWBfsbTxpJqhU0REi6wP4=",
       "url": "icon-192.png"
     },
@@ -201,7 +205,7 @@
       "url": "icon-512.png"
     },
     {
-      "hash": "sha256-8OLyxlqcEBCaFcZIU1F74xlFAAny8WJoEDh1v4Bc0fM=",
+      "hash": "sha256-j\/Om4Xrnqp28pYuvwrA3psElFy2pSCV8tUJzwCfCRpo=",
       "url": "index.html"
     },
     {
@@ -1081,7 +1085,7 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-FEAxZgoR4DKuj9oglqz\/qSQEYMq7hh7LcC02s9oG9Rk=",
+      "hash": "sha256-l1gYnM655MUV\/2Efx18OQVAtQdWgRIlHWU43EKNv5FM=",
       "url": "_framework\/Real_estate.Application.wasm"
     },
     {
@@ -1089,7 +1093,7 @@
       "url": "_framework\/Real_estate.Domain.wasm"
     },
     {
-      "hash": "sha256-agvt\/ghUHH5uhDWNJOaMyrk\/nZ5p0dO36vfUuM29\/cg=",
+      "hash": "sha256-SqGwRPwt6IgLeORGKznVM6qNRjy9zPnVUdkINqhbP84=",
       "url": "_framework\/Real_estate.Application.pdb"
     },
     {
@@ -1097,17 +1101,17 @@
       "url": "_framework\/Real_estate.Domain.pdb"
     },
     {
-      "hash": "sha256-\/Z5aRAsFFmOQ5XMlpb4pC3Pl0TQrK7M6Km6C76GrJJ4=",
+      "hash": "sha256-3W2+MfwWnInYybrEvuKAMjzgGTZRrw409wyQ+M8aqWA=",
       "url": "_framework\/RealEstate.App.wasm"
     },
     {
-      "hash": "sha256-8cH9QlMXF792HurVfSrBJAei\/0V+qpW1JH28M6FOCo4=",
+      "hash": "sha256-sepq6jvxAjz4Wg+fINvR5BUWxd84yyWQEly2EPDHWfk=",
       "url": "_framework\/RealEstate.App.pdb"
     },
     {
-      "hash": "sha256-HTGbnstH\/gqP7SlC1g2CtkZ8YzgINaNYbgA8zZVqA5c=",
+      "hash": "sha256-2pLlApgC5enfrCQPjvENhpZLoZT7aQuU\/0SKXx8LEdE=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "upJ73o6J"
+  "version": "qfKGP1nw"
 };

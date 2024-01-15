@@ -3,6 +3,78 @@
 @using RealEstate.App.ViewModels
 @using System.Net.Http.Headers
 
+<style>
+    .container {
+        max-width: 600px;
+        margin: auto;
+        padding: 30px;
+        background: #f8f9fa; /* Light grey background */
+        border-radius: 10px;
+    }
+
+    .row {
+        margin-bottom: 20px;
+    }
+
+    .form-label {
+        color: #495057; /* Dark text color for contrast */
+    }
+
+    .form-control {
+        border: 2px solid #3498db; /* Blue accent */
+        border-radius: 5px;
+        color: #495057; /* Dark text color for contrast */
+        background: #ffffff; /* White background */
+    }
+
+    .btn-success {
+        background-color: #28a745; /* Green accent */
+        border: none;
+        color: white;
+        padding: 10px 24px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+
+        .btn-success:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+
+    .btn-secondary {
+        background-color: #6c757d; /* Grey */
+        border: 2px solid #5a6268; /* Darker grey border */
+        color: #ffffff; /* White text color for contrast */
+        padding: 10px 24px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268; /* Darker grey on hover */
+        }
+
+    .upload-icon {
+        color: #3498db; /* Blue accent for the upload icon */
+    }
+
+    /* Additional modern styles */
+    h3 {
+        color: #007bff; /* Blue heading color */
+        margin-bottom: 30px;
+    }
+</style>
+
+
 <h3>New Property</h3>
 
 <EditForm Model="@PropertyViewModel" OnValidSubmit="@HandleValidSubmit">
@@ -60,7 +132,9 @@
     <div class="row mb-3 ms-2">
         <label for="images" class="col-sm-3 form-label">Images:</label>
         <div class="col-sm-5">
-            <InputFile id="images" multiple OnChange="@OnInputFileChange"></InputFile>
+            <InputFile id="images" multiple OnChange="@OnInputFileChange">
+                <i class="fas fa-upload upload-icon"></i> <!-- Fix for the upload icon -->
+            </InputFile>
         </div>
     </div>
 

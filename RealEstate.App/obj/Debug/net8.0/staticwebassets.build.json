@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rD0F2RJaeggJleoG3WV5wXJrNVnOWdfkPgsJ2k7buwI=",
+  "Hash": "3T4ZzeOm3XkbjJE7GQgZBkUNm4GRHw0o8r7/emeItV8=",
   "Source": "RealEstate.App",
   "BasePath": "/",
   "Mode": "Root",
@@ -9553,6 +9553,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.png"
+    },
+    {
+      "Identity": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\wwwroot\\homebg.jpg",
+      "SourceId": "RealEstate.App",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "homebg.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\homebg.jpg"
     },
     {
       "Identity": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstate.App\\wwwroot\\icon-192.png",
