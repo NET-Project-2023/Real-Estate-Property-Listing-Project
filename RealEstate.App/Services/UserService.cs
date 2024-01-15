@@ -22,6 +22,14 @@ namespace RealEstate.App.Services
         {
             try
             {
+                if (!string.IsNullOrEmpty(username))
+                {
+                    Console.WriteLine($"Print din GetUser SERVICE: {username}");
+                }
+                else
+                {
+                    Console.WriteLine("Suntem aici dar nuj cum");
+                }
                 var requestUri = $"api/v1/users/ByName/{username}";
                 httpClient.DefaultRequestHeaders.Authorization =
                    new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
@@ -55,7 +63,7 @@ namespace RealEstate.App.Services
 
             var requestUri = $"api/v1/Users/update/{updateUserModel.Username}";
 
-            Console.WriteLine("Preparing to update user...");
+            Console.WriteLine($"Preparing to update user phoneNumber... {updateUserModel.PhoneNumber}");
 
             var result = await httpClient.PutAsJsonAsync(requestUri, updateUserModel);
             result.EnsureSuccessStatusCode();

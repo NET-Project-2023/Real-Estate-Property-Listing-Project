@@ -6,58 +6,12 @@
 
 <h3>Update User Information</h3>
 
-@if (updateUserModel == null)
+@if (currentUserModel == null)
 {
     <p>Loading...</p>
 }
 else
 {
-@*      <EditForm Model="@updateUserModel" OnValidSubmit="@HandleValidSubmit">
-         <DataAnnotationsValidator />
-         <ValidationSummary />
-
-         <!-- Username -->
-         <div class="form-group">
-             <label for="username">Username:</label>
-             <InputText id="username" class="form-control" @bind-Value="@updateUserModel.Username" disabled />
-         </div>
-
-         <!-- Name -->
-         <div class="form-group">
-             <label for="name">Name:</label>
-             <InputText id="name" class="form-control" @bind-Value="@updateUserModel.Name" />
-         </div>
-
-         <!-- Email -->
-         <div class="form-group">
-             <label for="email">Email:</label>
-             <InputText id="email" class="form-control" @bind-Value="@updateUserModel.Email" />
-         </div>
-
-         <!-- Phone Number -->
-         <div class="form-group">
-             <label for="phone">Phone Number:</label>
-             <InputText id="phone" class="form-control" @bind-Value="@updateUserModel.PhoneNumber" />
-         </div>
-
-         <!-- UserRole -->
-         @if (role == "Admin")
-         {
-             <div class="form-group">
-                 <label for="userRole">User Role:</label>
-                 <InputSelect id="userRole" class="form-control" @bind-Value="@updateUserModel.UserRole">
-                     <option value="">Select a role</option>
-                     @foreach (var role in Enum.GetNames(typeof(RealEstate.App.Enums.Role)))
-                     {
-                         <option value="@role">@role</option>
-                     }
-                 </InputSelect>
-             </div>
-         }
-
-         <!-- Submit Button -->
-         <button type="submit" class="btn btn-primary">Update User</button>
-     </EditForm> *@
 
     <div class="container">
         <div class="row justify-content-center">
@@ -65,18 +19,23 @@ else
                 <h3>Profile</h3>
                 <div class="mb-3">
                     <label class="form-label cool-label">Username:</label>
-                    <input class="form-control cool-input" @bind="updateUserModel.Username" />
+                    <input class="form-control cool-input" @bind="currentUserModel.Username" />
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label cool-label">Name:</label>
-                    <input class="form-control cool-input" @bind="updateUserModel.Name" />
+                    <input class="form-control cool-input" @bind="currentUserModel.Name" />
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label cool-label">Email:</label>
-                    <input class="form-control cool-input" @bind="updateUserModel.Email" />
+                    <input class="form-control cool-input" @bind="currentUserModel.Email" />
                 </div>
+                <div class="mb-3">
+                    <label class="form-label cool-label">Phone number:</label>
+                    <input class="form-control cool-input" @bind="currentUserModel.PhoneNumber" />
+                </div>
+
                 <div class="column">
                     <button class="btn btn-primary cool-button" @onclick="UpdateProfile">Update Profile</button>
                     <button class="btn btn-primary cool-button" @onclick="Logout">Logout</button>
@@ -131,58 +90,57 @@ else
     [Inject]
     public IAuthenticationService authService { get; set; }
 
-    private UpdateUserViewModel updateUserModel = new UpdateUserViewModel();
+    [Inject]
+    public ITokenService tokenService { get; set; }
+
+    private UpdateUserViewModel currentUserModel;
     private string error;
     public string message { get; set; }
-
     private string role = string.Empty;
 
     protected override async Task OnInitializedAsync()
     {
-        string username = await TokenService.GetUsernameFromTokenAsync();
-        UpdateUserViewModel foundUser = await userService.GetUser(username);
-        role = await TokenService.GetRoleFromTokenAsync();
-        //Console.WriteLine("AM GASIT asa: ", foundUser.Username);
-        Console.WriteLine("Avem username asa totusi: ", username);
-        if (!string.IsNullOrWhiteSpace(username) )
+        var token = await TokenService.GetTokenAsync();
+        var username = await authService.DecodeUsernameFromTokenAsync(token);
+        if (!string.IsNullOrEmpty(username))
         {
-            updateUserModel.Username = username;
-            updateUserModel.Name = foundUser.Name;
-            updateUserModel.Email = foundUser.Email;
+            currentUserModel = await userService.GetUser(username);
         }
-        else
-        {
-            Console.WriteLine("NUJ CE ARE FOUND USER");
-        }
+        
+        Console.WriteLine("CurrentUserModel username BLAZOR: ", username);
 
     }
 
     private async Task UpdateProfile()
     {
-        // Check if the name is provided
-        if (string.IsNullOrWhiteSpace(updateUserModel.Name))
-        {
-            message = "The name field is required.";
-            Console.WriteLine(message); // This will print to the browser's console.
-            StateHasChanged(); // This will refresh the UI to display the message.
-            return;
-        }
-
         try
         {
             Console.WriteLine("Attempting to update user..."); // Debug message
-            updateUserModel.UserRole = "User";
-            await userService.UpdateUser(updateUserModel);
-            message = "User updated successfully!";
-            Console.WriteLine(message); // Success message
-            NavigationManager.NavigateTo("/");
+            UpdateUserViewModel updateUser = new UpdateUserViewModel
+                {
+                    Username = currentUserModel.Username,
+                    Email = currentUserModel.Email,
+                    PhoneNumber = currentUserModel.PhoneNumber,
+                    Name = currentUserModel.Name,
+                    UserRole = currentUserModel.UserRole
+                };
+
+            var result = await userService.UpdateUser(updateUser);
+
+            if (result.IsSuccess)
+            {
+                NavigationManager.NavigateTo($"/updateuser");
+                await authService.Logout();
+                NavigationManager.NavigateTo("/login");
+            }
+
         }
         catch (Exception ex)
         {
             //message = $"Error updating user: {ex.Message}";
             error = "Something went wrong updating the profile";
             //Console.WriteLine(message); // Error message
-            StateHasChanged(); // This will refresh the UI to display the error message.
+            //StateHasChanged(); // This will refresh the UI to display the error message.
         }
     }
 }

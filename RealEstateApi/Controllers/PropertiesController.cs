@@ -105,7 +105,6 @@ namespace RealEstate.API.Controllers
 
         [Authorize(Roles = "User")]
         //[Authorize(Roles = "Admin")]
-
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

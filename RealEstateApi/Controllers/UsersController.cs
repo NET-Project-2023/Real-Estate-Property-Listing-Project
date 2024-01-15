@@ -24,10 +24,12 @@ namespace RealEstate.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("ByName/{name}")]
+        [HttpGet("ByName/{username}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetUserByName(string username)
         {
+            _logger.LogInformation($"RESULT in API username: ", username);
+            Console.WriteLine($"Username din API: {username}");
             var query = new GetByIdUserQuery { Username = username };
             var result = await Mediator.Send(query);
             if (!result.Success)

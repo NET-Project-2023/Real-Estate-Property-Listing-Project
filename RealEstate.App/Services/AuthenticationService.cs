@@ -4,6 +4,7 @@ using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace RealEstate.App.Services
 {
@@ -66,6 +67,13 @@ namespace RealEstate.App.Services
             response.EnsureSuccessStatusCode();
         }
 
+        public Task<string> DecodeUsernameFromTokenAsync(string token)
+        {
+            var handler = new JwtSecurityTokenHandler();
+            var jsonToken = handler.ReadJwtToken(token);
+            var username = jsonToken.Claims.FirstOrDefault(c => c.Type == "unique_name")?.Value;
+            return Task.FromResult(username);
+        }
 
     }
 }
