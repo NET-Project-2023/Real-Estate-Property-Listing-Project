@@ -7,6 +7,7 @@ using Real_estate.Application.Features.Properties.Queries.GetAll;
 using Real_estate.Application.Features.Properties.Queries.GetById;
 using Real_estate.Application.Features.Properties.Queries.GetByName;
 using Real_estate.Application.Features.Properties.Queries.GetByOwnerUsername;
+using RealEstate.API.Utility;
 
 namespace RealEstate.API.Controllers
 {
@@ -20,10 +21,25 @@ namespace RealEstate.API.Controllers
         }
 
         [Authorize(Roles = "User")]
+        //[Authorize(Roles = "Admin")]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
-        public async Task<IActionResult> Create(CreatePropertyCommand command)
+        public async Task<IActionResult> Create([FromForm] CreatePropertyCommand command)
         {
+           
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+
+            if (command.ImagesFiles != null) 
+            {
+                command.Images = await UtilityFunctions.ConvertToByteArrayAsync(command.ImagesFiles);
+            }
+            _logger.LogInformation($"{command.Images} result:");
+
+
             var result = await Mediator.Send(command);
             if (!result.Success)
             {
@@ -32,7 +48,36 @@ namespace RealEstate.API.Controllers
             return Ok(result);
         }
 
+
         [Authorize(Roles = "User")]
+        [HttpPut("update/{title}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Update( [FromForm] UpdatePropertyCommand command)
+        {
+            if (string.IsNullOrEmpty(command.Title))
+            {
+                return BadRequest("Title is required for property update.");
+            }
+
+            if (command.ImagesFiles != null) 
+            {
+                command.Images = await UtilityFunctions.ConvertToByteArrayAsync(command.ImagesFiles);
+            }
+
+            var result = await Mediator.Send(command);
+
+            if (!result.Success)
+            {
+                return BadRequest(result.Message);
+            }
+
+            return Ok(new { Message = "Property updated successfully." });
+        }
+
+
+        [Authorize(Roles = "User")]
+        //[Authorize(Roles = "Admin")]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll()
@@ -41,7 +86,6 @@ namespace RealEstate.API.Controllers
             return Ok(result);
         }
 
-        [Authorize(Roles = "User")]
         [HttpGet("ById/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> Get(Guid id)
@@ -51,7 +95,6 @@ namespace RealEstate.API.Controllers
         }
 
 
-        [Authorize(Roles = "User")]
         [HttpGet("ByName/{name}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> Get(string name)
@@ -61,6 +104,7 @@ namespace RealEstate.API.Controllers
         }
 
         [Authorize(Roles = "User")]
+        //[Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -74,40 +118,15 @@ namespace RealEstate.API.Controllers
             }
             return Ok(result.Message);
         }
-        [Authorize(Roles = "User")]
-        [HttpPut("update/{title}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Update(string title, UpdatePropertyCommand command)
-        {
 
-            if (title != command.Title)
-            {
-                _logger.LogWarning("Property ID mismatch. Provided title: {ProvidedTitle}, Command title: {CommandTitle}", title, command.Title);
-                return BadRequest("Property ID mismatch.");
-            }
-
-            var result = await Mediator.Send(command);
-
-            _logger.LogInformation("Update command result: Success = {Success}, Message = {Message}", result.Success, result.Message);
-
-            if (!result.Success)
-            {
-                //_logger.LogWarning("Update command failed: {Message}", result.Message);
-                return BadRequest(result.Message);
-            }
-
-            //return Ok(result.Message);
-            return Ok(new { Message = "Property updated successfully." });
-
-        }
 
         [Authorize(Roles = "User")]
+        //[Authorize(Roles = "Admin")]
         [HttpGet("ByCurrentUser/{ownerUsername}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetByCurrentUser(string ownerUsername)
         {
-            //var username = User.FindFirst(ClaimTypes.Name)?.Value;
+            //var username = User.FindFirst(ClaimTypes.Name)?.Value;    
             //Console.WriteLine("Username extracted: ", username);
             var result = await Mediator.Send(new GetByOwnerUsernamePropertyQuery(ownerUsername));
             return Ok(result);

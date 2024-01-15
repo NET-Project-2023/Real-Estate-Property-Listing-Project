@@ -23,7 +23,7 @@ namespace Real_estate.Application.Features.Listings.Queries.GetAll
                 {
                     UserId = c.UserId,
                     Name = c.Name,
-                    UserName = c.UserName,
+                    Username = c.Username,
                     Email = c.Email,
                     //Password = c.Password,
                     Roles = c.Roles,

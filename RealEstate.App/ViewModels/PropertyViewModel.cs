@@ -1,9 +1,11 @@
 ﻿
+using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Http;
+
 namespace RealEstate.App.ViewModels
 {
     public class PropertyViewModel
     {
-        public Guid PropertyId { get; set; }
         public string Title { get; set; }
         public string? Description { get; set; }
         public string Address { get; set; }
@@ -11,7 +13,11 @@ namespace RealEstate.App.ViewModels
         public int Price { get; set; }
         public int NumberOfBedrooms { get; set; }
         public int NumberOfBathrooms { get; set; }
-        public List<byte[]> Images { get; set; } 
+      
         public string UserId { get; set; }
+        public List<byte[]> Images { get; set; }
+        public List<IBrowserFile> ImagesFiles { get; set; } = new List<IBrowserFile>();
+
+
     }
 }

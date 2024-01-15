@@ -1,4 +1,5 @@
-﻿using RealEstate.App.Contracts;
+﻿using Real_estate.Application.Features.Users.Queries.GetById;
+using RealEstate.App.Contracts;
 using RealEstate.App.Services.Responses;
 using RealEstate.App.ViewModels;
 using System.Net.Http.Headers;
@@ -10,9 +11,11 @@ namespace RealEstate.App.Services
 {
     public class PropertyDataService : IPropertyDataService
     {
-        private const string RequestUri = "api/v1/properties";
+        private const string RequestUri = "api/v1/Properties";
         private readonly HttpClient httpClient;
         private readonly ITokenService tokenService;
+        private const long maxFileSize = 10485760; // 10 MB
+
 
         public PropertyDataService(HttpClient httpClient, ITokenService tokenService)
         {
@@ -23,36 +26,61 @@ namespace RealEstate.App.Services
         {
             try
             {
-                string loggedInUser = await tokenService.GetUsernameFromTokenAsync();
-                if (string.IsNullOrEmpty(loggedInUser))
+                string loggedInUsername = await tokenService.GetUsernameFromTokenAsync();
+                if (string.IsNullOrEmpty(loggedInUsername))
                 {
                     throw new InvalidOperationException("Logged-in username not available.");
                 }
-                Console.WriteLine($"Logged-in User ID: {loggedInUser}");
 
+                // Fetch user details by username
+                var userResponse = await httpClient.GetAsync($"api/v1/Users/ByName/{loggedInUsername}");
+
+                // Log raw response content
+                var rawResponseContent = await userResponse.Content.ReadAsStringAsync();
+                Console.WriteLine($"Raw API Response: {rawResponseContent}");
 
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
 
-                propertyViewModel.UserId = loggedInUser;
-                
-                // TODO: adauga imagini reale!
-                propertyViewModel.Images = new List<byte[]> { new byte[0] };
+                propertyViewModel.UserId = loggedInUsername;
 
-                var result = await httpClient.PostAsJsonAsync(RequestUri, propertyViewModel);
-                result.EnsureSuccessStatusCode();
-                    
 
-                var responseContent = await result.Content.ReadAsStringAsync();
-                Console.WriteLine($"API Response: {responseContent}");
+                using var formContent = new MultipartFormDataContent();
 
-                var response = await result.Content.ReadFromJsonAsync<ApiResponse<PropertyDto>>();
-                response!.IsSuccess = result.IsSuccessStatusCode;
-                return response!;
+                formContent.Add(new StringContent(propertyViewModel.Title ?? string.Empty), "Title");
+                formContent.Add(new StringContent(propertyViewModel.Address ?? string.Empty), "Address");
+                formContent.Add(new StringContent(propertyViewModel.Size.ToString()), "Size");
+                formContent.Add(new StringContent(propertyViewModel.Price.ToString()), "Price");
+                formContent.Add(new StringContent(propertyViewModel.NumberOfBedrooms.ToString()), "NumberOfBedrooms");
+                formContent.Add(new StringContent(propertyViewModel.NumberOfBathrooms.ToString()), "NumberOfBathrooms");
+                formContent.Add(new StringContent(propertyViewModel.UserId), "UserId");
+
+                // Add files to the form content
+                foreach (var browserFile in propertyViewModel.ImagesFiles)
+                {
+                    var fileContent = new StreamContent(browserFile.OpenReadStream(maxFileSize));
+                    fileContent.Headers.ContentType = new MediaTypeHeaderValue(browserFile.ContentType);
+                    formContent.Add(fileContent, "ImagesFiles", browserFile.Name);
+
+                }
+                // Send POST request with form content
+                var response = await httpClient.PostAsync(RequestUri, formContent);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"Error Response: {errorContent}");
+                    return new ApiResponse<PropertyDto> { IsSuccess = false, Message = errorContent };
+                }
+
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var apiResponse = JsonSerializer.Deserialize<ApiResponse<PropertyDto>>(responseContent);
+                return apiResponse ?? new ApiResponse<PropertyDto> { IsSuccess = false };
+
             }
             catch (HttpRequestException ex)
             {
                 Console.WriteLine($"HTTP Request Exception: {ex.Message}");
-                throw; 
+                throw;
             }
             catch (Exception ex)
             {
@@ -146,24 +174,39 @@ namespace RealEstate.App.Services
        }
         public async Task<ApiResponse<PropertyDto>> UpdatePropertyAsync(PropertyDto propertyDto)
         {
-            //string jsonPayload = JsonSerializer.Serialize(propertyDto);
-            //Console.WriteLine($"Sending JSON Payload: {jsonPayload}");
 
             var token = await tokenService.GetTokenAsync();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             string requestUri = $"api/v1/Properties/update/{propertyDto.Title}";
-            propertyDto.Images = new List<byte[]> { new byte[0] };
+            using var formContent = new MultipartFormDataContent();
 
-            var response = await httpClient.PutAsJsonAsync(requestUri, propertyDto);
+            formContent.Add(new StringContent(propertyDto.Title ?? string.Empty), "Title");
+            formContent.Add(new StringContent(propertyDto.Address ?? string.Empty), "Address");
+            formContent.Add(new StringContent(propertyDto.Size.ToString()), "Size");
+            formContent.Add(new StringContent(propertyDto.Price.ToString()), "Price");
+            formContent.Add(new StringContent(propertyDto.NumberOfBedrooms.ToString()), "NumberOfBedrooms");
+            formContent.Add(new StringContent(propertyDto.NumberOfBathrooms.ToString()), "NumberOfBathrooms");
+            formContent.Add(new StringContent(propertyDto.UserId), "UserId");
 
-            // Aici primesc response asa: "Property updated successfully."
+            // Add files to the form content
+            foreach (var browserFile in propertyDto.ImagesFiles)
+            {
+                var fileContent = new StreamContent(browserFile.OpenReadStream(maxFileSize));
+                fileContent.Headers.ContentType = new MediaTypeHeaderValue(browserFile.ContentType);
+                formContent.Add(fileContent, "ImagesFiles", browserFile.Name);
+
+            }
+
+
+            var response = await httpClient.PutAsync(requestUri, formContent);
+            
             var responseContent = await response.Content.ReadAsStringAsync();
             Console.WriteLine($"Response Content: {responseContent}");
 
             if (!response.IsSuccessStatusCode)
             {
-                throw new ApplicationException($"Error updating listing: {responseContent}");
+                throw new ApplicationException($"Error updating property: {responseContent}");
             }
 
             try
@@ -181,7 +224,6 @@ namespace RealEstate.App.Services
         }
         public async Task<List<PropertyViewModel>> GetPropertyByIdAsync(Guid propertyId)
         {
-            // Ensure the token is included in the request headers
             httpClient.DefaultRequestHeaders.Authorization =
                 new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
 

@@ -5,31 +5,127 @@
 @inject CustomStateProvider authStateProvider
 
 
-<h1 class="h2 font-weight-normal login-title">
-    Login
-</h1>
+<style>
+    .cool-input {
+        height: 3rem;
+        border-radius: 3px;
+        color: #333;
+        border: 2px solid #3498db; /* Blue accent */
+        background: #f5f5f5;
+        font-size: 13px;
+        outline: none;
+    }
 
-<EditForm class="form-signin" OnValidSubmit="OnSubmit" Model="loginRequest">
-    <DataAnnotationsValidator />
+        .cool-input:focus, .cool-input:active {
+            border: 1px solid #3498db; /* Blue accent */
+            color: #333;
+            background: #f5f5f5;
+            outline: none;
+            box-shadow: 0 0 5px #3498db; /* Blue accent */
+        }
 
-    <label for="inputUsername" class="sr-only">Username</label>
-    <InputText id="inputUsername" class="form-control" @bind-Value="loginRequest.Username" autofocus placeholder="Username" />
-    <ValidationMessage For="@(() => loginRequest.Username)" />
+    .cool-button {
+        margin-top: 1rem;
+        border-radius: 3px;
+        background: #3498db; /* Blue accent */
+    }
 
-    <label for="inputPassword" class="sr-only">Password</label>
-    <InputText type="password" id="inputPassword" class="form-control" placeholder="Password" @bind-Value="loginRequest.Password" />
-    <ValidationMessage For="@(() => loginRequest.Password)" />
+        .cool-button:hover {
+            border: 1px solid #3498db; /* Blue accent */
+            box-shadow: 0 0 5px #3498db; /* Blue accent */
+        }
 
-    <br />
+    .cool-label {
+        color: #3498db; /* Blue accent */
+        font-size: 15px;
+    }
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit" >Sign in</button>
+    .cool-form {
+        background: #f5f5f5;
+        border-radius: 4px;
+        padding: 45px 60px;
+        margin-top: 25px;
+    }
 
-    <label class="text-danger">@error</label>
+    .toast-container {
+        position: fixed;
+        bottom: 0;
+        end: 0;
+        padding: 3rem;
+    }
 
-    <NavLink href="register">
-        <h6 class="font-weight-normal text-center">Create account</h6>
-    </NavLink>
-</EditForm>
+    .toast {
+        background: #f5f5f5;
+        color: red;
+        border: 1px solid #ccc;
+    }
+
+    .btn-close {
+        color: #3498db; /* Blue accent */
+    }
+
+    .toast-header {
+        background: #f5f5f5;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .toast-body {
+        color: red;
+    }
+
+    .cool-link {
+        color: #3498db; /* Blue accent */
+        text-decoration: none;
+    }
+</style>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4 cool-form" style="margin-top: 7rem;">
+            <h1 class="h2 font-weight-normal login-title text-center">Login</h1>
+
+            <EditForm OnValidSubmit="OnSubmit" Model="loginRequest">
+                <DataAnnotationsValidator />
+
+                <div class="mb-3">
+                    <label for="inputUsername" class="form-label cool-label sr-only">Username</label>
+                    <InputText id="inputUsername" class="form-control cool-input" @bind-Value="loginRequest.Username" autofocus placeholder="Username" />
+                    <ValidationMessage For="@(() => loginRequest.Username)" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputPassword" class="form-label cool-label sr-only">Password</label>
+                    <InputText type="password" id="inputPassword" class="form-control cool-input" placeholder="Password" @bind-Value="loginRequest.Password" />
+                    <ValidationMessage For="@(() => loginRequest.Password)" />
+                </div>
+
+                <div class="text-center mb-3">
+                    <button class="btn btn-primary cool-button" type="submit">Sign in</button>
+                </div>
+                <NavLink href="register" class="text-center cool-link">
+                    <h6 class="cool-link">Create account</h6>
+                </NavLink>
+            </EditForm>
+
+            @if (!string.IsNullOrEmpty(error))
+            {
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                    <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header">
+                            <strong class="me-auto">Login Error</strong>
+                            <button type="button" class="btn-close" @onclick="DismissError" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            @error
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
 
 @code {
     LoginViewModel loginRequest { get; set; } = new LoginViewModel();
@@ -47,5 +143,10 @@
         {
             error = ex.Message;
         }
+    }
+
+    private void DismissError()
+    {
+        error = null;
     }
 }

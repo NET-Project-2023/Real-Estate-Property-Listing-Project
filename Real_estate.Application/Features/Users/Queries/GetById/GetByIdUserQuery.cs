@@ -5,6 +5,6 @@ namespace Real_estate.Application.Features.Listings.Queries.GetById
 {
     public class GetByIdUserQuery : IRequest<GetByIdUserQueryResponse>
     {
-        public string Name { get; set; }
+        public string Username { get; set; }
     }
 }

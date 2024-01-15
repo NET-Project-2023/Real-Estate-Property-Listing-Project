@@ -9,17 +9,12 @@ namespace RealEstate.API.Controllers
 
     public class UsersController : ApiControllerBase
     {
-        //[HttpPost]
-        //[ProducesResponseType(StatusCodes.Status201Created)]
-        //public async Task<IActionResult> Create(CreateUserCommand command)
-        //{
-        //    var result = await Mediator.Send(command);
-        //    if (!result.Success)
-        //    {
-        //        return BadRequest(result);
-        //    }
-        //    return Ok(result);
-        //}
+
+        private readonly ILogger<UsersController> _logger;
+        public UsersController(ILogger<UsersController> logger)
+        {
+            _logger = logger;
+        }
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -29,16 +24,19 @@ namespace RealEstate.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("ByName/{name}")]
+        [HttpGet("ByName/{username}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetUserByName(string name)
+        public async Task<IActionResult> GetUserByName(string username)
         {
-            var query = new GetByIdUserQuery { Name = name };
+            _logger.LogInformation($"RESULT in API username: ", username);
+            Console.WriteLine($"Username din API: {username}");
+            var query = new GetByIdUserQuery { Username = username };
             var result = await Mediator.Send(query);
             if (!result.Success)
             {
                 return BadRequest(result);
             }
+            _logger.LogInformation($"RESULT IN myprofile, name: {result.User.Name}");
             return Ok(result);
         }
 

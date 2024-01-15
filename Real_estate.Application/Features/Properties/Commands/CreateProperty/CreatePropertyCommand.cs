@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 
 namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
 {
@@ -11,8 +12,10 @@ namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
         public int Price { get; set; } = default!;
         public int NumberOfBedrooms { get; set; } = default!;
         public int NumberOfBathrooms { get; set; } = default!;
-        public List<byte[]> Images { get; set; } = default!;
         public string UserId { get; set; }
+        public List<byte[]> Images { get; set; } = new List<byte[]>(); // Changed from List<IFormFile>
+        public List<IFormFile> ImagesFiles { get; set; } = new List<IFormFile>();
+
 
     }
 }

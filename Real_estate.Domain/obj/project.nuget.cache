@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "snABSqytIYlNj0crR9mxGDucasjeqdMBMBNH4k7mMfAs+z22z7mgXblLY9FLVtj0gkuf5CNYCxkablZ467RVyA==",
+  "dgSpecHash": "0zksl4tiN6Jhu4Bouwx2+5SGdmkBZAkDI5MlJ9aOg8Q/WaNRoxqGB8SKa72ACPO2S6ItcNeyOqNbeVpXnw86gQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\andim\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\andim\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

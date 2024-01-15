@@ -26,8 +26,10 @@ namespace Real_estate.Application.Features.Users.Commands.UpdateUser
                 };
             }
             request.Name ??= user.Value.Name;
-            request.Username ??= user.Value.UserName;
+            request.Username ??= user.Value.Username;
             request.Email ??= user.Value.Email;
+            request.PhoneNumber ??= user.Value.PhoneNumber;
+
             var validator = new UpdateUserCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
             if (!validationResult.IsValid)
@@ -61,8 +63,9 @@ namespace Real_estate.Application.Features.Users.Commands.UpdateUser
             UserDto userDto = new()
             {
                 Name = request.Name,
-                UserName = request.Username,
+                Username = request.Username,
                 Email = request.Email,
+                PhoneNumber = request.PhoneNumber
             };
             var result = await userRepository.UpdateAsync(userDto);
             if (!result.IsSuccess)
@@ -79,7 +82,7 @@ namespace Real_estate.Application.Features.Users.Commands.UpdateUser
                 User = new UpdateUserDto
                 {
                     Name = result.Value.Name,
-                    Username = result.Value.UserName,
+                    Username = result.Value.Username,
                     Email = result.Value.Email,
                     PhoneNumber = result.Value.PhoneNumber
                 }   

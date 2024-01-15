@@ -4,44 +4,149 @@
 @inject NavigationManager navigationManager
 @inject CustomStateProvider authStateProvider
 
-<h1 class="h2 font-weight-normal login-title">
-    Register
-</h1>
+<style>
+    .cool-input {
+        height: 3rem;
+        border-radius: 3px;
+        color: #333;
+        border: 2px solid #3498db; /* Blue accent */
+        background: #f5f5f5;
+        font-size: 13px;
+        outline: none;
+    }
 
-<EditForm class="form-signup" OnValidSubmit="OnSubmit" Model="registerRequest">
-    <DataAnnotationsValidator />
+        .cool-input:focus, .cool-input:active {
+            border: 1px solid #3498db; /* Blue accent */
+            color: #333;
+            background: #f5f5f5;
+            outline: none;
+            box-shadow: 0 0 5px #3498db; /* Blue accent */
+        }
 
-    <label for="inputUsername" class="sr-only">Username</label>
-    <InputText id="inputUsername" class="form-control" @bind-Value="registerRequest.Username" autofocus placeholder="Username" />
-    <ValidationMessage For="@(() => registerRequest.Username)" />
+    .cool-button {
+        margin-top: 1rem;
+        border-radius: 3px;
+        background: #3498db; /* Blue accent */
+    }
 
-    <label for="inputName" class="sr-only">Name</label>
-    <InputText id="inputName" class="form-control" @bind-Value="registerRequest.Name" placeholder="Name" />
-    <ValidationMessage For="@(() => registerRequest.Name)" />
+        .cool-button:hover {
+            border: 1px solid #3498db; /* Blue accent */
+            box-shadow: 0 0 5px #3498db; /* Blue accent */
+        }
 
-    <label for="inputEmail" class="sr-only">Email</label>
-    <InputText type="email" id="inputEmail" class="form-control" @bind-Value="registerRequest.Email" placeholder="Email" />
-    <ValidationMessage For="@(() => registerRequest.Email)" />
+    .cool-label {
+        color: #3498db; /* Blue accent */
+        font-size: 15px;
+    }
 
-    <label for="inputPassword" class="sr-only">Password</label>
-    <InputText type="password" id="inputPassword" class="form-control" placeholder="Password" @bind-Value="registerRequest.Password" />
-    <ValidationMessage For="@(() => registerRequest.Password)" />
+    .cool-form {
+        background: #f5f5f5;
+        border-radius: 4px;
+        padding: 45px 60px;
+        margin-top: 25px;
+    }
 
-    <!-- New Confirmed Password Field -->
-    <label for="inputConfirmedPassword" class="sr-only">Confirm Password</label>
-    <InputText type="password" id="inputConfirmedPassword" class="form-control" placeholder="Confirm Password" @bind-Value="registerRequest.ConfirmedPassword" />
-    <ValidationMessage For="@(() => registerRequest.ConfirmedPassword)" />
+    .toast-container {
+        position: fixed;
+        bottom: 0;
+        end: 0;
+        padding: 3rem;
+    }
 
-    <br />
+    .toast {
+        background: #f5f5f5;
+        color: red;
+        border: 1px solid #ccc;
+    }
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+    .btn-close {
+        color: #3498db; /* Blue accent */
+    }
 
-    <label class="text-danger">@error</label>
+    .toast-header {
+        background: #f5f5f5;
+        border-bottom: 1px solid #ccc;
+    }
 
-    <NavLink href="login">
-        <h6 class="font-weight-normal text-center">Already have an account? Login</h6>
-    </NavLink>
-</EditForm>
+    .toast-body {
+        color: red;
+    }
+
+    .cool-link {
+        color: #3498db; /* Blue accent */
+        text-decoration: none;
+    }
+
+    .form-signup {
+        width: 30rem;
+        height: 90vh;
+    }
+</style>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4 cool-form">
+            <h1 class="h2 font-weight-normal login-title text-center">Register</h1>
+
+            <EditForm class="form-signin" OnValidSubmit="OnSubmit" Model="registerRequest">
+                <DataAnnotationsValidator />
+
+                <div class="mb-3">
+                    <label for="inputUsername" class="sr-only form-label cool-label">Username</label>
+                    <InputText id="inputUsername" class="form-control cool-input" @bind-Value="registerRequest.Username" autofocus placeholder="Username" />
+                    <ValidationMessage For="@(() => registerRequest.Username)" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputName" class="sr-only form-label cool-label">Name</label>
+                    <InputText id="inputName" class="form-control cool-input" @bind-Value="registerRequest.Name" placeholder="Name" />
+                    <ValidationMessage For="@(() => registerRequest.Name)" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputEmail" class="sr-only form-label cool-label">Email</label>
+                    <InputText type="email" id="inputEmail" class="form-control cool-input" @bind-Value="registerRequest.Email" placeholder="Email" />
+                    <ValidationMessage For="@(() => registerRequest.Email)" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputPassword" class="sr-only form-label cool-label">Password</label>
+                    <InputText type="password" id="inputPassword" class="form-control cool-input" placeholder="Password" @bind-Value="registerRequest.Password" />
+                    <ValidationMessage For="@(() => registerRequest.Password)" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputConfirmedPassword" class="sr-only form-label cool-label">Confirm Password</label>
+                    <InputText type="password" id="inputConfirmedPassword" class="form-control cool-input" placeholder="Confirm Password" @bind-Value="registerRequest.ConfirmedPassword" />
+                    <ValidationMessage For="@(() => registerRequest.ConfirmedPassword)" />
+                </div>
+
+                <div class="text-center">
+                    <button class="btn cool-button btn-primary" type="submit">Sign up</button>
+                </div>
+
+                <NavLink href="login" style="text-decoration:none;">
+                    <h6 class="font-weight-normal navigation-link text-center mt-1 cool-link" style="text-decoration:none;">Sign in</h6>
+                </NavLink>
+            </EditForm>
+        </div>
+    </div>
+    @if (!string.IsNullOrEmpty(error))
+    {
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto">Login Error</strong>
+                    <button type="button" class="btn-close" @onclick="DismissError" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    @error
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
 
 @code {
     RegisterViewModel registerRequest { get; set; } = new RegisterViewModel();
@@ -65,5 +170,10 @@
         {
             error = ex.Message;
         }
+    }
+
+    private void DismissError()
+    {
+        error = null;
     }
 }
