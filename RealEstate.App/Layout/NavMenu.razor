@@ -1,4 +1,5 @@
 ﻿@using RealEstate.App.Contracts
+@using Microsoft.AspNetCore.Components.Authorization
 @inject ITokenService tokenService
 @inject IAuthenticationService authService
 
@@ -8,87 +9,53 @@
 <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">RealEstate.App</a>
-         <button title="Navigation menu" class="navbar-toggler"  >
+        <button title="Navigation menu" class="navbar-toggler">
             <span class="navbar-toggler-icon"></span>
         </button>
     </div>
 </div>
 
-<div class="@NavMenuCssClass nav-scrollable" >
+<div class="@NavMenuCssClass nav-scrollable">
     <nav class="flex-column">
         <CascadingAuthenticationState>
-
-                    
+            <!-- Render link for non-logged-in users -->
             <div class="nav-item px-3">
                 <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                     <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
                 </NavLink>
             </div>
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="propertyoverview">
-                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Properties
-                </NavLink>
-            </div>
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="addproperty">
-                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Add Property
-                </NavLink>
-            </div>
+            <AuthorizeView>
+                <Authorized>
+                    <!-- Render links for authenticated users -->
+                    <div class="nav-item px-3">
+                        <NavLink class="nav-link" href="propertyoverview">
+                            <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Properties
+                        </NavLink>
+                    </div>
+                    <div class="nav-item px-3">
+                        <NavLink class="nav-link" href="addproperty">
+                            <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Add Property
+                        </NavLink>
+                    </div>
+                    <div class="nav-item px-3">
+                        <NavLink class="nav-link" href="myproperties">
+                            <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> My Properties
+                        </NavLink>
+                    </div>
+                    <div class="nav-item px-3">
+                        <NavLink class="nav-link" href="/updateuser">
+                            <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> My account
+                        </NavLink>
+                    </div>
+                    <!-- Include other authenticated links here -->
+                </Authorized>
 
-            @* 
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="/findproperty">
-                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Property by ID
-                </NavLink>
-            </div> *@
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="/myproperties">
-                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> My Properties
-                </NavLink>
-            </div>
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="/listingoverview">
-                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Listings
-                </NavLink>
-            </div>
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="/addlisting">
-                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Add listing
-                </NavLink>
-            </div>
-            <div class="nav-item px-3">
-                <NavLink class="nav-link" href="/updatelisting">
-                    <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Update Listing
-                </NavLink>
-            </div>
-
-            @if (role == "User")
-            {
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="/updateuser">
-                        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> My account
-                    </NavLink>
-                </div>
-            }
-
-            @if (role == "Admin")
-            {
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="/updateuser">
-                        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Update User
-                    </NavLink>
-                </div>
-
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="/admin/deleteuser">
-                        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Delete User
-                    </NavLink>
-                </div>
-            }
+            </AuthorizeView>
 
         </CascadingAuthenticationState>
     </nav>
 </div>
+
 
 
 @code {

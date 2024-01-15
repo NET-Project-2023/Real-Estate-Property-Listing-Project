@@ -4,7 +4,68 @@
 @inject ITokenService TokenService
 @inject NavigationManager NavigationManager
 
-<h3>Update User Information</h3>
+<style>
+    .container {
+        max-width: 960px;
+        margin: auto;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+        border-radius: 10px;
+    }
+
+    .row {
+        margin-bottom: 20px;
+    }
+
+    .form-label {
+        color: #333; /* Dark text color for contrast */
+    }
+
+    .form-control {
+        border: 2px solid #3498db; /* Blue accent */
+        border-radius: 5px;
+        color: #333; /* Dark text color for contrast */
+        background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    }
+
+    .btn-primary {
+        background-color: #3498db; /* Blue accent */
+        border: none;
+        color: white;
+        padding: 10px 24px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+
+    .btn-primary:hover {
+        background-color: white;
+        color: #3498db; /* Blue accent */
+        border: 2px solid #3498db; /* Blue accent */
+    }
+
+    .avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        margin: 10px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ccc; /* Placeholder color */
+    }
+
+        .avatar i {
+            color: #333; /* Dark text color for contrast */
+        }
+
+
+</style>
+
 
 @if (currentUserModel == null)
 {
@@ -13,7 +74,15 @@
 else
 {
 
-    <div class="container">
+    <div class="container mt-5">
+       
+
+        <!-- Avatar -->
+        <div class="avatar">
+            <i class="fas fa-user fa-3x"></i>
+        </div>
+
+
         <div class="row justify-content-center">
             <div class="col-md-5 cool-form" style="margin-top:5rem;">
                 <h3>Profile</h3>
