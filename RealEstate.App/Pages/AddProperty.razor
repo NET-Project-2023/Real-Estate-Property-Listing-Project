@@ -4,12 +4,17 @@
 @using System.Net.Http.Headers
 
 <style>
+    body {
+        background: #f5f5f5; /* Light grey background */
+    }
+
     .container {
-        max-width: 600px;
+        max-width: 960px;
         margin: auto;
         padding: 30px;
-        background: #f8f9fa; /* Light grey background */
+        background: #fff; /* White background */
         border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Shadow for a "card" like effect */
     }
 
     .row {
@@ -17,18 +22,18 @@
     }
 
     .form-label {
-        color: #495057; /* Dark text color for contrast */
+        color: #333; /* Dark text color for contrast */
     }
 
     .form-control {
-        border: 2px solid #3498db; /* Blue accent */
+        border: 2px solid #007bff; /* Blue accent */
         border-radius: 5px;
-        color: #495057; /* Dark text color for contrast */
-        background: #ffffff; /* White background */
+        color: #333; /* Dark text color for contrast */
+        background: #fff; /* White background */
     }
 
     .btn-success {
-        background-color: #28a745; /* Green accent */
+        background-color: #007bff; /* Blue accent */
         border: none;
         color: white;
         padding: 10px 24px;
@@ -42,13 +47,14 @@
     }
 
         .btn-success:hover {
-            background-color: #218838; /* Darker green on hover */
+            background-color: #0056b3; /* Darker blue accent */
+            color: white;
         }
 
     .btn-secondary {
         background-color: #6c757d; /* Grey */
-        border: 2px solid #5a6268; /* Darker grey border */
-        color: #ffffff; /* White text color for contrast */
+        border: none;
+        color: white; /* White text color for contrast */
         padding: 10px 24px;
         text-align: center;
         text-decoration: none;
@@ -60,22 +66,19 @@
     }
 
         .btn-secondary:hover {
-            background-color: #5a6268; /* Darker grey on hover */
+            background-color: #5a6268; /* Darker grey */
+            color: white; /* White text color for contrast */
         }
 
     .upload-icon {
-        color: #3498db; /* Blue accent for the upload icon */
+        color: #007bff; /* Blue accent */
+        font-size: 24px;
     }
 
-    /* Additional modern styles */
-    h3 {
-        color: #007bff; /* Blue heading color */
-        margin-bottom: 30px;
-    }
 </style>
 
 
-<h3>New Property</h3>
+<h3>Add a new property</h3>
 
 <EditForm Model="@PropertyViewModel" OnValidSubmit="@HandleValidSubmit">
 
@@ -133,7 +136,7 @@
         <label for="images" class="col-sm-3 form-label">Images:</label>
         <div class="col-sm-5">
             <InputFile id="images" multiple OnChange="@OnInputFileChange">
-                <i class="fas fa-upload upload-icon"></i> <!-- Fix for the upload icon -->
+                <i class="fas fa-file-upload"></i>
             </InputFile>
         </div>
     </div>
