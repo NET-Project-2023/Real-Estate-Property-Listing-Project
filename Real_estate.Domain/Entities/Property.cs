@@ -55,10 +55,14 @@ namespace Real_estate.Domain.Entities
             {
                 throw new ArgumentException("Images list cannot be null or empty.", nameof(images));
             }
+            Images = images;
 
-            Images.AddRange(images);
         }
 
+        public void UpdateImages(List<byte[]> images)
+        {
+            Images = images;
+        }
         public void AttachNumberOfBathrooms(int numberOfBathrooms)
         {
             if (NumberOfBathrooms == 0)
