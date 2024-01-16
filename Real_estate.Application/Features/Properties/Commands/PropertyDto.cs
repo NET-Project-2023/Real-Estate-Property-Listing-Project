@@ -1,4 +1,4 @@
-﻿namespace Real_estate.Application.Features.Properties.Queries
+﻿namespace Real_estate.Application.Features.Properties.Commands
 {
     public class PropertyDto
     {

@@ -9,6 +9,7 @@ using Real_estate.Application.Features.Properties.Queries.GetByName;
 using Real_estate.Application.Features.Properties.Queries.GetByOwnerUsername;
 using RealEstate.API.Utility;
 
+
 namespace RealEstate.API.Controllers
 {
 
@@ -105,12 +106,12 @@ namespace RealEstate.API.Controllers
 
         [Authorize(Roles = "User")]
         //[Authorize(Roles = "Admin")]
-        [HttpDelete("{id}")]
+        [HttpDelete("{title}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> Delete(Guid id)
+        public async Task<IActionResult> Delete(string title)
         {
-            var command = new DeletePropertyCommand { PropertyId = id };
+            var command = new DeletePropertyCommand { PropertyTitle = title };
             var result = await Mediator.Send(command);
             if (!result.Success)
             {
@@ -132,4 +133,5 @@ namespace RealEstate.API.Controllers
             return Ok(result);
         }
     }
+    
 }

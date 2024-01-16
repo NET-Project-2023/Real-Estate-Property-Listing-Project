@@ -6,6 +6,7 @@
 @inject IPropertyDataService PropertyDataService
 @inject ITokenService tokenService
 @inject NavigationManager NavigationManager
+
 <h3 class="text-center text-primary mb-4">Edit Property</h3>
 
 @if (UpdatePropertyModel == null)
@@ -110,12 +111,7 @@ else
 
     private async Task HandleValidSubmit()
     {
-        // Handle the form submission logic here
 
-        // foreach (var image in RemovedImages)
-        // {
-        //     await PropertyDataService.RemoveImageAsync(UpdatePropertyModel.Title, image);
-        // }
 
         var result = await PropertyDataService.UpdatePropertyAsync(UpdatePropertyModel);
 
@@ -154,6 +150,4 @@ else
             }
         }
     }
-
-
 }

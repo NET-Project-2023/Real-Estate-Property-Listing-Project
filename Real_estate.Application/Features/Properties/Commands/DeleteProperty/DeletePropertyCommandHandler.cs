@@ -6,16 +6,16 @@ namespace Real_estate.Application.Features.Properties.Commands.DeleteProperty
 {
     public class DeletePropertyCommandHandler : IRequestHandler<DeletePropertyCommand, DeletePropertyCommandResponse>
     {
-        private readonly IAsyncRepository<Property> propertyRepository;
+        private readonly IPropertyRepository propertyRepository;
 
-        public DeletePropertyCommandHandler(IAsyncRepository<Property> propertyRepository)
+        public DeletePropertyCommandHandler(IPropertyRepository propertyRepository)
         {
             this.propertyRepository = propertyRepository;
         }
 
         public async Task<DeletePropertyCommandResponse> Handle(DeletePropertyCommand request, CancellationToken cancellationToken)
         {
-            var deleteResult = await propertyRepository.DeleteAsync(request.PropertyId);
+            var deleteResult = await propertyRepository.DeleteAsyncByTitle(request.PropertyTitle);
 
             if (!deleteResult.IsSuccess)
             {

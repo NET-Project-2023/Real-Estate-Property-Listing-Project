@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Humanizer;
+using Microsoft.EntityFrameworkCore;
 using Real_estate.Application.Features.Properties.Queries;
 using Real_estate.Application.Persistence;
 using Real_estate.Domain.Common;
@@ -26,5 +27,19 @@ namespace Infrastructure.Repositories
             }
         }
         
+        public async Task<Result<Property>> DeleteAsyncByTitle(string title)
+        {
+            var property = await FindByNameAsync(title);
+            if (!property.IsSuccess)
+            {
+                return Result<Property>.Failure($"Entity with title {title} not found ");
+            }
+            context.Set<Property>().Remove(property.Value);
+            await context.SaveChangesAsync();
+            return Result<Property>.Success(property.Value);
+           
+        }
+
+
     }
 }

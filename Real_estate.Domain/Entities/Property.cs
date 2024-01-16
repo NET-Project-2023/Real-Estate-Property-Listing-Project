@@ -43,7 +43,7 @@ namespace Real_estate.Domain.Entities
 
         public void AttachDescription(string description)
         {
-            if (string.IsNullOrWhiteSpace(description))
+            if (!string.IsNullOrWhiteSpace(description))
             {
                 Description = description;
             }
@@ -55,7 +55,11 @@ namespace Real_estate.Domain.Entities
             {
                 throw new ArgumentException("Images list cannot be null or empty.", nameof(images));
             }
-            Images = images;
+
+            foreach (var image in images)
+            {
+                Images.Add(image);
+            }
 
         }
 
