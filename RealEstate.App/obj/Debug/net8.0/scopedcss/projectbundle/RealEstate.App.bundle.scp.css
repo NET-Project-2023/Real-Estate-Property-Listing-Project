@@ -9,9 +9,7 @@ main[b-o7tenfalxp] {
     flex: 1;
 }
 
-.sidebar[b-o7tenfalxp] {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
-}
+
 
 .top-row[b-o7tenfalxp] {
     background-color: #f7f7f7;
@@ -28,23 +26,20 @@ main[b-o7tenfalxp] {
         text-decoration: none;
     }
 
-    .top-row[b-o7tenfalxp]  a:hover, .top-row[b-o7tenfalxp]  .btn-link:hover {
-        text-decoration: underline;
-    }
+        .top-row[b-o7tenfalxp]  a:hover, .top-row[b-o7tenfalxp]  .btn-link:hover {
+            text-decoration: underline;
+        }
 
-    .top-row[b-o7tenfalxp]  a:first-child {
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
+
 
 @media (max-width: 640.98px) {
     .top-row[b-o7tenfalxp] {
         justify-content: space-between;
     }
 
-    .top-row[b-o7tenfalxp]  a, .top-row[b-o7tenfalxp]  .btn-link {
-        margin-left: 0;
-    }
+        .top-row[b-o7tenfalxp]  a, .top-row[b-o7tenfalxp]  .btn-link {
+            margin-left: 0;
+        }
 }
 
 @media (min-width: 641px) {
@@ -65,11 +60,6 @@ main[b-o7tenfalxp] {
         z-index: 1;
     }
 
-    .top-row.auth[b-o7tenfalxp]  a:first-child {
-        flex: 1;
-        text-align: right;
-        width: 0;
-    }
 
     .top-row[b-o7tenfalxp], article[b-o7tenfalxp] {
         padding-left: 2rem !important;
@@ -77,13 +67,18 @@ main[b-o7tenfalxp] {
     }
 }
 /* /Layout/NavMenu.razor.rz.scp.css */
+.body[b-h0pdepnaed] {
+    padding-top: 50px; /* Adjust this value so your main content is pushed down */
+}
+
 .navbar-toggler[b-h0pdepnaed] {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
 .top-row[b-h0pdepnaed] {
-    height: 3.5rem;
+    height: 50px;
     background-color: rgba(0,0,0,0.4);
+    padding: 0;
 }
 
 .navbar-brand[b-h0pdepnaed] {
@@ -117,13 +112,6 @@ main[b-o7tenfalxp] {
     padding-bottom: 0.5rem;
 }
 
-    .nav-item:first-of-type[b-h0pdepnaed] {
-        padding-top: 1rem;
-    }
-
-    .nav-item:last-of-type[b-h0pdepnaed] {
-        padding-bottom: 1rem;
-    }
 
     .nav-item[b-h0pdepnaed]  a {
         color: #d7d7d7;
@@ -131,7 +119,7 @@ main[b-o7tenfalxp] {
         height: 3rem;
         display: flex;
         align-items: center;
-        line-height: 3rem;
+        line-height: normal;
     }
 
         .nav-item[b-h0pdepnaed]  a.active {
@@ -144,19 +132,103 @@ main[b-o7tenfalxp] {
             color: white;
         }
 
-@media (min-width: 641px) {
-    .navbar-toggler[b-h0pdepnaed] {
-        display: none;
+.top-nav-container[b-h0pdepnaed] {
+    background: transparent; /* Make navbar background invisible */
+    position: fixed; /* Fix position to the top */
+    top: 0; /* Align to the top */
+    width: 100%; /* Span the full width of the viewport */
+    z-index: 1000; /* Ensure it's above other content */
+    padding: 0; /* Add some vertical padding */
+}
+
+.top-nav[b-h0pdepnaed] {
+    display: flex;
+    justify-content: center; /* Center the nav items horizontally */
+    align-items: center; /* Align the nav items vertically */
+    list-style-type: none; /* Remove list styles if using <ul> */
+    height: 100%; /* Make the nav fill the height of the top-row */
+    margin: 0;
+    padding: 0;
+}
+
+
+.nav-link[b-h0pdepnaed] {
+    display: flex;
+    margin: 0 15px; /* Add horizontal margin for spacing */
+    align-items: center;
+    justify-content: center;
+    color: #333; /* Adjust color as needed */
+    text-decoration: none;
+    background: rgba(255,255, 255, 0.05); /* Slight background to stand out */
+    padding: 0.5rem 1rem; /* Padding around the text */
+    border-radius: 5px; /* Rounded corners for aesthetics */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    background-color: transparent;
+    padding-top: 0; /* Reduce the top padding if the text is too low */
+    padding-bottom: 0.75rem; /* Increase the bottom padding to push the text up */
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+    .nav-link:hover[b-h0pdepnaed] {
+        background-color: rgba(255, 255, 255, 0.1); /* Slightly darker on hover */
+        text-decoration: none; /* Ensure no underline appears */
     }
 
-    .collapse[b-h0pdepnaed] {
-        /* Never collapse the sidebar for wide screens */
-        display: block;
-    }
+.top-nav-container[b-h0pdepnaed] {
+    background: transparent; /* Make navbar background invisible */
+    position: fixed; /* Fix position to the top */
+    top: 0; /* Align to the top */
+    width: 100%; /* Span the full width of the viewport */
+    z-index: 1000; /* Ensure it's above other content */
+    padding: 1rem 0; /* Add some vertical padding */
+}
+
+
+.nav-item[b-h0pdepnaed], .nav-link[b-h0pdepnaed] {
+    margin: 0; /* Adjust margin as needed */
+    padding: 0; /* Adjust padding as needed */
+    display: flex;
+    align-items: center;
+    height: 100%; /* This will stretch the nav items to fill the container */
+}
+
+
+
+@media (min-width: 641px) {
 
     .nav-scrollable[b-h0pdepnaed] {
         /* Allow sidebar to scroll for tall menus */
         height: calc(100vh - 3.5rem);
         overflow-y: auto;
     }
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .top-nav[b-h0pdepnaed] {
+        flex-direction: column; /* Stack nav items vertically on small screens */
+    }
+
+    .nav-link[b-h0pdepnaed] {
+        text-align: center; /* Center-align links */
+        padding: 10px 0; /* Add some vertical padding */
+    }
+
+    .navbar-toggler[b-h0pdepnaed] {
+        display: block; /* Make the toggle button visible */
+    }
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .top-nav[b-h0pdepnaed] {
+        flex-direction: column; /* Stack nav items vertically on small screens */
+    }
+
+    .nav-link[b-h0pdepnaed] {
+        text-align: center; /* Center-align links */
+        padding: 10px 0; /* Add some vertical padding */
+    }
+
 }

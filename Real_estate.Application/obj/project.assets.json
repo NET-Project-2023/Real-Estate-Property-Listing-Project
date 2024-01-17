@@ -769,19 +769,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\andim\\.nuget\\packages\\": {}
+    "C:\\Users\\ycarp\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj",
+      "projectUniqueName": "C:\\Users\\ycarp\\Desktop\\Andi\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj",
       "projectName": "Real_estate.Application",
-      "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj",
-      "packagesPath": "C:\\Users\\andim\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\obj\\",
+      "projectPath": "C:\\Users\\ycarp\\Desktop\\Andi\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj",
+      "packagesPath": "C:\\Users\\ycarp\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ycarp\\Desktop\\Andi\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\andim\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ycarp\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -795,8 +795,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj": {
-              "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj"
+            "C:\\Users\\ycarp\\Desktop\\Andi\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj": {
+              "projectPath": "C:\\Users\\ycarp\\Desktop\\Andi\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj"
             }
           }
         }

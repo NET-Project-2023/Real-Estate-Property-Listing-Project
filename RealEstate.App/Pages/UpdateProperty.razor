@@ -112,6 +112,7 @@ else
     private async Task HandleValidSubmit()
     {
 
+        Console.WriteLine($"Number of remaining images: {UpdatePropertyModel.Images.Count}");
 
         var result = await PropertyDataService.UpdatePropertyAsync(UpdatePropertyModel);
 
@@ -130,6 +131,8 @@ else
     {
         UpdatePropertyModel.Images.Remove(image);
         RemovedImages.Add(image);
+        Console.WriteLine($"Number of remaining images: {UpdatePropertyModel.Images.Count}");
+
     }
 
     private async Task HandleFileChange(InputFileChangeEventArgs e)

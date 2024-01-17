@@ -173,6 +173,8 @@ namespace RealEstate.App.Services
        }
         public async Task<ApiResponse<PropertyDto>> UpdatePropertyAsync(PropertyDto propertyDto)
         {
+            Console.WriteLine($"daaaaaaaaaaaaaaaa {propertyDto.Images.Count}");
+
 
             var token = await tokenService.GetTokenAsync();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
@@ -188,17 +190,20 @@ namespace RealEstate.App.Services
             formContent.Add(new StringContent(propertyDto.NumberOfBathrooms.ToString()), "NumberOfBathrooms");
             formContent.Add(new StringContent(propertyDto.UserId), "UserId");
 
-            // Add files to the form content
-            foreach (var browserFile in propertyDto.ImagesFiles)
-            {
-                var fileContent = new StreamContent(browserFile.OpenReadStream(maxFileSize));
-                fileContent.Headers.ContentType = new MediaTypeHeaderValue(browserFile.ContentType);
-                formContent.Add(fileContent, "ImagesFiles", browserFile.Name);
 
+
+            // Add files to the form content
+            foreach (var image in propertyDto.Images)
+            {
+                var imageContent = new ByteArrayContent(image);
+                formContent.Add(imageContent, "Images", "image.jpg"); // Modify as needed
             }
 
+            var propertyDtoJson = JsonSerializer.Serialize(propertyDto);
+            Console.WriteLine($"Sending update request with data: {propertyDtoJson}");
 
             var response = await httpClient.PutAsync(requestUri, formContent);
+
             
             var responseContent = await response.Content.ReadAsStringAsync();
             Console.WriteLine($"Response Content: {responseContent}");

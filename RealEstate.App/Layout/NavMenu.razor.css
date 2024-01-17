@@ -1,10 +1,15 @@
-﻿.navbar-toggler {
+﻿.body {
+    padding-top: 50px; /* Adjust this value so your main content is pushed down */
+}
+
+.navbar-toggler {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
 .top-row {
-    height: 3.5rem;
+    height: 50px;
     background-color: rgba(0,0,0,0.4);
+    padding: 0;
 }
 
 .navbar-brand {
@@ -38,13 +43,6 @@
     padding-bottom: 0.5rem;
 }
 
-    .nav-item:first-of-type {
-        padding-top: 1rem;
-    }
-
-    .nav-item:last-of-type {
-        padding-bottom: 1rem;
-    }
 
     .nav-item ::deep a {
         color: #d7d7d7;
@@ -52,7 +50,7 @@
         height: 3rem;
         display: flex;
         align-items: center;
-        line-height: 3rem;
+        line-height: normal;
     }
 
         .nav-item ::deep a.active {
@@ -65,19 +63,103 @@
             color: white;
         }
 
-@media (min-width: 641px) {
-    .navbar-toggler {
-        display: none;
+.top-nav-container {
+    background: transparent; /* Make navbar background invisible */
+    position: fixed; /* Fix position to the top */
+    top: 0; /* Align to the top */
+    width: 100%; /* Span the full width of the viewport */
+    z-index: 1000; /* Ensure it's above other content */
+    padding: 0; /* Add some vertical padding */
+}
+
+.top-nav {
+    display: flex;
+    justify-content: center; /* Center the nav items horizontally */
+    align-items: center; /* Align the nav items vertically */
+    list-style-type: none; /* Remove list styles if using <ul> */
+    height: 100%; /* Make the nav fill the height of the top-row */
+    margin: 0;
+    padding: 0;
+}
+
+
+.nav-link {
+    display: flex;
+    margin: 0 15px; /* Add horizontal margin for spacing */
+    align-items: center;
+    justify-content: center;
+    color: #333; /* Adjust color as needed */
+    text-decoration: none;
+    background: rgba(255,255, 255, 0.05); /* Slight background to stand out */
+    padding: 0.5rem 1rem; /* Padding around the text */
+    border-radius: 5px; /* Rounded corners for aesthetics */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    background-color: transparent;
+    padding-top: 0; /* Reduce the top padding if the text is too low */
+    padding-bottom: 0.75rem; /* Increase the bottom padding to push the text up */
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+    .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.1); /* Slightly darker on hover */
+        text-decoration: none; /* Ensure no underline appears */
     }
 
-    .collapse {
-        /* Never collapse the sidebar for wide screens */
-        display: block;
-    }
+.top-nav-container {
+    background: transparent; /* Make navbar background invisible */
+    position: fixed; /* Fix position to the top */
+    top: 0; /* Align to the top */
+    width: 100%; /* Span the full width of the viewport */
+    z-index: 1000; /* Ensure it's above other content */
+    padding: 1rem 0; /* Add some vertical padding */
+}
+
+
+.nav-item, .nav-link {
+    margin: 0; /* Adjust margin as needed */
+    padding: 0; /* Adjust padding as needed */
+    display: flex;
+    align-items: center;
+    height: 100%; /* This will stretch the nav items to fill the container */
+}
+
+
+
+@media (min-width: 641px) {
 
     .nav-scrollable {
         /* Allow sidebar to scroll for tall menus */
         height: calc(100vh - 3.5rem);
         overflow-y: auto;
     }
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .top-nav {
+        flex-direction: column; /* Stack nav items vertically on small screens */
+    }
+
+    .nav-link {
+        text-align: center; /* Center-align links */
+        padding: 10px 0; /* Add some vertical padding */
+    }
+
+    .navbar-toggler {
+        display: block; /* Make the toggle button visible */
+    }
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .top-nav {
+        flex-direction: column; /* Stack nav items vertically on small screens */
+    }
+
+    .nav-link {
+        text-align: center; /* Center-align links */
+        padding: 10px 0; /* Add some vertical padding */
+    }
+
 }

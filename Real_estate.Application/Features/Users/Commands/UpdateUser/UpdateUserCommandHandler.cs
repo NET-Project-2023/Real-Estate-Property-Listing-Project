@@ -14,6 +14,9 @@ namespace Real_estate.Application.Features.Users.Commands.UpdateUser
         }
         public async Task<UpdateUserCommandResponse> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
         {
+
+            Console.WriteLine(" AJUNG ACILEAAAAAAAAAAAAAAAAAA" );
+
             var response = new UpdateUserCommandResponse();
 
             var user = await userRepository.FindByUsernameAsync(request.Username);

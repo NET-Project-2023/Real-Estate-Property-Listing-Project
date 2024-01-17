@@ -77,6 +77,7 @@ namespace Real_estate.Application.Features.Properties.Commands.UpdateProperty
                 property.AttachImageUrls(request.Images);
             }
 
+
             var updateResult = await propertyRepository.UpdateAsync(property);
 
             if (!updateResult.IsSuccess)
