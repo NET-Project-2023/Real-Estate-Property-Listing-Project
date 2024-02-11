@@ -1,5 +1,4 @@
-﻿using Real_estate.Application.Features.Users.Queries.GetById;
-using RealEstate.App.Contracts;
+﻿using RealEstate.App.Contracts;
 using RealEstate.App.Services.Responses;
 using RealEstate.App.ViewModels;
 using System.Net.Http.Headers;
@@ -243,6 +242,18 @@ namespace RealEstate.App.Services
             return properties!;
         }
 
+        public async Task<PropertyDto> DeletePropertyAsync(string title)
+        {
+            string loggedInUserId = await tokenService.GetUsernameFromTokenAsync();
+            string requestUri = $"api/v1/Property/delete/{title}";
+            var response = await httpClient.DeleteAsync(requestUri);
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new HttpRequestException($"Error deleting property: {response.ReasonPhrase}");
+            }
+            var propertyDto = await response.Content.ReadFromJsonAsync<PropertyDto>();
+            return propertyDto;
+        }
 
     }
 }

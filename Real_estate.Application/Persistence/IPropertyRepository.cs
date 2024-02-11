@@ -8,5 +8,7 @@ namespace Real_estate.Application.Persistence
     public interface IPropertyRepository : IAsyncRepository<Property>
     {
         Task<Result<List<Property>>> FindByOwnerUsernameAsync(string ownerUsername);
+        Task<Result<Property>> DeleteAsyncByTitle(string title);
+
     }
 }

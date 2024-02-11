@@ -66,13 +66,19 @@ namespace Real_estate.Application.Features.Properties.Commands.UpdateProperty
             {
                 property.UpdateNumberOfBedrooms(request.NumberOfBedrooms.Value);
             }
+            
             if (request.NumberOfBathrooms.HasValue)
             {
                 property.AttachNumberOfBathrooms(request.NumberOfBathrooms.Value);
             }
+
             if (request.Images != null && request.Images.Any())
             {
                 property.AttachImageUrls(request.Images);
+            }
+            if (request.Images != null && request.Images.Any())
+            {
+                property.UpdateImages(request.Images);
             }
 
             var updateResult = await propertyRepository.UpdateAsync(property);

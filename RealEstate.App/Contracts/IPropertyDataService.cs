@@ -11,6 +11,6 @@ namespace RealEstate.App.Contracts
         Task<PropertyDto> GetPropertyByNameAsync(string propertyName);
         Task<List<PropertyViewModel>> GetPropertiesByCurrentUserAsync();
         Task<ApiResponse<PropertyDto>> UpdatePropertyAsync(PropertyDto propertyDto);
-
+        Task<PropertyDto> DeletePropertyAsync(string title);
     }
 }

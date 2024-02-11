@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-using Real_estate.Domain.Common;
+﻿using Real_estate.Domain.Common;
 using static System.Net.Mime.MediaTypeNames;
 namespace Real_estate.Domain.Entities
 
@@ -17,7 +16,6 @@ namespace Real_estate.Domain.Entities
             UserId = userId;
             NumberOfBedrooms = numberOfBedrooms;
             Images = images ?? new List<byte[]>();
-            Console.WriteLine($"PUSCAAAAAAAAAAAAAAAAA {Images} images.");
             // Assign the passed images or initialize a new list if null is passed.
         }
      
@@ -36,14 +34,13 @@ namespace Real_estate.Domain.Entities
         public static Result<Property> Create(string title, string address, int size, int price, string ownerUniqueName, int numberOfBedrooms, List<byte[]> images)
         {
             var property = new Property(title, address, size, price, ownerUniqueName, numberOfBedrooms, images);
-            Console.WriteLine($"PUSCAAAAAAAAAAAAAAAAA {images} images.");
             return Result<Property>.Success(property);
         }
 
 
         public void AttachDescription(string description)
         {
-            if (string.IsNullOrWhiteSpace(description))
+            if (!string.IsNullOrWhiteSpace(description))
             {
                 Description = description;
             }
@@ -56,9 +53,17 @@ namespace Real_estate.Domain.Entities
                 throw new ArgumentException("Images list cannot be null or empty.", nameof(images));
             }
 
-            Images.AddRange(images);
+            foreach (var image in images)
+            {
+                Images.Add(image);
+            }
+
         }
 
+        public void UpdateImages(List<byte[]> images)
+        {
+            Images = images;
+        }
         public void AttachNumberOfBathrooms(int numberOfBathrooms)
         {
             if (NumberOfBathrooms == 0)

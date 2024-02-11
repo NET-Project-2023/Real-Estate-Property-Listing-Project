@@ -3,7 +3,87 @@
 @using RealEstate.App.ViewModels
 @using System.Net.Http.Headers
 
-<h3>New Property</h3>
+<style>
+    body {
+        background: #f5f5f5; /* Light grey background */
+    }
+
+    .container {
+        max-width: 960px;
+        margin: auto;
+        padding: 30px;
+        background: #fff; /* White background */
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Shadow for a "card" like effect */
+    }
+
+    .row {
+        margin-bottom: 20px;
+    }
+
+    .form-label {
+        color: #333; /* Dark text color for contrast */
+    }
+
+    .form-control {
+        border: 2px solid #007bff; /* Blue accent */
+        border-radius: 5px;
+        color: #333; /* Dark text color for contrast */
+        background: #fff; /* White background */
+    }
+
+    .btn-success {
+        background-color: #007bff; /* Blue accent */
+        border: none;
+        color: white;
+        padding: 10px 24px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+
+        .btn-success:hover {
+            background-color: #0056b3; /* Darker blue accent */
+            color: white;
+        }
+
+    .btn-secondary {
+        background-color: #6c757d; /* Grey */
+        border: none;
+        color: white; /* White text color for contrast */
+        padding: 10px 24px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268; /* Darker grey */
+            color: white; /* White text color for contrast */
+        }
+
+    .upload-icon {
+        color: #007bff; /* Blue accent */
+        font-size: 24px;
+    }
+
+    #fileUpload {
+        display: none;
+    }
+
+
+</style>
+
+
+<h3>Add a new property</h3>
 
 <EditForm Model="@PropertyViewModel" OnValidSubmit="@HandleValidSubmit">
 
@@ -60,7 +140,9 @@
     <div class="row mb-3 ms-2">
         <label for="images" class="col-sm-3 form-label">Images:</label>
         <div class="col-sm-5">
-            <InputFile id="images" multiple OnChange="@OnInputFileChange"></InputFile>
+            <InputFile id="images" multiple OnChange="@OnInputFileChange">
+                <i class="fas fa-file-upload"></i>
+            </InputFile>
         </div>
     </div>
 

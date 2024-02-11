@@ -6,12 +6,20 @@
 
 
 <style>
+    .cool-form {
+        background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+        color: #333; /* Dark text color for contrast */
+        border-radius: 4px;
+        padding: 45px 60px;
+        margin-top: 25px;
+    }
+
     .cool-input {
         height: 3rem;
         border-radius: 3px;
         color: #333;
         border: 2px solid #3498db; /* Blue accent */
-        background: #f5f5f5;
+        background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
         font-size: 13px;
         outline: none;
     }
@@ -19,88 +27,46 @@
         .cool-input:focus, .cool-input:active {
             border: 1px solid #3498db; /* Blue accent */
             color: #333;
-            background: #f5f5f5;
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
             outline: none;
             box-shadow: 0 0 5px #3498db; /* Blue accent */
         }
 
-    .cool-button {
-        margin-top: 1rem;
-        border-radius: 3px;
-        background: #3498db; /* Blue accent */
-    }
-
-        .cool-button:hover {
-            border: 1px solid #3498db; /* Blue accent */
-            box-shadow: 0 0 5px #3498db; /* Blue accent */
-        }
-
-    .cool-label {
-        color: #3498db; /* Blue accent */
-        font-size: 15px;
-    }
-
-    .cool-form {
-        background: #f5f5f5;
-        border-radius: 4px;
-        padding: 45px 60px;
-        margin-top: 25px;
-    }
-
-    .toast-container {
-        position: fixed;
-        bottom: 0;
-        end: 0;
-        padding: 3rem;
-    }
-
-    .toast {
-        background: #f5f5f5;
-        color: red;
-        border: 1px solid #ccc;
-    }
-
-    .btn-close {
-        color: #3498db; /* Blue accent */
-    }
-
-    .toast-header {
-        background: #f5f5f5;
-        border-bottom: 1px solid #ccc;
-    }
-
-    .toast-body {
-        color: red;
-    }
-
-    .cool-link {
-        color: #3498db; /* Blue accent */
-        text-decoration: none;
+    body {
+        background: url('/homebg.jpg') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
     }
 </style>
 
-<div class="container">
+
+
+<div class="container text-center py-5">
     <div class="row justify-content-center">
-        <div class="col-md-4 cool-form" style="margin-top: 7rem;">
-            <h1 class="h2 font-weight-normal login-title text-center">Login</h1>
+        <div class="col-md-4 cool-form">
+            <h1 class="display-4">Login</h1>
 
             <EditForm OnValidSubmit="OnSubmit" Model="loginRequest">
                 <DataAnnotationsValidator />
 
                 <div class="mb-3">
-                    <label for="inputUsername" class="form-label cool-label sr-only">Username</label>
+                    <label for="inputUsername" class="form-label cool-label">Username</label>
                     <InputText id="inputUsername" class="form-control cool-input" @bind-Value="loginRequest.Username" autofocus placeholder="Username" />
                     <ValidationMessage For="@(() => loginRequest.Username)" />
                 </div>
 
                 <div class="mb-3">
-                    <label for="inputPassword" class="form-label cool-label sr-only">Password</label>
+                    <label for="inputPassword" class="form-label cool-label">Password</label>
                     <InputText type="password" id="inputPassword" class="form-control cool-input" placeholder="Password" @bind-Value="loginRequest.Password" />
                     <ValidationMessage For="@(() => loginRequest.Password)" />
                 </div>
 
-                <div class="text-center mb-3">
-                    <button class="btn btn-primary cool-button" type="submit">Sign in</button>
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <button class="btn btn-lg btn-block btn-outline-primary" type="submit">Sign in</button>
+                    </div>
                 </div>
                 <NavLink href="register" class="text-center cool-link">
                     <h6 class="cool-link">Create account</h6>

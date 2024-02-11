@@ -33,7 +33,6 @@ namespace Infrastructure.Repositories
             if (!result.IsSuccess)
             {
                 return Result<T>.Failure($"Entity with id {id} not found ");
-
             }
             context.Set<T>().Remove(result.Value);
             await context.SaveChangesAsync();

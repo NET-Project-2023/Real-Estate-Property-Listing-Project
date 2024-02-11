@@ -7,15 +7,15 @@
 @inject ITokenService tokenService
 @inject NavigationManager NavigationManager
 
-<h3>Edit Property</h3>
+<h3 class="text-center text-primary mb-4">Edit Property</h3>
 
 @if (UpdatePropertyModel == null)
 {
-    <p>No property found with this title...</p>
+    <p class="alert alert-warning">No property found with this title...</p>
 }
 else
 {
-    <EditForm Model="@UpdatePropertyModel" OnValidSubmit="@HandleValidSubmit">
+    <EditForm Model="@UpdatePropertyModel" OnValidSubmit="@HandleValidSubmit" class="border p-4 rounded shadow">
         <DataAnnotationsValidator />
         <ValidationSummary />
 
@@ -57,12 +57,17 @@ else
 
         <!-- Display current images -->
         <div>
-            <h5>Current Images</h5>
+            <h5 class="text-secondary">Current Images</h5>
             @foreach (var image in UpdatePropertyModel.Images)
             {
-                <img src="@($"data:image/png;base64,{Convert.ToBase64String(image)}")" alt="Property Image" class="img-fluid" style="width: 150px; height: 150px; margin: 5px;" />
-                <button type="button" class="btn btn-danger" @onclick="() => RemoveImage(image)">Remove</button>
-
+                <div class="d-inline-block text-center m-2">
+                    <img src="@($"data:image/png;base64,{Convert.ToBase64String(image)}")" alt="Property Image" class="img-fluid rounded" style="width: 150px; height: 150px;" />
+                    <div class="mt-2">
+                        <button type="button" class="btn btn-outline-danger" @onclick="() => RemoveImage(image)">
+                            <i class="fas fa-trash-alt"></i> Remove
+                        </button>
+                    </div>
+                </div>
             }
         </div>
 
@@ -73,10 +78,10 @@ else
         </div>
 
         <!-- Submit Button -->
-        <button type="submit" class="btn btn-primary">Update Property</button>
+        <button type="submit" class="btn btn-primary btn-block">Update Property</button>
     </EditForm>
-
 }
+
 
 
 @code {
@@ -84,6 +89,8 @@ else
     private string PropertyTitle { get; set; } = string.Empty;
     private bool SearchAttempted { get; set; } = false;
     private const long maxFileSize = 10485760; // 10 MB
+    private List<byte[]> RemovedImages = new List<byte[]>();
+
 
     [Parameter]
     public string title { get; set; }
@@ -104,8 +111,10 @@ else
 
     private async Task HandleValidSubmit()
     {
-        // Handle the form submission logic here
+
+
         var result = await PropertyDataService.UpdatePropertyAsync(UpdatePropertyModel);
+
         if (result.IsSuccess)
         {
             NavigationManager.NavigateTo("/myproperties");
@@ -120,11 +129,12 @@ else
     private void RemoveImage(byte[] image)
     {
         UpdatePropertyModel.Images.Remove(image);
+        RemovedImages.Add(image);
     }
 
     private async Task HandleFileChange(InputFileChangeEventArgs e)
     {
-        var maxAllowedFiles = 10; // Set this to the maximum number of files you want to allow
+        var maxAllowedFiles = 10; 
         var files = e.GetMultipleFiles(maxAllowedFiles);
 
 
@@ -132,7 +142,6 @@ else
         {
             if (file.Size <= maxFileSize)
             {
-                // You can process each file here if needed, such as resizing or converting them
                 UpdatePropertyModel.ImagesFiles.Add(file);
             }
             else
@@ -141,6 +150,4 @@ else
             }
         }
     }
-
-
 }

@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Real_estate.Application.Features.Properties.Commands;
 using Real_estate.Application.Persistence;
 
 namespace Real_estate.Application.Features.Properties.Queries.GetById
