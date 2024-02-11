@@ -1085,33 +1085,33 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-sZQmQWpXms+ZybUsjeHAScyzHes2f8eeJ\/lXdG\/Dzbs=",
+      "hash": "sha256-YzaoM9k6gGJzvOHux+NPBiBRcIaLeTWvO7RUoxo36DI=",
       "url": "_framework\/Real_estate.Application.wasm"
     },
     {
-      "hash": "sha256-P0NrhbtQJDh8lInf7ZE70am33m8Iyj+QR5cPzsncz0I=",
+      "hash": "sha256-wH1rBoiZ+AbuLMWCm6USx2n\/KWNDemQLJPTUJXS18kw=",
       "url": "_framework\/Real_estate.Domain.wasm"
     },
     {
-      "hash": "sha256-lIj25IICRgONUv0tKMsucL7SI1b5+A5qA1KS8I6SJuU=",
+      "hash": "sha256-chLefqQrtglbLR9UMwfeAEN\/yDK74pVkBgbpW0cIEg8=",
       "url": "_framework\/Real_estate.Application.pdb"
     },
     {
-      "hash": "sha256-cN70L9Hcga0xednEnzt9CydSSJo3gB3HThJcc1CYhFI=",
+      "hash": "sha256-HM\/3NH+McV\/mm567TNUgIAtK8FND3QtTek0xVZQeLDk=",
       "url": "_framework\/Real_estate.Domain.pdb"
     },
     {
-      "hash": "sha256-8IJMZvxp1iMS6PT3XRuXY+o72PMhlbOz\/DEBWmJKjgo=",
+      "hash": "sha256-TLVSAy2+Ip6KDsAaG624wDK+nwXH15m30vnQT\/WxkaA=",
       "url": "_framework\/RealEstate.App.wasm"
     },
     {
-      "hash": "sha256-3ym2+oCYxCH9kik5JcA7PJU00noSgw2QA+FKm+DVWAA=",
+      "hash": "sha256-4c3lcBZaZu5+raOaBs8XekcHKPiVLAudMTPy4EYnnHs=",
       "url": "_framework\/RealEstate.App.pdb"
     },
     {
-      "hash": "sha256-4vwIDi43hMoKN3iqZeH7kbUvYclM\/kJkNKHMNayfy98=",
+      "hash": "sha256-m+Yl+Jvhj2\/l8rhtDgEi3TqYi0ClfXpJaiVe4zyEnn4=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "SRQIb8bM"
+  "version": "xQLg0LMw"
 };
