@@ -24,8 +24,7 @@ namespace Real_estate.Application.Features.Listings.Queries.GetById
                     ListingId = result.Value.ListingId,
                     Title = result.Value.Title,
                     Username = result.Value.Username,
-                    PropertyName = result.Value.PropertyName,
-                    Description = result.Value.Description,
+                    PropertyId = result.Value.PropertyId,
                     Price = result.Value.Price,
                     PropertyStatus = result.Value.PropertyStatus
                 };

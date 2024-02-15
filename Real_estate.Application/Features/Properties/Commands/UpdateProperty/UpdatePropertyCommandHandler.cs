@@ -38,30 +38,37 @@ namespace Real_estate.Application.Features.Properties.Commands.UpdateProperty
             }
 
             var property = propertyResult.Value;
+
             if (request.Title != null)
             {
                 property.UpdateTitle(request.Title);
             }
+
             if (request.Description != null)
             {
-                property.AttachDescription(request.Description);
+                property.UpdateDescription(request.Description);
             }
-            if (request.Address != null)
+
+            if (request.City != null)
             {
-                property.UpdateAddress(request.Address);
+                property.UpdateCity(request.City);
             }
+
+            if (request.StreetAddress != null)
+            {
+                property.UpdateStreetAddress(request.StreetAddress);
+            }
+
             if (request.Size.HasValue)
             {
                 property.UpdateSize(request.Size.Value);
             }
-            if (!string.IsNullOrEmpty(request.Description))
-            {
-                property.UpdateDescription(request.Description);
-            }
-            if (request.Price.HasValue)
-            {
-                property.UpdatePrice(request.Price.Value);
-            }
+
+            //if (!string.IsNullOrEmpty(request.Description))
+            //{
+            //    property.UpdateDescription(request.Description);
+            //}
+
             if (request.NumberOfBedrooms.HasValue)
             {
                 property.UpdateNumberOfBedrooms(request.NumberOfBedrooms.Value);
@@ -72,14 +79,18 @@ namespace Real_estate.Application.Features.Properties.Commands.UpdateProperty
                 property.AttachNumberOfBathrooms(request.NumberOfBathrooms.Value);
             }
 
-            if (request.Images != null && request.Images.Any())
-            {
-                property.AttachImageUrls(request.Images);
-            }
+            //if (request.Images != null && request.Images.Any())
+            //{
+            //    property.AttachImageUrls(request.Images);
+            //}
+
             if (request.Images != null && request.Images.Any())
             {
                 property.UpdateImages(request.Images);
             }
+
+            property.LastModifiedBy = request.UserId;
+            property.LastModifiedDate = DateTime.UtcNow;
 
             var updateResult = await propertyRepository.UpdateAsync(property);
 

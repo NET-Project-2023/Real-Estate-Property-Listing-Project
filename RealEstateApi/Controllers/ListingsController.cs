@@ -53,6 +53,7 @@ namespace RealEstate.API.Controllers
             }
             return Ok(result.Message);
         }
+
         [HttpPut("/listings/update/{listingTitle}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

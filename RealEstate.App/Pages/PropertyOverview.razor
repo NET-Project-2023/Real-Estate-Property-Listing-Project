@@ -82,9 +82,9 @@
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">@property.Title</h5>
-                                    <p class="card-text">Location: @property.Address</p>
+                                    <p class="card-text">City: @property.City</p>
+                                    <p class="card-text">Address: @property.StreetAddress</p>
                                     <p class="card-text">Bedrooms: @property.NumberOfBedrooms</p>
-                                    <p class="card-text">Price: $@property.Price.ToString("N0")</p>
                                     <button class="btn btn-primary" @onclick="() => ViewPropertyDetails(property.Title)">View Details</button>
                                 </div>
                             </div>

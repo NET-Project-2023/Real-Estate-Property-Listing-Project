@@ -99,10 +99,18 @@
     </div>
 
     <div class="row mb-3 ms-2">
-        <label for="address" class="col-sm-3 form-label">Address:</label>
+        <label for="city" class="col-sm-3 form-label">City:</label>
         <div class="col-sm-5">
-            <InputText id="address" class="form-control" @bind-Value="@PropertyViewModel.Address" placeholder="Enter property address"></InputText>
-            <ValidationMessage For="@(() => PropertyViewModel.Address)" />
+            <InputText id="city" class="form-control" @bind-Value="@PropertyViewModel.City" placeholder="Enter city"></InputText>
+            <ValidationMessage For="@(() => PropertyViewModel.City)" />
+        </div>
+    </div>
+
+    <div class="row mb-3 ms-2">
+        <label for="streetaddress" class="col-sm-3 form-label">Address:</label>
+        <div class="col-sm-5">
+            <InputText id="streetaddress" class="form-control" @bind-Value="@PropertyViewModel.StreetAddress" placeholder="Enter property address"></InputText>
+            <ValidationMessage For="@(() => PropertyViewModel.StreetAddress)" />
         </div>
     </div>
 
@@ -114,13 +122,6 @@
         </div>
     </div>
 
-    <div class="row mb-3 ms-2">
-        <label for="price" class="col-sm-3 form-label">Price:</label>
-        <div class="col-sm-5">
-            <InputNumber id="price" class="form-control" @bind-Value="@PropertyViewModel.Price"></InputNumber>
-            <ValidationMessage For="@(() => PropertyViewModel.Price)" />
-        </div>
-    </div>
 
     <div class="row mb-3 ms-2">
         <label for="numberOfBedrooms" class="col-sm-3 form-label">Number of Bedrooms:</label>
@@ -179,7 +180,6 @@
 
     private async Task HandleValidSubmit()
     {
-        Console.WriteLine($"Title: {PropertyViewModel.Title}, UserId: {PropertyViewModel.UserId}, Address: {PropertyViewModel.Address}");
 
         var result = await PropertyDataService.CreatePropertyAsync(PropertyViewModel);
         if (result.IsSuccess)

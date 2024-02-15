@@ -32,8 +32,8 @@
                         }
                         <div class="card-body">
                             <h5 class="card-title">@property.Title</h5>
-                            <p class="card-text">@property.Address</p>
-                            <p class="card-text text-primary">$@property.Price.ToString("N0")</p>
+                            <p class="card-text">@property.City</p>
+                            <p class="card-text">@property.StreetAddress</p>
                             <button class="btn btn-primary btn-block" @onclick="() => ViewPropertyDetails(property.Title)">View Details</button>
                             <button class="btn btn-secondary btn-block" @onclick="() => UpdateProperty(property.Title)">Edit</button>
                             <button class="btn btn-danger btn-block" @onclick="() => DeleteProperty(property.Title)">Delete</button>

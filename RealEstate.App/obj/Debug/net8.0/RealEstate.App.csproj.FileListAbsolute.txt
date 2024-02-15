@@ -9921,3 +9921,10 @@ C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Lis
 C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\RealEstate.App\obj\Debug\net8.0\refint\RealEstate.App.dll
 C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\RealEstate.App\obj\Debug\net8.0\RealEstate.App.pdb
 C:\Users\andim\OneDrive\Documente\AN_3\Introducere .NET\Real-Estate-Property-Listing-Project\RealEstate.App\obj\Debug\net8.0\ref\RealEstate.App.dll
+C:\Users\andim\OneDrive\Documente\AN_3\Real-Estate-Property-Listing-Project\RealEstate.App\obj\Debug\net8.0\RealEstate.App.csproj.AssemblyReference.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Real-Estate-Property-Listing-Project\RealEstate.App\obj\Debug\net8.0\RealEstate.App.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\andim\OneDrive\Documente\AN_3\Real-Estate-Property-Listing-Project\RealEstate.App\obj\Debug\net8.0\RealEstate.App.AssemblyInfoInputs.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Real-Estate-Property-Listing-Project\RealEstate.App\obj\Debug\net8.0\RealEstate.App.AssemblyInfo.cs
+C:\Users\andim\OneDrive\Documente\AN_3\Real-Estate-Property-Listing-Project\RealEstate.App\obj\Debug\net8.0\RealEstate.App.csproj.CoreCompileInputs.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Real-Estate-Property-Listing-Project\RealEstate.App\obj\Debug\net8.0\RealEstate.App.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\andim\OneDrive\Documente\AN_3\Real-Estate-Property-Listing-Project\RealEstate.App\obj\Debug\net8.0\RealEstate.App.sourcelink.json

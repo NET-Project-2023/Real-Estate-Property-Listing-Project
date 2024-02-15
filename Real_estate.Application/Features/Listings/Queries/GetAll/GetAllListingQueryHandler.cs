@@ -24,8 +24,7 @@ namespace Real_estate.Application.Features.Listings.Queries.GetAll
                     ListingId = c.ListingId,
                     Title = c.Title,
                     Username = c.Username,
-                    PropertyName = c.PropertyName,
-                    Description = c.Description,
+                    PropertyId = c.PropertyId,
                     PropertyStatus = c.PropertyStatus,
                     Price = c.Price
                     

@@ -25,16 +25,16 @@ else
             <InputTextArea id="description" class="form-control" @bind-Value="@UpdatePropertyModel.Description" />
         </div>
 
+        <!-- City -->
+        <div class="form-group">
+            <label for="city">City:</label>
+            <InputTextArea id="city" class="form-control" @bind-Value="@UpdatePropertyModel.City" />
+        </div>
+
         <!-- Address -->
         <div class="form-group">
             <label for="address">Address:</label>
-            <InputTextArea id="address" class="form-control" @bind-Value="@UpdatePropertyModel.Address" />
-        </div>
-
-        <!-- Price -->
-        <div class="form-group">
-            <label for="price">Price:</label>
-            <InputNumber id="price" class="form-control" @bind-Value="@UpdatePropertyModel.Price" />
+            <InputTextArea id="address" class="form-control" @bind-Value="@UpdatePropertyModel.StreetAddress" />
         </div>
 
         <!-- Size -->

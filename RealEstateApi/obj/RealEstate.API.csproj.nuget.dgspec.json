@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstateApi\\RealEstate.API.csproj": {}
+    "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\RealEstateApi\\RealEstate.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Identity\\Identity.csproj": {
+    "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Identity\\Identity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Identity\\Identity.csproj",
+        "projectUniqueName": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Identity\\Identity.csproj",
         "projectName": "Identity",
-        "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Identity\\Identity.csproj",
+        "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Identity\\Identity.csproj",
         "packagesPath": "C:\\Users\\andim\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Identity\\obj\\",
+        "outputPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Identity\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\andim\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj": {
-                "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj"
+              "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj": {
+                "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj"
               }
             }
           }
@@ -93,14 +93,14 @@
         }
       }
     },
-    "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\andim\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\andim\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -117,14 +117,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Identity\\Identity.csproj": {
-                "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Identity\\Identity.csproj"
+              "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Identity\\Identity.csproj": {
+                "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Identity\\Identity.csproj"
               },
-              "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj": {
-                "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj"
+              "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj": {
+                "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj"
               },
-              "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj": {
-                "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj"
+              "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj": {
+                "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj"
               }
             }
           }
@@ -188,14 +188,14 @@
         }
       }
     },
-    "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstateApi\\RealEstate.API.csproj": {
+    "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\RealEstateApi\\RealEstate.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstateApi\\RealEstate.API.csproj",
+        "projectUniqueName": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\RealEstateApi\\RealEstate.API.csproj",
         "projectName": "RealEstate.API",
-        "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstateApi\\RealEstate.API.csproj",
+        "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\RealEstateApi\\RealEstate.API.csproj",
         "packagesPath": "C:\\Users\\andim\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstateApi\\obj\\",
+        "outputPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\RealEstateApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\andim\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -212,14 +212,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Identity\\Identity.csproj": {
-                "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Identity\\Identity.csproj"
+              "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Identity\\Identity.csproj": {
+                "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Identity\\Identity.csproj"
               },
-              "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Infrastructure\\Infrastructure.csproj"
+              "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Infrastructure\\Infrastructure.csproj"
               },
-              "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj": {
-                "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj"
+              "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj": {
+                "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj"
               }
             }
           }
@@ -274,14 +274,14 @@
         }
       }
     },
-    "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj": {
+    "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj",
+        "projectUniqueName": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj",
         "projectName": "Real_estate.Application",
-        "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj",
+        "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\Real_estate.Application.csproj",
         "packagesPath": "C:\\Users\\andim\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\obj\\",
+        "outputPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Real_estate.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\andim\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -298,8 +298,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj": {
-                "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj"
+              "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj": {
+                "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj"
               }
             }
           }
@@ -359,14 +359,14 @@
         }
       }
     },
-    "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj": {
+    "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj",
         "projectName": "Real_estate.Domain",
-        "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj",
+        "projectPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\Real_estate.Domain.csproj",
         "packagesPath": "C:\\Users\\andim\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\obj\\",
+        "outputPath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\Real_estate.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\andim\\AppData\\Roaming\\NuGet\\NuGet.Config",

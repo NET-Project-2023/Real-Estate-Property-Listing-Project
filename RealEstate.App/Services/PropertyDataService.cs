@@ -48,7 +48,6 @@ namespace RealEstate.App.Services
                 formContent.Add(new StringContent(propertyViewModel.Title ?? string.Empty), "Title");
                 formContent.Add(new StringContent(propertyViewModel.Address ?? string.Empty), "Address");
                 formContent.Add(new StringContent(propertyViewModel.Size.ToString()), "Size");
-                formContent.Add(new StringContent(propertyViewModel.Price.ToString()), "Price");
                 formContent.Add(new StringContent(propertyViewModel.NumberOfBedrooms.ToString()), "NumberOfBedrooms");
                 formContent.Add(new StringContent(propertyViewModel.NumberOfBathrooms.ToString()), "NumberOfBathrooms");
                 formContent.Add(new StringContent(propertyViewModel.UserId), "UserId");
@@ -183,7 +182,6 @@ namespace RealEstate.App.Services
             formContent.Add(new StringContent(propertyDto.Title ?? string.Empty), "Title");
             formContent.Add(new StringContent(propertyDto.Address ?? string.Empty), "Address");
             formContent.Add(new StringContent(propertyDto.Size.ToString()), "Size");
-            formContent.Add(new StringContent(propertyDto.Price.ToString()), "Price");
             formContent.Add(new StringContent(propertyDto.NumberOfBedrooms.ToString()), "NumberOfBedrooms");
             formContent.Add(new StringContent(propertyDto.NumberOfBathrooms.ToString()), "NumberOfBathrooms");
             formContent.Add(new StringContent(propertyDto.UserId), "UserId");

@@ -12,16 +12,20 @@ namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
             .NotNull()
             .MaximumLength(100).WithMessage(ValidationMessages.MaxLengthMessage);
 
-            RuleFor(p => p.Address)
+            RuleFor(p => p.City)
                 .NotEmpty().WithMessage(ValidationMessages.RequiredMessage)
                 .NotNull()
                 .MaximumLength(150).WithMessage(ValidationMessages.MaxLengthMessage);
 
+            RuleFor(p => p.StreetAddress)
+                .NotEmpty().WithMessage(ValidationMessages.RequiredMessage)
+                .NotNull()
+                .MaximumLength(150).WithMessage(ValidationMessages.MaxLengthMessage);
+
+
             RuleFor(p => p.Size)
                 .GreaterThan(0).WithMessage(ValidationMessages.GreaterThanZeroMessage);
 
-            RuleFor(p => p.Price)
-                .GreaterThan(0).WithMessage(ValidationMessages.GreaterThanZeroMessage);
 
             RuleFor(p => p.NumberOfBedrooms)
                 .GreaterThan(0).WithMessage(ValidationMessages.GreaterThanZeroMessage);

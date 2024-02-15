@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MJqV3nYJzFOY2Z4y7d5FuQD9ryGwRCGNeRZL19bE1Ik/1ef3+NL4/1PDiJyfVSZUFs//p7iIc+bQtegm+hQrXg==",
+  "dgSpecHash": "4E8j2VMIA//qYCpX6QKT9kaF9MpfUBBtyXgoPezZ+BiGVsP1N81hXgBaf++icoiaGTIPlCsL3ztKCpjsCZmbsw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Introducere .NET\\Real-Estate-Property-Listing-Project\\RealEstateApi\\RealEstate.API.csproj",
+  "projectFilePath": "C:\\Users\\andim\\OneDrive\\Documente\\AN_3\\Real-Estate-Property-Listing-Project\\RealEstateApi\\RealEstate.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\andim\\.nuget\\packages\\azure.core\\1.36.0\\azure.core.1.36.0.nupkg.sha512",
     "C:\\Users\\andim\\.nuget\\packages\\azure.identity\\1.10.4\\azure.identity.1.10.4.nupkg.sha512",
