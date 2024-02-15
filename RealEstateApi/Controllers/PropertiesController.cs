@@ -21,7 +21,7 @@ namespace RealEstate.API.Controllers
             _logger = logger;
         }
 
-        [Authorize(Roles = "User")]
+        //[Authorize(Roles = "User")]
         //[Authorize(Roles = "Admin")]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -50,7 +50,7 @@ namespace RealEstate.API.Controllers
         }
 
 
-        [Authorize(Roles = "User")]
+        //[Authorize(Roles = "User")]
         [HttpPut("update/{title}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -77,7 +77,7 @@ namespace RealEstate.API.Controllers
         }
 
 
-        [Authorize(Roles = "User")]
+        //[Authorize(Roles = "User")]
         //[Authorize(Roles = "Admin")]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -104,7 +104,7 @@ namespace RealEstate.API.Controllers
             return Ok(result);
         }
 
-        [Authorize(Roles = "User")]
+        //[Authorize(Roles = "User")]
         //[Authorize(Roles = "Admin")]
         [HttpDelete("{title}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -121,7 +121,7 @@ namespace RealEstate.API.Controllers
         }
 
 
-        [Authorize(Roles = "User")]
+        //[Authorize(Roles = "User")]
         //[Authorize(Roles = "Admin")]
         [HttpGet("ByCurrentUser/{ownerUsername}")]
         [ProducesResponseType(StatusCodes.Status200OK)]

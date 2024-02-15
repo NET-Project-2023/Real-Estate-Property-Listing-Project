@@ -46,7 +46,8 @@ namespace RealEstate.App.Services
                 using var formContent = new MultipartFormDataContent();
 
                 formContent.Add(new StringContent(propertyViewModel.Title ?? string.Empty), "Title");
-                formContent.Add(new StringContent(propertyViewModel.Address ?? string.Empty), "Address");
+                formContent.Add(new StringContent(propertyViewModel.City ?? string.Empty), "City");
+                formContent.Add(new StringContent(propertyViewModel.StreetAddress ?? string.Empty), "StreetAddress");
                 formContent.Add(new StringContent(propertyViewModel.Size.ToString()), "Size");
                 formContent.Add(new StringContent(propertyViewModel.NumberOfBedrooms.ToString()), "NumberOfBedrooms");
                 formContent.Add(new StringContent(propertyViewModel.NumberOfBathrooms.ToString()), "NumberOfBathrooms");
@@ -180,7 +181,8 @@ namespace RealEstate.App.Services
             using var formContent = new MultipartFormDataContent();
 
             formContent.Add(new StringContent(propertyDto.Title ?? string.Empty), "Title");
-            formContent.Add(new StringContent(propertyDto.Address ?? string.Empty), "Address");
+            formContent.Add(new StringContent(propertyDto.City ?? string.Empty), "City");
+            formContent.Add(new StringContent(propertyDto.StreetAddress ?? string.Empty), "StreetAddress");
             formContent.Add(new StringContent(propertyDto.Size.ToString()), "Size");
             formContent.Add(new StringContent(propertyDto.NumberOfBedrooms.ToString()), "NumberOfBedrooms");
             formContent.Add(new StringContent(propertyDto.NumberOfBathrooms.ToString()), "NumberOfBathrooms");
