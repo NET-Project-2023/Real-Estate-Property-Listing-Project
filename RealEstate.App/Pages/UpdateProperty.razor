@@ -87,7 +87,7 @@ else
 @code {
     private PropertyDto UpdatePropertyModel;
     private string PropertyTitle { get; set; } = string.Empty;
-    private bool SearchAttempted { get; set; } = false;
+    //private bool SearchAttempted { get; set; } = false;
     private const long maxFileSize = 10485760; // 10 MB
     private List<byte[]> RemovedImages = new List<byte[]>();
 
@@ -105,7 +105,7 @@ else
             NavigationManager.NavigateTo("/unauthorized");
         }
 
-        SearchAttempted = true;
+        // SearchAttempted = true;
     }
 
     private async Task HandleValidSubmit()

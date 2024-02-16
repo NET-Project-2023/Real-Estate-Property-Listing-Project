@@ -78,9 +78,10 @@ namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
                     City = property.Value.City,
                     StreetAddress = property.Value.StreetAddress,
                     Size = property.Value.Size,
-                    UserId = property.Value.UserId,
                     NumberOfBedrooms = property.Value.NumberOfBedrooms,
-                    Images = property.Value.Images
+                    NumberOfBathrooms = property.Value.NumberOfBathrooms,
+                    Images = property.Value.Images,
+                    UserId = property.Value.UserId,
                 }
             };
         }

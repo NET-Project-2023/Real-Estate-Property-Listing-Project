@@ -1,120 +1,117 @@
-﻿@page "/addlisting"
+﻿@page "/addlisting/{propertyId}"
 @using RealEstate.App.Contracts
 @using RealEstate.App.ViewModels
 @using static RealEstate.App.Enums
 
 
-<h3>New Listing</h3>
+<h3>Add Listing</h3>
 
-<EditForm Model="@ListingViewModel" OnValidSubmit="@HandleValidSubmit">
+@if (ErrorMessage != null)
+{
+    <p class="text-danger">@ErrorMessage</p>
+}
 
+@if (Property != null)
+{
+    <h4>Property Details</h4>
+    <dl class="row">
+        <dt class="col-sm-3">Title:</dt>
+        <dd class="col-sm-9">@Property.Title</dd>
+        
+        <!-- Add more property details as needed -->
+    </dl>
+}
+
+<EditForm Model="@listingViewModel" OnValidSubmit="HandleValidSubmit">
     <DataAnnotationsValidator />
-    <ValidationSummary></ValidationSummary>
+    <ValidationSummary />
 
-    <div class="row mb-3 ms-2">
-        <label for="title" class="col-sm-3 form-label">Listing title:</label>
-        <div class="col-sm-5">
-            <InputText id="title" class="form-control" @bind-Value="@ListingViewModel.Title" placeholder="Enter listing title"></InputText>
-            <ValidationMessage For="@(() => ListingViewModel.Title)" />
-        </div>
-    </div>
-    
-    <!-- User Name -->
-    <div class="row mb-3 ms-2">
-        <label for="username" class="col-sm-3 form-label">User Name:</label>
-        <div class="col-sm-5">
-            <InputText id="username" class="form-control" @bind-Value="@ListingViewModel.UserName" placeholder="Enter your username"></InputText>
-            <ValidationMessage For="@(() => ListingViewModel.UserName)" />
-        </div>
+
+    <div class="form-group">
+        <label for="title">Listing Title:</label>
+        <InputText id="title" @bind-Value="listingViewModel.Title" class="form-control" />
+        <ValidationMessage For="@(() => listingViewModel.Title)" />
     </div>
 
-    <!-- Property Name -->
-    <div class="row mb-3 ms-2">
-        <label for="propertyName" class="col-sm-3 form-label">Property Name:</label>
-        <div class="col-sm-5">
-            <InputText id="propertyName" class="form-control" @bind-Value="@ListingViewModel.PropertyName" placeholder="Enter property name"></InputText>
-            <ValidationMessage For="@(() => ListingViewModel.PropertyName)" />
-        </div>
+    <div class="form-group">
+        <label for="status">Status:</label>
+        <InputSelect id="status" @bind-Value="listingViewModel.PropertyStatus" class="form-control">
+            @foreach (var status in Enum.GetValues(typeof(Status)))
+            {
+                <option value="@status">@status</option>
+            }
+        </InputSelect>
+        <ValidationMessage For="@(() => listingViewModel.PropertyStatus)" />
     </div>
 
-    <!-- Description -->
-    <div class="row mb-3 ms-2">
-        <label for="description" class="col-sm-3 form-label">Description:</label>
-        <div class="col-sm-5">
-            <InputTextArea id="description" class="form-control" @bind-Value="@ListingViewModel.Description" placeholder="Enter listing description"></InputTextArea>
-            <ValidationMessage For="@(() => ListingViewModel.Description)" />
-        </div>
+    <div class="form-group">
+        <label for="price">Price:</label>
+        <InputNumber id="price" @bind-Value="listingViewModel.Price" class="form-control" />
+        <ValidationMessage For="@(() => listingViewModel.Price)" />
     </div>
 
-    <!-- Property Status -->
-    <div class="row mb-3 ms-2">
-        <label for="propertyStatus" class="col-sm-3 form-label">Property Status:</label>
-        <div class="col-sm-5">
-            <InputSelect @bind-Value="@ListingViewModel.PropertyStatus" class="form-control">
-                <option value="">Select status</option>
-                @foreach (var status in Enum.GetValues<Status>())
-                {
-                    <option value="@status">@status</option>
-                }
-            </InputSelect>
-            <ValidationMessage For="@(() => ListingViewModel.PropertyStatus)" />
-        </div>
-    </div>
-
-    <div class="row mb-3 ms-2">
-        <label for="price" class="col-sm-3 form-label">Price:</label>
-        <div class="col-sm-5">
-            <InputNumber id="price" class="form-control" @bind-Value="@ListingViewModel.Price"></InputNumber>
-            <ValidationMessage For="@(() => ListingViewModel.Price)" />
-        </div>
-    </div>
-
-    <div class="row mb-3 ms-2">
-        <!-- Other listing-specific fields here -->
-    </div>
-
-    <div class="row mb-3 ms-2">
-        <div class="col-sm-3"></div>
-        <div class="col-sm-5">
-            <button type="submit" class="btn btn-success me-2">Save listing</button>
-            <button class="btn btn-secondary" @onclick="Cancel">Cancel</button>
-        </div>
-    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </EditForm>
 
-@if (!string.IsNullOrWhiteSpace(Message))
+@if (!string.IsNullOrWhiteSpace(ErrorMessage))
 {
     <div class="alert alert-info ms-2">
-        @Message
+        @ErrorMessage
     </div>
 }
 
 @code {
+
+    [Parameter]
+    public string PropertyId { get; set; }
+
     [Inject]
     public IListingDataService ListingDataService { get; set; }
 
     [Inject]
+    public IPropertyDataService PropertyDataService { get; set; }
+
+    [Inject]
     public NavigationManager NavigationManager { get; set; }
 
-    public ListingViewModel ListingViewModel { get; set; } = new ListingViewModel();
+    public ListingViewModel listingViewModel { get; set; } = new ListingViewModel();
+    public PropertyViewModel Property { get; set; }
+    public string ErrorMessage { get; set; }
+    
 
-    public string Message { get; set; }
-
-    private async Task HandleValidSubmit()
+    protected override async Task OnInitializedAsync()
     {
-        var result = await ListingDataService.CreateListingAsync(ListingViewModel);
-        Console.WriteLine("RESULT ok?");
-        if (result.IsSuccess)
+        if (Guid.TryParse(PropertyId, out Guid propertyId))
         {
-            Message = "Listing created successfully";
-            Console.WriteLine("MESAJ INAINTE: " + Message);
-            // Schedule the navigation on the next render cycle
-            await InvokeAsync(() => NavigationManager.NavigateTo("/listingoverview"));
+            // Fetch property details from the PropertyId
+            Property = await PropertyDataService.GetPropertyByIdAsync(propertyId);
+
+            // Assign the PropertyId to the listingViewModel
+            listingViewModel.PropertyId = propertyId;
         }
         else
         {
-            Message = result.Message; 
-            Console.WriteLine("Error Message: " + Message); // Add this line to check the error message
+            // Handle the case where the PropertyId parameter is not a valid GUID
+            // You can log an error or display a message to the user
+            ErrorMessage = "Invalid PropertyId parameter.";
+        }
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        var result = await ListingDataService.CreateListingAsync(listingViewModel);
+        if (result.IsSuccess)
+        {
+            ErrorMessage = "Listing created successfully";
+            Console.WriteLine("MESAJ INAINTE: " + ErrorMessage);
+
+            // Schedule the navigation on the next render cycle
+            await InvokeAsync(() => NavigationManager.NavigateTo("/propertyoverview"));
+        }
+        else
+        {
+            ErrorMessage = result.Message;
+            Console.WriteLine("Error Message: " + ErrorMessage); // Add this line to check the error message
         }
     }
 

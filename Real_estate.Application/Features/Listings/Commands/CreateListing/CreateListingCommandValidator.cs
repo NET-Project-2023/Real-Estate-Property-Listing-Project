@@ -22,9 +22,6 @@ namespace Real_estate.Application.Features.Listings.Commands.CreateListing
             RuleFor(p => p.PropertyId)
                 .NotEmpty().WithMessage("{PropertyId} is required.")
                 .NotNull();
-
-
-            // Validating PropertyStatus
             
 
             bool BeAValidGuid(Guid guid)

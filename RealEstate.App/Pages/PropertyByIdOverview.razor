@@ -50,6 +50,9 @@
             {
                 <button class="btn btn-primary" @onclick="() => NavigateToEdit(Property.Title)">Edit</button>
             }
+
+            <button class="btn btn-primary" @onclick="() => NavigateToListing(Property.PropertyId.ToString())">List Property</button>
+
         </div>
     </div>
 }
@@ -81,6 +84,15 @@ else if (SearchAttempted)
 
         Property = await PropertyDataService.GetPropertyByNameAsync(PropertyName);
 
+        if (loggedInUsername == Property.UserId)
+        {
+            showEdit = true;
+        }
+        else
+        {
+            showEdit = false;
+        }
+
         userViewModel = await userService.GetUser(Property.UserId);
         Console.WriteLine("USERUL ESTE AICI: ", userViewModel.Username); // Aici e GOL
     }
@@ -88,6 +100,11 @@ else if (SearchAttempted)
     private void NavigateToEdit(string propertyTitle)
     {
         NavigationManager.NavigateTo($"/updateproperty/{propertyTitle}");
+    }
+
+    private void NavigateToListing(string propertyId)
+    {
+        NavigationManager.NavigateTo($"/addlisting/{propertyId}");
     }
 
 }

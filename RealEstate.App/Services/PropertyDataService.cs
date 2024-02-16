@@ -81,7 +81,10 @@ namespace RealEstate.App.Services
                 }
 
                 var responseContent = await response.Content.ReadAsStringAsync();
+                Console.WriteLine($"API Response: {responseContent}");
+
                 var apiResponse = JsonSerializer.Deserialize<ApiResponse<PropertyDto>>(responseContent);
+
                 return apiResponse ?? new ApiResponse<PropertyDto> { IsSuccess = false };
 
             }
@@ -148,6 +151,7 @@ namespace RealEstate.App.Services
             httpClient.DefaultRequestHeaders.Authorization =
                 new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
 
+            
             var result = await httpClient.GetAsync(RequestUri, HttpCompletionOption.ResponseHeadersRead);
             result.EnsureSuccessStatusCode();
 
@@ -233,12 +237,12 @@ namespace RealEstate.App.Services
                 throw;
             }
         }
-        public async Task<List<PropertyViewModel>> GetPropertyByIdAsync(Guid propertyId)
+        public async Task<PropertyViewModel> GetPropertyByIdAsync(Guid propertyId)
         {
             httpClient.DefaultRequestHeaders.Authorization =
                 new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
 
-            var result = await httpClient.GetAsync($"{RequestUri}/{propertyId}", HttpCompletionOption.ResponseHeadersRead);
+            var result = await httpClient.GetAsync($"{RequestUri}/ById/{propertyId}", HttpCompletionOption.ResponseHeadersRead);
             result.EnsureSuccessStatusCode();
 
             var content = await result.Content.ReadAsStringAsync();
@@ -248,10 +252,8 @@ namespace RealEstate.App.Services
                 throw new ApplicationException(content);
             }
 
-            var response = JsonSerializer.Deserialize<PropertiesResponse>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-
-            var properties = response?.Properties ?? new List<PropertyViewModel>();
-            return properties!;
+            var property = JsonSerializer.Deserialize<PropertyViewModel>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+            return property;
         }
 
         public async Task<PropertyDto> DeletePropertyAsync(string title)

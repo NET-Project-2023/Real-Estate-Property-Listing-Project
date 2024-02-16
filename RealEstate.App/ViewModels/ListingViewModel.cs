@@ -11,8 +11,7 @@ namespace RealEstate.App.ViewModels
         public string? Title { get; set; }
         public decimal Price { get; set; }
         public string UserName { get; set; }
-        public string PropertyName { get; set; }
-        public string Description { get; set; }
+        public Guid PropertyId { get; set; }
         public Status PropertyStatus { get; set; } 
     }
 }
