@@ -44,7 +44,7 @@ namespace Real_estate.Application.Features.Properties.Commands.UpdateProperty
                 property.UpdateTitle(request.Title);
             }
 
-            if (request.Description != null)
+            if (!string.IsNullOrEmpty(request.Description))
             {
                 property.UpdateDescription(request.Description);
             }
@@ -79,10 +79,6 @@ namespace Real_estate.Application.Features.Properties.Commands.UpdateProperty
                 property.AttachNumberOfBathrooms(request.NumberOfBathrooms.Value);
             }
 
-            //if (request.Images != null && request.Images.Any())
-            //{
-            //    property.AttachImageUrls(request.Images);
-            //}
 
             if (request.Images != null && request.Images.Any())
             {

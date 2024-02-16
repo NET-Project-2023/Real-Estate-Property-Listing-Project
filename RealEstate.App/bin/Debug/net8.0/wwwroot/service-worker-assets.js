@@ -213,12 +213,12 @@
       "url": "manifest.webmanifest"
     },
     {
-      "hash": "sha256-bTJWCFLadoRRRUVggwr6KvlBJvQhGVyeFk4BTdpfGbM=",
-      "url": "RealEstate.App.styles.css"
-    },
-    {
       "hash": "sha256-I4LggERZ\/f+YpdIbmQq\/DkpppLSwVDlVHxq6Yvx\/QAc=",
       "url": "_framework\/blazor.webassembly.js"
+    },
+    {
+      "hash": "sha256-bTJWCFLadoRRRUVggwr6KvlBJvQhGVyeFk4BTdpfGbM=",
+      "url": "RealEstate.App.styles.css"
     },
     {
       "hash": "sha256-xHBGFCMjDjvvTwtMvgaMBNmQk9JdVhGmws2\/GMZlxrI=",
@@ -1085,33 +1085,33 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-tpIIAFQkz4kA+L1ocCpe1P5AyDdChCiGjWodjUQkYj0=",
+      "hash": "sha256-GGycfc7JLHOWS37Ez9M8OTdJEKG0zdS\/ZfPivw0pWvQ=",
       "url": "_framework\/Real_estate.Application.wasm"
     },
     {
-      "hash": "sha256-mcce\/1vwiV7EOzbPkm0AIZuI1nNAgl2NknrYrkBcjCg=",
+      "hash": "sha256-q2rUL6t8BwAq30QKXppRj6M+G\/qjZy0QtucMRPlaPTE=",
       "url": "_framework\/Real_estate.Domain.wasm"
     },
     {
-      "hash": "sha256-RxKT6RaMRr+1k4VUllM2ouGrYkV3X0\/ebhbC8k1ILfk=",
+      "hash": "sha256-oxGMFMEBkpoviogHSNsLPrkxAFTTHXy0s4M9PnavW7M=",
       "url": "_framework\/Real_estate.Application.pdb"
     },
     {
-      "hash": "sha256-VLx55CRbdTZE6Bn8MGtdAruXwF3QyQS5S5qGbEjR900=",
+      "hash": "sha256-d+8\/564OV\/7Ps\/4JMAeTwN8krBkxZXteEYHwgV7UB4g=",
       "url": "_framework\/Real_estate.Domain.pdb"
     },
     {
-      "hash": "sha256-7zJO3+ncQRGQpHYhTSz+duqF\/ntxt8tGGyH3i06IApM=",
+      "hash": "sha256-QMK40hO0TWzlYSjYFB0iIBLEYM5ySsJpJE\/6QZZu+ms=",
       "url": "_framework\/RealEstate.App.wasm"
     },
     {
-      "hash": "sha256-UdWZ4e1gAhuC3Ha7FVso0uQnwXZQMsSAAU3p+a12\/Uo=",
+      "hash": "sha256-mxFErEfiUcm07b+6zTqgcLt0KVdOeH\/bRxZW+gt5Zjk=",
       "url": "_framework\/RealEstate.App.pdb"
     },
     {
-      "hash": "sha256-vARLdm5p6g\/K5eKF7kdhDga2KEQ2dOAZaG9TwgRixl8=",
+      "hash": "sha256-369ruuG6cWuZpX+MytQthowORzdF4rQXLQnHfEvCqT4=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "H\/t9ZpCy"
+  "version": "v1FWa+oE"
 };

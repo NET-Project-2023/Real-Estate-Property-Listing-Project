@@ -63,9 +63,9 @@ else
                 <div class="d-inline-block text-center m-2">
                     <img src="@($"data:image/png;base64,{Convert.ToBase64String(image)}")" alt="Property Image" class="img-fluid rounded" style="width: 150px; height: 150px;" />
                     <div class="mt-2">
-                        <button type="button" class="btn btn-outline-danger" @onclick="() => RemoveImage(image)">
+@*                         <button type="button" class="btn btn-outline-danger" @onclick="() => RemoveImage(image)">
                             <i class="fas fa-trash-alt"></i> Remove
-                        </button>
+                        </button> *@
                     </div>
                 </div>
             }
@@ -100,7 +100,6 @@ else
         PropertyTitle = NavigationManager.Uri.Split('/').LastOrDefault();
         UpdatePropertyModel = await PropertyDataService.GetPropertyByNameAsync(PropertyTitle);
         string loggedInUsername = await tokenService.GetUsernameFromTokenAsync();
-        Console.WriteLine("LOGGEDIN pentru UPDATE: ", loggedInUsername); 
         if(UpdatePropertyModel.UserId != loggedInUsername && loggedInUsername != null)
         {
             NavigationManager.NavigateTo("/unauthorized");
@@ -111,6 +110,11 @@ else
 
     private async Task HandleValidSubmit()
     {
+        if (UpdatePropertyModel.ImagesFiles == null || UpdatePropertyModel.ImagesFiles.Count == 0)
+        {
+            // Set ImagesFiles to an empty list if no files are selected
+            UpdatePropertyModel.ImagesFiles = new List<IBrowserFile>();
+        }
 
 
         var result = await PropertyDataService.UpdatePropertyAsync(UpdatePropertyModel);
@@ -121,16 +125,10 @@ else
         }
         else
         {
-            // Handle error scenario
             Console.WriteLine($"Error updating property: {result.Message}");
         }
     }
 
-    private void RemoveImage(byte[] image)
-    {
-        UpdatePropertyModel.Images.Remove(image);
-        RemovedImages.Add(image);
-    }
 
     private async Task HandleFileChange(InputFileChangeEventArgs e)
     {
@@ -150,4 +148,11 @@ else
             }
         }
     }
+
+    // private void RemoveImage(byte[] image)
+    // {
+    //     UpdatePropertyModel.Images.Remove(image);
+    //     RemovedImages.Add(image);
+    // }
 }
+

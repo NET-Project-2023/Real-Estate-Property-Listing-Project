@@ -1,9 +1,11 @@
-﻿using RealEstate.App.Contracts;
+﻿using Real_estate.Application.Features.Properties.Commands;
+using RealEstate.App.Contracts;
 using RealEstate.App.Services.Responses;
 using RealEstate.App.ViewModels;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text.Json;
+using PropertyDto = RealEstate.App.ViewModels.PropertyDto;
 
 
 namespace RealEstate.App.Services
@@ -53,14 +55,21 @@ namespace RealEstate.App.Services
                 formContent.Add(new StringContent(propertyViewModel.NumberOfBathrooms.ToString()), "NumberOfBathrooms");
                 formContent.Add(new StringContent(propertyViewModel.UserId), "UserId");
 
-                // Add files to the form content
-                foreach (var browserFile in propertyViewModel.ImagesFiles)
+                if (propertyViewModel.ImagesFiles != null)
                 {
-                    var fileContent = new StreamContent(browserFile.OpenReadStream(maxFileSize));
-                    fileContent.Headers.ContentType = new MediaTypeHeaderValue(browserFile.ContentType);
-                    formContent.Add(fileContent, "ImagesFiles", browserFile.Name);
-
+                    foreach (var browserFile in propertyViewModel.ImagesFiles)
+                    {
+                        var fileContent = new StreamContent(browserFile.OpenReadStream(maxFileSize));
+                        fileContent.Headers.ContentType = new MediaTypeHeaderValue(browserFile.ContentType);
+                        formContent.Add(fileContent, "ImagesFiles", browserFile.Name);
+                    }
                 }
+                else
+                {
+                    formContent.Add(new StringContent(""), "ImagesFiles");
+                }
+
+
                 // Send POST request with form content
                 var response = await httpClient.PostAsync(RequestUri, formContent);
 
@@ -188,15 +197,18 @@ namespace RealEstate.App.Services
             formContent.Add(new StringContent(propertyDto.NumberOfBathrooms.ToString()), "NumberOfBathrooms");
             formContent.Add(new StringContent(propertyDto.UserId), "UserId");
 
+
             // Add files to the form content
             foreach (var browserFile in propertyDto.ImagesFiles)
             {
                 var fileContent = new StreamContent(browserFile.OpenReadStream(maxFileSize));
                 fileContent.Headers.ContentType = new MediaTypeHeaderValue(browserFile.ContentType);
                 formContent.Add(fileContent, "ImagesFiles", browserFile.Name);
-
             }
 
+            // Log the content being sent to the backend API
+            var debugContent = await formContent.ReadAsStringAsync();
+            Console.WriteLine($"REQUEST CONTENTTT: {debugContent}");
 
             var response = await httpClient.PutAsync(requestUri, formContent);
             

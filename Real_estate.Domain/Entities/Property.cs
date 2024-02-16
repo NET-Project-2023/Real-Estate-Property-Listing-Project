@@ -38,10 +38,7 @@ namespace Real_estate.Domain.Entities
 
         public void AttachDescription(string description)
         {
-            if (!string.IsNullOrWhiteSpace(description))
-            {
-                Description = description;
-            }
+             Description = description;
         }
 
         public void AttachImageUrls(List<byte[]> images)
@@ -80,10 +77,7 @@ namespace Real_estate.Domain.Entities
 
         public void UpdateDescription(string newDescription)
         {
-            if (string.IsNullOrWhiteSpace(newDescription))
-            {
-                throw new ArgumentException("Description cannot be empty.", nameof(newDescription));
-            }
+            // additional validations
             Description = newDescription;
         }
 

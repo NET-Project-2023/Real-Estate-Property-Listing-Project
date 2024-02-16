@@ -54,16 +54,22 @@ namespace RealEstate.API.Controllers
         [HttpPut("update/{title}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Update( [FromForm] UpdatePropertyCommand command)
+        public async Task<IActionResult> Update([FromForm] UpdatePropertyCommand command)
         {
             if (string.IsNullOrEmpty(command.Title))
             {
                 return BadRequest("Title is required for property update.");
             }
 
-            if (command.ImagesFiles != null) 
+            // Check if ImagesFiles is empty or null
+            if (command.ImagesFiles != null && command.ImagesFiles.Any())
             {
                 command.Images = await UtilityFunctions.ConvertToByteArrayAsync(command.ImagesFiles);
+            }
+            else
+            {
+                // Set Images to null
+                command.Images = null;
             }
 
             var result = await Mediator.Send(command);
