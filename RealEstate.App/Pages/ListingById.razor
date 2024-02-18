@@ -1,4 +1,4 @@
-﻿@page "/listingdetails/{title}"
+﻿@page "/listingdetails/{listingId}"
 @using RealEstate.App.Contracts
 @using RealEstate.App.ViewModels
 
@@ -38,13 +38,15 @@ else if (SearchAttempted)
 
     [Inject]
     public NavigationManager NavigationManager { get; set; }
+
     [Parameter]
-    public string title { get; set; }
+    public string listingId { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
         ListingTitle = NavigationManager.Uri.Split('/').LastOrDefault();
         Listing = await ListingDataService.GetListingByTitleAsync(ListingTitle);
+        //Listing = await ListingDataService.GetListingByIdAsync(listingId);
         SearchAttempted = true;
     }
 }

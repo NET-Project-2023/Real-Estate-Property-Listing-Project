@@ -10,7 +10,7 @@ namespace RealEstate.API.Controllers
 {
     public class ListingsController : ApiControllerBase
     {
-        [Authorize(Roles = "User")]
+        //[Authorize(Roles = "User")]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         public async Task<IActionResult> Create(CreateListingCommand command)

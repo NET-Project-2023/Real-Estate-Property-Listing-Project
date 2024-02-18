@@ -44,6 +44,12 @@ namespace RealEstate.App.Services
             httpClient.DefaultRequestHeaders.Authorization =
                 new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
 
+            string loggedInUsername = await tokenService.GetUsernameFromTokenAsync();
+            if (loggedInUsername != listingViewModel.UserName)
+            {
+                throw new InvalidOperationException("Username from Property and URL not matching!");
+            }
+
             var response = await httpClient.PostAsJsonAsync(RequestUri, listingViewModel);
             response.EnsureSuccessStatusCode();
             Console.WriteLine($"RESPONSE: {response.StatusCode}"); 

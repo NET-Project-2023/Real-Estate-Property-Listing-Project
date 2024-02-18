@@ -4,6 +4,8 @@
 @using static RealEstate.App.Enums
 
 
+
+
 <h3>Add Listing</h3>
 
 @if (ErrorMessage != null)
@@ -77,7 +79,7 @@
     public ListingViewModel listingViewModel { get; set; } = new ListingViewModel();
     public PropertyViewModel Property { get; set; }
     public string ErrorMessage { get; set; }
-    
+
 
     protected override async Task OnInitializedAsync()
     {
@@ -88,6 +90,7 @@
 
             // Assign the PropertyId to the listingViewModel
             listingViewModel.PropertyId = propertyId;
+            listingViewModel.UserName = Property.UserId;
         }
         else
         {
@@ -106,7 +109,7 @@
             Console.WriteLine("MESAJ INAINTE: " + ErrorMessage);
 
             // Schedule the navigation on the next render cycle
-            await InvokeAsync(() => NavigationManager.NavigateTo("/propertyoverview"));
+            await InvokeAsync(() => NavigationManager.NavigateTo("/listingsoverview"));
         }
         else
         {

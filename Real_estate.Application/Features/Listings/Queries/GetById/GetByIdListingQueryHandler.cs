@@ -26,7 +26,8 @@ namespace Real_estate.Application.Features.Listings.Queries.GetById
                     Username = result.Value.Username,
                     PropertyId = result.Value.PropertyId,
                     Price = result.Value.Price,
-                    PropertyStatus = result.Value.PropertyStatus
+                    PropertyStatus = result.Value.PropertyStatus,
+                    LastModifiedAt = result.Value.LastModifiedDate
                 };
             }
             return null; 

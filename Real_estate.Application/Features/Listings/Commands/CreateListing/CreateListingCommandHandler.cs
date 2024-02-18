@@ -7,16 +7,16 @@ namespace Real_estate.Application.Features.Listings.Commands.CreateListing
     public class CreateListingCommandHandler : IRequestHandler<CreateListingCommand, CreateListingCommandResponse>
     {
         private readonly IListingRepository listingRepository;
-        private readonly IUserManager userRepository;
+        //private readonly IUserManager userRepository;
         private readonly IPropertyRepository propertyRepository;
 
         public CreateListingCommandHandler(
             IListingRepository listingRepository,
-            IUserManager userRepository,
+            //IUserManager userRepository,
             IPropertyRepository propertyRepository)
         {
             this.listingRepository = listingRepository;
-            this.userRepository = userRepository;
+            //this.userRepository = userRepository;
             this.propertyRepository = propertyRepository;
         }
 
@@ -34,16 +34,6 @@ namespace Real_estate.Application.Features.Listings.Commands.CreateListing
                 };
             }
 
-            var user = await userRepository.FindByUsernameAsync(request.Username);
-            if (user == null)
-            {
-                return new CreateListingCommandResponse
-                {
-                    Success = false,
-                    ValidationsErrors = new List<string> { "User not found." }
-                };
-            }
-
             var property = await propertyRepository.FindByIdAsync(request.PropertyId);
             if (property == null)
             {
@@ -51,6 +41,15 @@ namespace Real_estate.Application.Features.Listings.Commands.CreateListing
                 {
                     Success = false,
                     ValidationsErrors = new List<string> { "Property not found." }
+                };
+            }
+
+            if (request.Username != property.Value.UserId)
+            {
+                return new CreateListingCommandResponse
+                {
+                    Success = false,
+                    ValidationsErrors = new List<string> { "The property has no such owner." }
                 };
             }
 
@@ -82,7 +81,8 @@ namespace Real_estate.Application.Features.Listings.Commands.CreateListing
                     Username = listingResult.Value.Username,
                     PropertyId = listingResult.Value.PropertyId,
                     Price = listingResult.Value.Price,
-                    PropertyStatus = listingResult.Value.PropertyStatus
+                    PropertyStatus = listingResult.Value.PropertyStatus,
+                    LastModifiedAt = listingResult.Value.LastModifiedDate
                 }
             };
         }

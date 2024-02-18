@@ -6,6 +6,7 @@ namespace RealEstate.App.ViewModels
 {
     public class PropertyViewModel
     {
+        public Guid PropertyId { get; set; }    
         public string Title { get; set; }
         public string? Description { get; set; }
         public string City { get; set; }
@@ -16,7 +17,6 @@ namespace RealEstate.App.ViewModels
         public string UserId { get; set; }
         public List<byte[]> Images { get; set; }
         public List<IBrowserFile> ImagesFiles { get; set; } = new List<IBrowserFile>();
-
 
     }
 }

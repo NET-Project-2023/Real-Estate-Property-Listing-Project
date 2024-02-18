@@ -54,6 +54,8 @@ namespace Real_estate.Application.Features.Listings.Commands.UpdateListing
                 listing.UpdateStatus(request.PropertyStatus);
             }
 
+            listing.LastModifiedDate = DateTime.UtcNow;
+
             var updateResult = await listingRepository.UpdateAsync(listing);
 
             if (!updateResult.IsSuccess)

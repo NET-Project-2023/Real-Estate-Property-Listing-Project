@@ -5,6 +5,7 @@ namespace RealEstate.App.ViewModels
 {
     public class ListingViewModel
     {
+        public Guid ListingId { get; set; }
 
         [Required(ErrorMessage = "Listing title is required")]
         [StringLength(50, ErrorMessage = "Max 50 characters are allowed for Title")]
@@ -13,5 +14,6 @@ namespace RealEstate.App.ViewModels
         public string UserName { get; set; }
         public Guid PropertyId { get; set; }
         public Status PropertyStatus { get; set; } 
+        public DateTime LastUpdatedAt { get; set; }
     }
 }

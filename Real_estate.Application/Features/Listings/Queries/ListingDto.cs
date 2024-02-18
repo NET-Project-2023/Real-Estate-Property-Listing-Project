@@ -12,6 +12,6 @@ namespace Real_estate.Application.Features.Listings.Queries
         public decimal Price { get; set; }
         public string Username { get; set; } 
         public Status PropertyStatus { get; set; }
-
+        public DateTime LastModifiedAt { get; set; }
     }
 }

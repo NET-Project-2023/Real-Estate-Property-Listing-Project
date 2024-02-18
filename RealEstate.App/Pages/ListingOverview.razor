@@ -1,68 +1,126 @@
-﻿@page "/listingoverview"
+﻿@page "/listingsoverview"
 @using RealEstate.App.Contracts
 @using RealEstate.App.ViewModels
+
+
+<style scoped>
+    .listing-container {
+        border: 1px solid #eee;
+        padding: 15px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+        .listing-container:hover {
+            background-color: #e9ecef;
+            transform: scale(1.02);
+        }
+
+    .thumbnail {
+        max-width: 150px;
+    }
+
+    .title {
+        font-size: 1.25em;
+    }
+
+    .price {
+        font-size: 1.5em;
+    }
+
+    .info, .size {
+        font-size: 1em;
+    }
+</style>
 
 <div class="container mt-5">
     <h3>Listing Overview</h3>
 
-    @if (Listings == null)
+    @if (Listings != null && Listings.Any())
     {
-        <div class="text-center">
-            <div class="spinner-border text-primary" role="status">
-                <span class="sr-only">Loading...</span>
+        @foreach (var listing in Listings)
+        {
+            <div class="listing-container d-flex mb-4" @onclick="() => ViewListingDetails(listing.ListingId.ToString())" style="cursor: pointer;">
+                <!-- Thumbnail image -->
+                <div class="thumbnail-container mr-3">
+                    <img src="@GetThumbnail(listing.PropertyId)" alt="Thumbnail" class="thumbnail img-fluid rounded">
+                </div>
+
+                <!-- Details -->
+                <div class="details w-100">
+                    <!-- Title and Price -->
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div class="title font-weight-bold">@listing.Title</div>
+                        <div class="price text-success h4">$@listing.Price</div>
+                    </div>
+
+                    <!-- City and Last Updated -->
+                    <div class="info text-muted">@GetLocation(listing.PropertyId) - Last updated: @listing.LastUpdatedAt</div>
+
+                    <!-- Size -->
+                    <div class="size text-muted">Size: @GetSize(listing.PropertyId) mp²</div>
+                </div>
             </div>
-        </div>
-    }
-    else if (Listings.Count == 0)
-    {
-        <p>No listings available.</p>
+        }
     }
     else
     {
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>Listing Title</th>
-                        <th>Availability</th>
-                        <th>Price</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var listing in Listings)
-                    {
-                        <tr>
-                            <td>@listing.Title</td>
-                            <td>@listing.PropertyStatus.ToString()</td>
-                            <td>$@listing.Price.ToString("N0")</td>
-                            <td>
-                                <button class="btn btn-primary" @onclick="() => ViewListingDetails(listing.Title)">View Details</button>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+        <p>No listings available.</p>
     }
 </div>
+
 
 @code {
     [Inject]
     public IListingDataService ListingDataService { get; set; }
 
     [Inject]
+    public IPropertyDataService PropertyDataService { get; set; }
+
+    [Inject]
     public NavigationManager NavigationManager { get; set; }
 
     public List<ListingViewModel> Listings { get; set; }
 
+    public List<PropertyViewModel> Properties { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
         Listings = (await ListingDataService.GetListingsAsync()).ToList();
+
+        var propertyTasks = Listings.Select(listing => PropertyDataService.GetPropertyByIdAsync(listing.PropertyId));
+        var propertyResults = await Task.WhenAll(propertyTasks);
+        Properties = propertyResults.ToList();
     }
 
-    private void ViewListingDetails(string listingTitle)
+    private string GetLocation(Guid propertyId)
     {
-        NavigationManager.NavigateTo($"/listingdetails/{listingTitle}");
+        var property = Properties.FirstOrDefault(p => p.PropertyId == propertyId);
+        return property != null ? property.City : "Unknown";
+    }
+
+
+    private string GetThumbnail(Guid propertyId)
+    {
+        var property = Properties.FirstOrDefault(p => p.PropertyId == propertyId);
+        if (property != null && property.Images != null && property.Images.Any())
+        {
+            // Convert the byte array to a base64 string
+            var base64String = Convert.ToBase64String(property.Images[0]);
+            return $"data:image/png;base64,{base64String}";
+        }
+
+        return "noimage.png"; 
+    }
+
+    private string GetSize(Guid propertyId)
+    {
+        var property = Properties.FirstOrDefault(p => p.PropertyId == propertyId);
+        return property != null ? property.Size.ToString() : "Unknown";
+    }
+
+    private void ViewListingDetails(string listingId)
+    {
+        NavigationManager.NavigateTo($"/listingdetails/{listingId}");
     }
 }
