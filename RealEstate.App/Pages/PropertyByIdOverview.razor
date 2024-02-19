@@ -67,7 +67,7 @@ else if (SearchAttempted)
     private bool SearchAttempted { get; set; } = false;
     private bool showEdit { get; set; } = false;
     private string phoneNumber { get; set; } = string.Empty;
-    UpdateUserViewModel userViewModel { get; set; }
+    UserViewModel userViewModel { get; set; }
 
     [Inject]
     public NavigationManager NavigationManager { get; set; }
@@ -94,7 +94,6 @@ else if (SearchAttempted)
         }
 
         userViewModel = await userService.GetUser(Property.UserId);
-        Console.WriteLine("USERUL ESTE AICI: ", userViewModel.Username); // Aici e GOL
     }
 
     private void NavigateToEdit(string propertyTitle)

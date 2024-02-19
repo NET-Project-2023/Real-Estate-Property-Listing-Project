@@ -32,11 +32,11 @@ namespace RealEstate.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("ByTitle/{title}")]
+        [HttpGet("ById/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<IActionResult> Get(string title)
+        public async Task<IActionResult> Get(Guid id)
         {
-            var result = await Mediator.Send(new GetByIdListingQuery(title));
+            var result = await Mediator.Send(new GetByIdListingQuery(id));
             return Ok(result);
         }
 

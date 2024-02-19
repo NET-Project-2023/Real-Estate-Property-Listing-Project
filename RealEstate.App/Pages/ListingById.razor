@@ -1,52 +1,113 @@
 ﻿@page "/listingdetails/{listingId}"
 @using RealEstate.App.Contracts
 @using RealEstate.App.ViewModels
-
 @inject IListingDataService ListingDataService
 
 
-@* <div class="row mb-2">
-    <div class="col-md-6">
-        <input @bind="ListingTitle" class="form-control" placeholder="Enter listing title" />
-    </div>
-    <div class="col-md-6">
-        <button @onclick="SearchListing" class="btn btn-primary">Search</button>
-    </div>
-</div> *@
+<style scoped>
+    .container {
+        font-family: Arial, sans-serif;
+    }
+
+    .card {
+        margin-top: 20px;
+    }
+
+    h2, h5 {
+        color: #343a40;
+    }
+</style>
+
 
 @if (Listing != null)
 {
-    <h3>@Listing.Title</h3>
-    <div class="card mt-3">
-        <div class="card-body">
-            <p class="card-text"><strong>Property Name:</strong> @Listing.PropertyId</p>
-            <p class="card-text"><strong>Status:</strong> @Listing.PropertyStatus</p>
-            <p class="card-text"><strong>Price:</strong> @Listing.Price</p>
-            <!-- Add more listing details as needed -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8">
+                <!-- Listing Title and Price -->
+                <div class="d-flex align-items-baseline justify-content-between">
+                    <h2 class="mb-3">@Listing.Title</h2>
+                    <h2 class="mt-3 mb-4 text-success">$@Listing.Price</h2>
+                </div>
+
+                <!-- Location -->
+                <h5><i class="fas fa-map-marker-alt text-primary"></i> @Property.City, @Property.StreetAddress</h5>
+
+                <!-- Property Details -->
+                <div class="card mb-4 border-primary">
+                    <div class="card-body">
+                        <p><i class="fas fa-ruler-combined text-primary"></i> <strong>Size:</strong> @Property.Size mp²</p>
+                        <p><i class="fas fa-bed text-primary"></i> <strong>Bedrooms:</strong> @Property.NumberOfBedrooms</p>
+                        <p><i class="fas fa-bath text-primary"></i> <strong>Bathrooms:</strong> @Property.NumberOfBathrooms</p>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <div class="card mb-4 border-info">
+                    <div class="card-header bg-info text-white">
+                        Description
+                    </div>
+                    <div class="card-body">
+                        <p>@Property.Description</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="col-md-4 align-self-start">
+                <div class="card border-secondary">
+                    <div class="card-header bg-secondary text-white">
+                        Contact Info
+                    </div>
+                    <div class="card-body">
+                        <p><i class="fas fa-user text-secondary"></i> <strong>Name:</strong> @User.Name</p>
+                        <p><i class="fas fa-envelope text-secondary"></i> <strong>Email:</strong> @User.Email</p>
+                        <p><i class="fas fa-phone text-secondary"></i> <strong>Phone:</strong> @User.PhoneNumber</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-}
-else if (SearchAttempted)
-{
-    <p>No listing found with the title '@ListingTitle'.</p>
+
 }
 
 @code {
     private string ListingTitle { get; set; } = string.Empty;
     private ListingViewModel Listing { get; set; }
-    private bool SearchAttempted { get; set; } = false;
+    public bool isLoading { get; set; } = true;
+
+
+    private PropertyViewModel Property { get; set; }
+
+    private UserViewModel User { get; set; }
 
     [Inject]
     public NavigationManager NavigationManager { get; set; }
+
+    [Inject]
+    public IPropertyDataService PropertyDataService { get; set; }
+
+    [Inject]
+    public IUserService UserService { get; set; }
 
     [Parameter]
     public string listingId { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        ListingTitle = NavigationManager.Uri.Split('/').LastOrDefault();
-        Listing = await ListingDataService.GetListingByTitleAsync(ListingTitle);
-        //Listing = await ListingDataService.GetListingByIdAsync(listingId);
-        SearchAttempted = true;
+        isLoading = true;
+        if (Guid.TryParse(listingId, out Guid id))
+        {
+            Listing = await ListingDataService.GetListingByIdAsync(id);
+        }
+        else
+        {
+            // Handle the case where the listingId parameter is not a valid GUID
+            return; 
+        }
+        Property = await PropertyDataService.GetPropertyByIdAsync(Listing.PropertyId);
+        User = await UserService.GetUser(Property.UserId);
+
+        isLoading = false;
     }
 }

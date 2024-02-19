@@ -16,7 +16,7 @@ namespace Real_estate.Application.Features.Listings.Queries.GetById
 
         public async Task<ListingDto> Handle(GetByIdListingQuery request, CancellationToken cancellationToken)
         {
-            var result = await repository.FindByNameAsync(request.title);
+            var result = await repository.FindByIdAsync(request.id);
             if (result.IsSuccess)
             {
                 return new ListingDto

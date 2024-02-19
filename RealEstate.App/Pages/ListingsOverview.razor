@@ -36,7 +36,13 @@
 <div class="container mt-5">
     <h3>Listing Overview</h3>
 
-    @if (Listings != null && Listings.Any())
+    @if (isLoading)
+    {
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    }
+    else if (Listings != null && Listings.Any())
     {
         @foreach (var listing in Listings)
         {
@@ -67,6 +73,7 @@
     {
         <p>No listings available.</p>
     }
+
 </div>
 
 
@@ -84,13 +91,20 @@
 
     public List<PropertyViewModel> Properties { get; set; }
 
+    public bool isLoading { get; set; } = true;
+
+
     protected override async Task OnInitializedAsync()
     {
+        isLoading = true;
+
         Listings = (await ListingDataService.GetListingsAsync()).ToList();
 
         var propertyTasks = Listings.Select(listing => PropertyDataService.GetPropertyByIdAsync(listing.PropertyId));
         var propertyResults = await Task.WhenAll(propertyTasks);
         Properties = propertyResults.ToList();
+
+        isLoading = false;
     }
 
     private string GetLocation(Guid propertyId)

@@ -6,8 +6,8 @@ namespace RealEstate.App.Contracts
 {
     public interface IUserService
     {
-        Task<ApiResponse<UpdateUserViewModel>> UpdateUser(UpdateUserViewModel updateUserModel);
+        Task<ApiResponse<UserViewModel>> UpdateUser(UserViewModel updateUserModel);
 
-        Task<UpdateUserViewModel> GetUser(string username);
+        Task<UserViewModel> GetUser(string username);
     }
 }

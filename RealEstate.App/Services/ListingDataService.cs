@@ -104,9 +104,28 @@ namespace RealEstate.App.Services
         }
 
 
-        public Task<ListingViewModel> GetListingByIdAsync(Guid id)
+        public async Task<ListingViewModel> GetListingByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            httpClient.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
+
+            var response = await httpClient.GetAsync($"api/v1/listings/ById/{id}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var apiResponse = await response.Content.ReadFromJsonAsync<ListingViewModel>();
+                return apiResponse;
+
+
+            }
+            else
+            {
+                // Log the error or throw an exception
+                var errorContent = await response.Content.ReadAsStringAsync();
+                Console.WriteLine($"Error getting listing by id: {errorContent}");
+                throw new ApplicationException($"Error getting listing by id: {errorContent}");
+            }
         }
 
 		public async Task<ListingViewModel> GetListingByTitleAsync(string title)

@@ -162,7 +162,7 @@ else
     [Inject]
     public ITokenService tokenService { get; set; }
 
-    private UpdateUserViewModel currentUserModel;
+    private UserViewModel currentUserModel;
     private string error;
     public string message { get; set; }
     private string role = string.Empty;
@@ -185,7 +185,7 @@ else
         try
         {
             Console.WriteLine("Attempting to update user..."); // Debug message
-            UpdateUserViewModel updateUser = new UpdateUserViewModel
+            UserViewModel updateUser = new UserViewModel
                 {
                     Username = currentUserModel.Username,
                     Email = currentUserModel.Email,

@@ -18,7 +18,7 @@ namespace RealEstate.App.Services
             this.tokenService = tokenService;
         }
 
-        public async Task<UpdateUserViewModel> GetUser(string username)
+        public async Task<UserViewModel> GetUser(string username)
         {
             try
             {
@@ -42,7 +42,7 @@ namespace RealEstate.App.Services
                 using var doc = JsonDocument.Parse(content);
                 var userElement = doc.RootElement.GetProperty("user");
 
-                var user = JsonSerializer.Deserialize<UpdateUserViewModel>(userElement.GetRawText(), new JsonSerializerOptions
+                var user = JsonSerializer.Deserialize<UserViewModel>(userElement.GetRawText(), new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
                 });
@@ -57,7 +57,7 @@ namespace RealEstate.App.Services
             
         }
 
-        public async Task<ApiResponse<UpdateUserViewModel>> UpdateUser(UpdateUserViewModel updateUserModel)
+        public async Task<ApiResponse<UserViewModel>> UpdateUser(UserViewModel updateUserModel)
         {
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
 
@@ -67,7 +67,7 @@ namespace RealEstate.App.Services
 
             var result = await httpClient.PutAsJsonAsync(requestUri, updateUserModel);
             result.EnsureSuccessStatusCode();
-            var response = await result.Content.ReadFromJsonAsync<ApiResponse<UpdateUserViewModel>>();
+            var response = await result.Content.ReadFromJsonAsync<ApiResponse<UserViewModel>>();
             response!.IsSuccess = result.IsSuccessStatusCode;
             return response!;
         }
