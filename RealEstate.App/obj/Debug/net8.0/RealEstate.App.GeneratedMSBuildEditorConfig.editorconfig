@@ -54,16 +54,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/andim/OneDrive/Documente/AN_3/Real-Estate-Property-Listing-Project/RealEstate.App/Pages/PropertiesOverview.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvcGVydGllc092ZXJ2aWV3LnJhem9y
+[C:/Users/andim/OneDrive/Documente/AN_3/Real-Estate-Property-Listing-Project/RealEstate.App/Pages/PropertiesOverview(depracated).razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvcGVydGllc092ZXJ2aWV3KGRlcHJhY2F0ZWQpLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/andim/OneDrive/Documente/AN_3/Real-Estate-Property-Listing-Project/RealEstate.App/Pages/PropertyByIdOverview.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvcGVydHlCeUlkT3ZlcnZpZXcucmF6b3I=
+[C:/Users/andim/OneDrive/Documente/AN_3/Real-Estate-Property-Listing-Project/RealEstate.App/Pages/PropertyByIdOverview(depracated).razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvcGVydHlCeUlkT3ZlcnZpZXcoZGVwcmFjYXRlZCkucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/andim/OneDrive/Documente/AN_3/Real-Estate-Property-Listing-Project/RealEstate.App/Pages/PropertyByLoggedUser.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvcGVydHlCeUxvZ2dlZFVzZXIucmF6b3I=
+[C:/Users/andim/OneDrive/Documente/AN_3/Real-Estate-Property-Listing-Project/RealEstate.App/Pages/PropertyByOwner.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvcGVydHlCeU93bmVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/andim/OneDrive/Documente/AN_3/Real-Estate-Property-Listing-Project/RealEstate.App/Pages/Register.razor]

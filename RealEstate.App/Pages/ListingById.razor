@@ -33,6 +33,29 @@
                 <!-- Location -->
                 <h5><i class="fas fa-map-marker-alt text-primary"></i> @Property.City, @Property.StreetAddress</h5>
 
+                <!-- Carousel -->
+                @if (Property.Images != null && Property.Images.Any())
+                {
+                    <div id="imageCarousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            @foreach (var image in Property.Images)
+                            {
+                                <div class="carousel-item @(image == Property.Images.First() ? "active" : "")">
+                                    <img class="d-block w-100" src="@(GetImageBase64(image))" alt="Property Image">
+                                </div>
+                            }
+                        </div>
+                        <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#imageCarousel" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                }
+
                 <!-- Property Details -->
                 <div class="card mb-4 border-primary">
                     <div class="card-body">
@@ -68,7 +91,6 @@
             </div>
         </div>
     </div>
-
 }
 
 @code {
@@ -102,7 +124,6 @@
         }
         else
         {
-            // Handle the case where the listingId parameter is not a valid GUID
             return; 
         }
         Property = await PropertyDataService.GetPropertyByIdAsync(Listing.PropertyId);
@@ -110,4 +131,12 @@
 
         isLoading = false;
     }
+
+
+    private string GetImageBase64(byte[] image)
+    {
+        var base64String = Convert.ToBase64String(image);
+        return $"data:image/png;base64,{base64String}";
+    }
+
 }

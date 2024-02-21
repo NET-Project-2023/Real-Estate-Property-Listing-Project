@@ -38,7 +38,6 @@ namespace RealEstate.API.Controllers
             {
                 command.Images = await UtilityFunctions.ConvertToByteArrayAsync(command.ImagesFiles);
             }
-            _logger.LogInformation($"{command.Images} result:");
 
 
             var result = await Mediator.Send(command);

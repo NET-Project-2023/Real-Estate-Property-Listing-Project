@@ -47,9 +47,9 @@ namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
             var image = request.Images[0];
 
             var base64Data = Convert.ToBase64String(image);
-            _logger.LogInformation($"Image {0} Base64 data: {base64Data}");
+            //_logger.LogInformation($"Image {0} Base64 data: {base64Data}");
 
-            _logger.LogInformation($"Received image with byte length: {request.Images}");
+            //_logger.LogInformation($"Received image with byte length: {request.Images}");
 
             var property = Property.Create(request.Title, request.City, request.StreetAddress, request.Size, request.UserId, request.NumberOfBedrooms, request.Images);
             if (!property.IsSuccess)
@@ -61,6 +61,12 @@ namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
                 };
             }
 
+            if (request.Description != null)
+            {
+                property.Value.AttachDescription(request.Description);
+            }
+
+            property.Value.AttachNumberOfBathrooms(request.NumberOfBathrooms);
             property.Value.CreatedBy = request.UserId;
             property.Value.CreatedDate = DateTime.UtcNow;
             property.Value.LastModifiedBy = request.UserId;
@@ -75,6 +81,7 @@ namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
                 {
                     PropertyId = property.Value.PropertyId,
                     Title = property.Value.Title,
+                    Description = property.Value.Description,
                     City = property.Value.City,
                     StreetAddress = property.Value.StreetAddress,
                     Size = property.Value.Size,

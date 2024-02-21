@@ -4,66 +4,107 @@
 @using static RealEstate.App.Enums
 
 
+<h3 class="text-center mb-4">@((Property != null && !string.IsNullOrWhiteSpace(Property.Title)) ? Property.Title : "Loading...")</h3>
 
-
-<h3>Add Listing</h3>
-
-@if (ErrorMessage != null)
+@if (Property == null)
 {
-    <p class="text-danger">@ErrorMessage</p>
+    <div class="text-center mt-5">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
 }
 
-@if (Property != null)
+else 
 {
-    <h4>Property Details</h4>
-    <dl class="row">
-        <dt class="col-sm-3">Title:</dt>
-        <dd class="col-sm-9">@Property.Title</dd>
-        
-        <!-- Add more property details as needed -->
-    </dl>
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5 class="card-title">Property Details</h5>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">Title:</dt>
+                <dd class="col-sm-9">@Property.Title</dd>
+                <dt class="col-sm-3">Description:</dt>
+                <dd class="col-sm-9">@Property.Description</dd>
+                <dt class="col-sm-3">City:</dt>
+                <dd class="col-sm-9">@Property.City</dd>
+                <dt class="col-sm-3">Address:</dt>
+                <dd class="col-sm-9">@Property.StreetAddress</dd>
+                <dt class="col-sm-3">Size:</dt>
+                <dd class="col-sm-9">@Property.Size</dd>
+                <dt class="col-sm-3">Bedrooms:</dt>
+                <dd class="col-sm-9">@Property.NumberOfBedrooms</dd>
+                <dt class="col-sm-3">Bathrooms:</dt>
+                <dd class="col-sm-9">@Property.NumberOfBathrooms</dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5 class="card-title">Property Photos</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                @if (Property != null && Property.Images.Any())
+                {
+                    @foreach (var image in Property.Images)
+                    {
+                        <div class="col-md-3 mb-3">
+                            <img src="@($"data:image/png;base64,{Convert.ToBase64String(image)}")" class="img-fluid rounded" alt="Property Photo" />
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p class="text-muted">No photos available</p>
+                }
+            </div>
+        </div>
+    </div>
+
+    <EditForm Model="@listingViewModel" OnValidSubmit="HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="card-title">Listing Details</h5>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="status">Status:</label>
+                    <InputSelect id="status" @bind-Value="listingViewModel.PropertyStatus" class="form-control">
+                        @foreach (var status in Enum.GetValues(typeof(Status)))
+                        {
+                            <option value="@status">@status</option>
+                        }
+                    </InputSelect>
+                    <ValidationMessage For="@(() => listingViewModel.PropertyStatus)" />
+                </div>
+
+                <div class="form-group">
+                    <label for="price">Price:</label>
+                    <InputNumber id="price" @bind-Value="listingViewModel.Price" class="form-control" />
+                    <ValidationMessage For="@(() => listingViewModel.Price)" />
+                </div>
+
+                <div class="form-group">
+                    <button type="button" class="btn btn-success">Predict Price</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="button" class="btn btn-secondary ml-2" @onclick="Cancel">Cancel</button>
+        </div>
+    </EditForm>
 }
 
-<EditForm Model="@listingViewModel" OnValidSubmit="HandleValidSubmit">
-    <DataAnnotationsValidator />
-    <ValidationSummary />
-
-
-    <div class="form-group">
-        <label for="title">Listing Title:</label>
-        <InputText id="title" @bind-Value="listingViewModel.Title" class="form-control" />
-        <ValidationMessage For="@(() => listingViewModel.Title)" />
-    </div>
-
-    <div class="form-group">
-        <label for="status">Status:</label>
-        <InputSelect id="status" @bind-Value="listingViewModel.PropertyStatus" class="form-control">
-            @foreach (var status in Enum.GetValues(typeof(Status)))
-            {
-                <option value="@status">@status</option>
-            }
-        </InputSelect>
-        <ValidationMessage For="@(() => listingViewModel.PropertyStatus)" />
-    </div>
-
-    <div class="form-group">
-        <label for="price">Price:</label>
-        <InputNumber id="price" @bind-Value="listingViewModel.Price" class="form-control" />
-        <ValidationMessage For="@(() => listingViewModel.Price)" />
-    </div>
-
-    <button type="submit" class="btn btn-primary">Submit</button>
-</EditForm>
-
-@if (!string.IsNullOrWhiteSpace(ErrorMessage))
-{
-    <div class="alert alert-info ms-2">
-        @ErrorMessage
-    </div>
-}
 
 @code {
-
     [Parameter]
     public string PropertyId { get; set; }
 
@@ -80,22 +121,17 @@
     public PropertyViewModel Property { get; set; }
     public string ErrorMessage { get; set; }
 
-
     protected override async Task OnInitializedAsync()
     {
         if (Guid.TryParse(PropertyId, out Guid propertyId))
         {
-            // Fetch property details from the PropertyId
             Property = await PropertyDataService.GetPropertyByIdAsync(propertyId);
-
-            // Assign the PropertyId to the listingViewModel
             listingViewModel.PropertyId = propertyId;
+            listingViewModel.Title = Property.Title;
             listingViewModel.UserName = Property.UserId;
         }
         else
         {
-            // Handle the case where the PropertyId parameter is not a valid GUID
-            // You can log an error or display a message to the user
             ErrorMessage = "Invalid PropertyId parameter.";
         }
     }
@@ -106,15 +142,11 @@
         if (result.IsSuccess)
         {
             ErrorMessage = "Listing created successfully";
-            Console.WriteLine("MESAJ INAINTE: " + ErrorMessage);
-
-            // Schedule the navigation on the next render cycle
             await InvokeAsync(() => NavigationManager.NavigateTo("/listingsoverview"));
         }
         else
         {
             ErrorMessage = result.Message;
-            Console.WriteLine("Error Message: " + ErrorMessage); // Add this line to check the error message
         }
     }
 

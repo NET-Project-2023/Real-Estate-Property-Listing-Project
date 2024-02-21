@@ -1,0 +1,159 @@
+﻿@page "/myproperties"
+@using RealEstate.App.Contracts
+@using RealEstate.App.ViewModels
+@using static RealEstate.App.Enums
+@inject IJSRuntime JSRuntime
+
+
+<style scoped>
+    .container {
+        font-family: Arial, sans-serif;
+    }
+
+    .card {
+        margin-top: 20px;
+    }
+
+        .card .btn {
+            cursor: pointer;
+        }
+
+    .property-status {
+        display: inline-block;
+        margin-top: 10px;
+    }
+
+    h3, h5 {
+        color: #343a40;
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+    .clickable {
+        cursor: pointer;
+        transition: transform .2s;
+    }
+
+        .clickable:hover {
+            transform: scale(1.1);
+        }
+</style>
+
+<div class="container mt-5">
+    <h3 class="text-center text-primary mb-4">Properties Owned by You</h3>
+
+    @if (Properties == null)
+    {
+        <div class="text-center">
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    }
+    else if (Properties.Count == 0)
+    {
+        <p class="alert alert-warning">You don't have any properties added yet.</p>
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var property in Properties)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        @if (property.Images.Any())
+                        {
+                            <img src="@($"data:image/png;base64,{Convert.ToBase64String(property.Images.First())}")" class="card-img-top" alt="Property Image" />
+                        }
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="card-title clickable" @onclick="() => ViewPropertyDetails(property.PropertyId.ToString())"><strong>@property.Title</strong></h5>
+                                <div class="badge badge-pill badge-primary">@GetPropertyStatus(property.PropertyId)</div>
+                            </div>
+                            <p class="card-text">@property.City</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-danger" @onclick="() => DeleteProperty(property.Title)">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                                <button class="btn btn-success" @onclick="() => NavigateToListing(property.PropertyId.ToString())">
+                                    <i class="fas fa-plus"></i> List Property
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@code {
+    [Inject]
+    public IPropertyDataService PropertyDataService { get; set; }
+
+    [Inject]
+    public IListingDataService ListingDataService { get; set; }
+
+    public List<PropertyViewModel> Properties { get; set; }
+
+    public List<ListingViewModel> Listings { get; set;  }
+
+    [Inject]
+    public NavigationManager NavigationManager { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Properties = (await PropertyDataService.GetPropertiesByCurrentUserAsync()).ToList();
+        Listings = (await ListingDataService.GetListingsAsync()).ToList();
+    }
+
+
+    private async Task DeleteProperty(string propertyTitle)
+    {
+        bool confirmed = await JSRuntime.InvokeAsync<bool>("confirm", "Are you sure you want to delete this property?");
+        if (confirmed)
+        {
+            PropertyDataService.DeletePropertyAsync(propertyTitle);
+        } 
+    }
+
+    private string GetPropertyStatus(Guid propertyId)
+    {
+        var listing = Listings.FirstOrDefault(l => l.PropertyId == propertyId);
+        if (listing != null)
+        {
+            switch (listing.PropertyStatus)
+            {
+                case Status.ForSale:
+                    return "For Sale";
+                case Status.ForRent:
+                    return "For Rent";
+                case Status.SoldOrRented:
+                    return "Sold/Rented";
+                default:
+                    return "Unknown";
+            }
+        }
+        else
+        {
+            return "Not listed";
+        }
+    }
+
+
+    private void NavigateToListing(string propertyId)
+    {
+        NavigationManager.NavigateTo($"/addlisting/{propertyId}");
+    }
+
+
+    private void ViewPropertyDetails(string propertyId)
+    {
+        // Navigate to the "Find Property" page with the selected property's title
+        NavigationManager.NavigateTo($"/updateproperty/{propertyId}");
+    }
+
+}

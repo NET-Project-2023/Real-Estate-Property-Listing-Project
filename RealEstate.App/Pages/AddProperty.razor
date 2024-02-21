@@ -2,76 +2,73 @@
 @using RealEstate.App.Contracts
 @using RealEstate.App.ViewModels
 @using System.Net.Http.Headers
+@using static RealEstate.App.Enums
 
 <style>
     body {
-        background: #f5f5f5; /* Light grey background */
+        background-color: #f5f5f5;
+        font-family: Arial, sans-serif;
     }
 
     .container {
-        max-width: 960px;
+        max-width: 600px;
         margin: auto;
         padding: 30px;
-        background: #fff; /* White background */
+        background-color: #fff;
         border-radius: 10px;
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Shadow for a "card" like effect */
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     }
 
-    .row {
+    .form-group {
         margin-bottom: 20px;
     }
 
     .form-label {
-        color: #333; /* Dark text color for contrast */
+        color: #333;
+        font-weight: bold;
     }
 
     .form-control {
-        border: 2px solid #007bff; /* Blue accent */
+        border: 2px solid #007bff;
         border-radius: 5px;
-        color: #333; /* Dark text color for contrast */
-        background: #fff; /* White background */
+        color: #333;
+        background-color: #fff;
+        padding: 10px;
+        width: 100%;
     }
 
     .btn-success {
-        background-color: #007bff; /* Blue accent */
+        background-color: #007bff;
         border: none;
         color: white;
-        padding: 10px 24px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
+        padding: 10px 20px;
         font-size: 16px;
-        margin: 4px 2px;
-        transition-duration: 0.4s;
+        border-radius: 5px;
         cursor: pointer;
+        transition: background-color 0.3s;
     }
 
         .btn-success:hover {
-            background-color: #0056b3; /* Darker blue accent */
-            color: white;
+            background-color: #0056b3;
         }
 
     .btn-secondary {
-        background-color: #6c757d; /* Grey */
+        background-color: #6c757d;
         border: none;
-        color: white; /* White text color for contrast */
-        padding: 10px 24px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
+        color: white;
+        padding: 10px 20px;
         font-size: 16px;
-        margin: 4px 2px;
-        transition-duration: 0.4s;
+        border-radius: 5px;
         cursor: pointer;
+        transition: background-color 0.3s;
     }
 
         .btn-secondary:hover {
-            background-color: #5a6268; /* Darker grey */
-            color: white; /* White text color for contrast */
+            background-color: #5a6268;
         }
 
     .upload-icon {
-        color: #007bff; /* Blue accent */
+        color: #007bff;
         font-size: 24px;
     }
 
@@ -79,82 +76,85 @@
         display: none;
     }
 
+    .alert {
+        margin-top: 20px;
+        padding: 10px;
+        border-radius: 5px;
+    }
 
+    .alert-info {
+        background-color: #007bff;
+        color: white;
+    }
 </style>
 
 
-<h3>Add a new property</h3>
 
-<EditForm Model="@PropertyViewModel" OnValidSubmit="@HandleValidSubmit">
+<CascadingValue Value="editContext">
+    <div class="container">
+        <h3>Add a new property</h3>
 
-    <DataAnnotationsValidator />
-    <ValidationSummary></ValidationSummary>
+        <form @onsubmit="HandleValidSubmit">
 
-    <div class="row mb-3 ms-2">
-        <label for="title" class="col-sm-3 form-label">Property title:</label>
-        <div class="col-sm-5">
-            <InputText id="title" class="form-control" @bind-Value="@PropertyViewModel.Title" placeholder="Enter property name"></InputText>
-            <ValidationMessage For="@(() => PropertyViewModel.Title)" />
-        </div>
+            <div class="form-group">
+                <label for="title" class="form-label">Property title:</label>
+                <input id="title" class="form-control" @bind="@PropertyViewModel.Title" placeholder="Enter property name">
+            </div>
+
+
+            <div class="form-group">
+                <label for="description" class="form-label">Description:</label>
+                <textarea id="description" class="form-control" @bind="@PropertyViewModel.Description" placeholder="Enter property description"></textarea>
+            </div>
+
+
+            <div class="form-group">
+                <label for="city" class="form-label">City:</label>
+                <input id="city" class="form-control" @bind="@PropertyViewModel.City" placeholder="Enter city">
+            </div>
+
+            <div class="form-group">
+                <label for="streetaddress" class="form-label">Address:</label>
+                <input id="streetaddress" class="form-control" @bind="@PropertyViewModel.StreetAddress" placeholder="Enter property address">
+            </div>
+
+            <div class="form-group">
+                <label for="size" class="form-label">Size:</label>
+                <input id="size" class="form-control" @bind="@PropertyViewModel.Size">
+            </div>
+
+            <div class="form-group">
+                <label for="numberOfBedrooms" class="form-label">Number of Bedrooms:</label>
+                <input id="numberOfBedrooms" class="form-control" @bind="@PropertyViewModel.NumberOfBedrooms">
+            </div>
+
+            <div class="form-group">
+                <label for="numberOfBathrooms" class="form-label">Number of Bathrooms:</label>
+                <input id="numberOfBathrooms" class="form-control" @bind="@PropertyViewModel.NumberOfBathrooms">
+            </div>
+
+            <div class="form-group">
+                <label for="images" class="form-label">Images:</label>
+                <InputFile id="images" multiple OnChange="@OnInputFileChange">
+                    <i class="fas fa-file-upload"></i>
+                </InputFile>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-success me-2">Save property</button>
+            </div>
+        </form>
+
+
+        @if (!string.IsNullOrWhiteSpace(Message))
+        {
+            <div class="alert alert-info">
+                @Message
+            </div>
+        }
     </div>
+</CascadingValue>
 
-    <div class="row mb-3 ms-2">
-        <label for="city" class="col-sm-3 form-label">City:</label>
-        <div class="col-sm-5">
-            <InputText id="city" class="form-control" @bind-Value="@PropertyViewModel.City" placeholder="Enter city"></InputText>
-            <ValidationMessage For="@(() => PropertyViewModel.City)" />
-        </div>
-    </div>
-
-    <div class="row mb-3 ms-2">
-        <label for="streetaddress" class="col-sm-3 form-label">Address:</label>
-        <div class="col-sm-5">
-            <InputText id="streetaddress" class="form-control" @bind-Value="@PropertyViewModel.StreetAddress" placeholder="Enter property address"></InputText>
-            <ValidationMessage For="@(() => PropertyViewModel.StreetAddress)" />
-        </div>
-    </div>
-
-    <div class="row mb-3 ms-2">
-        <label for="size" class="col-sm-3 form-label">Size:</label>
-        <div class="col-sm-5">
-            <InputNumber id="size" class="form-control" @bind-Value="@PropertyViewModel.Size"></InputNumber>
-            <ValidationMessage For="@(() => PropertyViewModel.Size)" />
-        </div>
-    </div>
-
-
-    <div class="row mb-3 ms-2">
-        <label for="numberOfBedrooms" class="col-sm-3 form-label">Number of Bedrooms:</label>
-        <div class="col-sm-5">
-            <InputNumber id="numberOfBedrooms" class="form-control" @bind-Value="@PropertyViewModel.NumberOfBedrooms"></InputNumber>
-            <ValidationMessage For="@(() => PropertyViewModel.NumberOfBedrooms)" />
-        </div>
-    </div>
-
-    <div class="row mb-3 ms-2">
-        <label for="numberOfBathrooms" class="col-sm-3 form-label">Number of Bathrooms:</label>
-        <div class="col-sm-5">
-            <InputNumber id="numberOfBathrooms" class="form-control" @bind-Value="@PropertyViewModel.NumberOfBathrooms"></InputNumber>
-            <ValidationMessage For="@(() => PropertyViewModel.NumberOfBathrooms)" />
-        </div>
-    </div>
-    <div class="row mb-3 ms-2">
-        <label for="images" class="col-sm-3 form-label">Images:</label>
-        <div class="col-sm-5">
-            <InputFile id="images" multiple OnChange="@OnInputFileChange">
-                <i class="fas fa-file-upload"></i>
-            </InputFile>
-        </div>
-    </div>
-
-    <div class="row mb-3 ms-2">
-        <div class="col-sm-3"></div>
-        <div class="col-sm-5">
-            <button type="submit" class="btn btn-success me-2">Save property</button>
-            <button class="btn btn-secondary" @onclick="Cancel">Cancel</button>
-        </div>
-    </div>
-</EditForm>
 
 @if (!string.IsNullOrWhiteSpace(Message))
 {
@@ -163,29 +163,47 @@
     </div>
 }
 
+
 @code {
     [Inject]
     public IPropertyDataService PropertyDataService { get; set; }
+
+    //[Inject]
+    //public IListingDataService ListingDataService { get; set; }
 
     [Inject]
     public NavigationManager NavigationManager { get; set; }
 
     public PropertyViewModel PropertyViewModel { get; set; } = new PropertyViewModel();
 
+    public PropertyViewModel Property { get; set; }
+
+    //public ListingViewModel ListingViewModel { get; set; } = new ListingViewModel();
+
     public string Message { get; set; }
 
     private const long maxFileSize = 10485760; // 10 MB
 
+    private EditContext editContext;
+
+
+
+    protected override void OnInitialized()
+    {
+        // Create EditContext
+        editContext = new EditContext(PropertyViewModel);
+    }
 
 
     private async Task HandleValidSubmit()
     {
+        Console.WriteLine("HandleValidSubmit method TRIGGERED");
 
         var result = await PropertyDataService.CreatePropertyAsync(PropertyViewModel);
         if (result.IsSuccess)
         {
             Message = "Property created successfully";
-            NavigationManager.NavigateTo("/propertyoverview");
+            NavigationManager.NavigateTo("/myproperties");
         }
         else
         {
@@ -196,6 +214,8 @@
             }
         }
     }
+
+
     private async Task OnInputFileChange(InputFileChangeEventArgs e)
     {
         var maxAllowedFiles = 10; // Set this to the maximum number of files you want to allow
@@ -214,9 +234,6 @@
             }
         }
     }
-    private void Cancel()
-    {
-        // Consider adding a confirmation dialog or message before navigating
-        NavigationManager.NavigateTo("/propertyoverview");
-    }
+
+
 }

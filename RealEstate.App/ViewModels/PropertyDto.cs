@@ -11,10 +11,10 @@ namespace RealEstate.App.ViewModels
         public string? Description { get; set; }
         public string? City { get; set; }
         public string? StreetAddress { get; set; }
-        public int? Size { get; set; } // Optional update
-        public int? NumberOfBedrooms { get; set; } // Optional update
-        public int? NumberOfBathrooms { get; set; } // Optional update
-        public List<byte[]>? Images { get; set; } // Optional update
+        public int? Size { get; set; } 
+        public int? NumberOfBedrooms { get; set; } 
+        public int? NumberOfBathrooms { get; set; } 
+        public List<byte[]>? Images { get; set; } 
         public List<IBrowserFile>? ImagesFiles { get; set; } = new List<IBrowserFile>();
         public string UserId { get; set; } 
 

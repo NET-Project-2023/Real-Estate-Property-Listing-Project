@@ -13,9 +13,8 @@ namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
         public int NumberOfBedrooms { get; set; } = default!;
         public int NumberOfBathrooms { get; set; } = default!;
         public string UserId { get; set; }
-        public List<byte[]> Images { get; set; } = new List<byte[]>(); // Changed from List<IFormFile>
+        public List<byte[]> Images { get; set; } = new List<byte[]>(); 
         public List<IFormFile> ImagesFiles { get; set; } = new List<IFormFile>();
-
 
     }
 }
