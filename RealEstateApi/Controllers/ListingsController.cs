@@ -40,7 +40,7 @@ namespace RealEstate.API.Controllers
             return Ok(result);
         }
 
-        [HttpDelete("listings/delete/{listingId}")]
+        [HttpDelete("{listingId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(Guid listingId)

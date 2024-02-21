@@ -152,6 +152,20 @@ namespace RealEstate.App.Services
 			}
 		}
 
-      
+
+        public async Task<bool> DeleteListingAsync(Guid id)
+        {
+            string requestUri = $"api/v1/Listings/{id}";
+            var response = await httpClient.DeleteAsync(requestUri);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new HttpRequestException($"Error deleting listing: {response.ReasonPhrase}");
+            }
+
+            return true;
+        }
+
+
     }
 }

@@ -275,7 +275,6 @@ namespace RealEstate.App.Services
 
         public async Task<PropertyDto> DeletePropertyAsync(string title)
         {
-            string loggedInUserId = await tokenService.GetUsernameFromTokenAsync();
             string requestUri = $"api/v1/Property/delete/{title}";
             var response = await httpClient.DeleteAsync(requestUri);
             if (!response.IsSuccessStatusCode)
