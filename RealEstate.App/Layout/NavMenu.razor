@@ -1,5 +1,6 @@
 ﻿@using RealEstate.App.Contracts
 @using Microsoft.AspNetCore.Components.Authorization
+@using RealEstate.App.ViewModels
 @inject ITokenService tokenService
 @inject IAuthenticationService authService
 
@@ -47,36 +48,59 @@
                             <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> My Profile
                         </NavLink>
                     </div>
-                    <!-- Include other authenticated links here -->
+
+                    <!-- Render links only for users with admin role -->
+                     @if (role == "Admin")
+                    {
+                        <div class="nav-item px-3">
+                            <NavLink class="nav-link" href="/inspectusers">
+                                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Inspect Users
+                            </NavLink>
+                        </div>
+                    } 
                 </Authorized>
-
             </AuthorizeView>
-
         </CascadingAuthenticationState>
     </nav>
 </div>
 
 
 
-@code {
-    private bool collapseNavMenu = false;
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+@code {
+
     [Inject]
     public NavigationManager NavigationManager { get; set; }
 
-    public string role { get; set; } = string.Empty;
+    [Inject]
+    public IUserService UserService { get; set; }
 
+    public UserViewModel? User { get; set; }
+
+    private bool collapseNavMenu = false;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private string? role = "";
+
+    private string token = "";
 
     protected override async Task OnInitializedAsync()
     {
-        role = await tokenService.GetRoleFromTokenAsync();
-        //Console.WriteLine("ROL CURENT: ", role);
+        token = await tokenService.GetTokenAsync();
+        //role = await tokenService.GetRoleFromTokenAsync();
+        var loggedUsername = authService.DecodeUsernameFromTokenAsync(token);
+        User = await UserService.GetUser(loggedUsername.Result.ToString());
+        Console.WriteLine($"ROL Curent din NAVMenu: {User.Roles[0]}");
+        role = User.Roles[0];
     }
+
+
     private void NavigateToDeleteUser()
     {
         NavigationManager.NavigateTo("/admin/deleteuser");
     }
+
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;

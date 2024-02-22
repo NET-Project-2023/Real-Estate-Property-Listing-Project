@@ -47,7 +47,7 @@ namespace RealEstate.App.Services
                     PropertyNameCaseInsensitive = true
                 });
 
-                return user;
+                return user!;
             }
             catch (Exception ex)
             {

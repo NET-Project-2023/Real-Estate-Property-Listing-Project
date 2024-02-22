@@ -14,6 +14,6 @@ namespace RealEstate.App.ViewModels
         public string UserName { get; set; }
         public Guid PropertyId { get; set; }
         public Status PropertyStatus { get; set; } 
-        public DateTime LastUpdatedAt { get; set; }
+        public DateTime LastModifiedAt { get; set; }
     }
 }

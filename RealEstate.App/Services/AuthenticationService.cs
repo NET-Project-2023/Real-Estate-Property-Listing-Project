@@ -72,7 +72,7 @@ namespace RealEstate.App.Services
             var handler = new JwtSecurityTokenHandler();
             var jsonToken = handler.ReadJwtToken(token);
             var username = jsonToken.Claims.FirstOrDefault(c => c.Type == "unique_name")?.Value;
-            return Task.FromResult(username);
+            return Task.FromResult(username)!;
         }
 
     }

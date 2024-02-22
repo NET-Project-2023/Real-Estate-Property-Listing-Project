@@ -116,8 +116,6 @@ namespace RealEstate.App.Services
             {
                 var apiResponse = await response.Content.ReadFromJsonAsync<ListingViewModel>();
                 return apiResponse;
-
-
             }
             else
             {

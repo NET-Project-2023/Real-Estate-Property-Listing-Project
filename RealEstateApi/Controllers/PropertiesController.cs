@@ -21,7 +21,7 @@ namespace RealEstate.API.Controllers
             _logger = logger;
         }
 
-        //[Authorize(Roles = "User")]
+        [Authorize(Roles = "User")]
         //[Authorize(Roles = "Admin")]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -126,14 +126,12 @@ namespace RealEstate.API.Controllers
         }
 
 
-        //[Authorize(Roles = "User")]
+        [Authorize(Roles = "User")]
         //[Authorize(Roles = "Admin")]
         [HttpGet("ByCurrentUser/{ownerUsername}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetByCurrentUser(string ownerUsername)
         {
-            //var username = User.FindFirst(ClaimTypes.Name)?.Value;    
-            //Console.WriteLine("Username extracted: ", username);
             var result = await Mediator.Send(new GetByOwnerUsernamePropertyQuery(ownerUsername));
             return Ok(result);
         }
