@@ -58,12 +58,10 @@ namespace Identity.Services
 
         public async Task<(int, string)> Login(LoginModel model)
         {
+
             var user = await userManager.FindByNameAsync(model.Username!);
-            // REFACTORIZARE: Bresa securitate!! Spunem doar ca e problema cu credentialele   
-            if (user == null)
-                return (0, "Invalid username");
-            if (!await userManager.CheckPasswordAsync(user, model.Password!))
-                return (0, "Invalid password");
+            if (user == null || !await userManager.CheckPasswordAsync(user, model.Password!))
+                return (0, "Invalid username/password");
 
             var userRoles = await userManager.GetRolesAsync(user);
             var authClaims = new List<Claim>

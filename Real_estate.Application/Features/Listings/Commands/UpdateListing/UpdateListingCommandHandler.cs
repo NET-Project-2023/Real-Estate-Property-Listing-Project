@@ -38,22 +38,23 @@ namespace Real_estate.Application.Features.Listings.Commands.UpdateListing
             }
 
             var listing = listingResult.Value;
+
             if (request.Title != null)
             {
                 listing.UpdateTitle(request.Title);
             }
-            if (request.Description != null)
-            {
-                listing.UpdateDescription(request.Description);
-            }
+
             if (request.Price != null)
             {
-                listing.UpdatePrice(request.Price.Value);
+                listing.UpdatePrice(request.Price);
             }
-            if(request.Status != null)
+
+            if(request.PropertyStatus != null)
             {
-                listing.UpdateStatus(request.Status);
+                listing.UpdateStatus(request.PropertyStatus);
             }
+
+            listing.LastModifiedDate = DateTime.UtcNow;
 
             var updateResult = await listingRepository.UpdateAsync(listing);
 

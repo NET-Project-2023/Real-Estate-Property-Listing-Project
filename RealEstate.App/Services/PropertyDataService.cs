@@ -4,6 +4,7 @@ using RealEstate.App.ViewModels;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text.Json;
+using PropertyDto = RealEstate.App.ViewModels.PropertyDto;
 
 
 namespace RealEstate.App.Services
@@ -31,12 +32,6 @@ namespace RealEstate.App.Services
                     throw new InvalidOperationException("Logged-in username not available.");
                 }
 
-                // Fetch user details by username
-                var userResponse = await httpClient.GetAsync($"api/v1/Users/ByName/{loggedInUsername}");
-
-                // Log raw response content
-                var rawResponseContent = await userResponse.Content.ReadAsStringAsync();
-                Console.WriteLine($"Raw API Response: {rawResponseContent}");
 
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
 
@@ -46,34 +41,67 @@ namespace RealEstate.App.Services
                 using var formContent = new MultipartFormDataContent();
 
                 formContent.Add(new StringContent(propertyViewModel.Title ?? string.Empty), "Title");
-                formContent.Add(new StringContent(propertyViewModel.Address ?? string.Empty), "Address");
+                formContent.Add(new StringContent(propertyViewModel.City ?? string.Empty), "City");
+                formContent.Add(new StringContent(propertyViewModel.Description ?? string.Empty), "Description");
+                formContent.Add(new StringContent(propertyViewModel.StreetAddress ?? string.Empty), "StreetAddress");
                 formContent.Add(new StringContent(propertyViewModel.Size.ToString()), "Size");
-                formContent.Add(new StringContent(propertyViewModel.Price.ToString()), "Price");
                 formContent.Add(new StringContent(propertyViewModel.NumberOfBedrooms.ToString()), "NumberOfBedrooms");
                 formContent.Add(new StringContent(propertyViewModel.NumberOfBathrooms.ToString()), "NumberOfBathrooms");
                 formContent.Add(new StringContent(propertyViewModel.UserId), "UserId");
+                formContent.Add(new StringContent(""), "Images");
 
-                // Add files to the form content
-                foreach (var browserFile in propertyViewModel.ImagesFiles)
+                if (propertyViewModel.ImagesFiles != null)
                 {
-                    var fileContent = new StreamContent(browserFile.OpenReadStream(maxFileSize));
-                    fileContent.Headers.ContentType = new MediaTypeHeaderValue(browserFile.ContentType);
-                    formContent.Add(fileContent, "ImagesFiles", browserFile.Name);
-
+                    foreach (var browserFile in propertyViewModel.ImagesFiles)
+                    {
+                        var fileContent = new StreamContent(browserFile.OpenReadStream(maxFileSize));
+                        fileContent.Headers.ContentType = new MediaTypeHeaderValue(browserFile.ContentType);
+                        formContent.Add(fileContent, "ImagesFiles", browserFile.Name);
+                    }
                 }
+                else
+                {
+                    // Error here!!!
+                    formContent.Add(new StringContent(""), "ImagesFiles");
+                }
+
+
                 // Send POST request with form content
                 var response = await httpClient.PostAsync(RequestUri, formContent);
+                response.EnsureSuccessStatusCode();
 
                 if (!response.IsSuccessStatusCode)
                 {
                     var errorContent = await response.Content.ReadAsStringAsync();
-                    Console.WriteLine($"Error Response: {errorContent}");
-                    return new ApiResponse<PropertyDto> { IsSuccess = false, Message = errorContent };
+
+                    return new ApiResponse<PropertyDto>
+                    {
+                        IsSuccess = false,
+                        Message = "There was an error creating the listing.",
+                        ValidationErrors = errorContent
+                    };
                 }
 
-                var responseContent = await response.Content.ReadAsStringAsync();
-                var apiResponse = JsonSerializer.Deserialize<ApiResponse<PropertyDto>>(responseContent);
-                return apiResponse ?? new ApiResponse<PropertyDto> { IsSuccess = false };
+                var apiResponse = await response.Content.ReadFromJsonAsync<ApiResponse<PropertyDto>>();
+
+                if (apiResponse == null)
+                {
+                    // Log the response content for debugging
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"API Response Content: {responseContent}");
+
+                    throw new InvalidOperationException("Failed to deserialize API response");
+                }
+                else
+                {
+                    Console.WriteLine("API Response Data:");
+                    Console.WriteLine($"PropertyId: {apiResponse.Data?.PropertyId}");
+                    Console.WriteLine($"Title: {apiResponse.Data?.Title}");
+                }
+
+                apiResponse!.IsSuccess = response.IsSuccessStatusCode;
+
+                return apiResponse!;
 
             }
             catch (HttpRequestException ex)
@@ -139,6 +167,7 @@ namespace RealEstate.App.Services
             httpClient.DefaultRequestHeaders.Authorization =
                 new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
 
+            
             var result = await httpClient.GetAsync(RequestUri, HttpCompletionOption.ResponseHeadersRead);
             result.EnsureSuccessStatusCode();
 
@@ -171,7 +200,7 @@ namespace RealEstate.App.Services
             var propertyDto = await response.Content.ReadFromJsonAsync<PropertyDto>();
             return propertyDto ?? new PropertyDto();
        }
-        public async Task<ApiResponse<PropertyDto>> UpdatePropertyAsync(PropertyDto propertyDto)
+        public async Task<ApiResponse<PropertyDto>> UpdatePropertyAsync(PropertyViewModel propertyDto)
         {
 
             var token = await tokenService.GetTokenAsync();
@@ -181,12 +210,14 @@ namespace RealEstate.App.Services
             using var formContent = new MultipartFormDataContent();
 
             formContent.Add(new StringContent(propertyDto.Title ?? string.Empty), "Title");
-            formContent.Add(new StringContent(propertyDto.Address ?? string.Empty), "Address");
+            formContent.Add(new StringContent(propertyDto.City ?? string.Empty), "City");
+            formContent.Add(new StringContent(propertyDto.Description ?? string.Empty), "Description");
+            formContent.Add(new StringContent(propertyDto.StreetAddress ?? string.Empty), "StreetAddress");
             formContent.Add(new StringContent(propertyDto.Size.ToString()), "Size");
-            formContent.Add(new StringContent(propertyDto.Price.ToString()), "Price");
             formContent.Add(new StringContent(propertyDto.NumberOfBedrooms.ToString()), "NumberOfBedrooms");
             formContent.Add(new StringContent(propertyDto.NumberOfBathrooms.ToString()), "NumberOfBathrooms");
             formContent.Add(new StringContent(propertyDto.UserId), "UserId");
+
 
             // Add files to the form content
             foreach (var browserFile in propertyDto.ImagesFiles)
@@ -194,9 +225,11 @@ namespace RealEstate.App.Services
                 var fileContent = new StreamContent(browserFile.OpenReadStream(maxFileSize));
                 fileContent.Headers.ContentType = new MediaTypeHeaderValue(browserFile.ContentType);
                 formContent.Add(fileContent, "ImagesFiles", browserFile.Name);
-
             }
 
+            // Log the content being sent to the backend API
+            var debugContent = await formContent.ReadAsStringAsync();
+            Console.WriteLine($"REQUEST CONTENTTT: {debugContent}");
 
             var response = await httpClient.PutAsync(requestUri, formContent);
             
@@ -221,12 +254,12 @@ namespace RealEstate.App.Services
                 throw;
             }
         }
-        public async Task<List<PropertyViewModel>> GetPropertyByIdAsync(Guid propertyId)
+        public async Task<PropertyViewModel> GetPropertyByIdAsync(Guid propertyId)
         {
             httpClient.DefaultRequestHeaders.Authorization =
                 new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
 
-            var result = await httpClient.GetAsync($"{RequestUri}/{propertyId}", HttpCompletionOption.ResponseHeadersRead);
+            var result = await httpClient.GetAsync($"{RequestUri}/ById/{propertyId}", HttpCompletionOption.ResponseHeadersRead);
             result.EnsureSuccessStatusCode();
 
             var content = await result.Content.ReadAsStringAsync();
@@ -236,23 +269,23 @@ namespace RealEstate.App.Services
                 throw new ApplicationException(content);
             }
 
-            var response = JsonSerializer.Deserialize<PropertiesResponse>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-
-            var properties = response?.Properties ?? new List<PropertyViewModel>();
-            return properties!;
+            var property = JsonSerializer.Deserialize<PropertyViewModel>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+            return property;
         }
 
-        public async Task<PropertyDto> DeletePropertyAsync(string title)
+        public async Task<string> DeletePropertyAsync(Guid propertyId)
         {
-            string loggedInUserId = await tokenService.GetUsernameFromTokenAsync();
-            string requestUri = $"api/v1/Property/delete/{title}";
-            var response = await httpClient.DeleteAsync(requestUri);
-            if (!response.IsSuccessStatusCode)
+            var response = await httpClient.DeleteAsync($"api/v1/Properties/{propertyId}");
+
+            if (response.IsSuccessStatusCode)
             {
-                throw new HttpRequestException($"Error deleting property: {response.ReasonPhrase}");
+                return await response.Content.ReadAsStringAsync();
             }
-            var propertyDto = await response.Content.ReadFromJsonAsync<PropertyDto>();
-            return propertyDto;
+            else
+            {
+                // Handle error response if needed
+                throw new HttpRequestException($"Failed to delete property. Status code: {response.StatusCode}");
+            }
         }
 
     }

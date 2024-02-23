@@ -3,5 +3,5 @@ using System;
 
 namespace Real_estate.Application.Features.Listings.Queries.GetById
 {
-    public record GetByIdListingQuery(string title) : IRequest<ListingDto>;
+    public record GetByIdListingQuery(Guid id) : IRequest<ListingDto>;
 }

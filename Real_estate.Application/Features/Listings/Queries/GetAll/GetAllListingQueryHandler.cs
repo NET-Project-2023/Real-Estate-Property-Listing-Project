@@ -6,7 +6,6 @@ namespace Real_estate.Application.Features.Listings.Queries.GetAll
     public class GetAllListingQueryHandler : IRequestHandler<GetAllListingQuery, GetAllListingResponse>
     {
         private readonly IListingRepository repository;
-        // Trebuie user identity
 
         public GetAllListingQueryHandler(IListingRepository repository)
         {
@@ -24,10 +23,10 @@ namespace Real_estate.Application.Features.Listings.Queries.GetAll
                     ListingId = c.ListingId,
                     Title = c.Title,
                     Username = c.Username,
-                    PropertyName = c.PropertyName,
-                    Description = c.Description,
+                    PropertyId = c.PropertyId,
                     PropertyStatus = c.PropertyStatus,
-                    Price = c.Price
+                    Price = c.Price,
+                    LastModifiedAt = c.LastModifiedDate
                     
                 }).ToList();
             }

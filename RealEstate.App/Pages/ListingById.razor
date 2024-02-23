@@ -1,0 +1,142 @@
+﻿@page "/listingdetails/{listingId}"
+@using RealEstate.App.Contracts
+@using RealEstate.App.ViewModels
+@inject IListingDataService ListingDataService
+
+
+<style scoped>
+    .container {
+        font-family: Arial, sans-serif;
+    }
+
+    .card {
+        margin-top: 20px;
+    }
+
+    h2, h5 {
+        color: #343a40;
+    }
+</style>
+
+
+@if (Listing != null)
+{
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8">
+                <!-- Listing Title and Price -->
+                <div class="d-flex align-items-baseline justify-content-between">
+                    <h2 class="mb-3">@Listing.Title</h2>
+                    <h2 class="mt-3 mb-4 text-success">$@Listing.Price</h2>
+                </div>
+
+                <!-- Location -->
+                <h5><i class="fas fa-map-marker-alt text-primary"></i> @Property.City, @Property.StreetAddress</h5>
+
+                <!-- Carousel -->
+                @if (Property.Images != null && Property.Images.Any())
+                {
+                    <div id="imageCarousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            @foreach (var image in Property.Images)
+                            {
+                                <div class="carousel-item @(image == Property.Images.First() ? "active" : "")">
+                                    <img class="d-block w-100" src="@(GetImageBase64(image))" alt="Property Image">
+                                </div>
+                            }
+                        </div>
+                        <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#imageCarousel" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                }
+
+                <!-- Property Details -->
+                <div class="card mb-4 border-primary">
+                    <div class="card-body">
+                        <p><i class="fas fa-ruler-combined text-primary"></i> <strong>Size:</strong> @Property.Size mp²</p>
+                        <p><i class="fas fa-bed text-primary"></i> <strong>Bedrooms:</strong> @Property.NumberOfBedrooms</p>
+                        <p><i class="fas fa-bath text-primary"></i> <strong>Bathrooms:</strong> @Property.NumberOfBathrooms</p>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <div class="card mb-4 border-info">
+                    <div class="card-header bg-info text-white">
+                        Description
+                    </div>
+                    <div class="card-body">
+                        <p>@Property.Description</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="col-md-4 align-self-start">
+                <div class="card border-secondary">
+                    <div class="card-header bg-secondary text-white">
+                        Contact Info
+                    </div>
+                    <div class="card-body">
+                        <p><i class="fas fa-user text-secondary"></i> <strong>Name:</strong> @User.Name</p>
+                        <p><i class="fas fa-envelope text-secondary"></i> <strong>Email:</strong> @User.Email</p>
+                        <p><i class="fas fa-phone text-secondary"></i> <strong>Phone:</strong> @User.PhoneNumber</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private string ListingTitle { get; set; } = string.Empty;
+    private ListingViewModel Listing { get; set; }
+    public bool isLoading { get; set; } = true;
+
+
+    private PropertyViewModel Property { get; set; }
+
+    private UserViewModel User { get; set; }
+
+    [Inject]
+    public NavigationManager NavigationManager { get; set; }
+
+    [Inject]
+    public IPropertyDataService PropertyDataService { get; set; }
+
+    [Inject]
+    public IUserService UserService { get; set; }
+
+    [Parameter]
+    public string listingId { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        isLoading = true;
+        if (Guid.TryParse(listingId, out Guid id))
+        {
+            Listing = await ListingDataService.GetListingByIdAsync(id);
+        }
+        else
+        {
+            return; 
+        }
+        Property = await PropertyDataService.GetPropertyByIdAsync(Listing.PropertyId);
+        User = await UserService.GetUser(Property.UserId);
+
+        isLoading = false;
+    }
+
+
+    private string GetImageBase64(byte[] image)
+    {
+        var base64String = Convert.ToBase64String(image);
+        return $"data:image/png;base64,{base64String}";
+    }
+
+}

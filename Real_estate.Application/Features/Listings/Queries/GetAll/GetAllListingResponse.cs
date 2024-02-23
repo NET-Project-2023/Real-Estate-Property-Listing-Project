@@ -2,7 +2,6 @@
 {
     public class GetAllListingResponse
     {
-
         public List<ListingDto> Listings { get; set; }
     }
 }

@@ -10,6 +10,6 @@ namespace RealEstate.App.Contracts
         Task<ApiResponse<ListingViewModel>> CreateListingAsync(ListingViewModel listingViewModel);
         Task<ApiResponse<ListingViewModel>> UpdateListingAsync(ListingViewModel listingViewModel, string Title);
         Task<ListingViewModel> GetListingByTitleAsync(string title);
-        //Task<ApiResponse<Guid>> DeleteListingAsync(Guid id);
+        Task<bool> DeleteListingAsync(Guid id);
     }
 }

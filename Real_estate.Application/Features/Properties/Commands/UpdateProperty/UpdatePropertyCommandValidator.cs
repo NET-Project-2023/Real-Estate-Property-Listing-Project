@@ -22,11 +22,16 @@ namespace Real_estate.Application.Features.Properties.Commands.UpdateProperty
                     .MaximumLength(500).WithMessage(ValidationMessages.MaxLengthMessage);
             });
 
-            // Optional validation for Address
-            When(p => !string.IsNullOrWhiteSpace(p.Address), () =>
+            When(p => !string.IsNullOrWhiteSpace(p.City), () =>
             {
-                RuleFor(p => p.Address)
-                    .MaximumLength(200).WithMessage(ValidationMessages.MaxLengthMessage);
+                RuleFor(p => p.City)
+                    .MaximumLength(25).WithMessage(ValidationMessages.MaxLengthMessage);
+            });
+
+            When(p => !string.IsNullOrWhiteSpace(p.StreetAddress), () =>
+            {
+                RuleFor(p => p.StreetAddress)
+                    .MaximumLength(100).WithMessage(ValidationMessages.MaxLengthMessage);
             });
 
             // Optional validation for Size
@@ -36,12 +41,6 @@ namespace Real_estate.Application.Features.Properties.Commands.UpdateProperty
                     .GreaterThan(0).WithMessage(ValidationMessages.GreaterThanZeroMessage);
             });
 
-            // Optional validation for Price
-            When(p => p.Price.HasValue, () =>
-            {
-                RuleFor(p => p.Price)
-                    .GreaterThan(0).WithMessage(ValidationMessages.GreaterThanZeroMessage);
-            });
 
             // Optional validation for NumberOfBedrooms
             When(p => p.NumberOfBedrooms.HasValue, () =>

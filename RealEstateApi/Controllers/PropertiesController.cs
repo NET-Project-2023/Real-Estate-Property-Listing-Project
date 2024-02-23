@@ -38,7 +38,6 @@ namespace RealEstate.API.Controllers
             {
                 command.Images = await UtilityFunctions.ConvertToByteArrayAsync(command.ImagesFiles);
             }
-            _logger.LogInformation($"{command.Images} result:");
 
 
             var result = await Mediator.Send(command);
@@ -54,16 +53,22 @@ namespace RealEstate.API.Controllers
         [HttpPut("update/{title}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Update( [FromForm] UpdatePropertyCommand command)
+        public async Task<IActionResult> Update([FromForm] UpdatePropertyCommand command)
         {
             if (string.IsNullOrEmpty(command.Title))
             {
                 return BadRequest("Title is required for property update.");
             }
 
-            if (command.ImagesFiles != null) 
+            // Check if ImagesFiles is empty or null
+            if (command.ImagesFiles != null && command.ImagesFiles.Any())
             {
                 command.Images = await UtilityFunctions.ConvertToByteArrayAsync(command.ImagesFiles);
+            }
+            else
+            {
+                // Set Images to null
+                command.Images = null;
             }
 
             var result = await Mediator.Send(command);
@@ -77,7 +82,7 @@ namespace RealEstate.API.Controllers
         }
 
 
-        [Authorize(Roles = "User")]
+        //[Authorize(Roles = "User")]
         //[Authorize(Roles = "Admin")]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -104,14 +109,13 @@ namespace RealEstate.API.Controllers
             return Ok(result);
         }
 
-        [Authorize(Roles = "User")]
+        //[Authorize(Roles = "User")]
         //[Authorize(Roles = "Admin")]
-        [HttpDelete("{title}")]
+        [HttpDelete("{propertyId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> Delete(string title)
+        public async Task<IActionResult> Delete(Guid propertyId)
         {
-            var command = new DeletePropertyCommand { PropertyTitle = title };
+            var command = new DeletePropertyCommand { PropertyId = propertyId };
             var result = await Mediator.Send(command);
             if (!result.Success)
             {
@@ -127,8 +131,6 @@ namespace RealEstate.API.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetByCurrentUser(string ownerUsername)
         {
-            //var username = User.FindFirst(ClaimTypes.Name)?.Value;    
-            //Console.WriteLine("Username extracted: ", username);
             var result = await Mediator.Send(new GetByOwnerUsernamePropertyQuery(ownerUsername));
             return Ok(result);
         }

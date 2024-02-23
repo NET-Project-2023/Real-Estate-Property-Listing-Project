@@ -7,16 +7,16 @@ namespace Real_estate.Application.Features.Listings.Commands.CreateListing
     public class CreateListingCommandHandler : IRequestHandler<CreateListingCommand, CreateListingCommandResponse>
     {
         private readonly IListingRepository listingRepository;
-        private readonly IUserManager userRepository;
+        //private readonly IUserManager userRepository;
         private readonly IPropertyRepository propertyRepository;
 
         public CreateListingCommandHandler(
             IListingRepository listingRepository,
-            IUserManager userRepository,
+            //IUserManager userRepository,
             IPropertyRepository propertyRepository)
         {
             this.listingRepository = listingRepository;
-            this.userRepository = userRepository;
+            //this.userRepository = userRepository;
             this.propertyRepository = propertyRepository;
         }
 
@@ -34,10 +34,26 @@ namespace Real_estate.Application.Features.Listings.Commands.CreateListing
                 };
             }
 
-            var user = await userRepository.FindByUsernameAsync(request.Username);
-            var property = await propertyRepository.FindByNameAsync(request.PropertyName);
+            var property = await propertyRepository.FindByIdAsync(request.PropertyId);
+            if (property == null)
+            {
+                return new CreateListingCommandResponse
+                {
+                    Success = false,
+                    ValidationsErrors = new List<string> { "Property not found." }
+                };
+            }
 
-            var listingResult = Listing.Create(request.Title, request.Price, request.Username, request.PropertyName, request.Description, request.PropertyStatus);
+            if (request.Username != property.Value.UserId)
+            {
+                return new CreateListingCommandResponse
+                {
+                    Success = false,
+                    ValidationsErrors = new List<string> { "The property has no such owner." }
+                };
+            }
+
+            var listingResult = Listing.Create(request.Title, request.Price, request.Username, request.PropertyId, request.PropertyStatus);
 
             if (!listingResult.IsSuccess)
             {
@@ -47,6 +63,11 @@ namespace Real_estate.Application.Features.Listings.Commands.CreateListing
                     ValidationsErrors = new List<string> { listingResult.Error }
                 };
             }
+
+            listingResult.Value.CreatedBy = request.Username;
+            listingResult.Value.CreatedDate = DateTime.UtcNow;
+            listingResult.Value.LastModifiedBy = request.Username;
+            listingResult.Value.LastModifiedDate = DateTime.UtcNow;
 
             await listingRepository.AddAsync(listingResult.Value);
 
@@ -58,10 +79,10 @@ namespace Real_estate.Application.Features.Listings.Commands.CreateListing
                     ListingId = listingResult.Value.ListingId,
                     Title = listingResult.Value.Title,
                     Username = listingResult.Value.Username,
-                    PropertyName = listingResult.Value.PropertyName,
-                    Description = listingResult.Value.Description,
+                    PropertyId = listingResult.Value.PropertyId,
                     Price = listingResult.Value.Price,
-                    PropertyStatus = listingResult.Value.PropertyStatus
+                    PropertyStatus = listingResult.Value.PropertyStatus,
+                    LastModifiedAt = listingResult.Value.LastModifiedDate
                 }
             };
         }

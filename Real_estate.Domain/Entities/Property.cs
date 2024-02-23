@@ -1,49 +1,44 @@
 ﻿using Real_estate.Domain.Common;
-using static System.Net.Mime.MediaTypeNames;
 namespace Real_estate.Domain.Entities
 
 {
     public class Property : AuditableEntity
     {
           
-        private Property(string title, string address, int size, int price, string userId, int numberOfBedrooms, List<byte[]> images)
+        private Property(string title, string city, string streetAddress, int size, string userId, int numberOfBedrooms, List<byte[]> images)
         {
             PropertyId = Guid.NewGuid();
             Title = title;
-            Address = address;
+            City = city;
+            StreetAddress = streetAddress;
             Size = size;
-            Price = price;
             UserId = userId;
             NumberOfBedrooms = numberOfBedrooms;
             Images = images ?? new List<byte[]>();
-            // Assign the passed images or initialize a new list if null is passed.
         }
      
 
         public Guid PropertyId { get; private set; }
         public string Title { get; private set; }
         public string? Description { get; private set; }
-        public string Address { get; private set; }
+        public string City { get; private set; }
+        public string StreetAddress { get; private set; }
         public int Size { get; private set; }
-        public int Price { get; private set; }
         public int NumberOfBedrooms { get; private set; }
         public int NumberOfBathrooms { get; private set; }
         public List<byte[]> Images { get; private set; }
         public string UserId { get; private set; }
 
-        public static Result<Property> Create(string title, string address, int size, int price, string ownerUniqueName, int numberOfBedrooms, List<byte[]> images)
+        public static Result<Property> Create(string title, string city, string streetAddress, int size, string ownerUniqueName, int numberOfBedrooms, List<byte[]> images)
         {
-            var property = new Property(title, address, size, price, ownerUniqueName, numberOfBedrooms, images);
+            var property = new Property(title, city, streetAddress, size, ownerUniqueName, numberOfBedrooms, images);
             return Result<Property>.Success(property);
         }
 
 
         public void AttachDescription(string description)
         {
-            if (!string.IsNullOrWhiteSpace(description))
-            {
-                Description = description;
-            }
+             Description = description;
         }
 
         public void AttachImageUrls(List<byte[]> images)
@@ -82,20 +77,25 @@ namespace Real_estate.Domain.Entities
 
         public void UpdateDescription(string newDescription)
         {
-            if (string.IsNullOrWhiteSpace(newDescription))
-            {
-                throw new ArgumentException("Description cannot be empty.", nameof(newDescription));
-            }
+            // additional validations
             Description = newDescription;
         }
 
-        public void UpdateAddress(string newAddress)
+        public void UpdateStreetAddress(string newStreetAddress)
         {
-            if (string.IsNullOrWhiteSpace(newAddress))
+            if (string.IsNullOrWhiteSpace(newStreetAddress))
             {
-                throw new ArgumentException("Address cannot be empty.", nameof(newAddress));
+                throw new ArgumentException("Address cannot be empty.", nameof(newStreetAddress));
             }
-            Address = newAddress;
+            StreetAddress = newStreetAddress;
+        }
+
+        public void UpdateCity(string newCity)
+        {
+            if (string.IsNullOrEmpty(newCity))
+            {
+                throw new ArgumentException("City cannot be null.", nameof(newCity));
+            }
         }
 
         public void UpdateSize(int newSize)
@@ -105,15 +105,6 @@ namespace Real_estate.Domain.Entities
                 throw new ArgumentException("Size must be greater than zero.", nameof(newSize));
             }
             Size = newSize;
-        }
-
-        public void UpdatePrice(int newPrice)
-        {
-            if (newPrice < 0) // Assuming price cannot be negative.
-            {
-                throw new ArgumentException("Price cannot be negative.", nameof(newPrice));
-            }
-            Price = newPrice;
         }
 
         public void UpdateNumberOfBedrooms(int newNumberOfBedrooms)

@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Logging;
 using Real_estate.Application.Persistence;
 using Real_estate.Domain.Entities;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
 {
@@ -48,11 +47,11 @@ namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
             var image = request.Images[0];
 
             var base64Data = Convert.ToBase64String(image);
-            _logger.LogInformation($"Image {0} Base64 data: {base64Data}");
+            //_logger.LogInformation($"Image {0} Base64 data: {base64Data}");
 
-            _logger.LogInformation($"Received image with byte length: {request.Images}");
+            //_logger.LogInformation($"Received image with byte length: {request.Images}");
 
-            var property = Property.Create(request.Title, request.Address, request.Size, request.Price, request.UserId, request.NumberOfBedrooms, request.Images);
+            var property = Property.Create(request.Title, request.City, request.StreetAddress, request.Size, request.UserId, request.NumberOfBedrooms, request.Images);
             if (!property.IsSuccess)
             {
                 return new CreatePropertyCommandResponse
@@ -61,6 +60,17 @@ namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
                     ValidationsErrors = new List<string> { property.Error }
                 };
             }
+
+            if (request.Description != null)
+            {
+                property.Value.AttachDescription(request.Description);
+            }
+
+            property.Value.AttachNumberOfBathrooms(request.NumberOfBathrooms);
+            property.Value.CreatedBy = request.UserId;
+            property.Value.CreatedDate = DateTime.UtcNow;
+            property.Value.LastModifiedBy = request.UserId;
+            property.Value.LastModifiedDate = DateTime.UtcNow;
 
             await propertyRepository.AddAsync(property.Value);
 
@@ -71,12 +81,14 @@ namespace Real_estate.Application.Features.Properties.Commands.CreateProperty
                 {
                     PropertyId = property.Value.PropertyId,
                     Title = property.Value.Title,
-                    Address = property.Value.Address,
+                    Description = property.Value.Description,
+                    City = property.Value.City,
+                    StreetAddress = property.Value.StreetAddress,
                     Size = property.Value.Size,
-                    Price = property.Value.Price,
-                    UserId = property.Value.UserId,
                     NumberOfBedrooms = property.Value.NumberOfBedrooms,
-                    Images = property.Value.Images
+                    NumberOfBathrooms = property.Value.NumberOfBathrooms,
+                    Images = property.Value.Images,
+                    UserId = property.Value.UserId,
                 }
             };
         }

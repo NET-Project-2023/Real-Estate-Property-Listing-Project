@@ -35,10 +35,6 @@ namespace Infrastructure.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("text");
 
@@ -48,9 +44,8 @@ namespace Infrastructure.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric");
 
-                    b.Property<string>("PropertyName")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<Guid>("PropertyId")
+                        .HasColumnType("uuid");
 
                     b.Property<int>("PropertyStatus")
                         .HasColumnType("integer");
@@ -73,7 +68,7 @@ namespace Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<string>("Address")
+                    b.Property<string>("City")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -102,11 +97,12 @@ namespace Infrastructure.Migrations
                     b.Property<int>("NumberOfBedrooms")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Price")
-                        .HasColumnType("integer");
-
                     b.Property<int>("Size")
                         .HasColumnType("integer");
+
+                    b.Property<string>("StreetAddress")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("Title")
                         .IsRequired()

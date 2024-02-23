@@ -10,7 +10,7 @@ namespace RealEstate.API.Controllers
 {
     public class ListingsController : ApiControllerBase
     {
-        [Authorize(Roles = "User")]
+        //[Authorize(Roles = "User")]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         public async Task<IActionResult> Create(CreateListingCommand command)
@@ -32,15 +32,15 @@ namespace RealEstate.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("ByTitle/{title}")]
+        [HttpGet("ById/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<IActionResult> Get(string title)
+        public async Task<IActionResult> Get(Guid id)
         {
-            var result = await Mediator.Send(new GetByIdListingQuery(title));
+            var result = await Mediator.Send(new GetByIdListingQuery(id));
             return Ok(result);
         }
 
-        [HttpDelete("listings/delete/{listingId}")]
+        [HttpDelete("{listingId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(Guid listingId)
@@ -53,6 +53,7 @@ namespace RealEstate.API.Controllers
             }
             return Ok(result.Message);
         }
+
         [HttpPut("/listings/update/{listingTitle}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

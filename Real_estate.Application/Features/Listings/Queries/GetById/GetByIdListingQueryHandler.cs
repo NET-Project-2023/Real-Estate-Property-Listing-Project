@@ -16,7 +16,7 @@ namespace Real_estate.Application.Features.Listings.Queries.GetById
 
         public async Task<ListingDto> Handle(GetByIdListingQuery request, CancellationToken cancellationToken)
         {
-            var result = await repository.FindByNameAsync(request.title);
+            var result = await repository.FindByIdAsync(request.id);
             if (result.IsSuccess)
             {
                 return new ListingDto
@@ -24,10 +24,10 @@ namespace Real_estate.Application.Features.Listings.Queries.GetById
                     ListingId = result.Value.ListingId,
                     Title = result.Value.Title,
                     Username = result.Value.Username,
-                    PropertyName = result.Value.PropertyName,
-                    Description = result.Value.Description,
+                    PropertyId = result.Value.PropertyId,
                     Price = result.Value.Price,
-                    PropertyStatus = result.Value.PropertyStatus
+                    PropertyStatus = result.Value.PropertyStatus,
+                    LastModifiedAt = result.Value.LastModifiedDate
                 };
             }
             return null; 

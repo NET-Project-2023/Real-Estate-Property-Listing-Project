@@ -1,116 +1,203 @@
-﻿@page "/updateproperty/{title}"
+﻿@page "/updateproperty/{propertyId}"
 @using Microsoft.AspNetCore.Components.Authorization
 @using RealEstate.App.Contracts
 @using RealEstate.App.Services
 @using RealEstate.App.ViewModels
-@inject IPropertyDataService PropertyDataService
-@inject ITokenService tokenService
-@inject NavigationManager NavigationManager
 
-<h3 class="text-center text-primary mb-4">Edit Property</h3>
 
-@if (UpdatePropertyModel == null)
-{
-    <p class="alert alert-warning">No property found with this title...</p>
-}
-else
-{
-    <EditForm Model="@UpdatePropertyModel" OnValidSubmit="@HandleValidSubmit" class="border p-4 rounded shadow">
-        <DataAnnotationsValidator />
-        <ValidationSummary />
 
-        <!-- Description -->
-        <div class="form-group">
-            <label for="description">Description:</label>
-            <InputTextArea id="description" class="form-control" @bind-Value="@UpdatePropertyModel.Description" />
-        </div>
+<style scoped>
+    .container {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: auto;
+        padding: 30px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
 
-        <!-- Address -->
-        <div class="form-group">
-            <label for="address">Address:</label>
-            <InputTextArea id="address" class="form-control" @bind-Value="@UpdatePropertyModel.Address" />
-        </div>
+    .form-group {
+        margin-bottom: 20px;
+    }
 
-        <!-- Price -->
-        <div class="form-group">
-            <label for="price">Price:</label>
-            <InputNumber id="price" class="form-control" @bind-Value="@UpdatePropertyModel.Price" />
-        </div>
+    .form-label {
+        color: #333;
+        font-weight: bold;
+    }
 
-        <!-- Size -->
-        <div class="form-group">
-            <label for="size">Size:</label>
-            <InputNumber id="size" class="form-control" @bind-Value="@UpdatePropertyModel.Size" />
-        </div>
+    .form-control {
+        border: 2px solid #007bff;
+        border-radius: 5px;
+        color: #333;
+        background-color: #fff;
+        padding: 10px;
+        width: 100%;
+    }
 
-        <!-- Bedrooms -->
-        <div class="form-group">
-            <label for="bedroom">Bedrooms:</label>
-            <InputNumber id="bedroom" class="form-control" @bind-Value="@UpdatePropertyModel.NumberOfBedrooms" />
-        </div>
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
 
-        <!-- Bathrooms -->
-        <div class="form-group">
-            <label for="bathroom">Bathrooms:</label>
-            <InputNumber id="bathroom" class="form-control" @bind-Value="@UpdatePropertyModel.NumberOfBathrooms" />
-        </div>
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
 
-        <!-- Display current images -->
-        <div>
-            <h5 class="text-secondary">Current Images</h5>
-            @foreach (var image in UpdatePropertyModel.Images)
-            {
-                <div class="d-inline-block text-center m-2">
-                    <img src="@($"data:image/png;base64,{Convert.ToBase64String(image)}")" alt="Property Image" class="img-fluid rounded" style="width: 150px; height: 150px;" />
-                    <div class="mt-2">
-                        <button type="button" class="btn btn-outline-danger" @onclick="() => RemoveImage(image)">
-                            <i class="fas fa-trash-alt"></i> Remove
-                        </button>
-                    </div>
-                </div>
-            }
-        </div>
+    .upload-icon {
+        color: #007bff;
+        font-size: 24px;
+    }
 
-        <!-- Upload new images -->
-        <div class="form-group mt-4">
-            <label for="newImages">Upload New Images:</label>
-            <InputFile id="newImages" class="form-control" multiple OnChange="@HandleFileChange" />
-        </div>
+    #fileUpload {
+        display: none;
+    }
 
-        <!-- Submit Button -->
-        <button type="submit" class="btn btn-primary btn-block">Update Property</button>
-    </EditForm>
-}
+    .alert {
+        margin-top: 20px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .alert-info {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .image-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-gap: 10px;
+    }
+
+        .image-grid img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+</style>
+
+<div class="container">
+    <h3 class="text-center text-primary mb-4">Edit Property</h3>
+
+    @if (UpdatePropertyModel == null)
+    {
+        <p class="alert alert-warning">No property found with this ID...</p>
+    }
+    else
+    {
+        <EditForm Model="@UpdatePropertyModel" OnValidSubmit="@HandleValidSubmit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <!-- Description -->
+            <div class="form-group">
+                <label for="description" class="form-label">Description:</label>
+                <InputTextArea id="description" class="form-control" @bind-Value="@UpdatePropertyModel.Description" />
+            </div>
+
+            <!-- City -->
+            <div class="form-group">
+                <label for="city" class="form-label">City:</label>
+                <InputTextArea id="city" class="form-control" @bind-Value="@UpdatePropertyModel.City" />
+            </div>
+
+            <!-- Address -->
+            <div class="form-group">
+                <label for="address" class="form-label">Address:</label>
+                <InputTextArea id="address" class="form-control" @bind-Value="@UpdatePropertyModel.StreetAddress" />
+            </div>
+
+            <!-- Size -->
+            <div class="form-group">
+                <label for="size" class="form-label">Size:</label>
+                <InputNumber id="size" class="form-control" @bind-Value="@UpdatePropertyModel.Size" />
+            </div>
+
+            <!-- Bedrooms -->
+            <div class="form-group">
+                <label for="bedroom" class="form-label">Bedrooms:</label>
+                <InputNumber id="bedroom" class="form-control" @bind-Value="@UpdatePropertyModel.NumberOfBedrooms" />
+            </div>
+
+            <!-- Bathrooms -->
+            <div class="form-group">
+                <label for="bathroom" class="form-label">Bathrooms:</label>
+                <InputNumber id="bathroom" class="form-control" @bind-Value="@UpdatePropertyModel.NumberOfBathrooms" />
+            </div>
+
+            <!-- Display current images -->
+            <div class="image-grid">
+                @foreach (var image in UpdatePropertyModel.Images)
+                {
+                    <img src="@($"data:image/png;base64,{Convert.ToBase64String(image)}")" alt="Property Image" />
+                }
+            </div>
+
+            <!-- Upload new images -->
+            <div class="form-group mt-4">
+                <label for="newImages" class="form-label">Upload New Images:</label>
+                <InputFile id="newImages" class="form-control" multiple OnChange="@HandleFileChange" />
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary btn-block">Update Property</button>
+        </EditForm>
+    }
+</div>
 
 
 
 @code {
-    private PropertyDto UpdatePropertyModel;
-    private string PropertyTitle { get; set; } = string.Empty;
-    private bool SearchAttempted { get; set; } = false;
-    private const long maxFileSize = 10485760; // 10 MB
-    private List<byte[]> RemovedImages = new List<byte[]>();
 
+    @inject IPropertyDataService PropertyDataService
+
+    @inject ITokenService tokenService
+
+    @inject NavigationManager NavigationManager
+
+    private PropertyViewModel UpdatePropertyModel { get; set; }
+
+    private const long maxFileSize = 10485760; // 10 MB
 
     [Parameter]
-    public string title { get; set; }
+    public string PropertyId { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        PropertyTitle = NavigationManager.Uri.Split('/').LastOrDefault();
-        UpdatePropertyModel = await PropertyDataService.GetPropertyByNameAsync(PropertyTitle);
-        string loggedInUsername = await tokenService.GetUsernameFromTokenAsync();
-        Console.WriteLine("LOGGEDIN pentru UPDATE: ", loggedInUsername); 
+        if (Guid.TryParse(PropertyId, out Guid propertyId))
+        {
+            UpdatePropertyModel = await PropertyDataService.GetPropertyByIdAsync(propertyId);
+        }
+        else
+        {
+            Console.WriteLine("Invalid PropertyId parameter.");
+            return;
+        }
+
+        string? loggedInUsername = await tokenService.GetUsernameFromTokenAsync();
+
         if(UpdatePropertyModel.UserId != loggedInUsername && loggedInUsername != null)
         {
             NavigationManager.NavigateTo("/unauthorized");
         }
 
-        SearchAttempted = true;
     }
 
     private async Task HandleValidSubmit()
     {
+        if (UpdatePropertyModel.ImagesFiles == null || UpdatePropertyModel.ImagesFiles.Count == 0)
+        {
+            // Set ImagesFiles to an empty list if no files are selected
+            UpdatePropertyModel.ImagesFiles = new List<IBrowserFile>();
+        }
 
 
         var result = await PropertyDataService.UpdatePropertyAsync(UpdatePropertyModel);
@@ -121,16 +208,10 @@ else
         }
         else
         {
-            // Handle error scenario
             Console.WriteLine($"Error updating property: {result.Message}");
         }
     }
 
-    private void RemoveImage(byte[] image)
-    {
-        UpdatePropertyModel.Images.Remove(image);
-        RemovedImages.Add(image);
-    }
 
     private async Task HandleFileChange(InputFileChangeEventArgs e)
     {
@@ -150,4 +231,6 @@ else
             }
         }
     }
+
 }
+

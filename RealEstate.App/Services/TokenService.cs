@@ -71,8 +71,8 @@ namespace RealEstate.App.Services
             var handler = new JwtSecurityTokenHandler();
             var jwtToken = handler.ReadToken(token) as JwtSecurityToken;
             var roleClaim = jwtToken?.Claims.FirstOrDefault(claim => claim.Type == "role");
-            Console.WriteLine($"Role from token: {roleClaim?.Value}");
-            return roleClaim?.Value;
+            Console.WriteLine($"Role from TOKEN: {roleClaim?.Value}");
+            return roleClaim.Value;
         }
     }
 

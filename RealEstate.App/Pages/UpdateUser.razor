@@ -42,11 +42,11 @@
         cursor: pointer;
     }
 
-    .btn-primary:hover {
-        background-color: white;
-        color: #3498db; /* Blue accent */
-        border: 2px solid #3498db; /* Blue accent */
-    }
+        .btn-primary:hover {
+            background-color: white;
+            color: #3498db; /* Blue accent */
+            border: 2px solid #3498db; /* Blue accent */
+        }
 
     .avatar {
         width: 120px;
@@ -63,7 +63,6 @@
             color: #333; /* Dark text color for contrast */
         }
 
-
 </style>
 
 
@@ -75,7 +74,7 @@ else
 {
 
     <div class="container mt-5">
-       
+
 
         <!-- Avatar -->
         <div class="avatar">
@@ -151,6 +150,7 @@ else
     </div>
 }
 
+
 @code {
 
     [Inject]
@@ -162,7 +162,7 @@ else
     [Inject]
     public ITokenService tokenService { get; set; }
 
-    private UpdateUserViewModel currentUserModel;
+    private UserViewModel currentUserModel;
     private string error;
     public string message { get; set; }
     private string role = string.Empty;
@@ -177,7 +177,7 @@ else
         }
         
         Console.WriteLine("CurrentUserModel username BLAZOR: ", username);
-
+       
     }
 
     private async Task UpdateProfile()
@@ -185,13 +185,13 @@ else
         try
         {
             Console.WriteLine("Attempting to update user..."); // Debug message
-            UpdateUserViewModel updateUser = new UpdateUserViewModel
+            UserViewModel updateUser = new UserViewModel
                 {
                     Username = currentUserModel.Username,
                     Email = currentUserModel.Email,
                     PhoneNumber = currentUserModel.PhoneNumber,
                     Name = currentUserModel.Name,
-                    UserRole = currentUserModel.UserRole
+                    Roles = currentUserModel.Roles
                 };
 
             var result = await userService.UpdateUser(updateUser);

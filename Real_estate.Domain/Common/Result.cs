@@ -12,9 +12,9 @@
         public bool IsSuccess { get; }
         public T Value { get; }
         public string Error { get; }
-        public static Result<T> Success(T valeu)
+        public static Result<T> Success(T value)
         {
-            return new Result<T>(true, valeu, null!);
+            return new Result<T>(true, value, null!);
         }
         public static Result<T> Failure(string error)
         {

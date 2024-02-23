@@ -44,9 +44,15 @@ namespace RealEstate.App.Services
             httpClient.DefaultRequestHeaders.Authorization =
                 new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
 
+            string loggedInUsername = await tokenService.GetUsernameFromTokenAsync();
+            if (loggedInUsername != listingViewModel.UserName)
+            {
+                throw new InvalidOperationException("Username from Property and URL not matching!");
+            }
+
             var response = await httpClient.PostAsJsonAsync(RequestUri, listingViewModel);
             response.EnsureSuccessStatusCode();
-            Console.WriteLine($"RESPONSE TATI: {response.StatusCode}"); 
+            Console.WriteLine($"RESPONSE: {response.StatusCode}"); 
             if (response.IsSuccessStatusCode)
             {
                 var apiResponse = await response.Content.ReadFromJsonAsync<ApiResponse<ListingViewModel>>();
@@ -54,8 +60,7 @@ namespace RealEstate.App.Services
                 return apiResponse!;
             }
             else
-            {
-                
+            {               
                 var errorContent = await response.Content.ReadAsStringAsync();
                 
                 return new ApiResponse<ListingViewModel>
@@ -99,9 +104,26 @@ namespace RealEstate.App.Services
         }
 
 
-        public Task<ListingViewModel> GetListingByIdAsync(Guid id)
+        public async Task<ListingViewModel> GetListingByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            httpClient.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
+
+            var response = await httpClient.GetAsync($"api/v1/listings/ById/{id}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var apiResponse = await response.Content.ReadFromJsonAsync<ListingViewModel>();
+                return apiResponse;
+            }
+            else
+            {
+                // Log the error or throw an exception
+                var errorContent = await response.Content.ReadAsStringAsync();
+                Console.WriteLine($"Error getting listing by id: {errorContent}");
+                throw new ApplicationException($"Error getting listing by id: {errorContent}");
+            }
         }
 
 		public async Task<ListingViewModel> GetListingByTitleAsync(string title)
@@ -128,6 +150,20 @@ namespace RealEstate.App.Services
 			}
 		}
 
-      
+
+        public async Task<bool> DeleteListingAsync(Guid id)
+        {
+            string requestUri = $"api/v1/Listings/{id}";
+            var response = await httpClient.DeleteAsync(requestUri);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new HttpRequestException($"Error deleting listing: {response.ReasonPhrase}");
+            }
+
+            return true;
+        }
+
+
     }
 }

@@ -5,6 +5,7 @@ using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Net.Http.Json;
 
+
 namespace RealEstate.App.Services
 {
     public class UserService : IUserService
@@ -18,7 +19,7 @@ namespace RealEstate.App.Services
             this.tokenService = tokenService;
         }
 
-        public async Task<UpdateUserViewModel> GetUser(string username)
+        public async Task<UserViewModel> GetUser(string username)
         {
             try
             {
@@ -42,12 +43,12 @@ namespace RealEstate.App.Services
                 using var doc = JsonDocument.Parse(content);
                 var userElement = doc.RootElement.GetProperty("user");
 
-                var user = JsonSerializer.Deserialize<UpdateUserViewModel>(userElement.GetRawText(), new JsonSerializerOptions
+                var user = JsonSerializer.Deserialize<UserViewModel>(userElement.GetRawText(), new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
                 });
 
-                return user;
+                return user!;
             }
             catch (Exception ex)
             {
@@ -57,7 +58,7 @@ namespace RealEstate.App.Services
             
         }
 
-        public async Task<ApiResponse<UpdateUserViewModel>> UpdateUser(UpdateUserViewModel updateUserModel)
+        public async Task<ApiResponse<UserViewModel>> UpdateUser(UserViewModel updateUserModel)
         {
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
 
@@ -67,9 +68,57 @@ namespace RealEstate.App.Services
 
             var result = await httpClient.PutAsJsonAsync(requestUri, updateUserModel);
             result.EnsureSuccessStatusCode();
-            var response = await result.Content.ReadFromJsonAsync<ApiResponse<UpdateUserViewModel>>();
+            var response = await result.Content.ReadFromJsonAsync<ApiResponse<UserViewModel>>();
             response!.IsSuccess = result.IsSuccessStatusCode;
             return response!;
         }
+
+
+        public async Task<List<UserViewModel>> GetAllUsers()
+        {
+            var requestUri = "api/v1/Users";
+            httpClient.DefaultRequestHeaders.Authorization =
+               new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
+
+            var result = await httpClient.GetAsync(requestUri);
+            result.EnsureSuccessStatusCode();
+
+            var content = await result.Content.ReadAsStringAsync();
+
+            if (!result.IsSuccessStatusCode)
+            {
+                throw new ApplicationException(content);
+            }
+
+            var response = JsonSerializer.Deserialize<UsersResponse>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+            var users = response?.Users ?? new List<UserViewModel>();
+
+            return users!;
+        }
+
+
+        public async Task<ApiResponse<bool>> DeleteUser(string username)
+        {
+            try
+            {
+                var requestUri = $"api/v1/Users/delete/{username}";
+
+                httpClient.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
+
+                var result = await httpClient.DeleteAsync(requestUri);
+                result.EnsureSuccessStatusCode();
+
+                return new ApiResponse<bool> { IsSuccess = true };
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception during user deletion: {ex}");
+                // Handle the exception appropriately, such as logging and returning an error response
+                return new ApiResponse<bool> { IsSuccess = false, Message = ex.Message };
+            }
+        }
+
     }
+
 }

@@ -16,6 +16,7 @@ namespace RealEstate.API.Controllers
             _logger = logger;
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll()
@@ -53,6 +54,7 @@ namespace RealEstate.API.Controllers
             }
             return Ok(result);
         }
+
         [Authorize(Roles = "Admin")]
         [HttpDelete("deleteByUsername/{username}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -66,6 +68,7 @@ namespace RealEstate.API.Controllers
             }
             return Ok(result);
         }
+
         [HttpPut("update/{username}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> Update(string username, UpdateUserCommand command)

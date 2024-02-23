@@ -1,5 +1,6 @@
 ﻿@using RealEstate.App.Contracts
 @using Microsoft.AspNetCore.Components.Authorization
+@using RealEstate.App.ViewModels
 @inject ITokenService tokenService
 @inject IAuthenticationService authService
 
@@ -28,55 +29,84 @@
                 <Authorized>
                     <!-- Render links for authenticated users -->
                     <div class="nav-item px-3">
-                        <NavLink class="nav-link" href="propertyoverview">
-                            <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Properties
+                        <NavLink class="nav-link" href="listingsoverview">
+                            <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Listings
                         </NavLink>
                     </div>
-                    <div class="nav-item px-3">
-                        <NavLink class="nav-link" href="addproperty">
-                            <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Add Property
-                        </NavLink>
-                    </div>
-                    <div class="nav-item px-3">
-                        <NavLink class="nav-link" href="myproperties">
-                            <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> My Properties
-                        </NavLink>
-                    </div>
+
+                    @if (role == "User")
+                    {
+                        <div class="nav-item px-3">
+                            <NavLink class="nav-link" href="addproperty">
+                                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Add Property
+                            </NavLink>
+                        </div>
+                        <div class="nav-item px-3">
+                            <NavLink class="nav-link" href="myproperties">
+                                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> My Properties
+                            </NavLink>
+                        </div>
+                    }
+
+
+                    <!-- Render links only for users with admin role -->
+                     @if (role == "Admin")
+                    {
+                        <div class="nav-item px-3">
+                            <NavLink class="nav-link" href="/admin/useroverview">
+                                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Inspect Users
+                            </NavLink>
+                        </div>
+                    }
+
                     <div class="nav-item px-3">
                         <NavLink class="nav-link" href="/updateuser">
                             <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> My Profile
                         </NavLink>
                     </div>
-                    <!-- Include other authenticated links here -->
                 </Authorized>
-
             </AuthorizeView>
-
         </CascadingAuthenticationState>
     </nav>
 </div>
 
 
 
-@code {
-    private bool collapseNavMenu = false;
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+@code {
+
     [Inject]
     public NavigationManager NavigationManager { get; set; }
 
-    public string role { get; set; } = string.Empty;
+    [Inject]
+    public IUserService UserService { get; set; }
 
+    public UserViewModel? User { get; set; }
+
+    private bool collapseNavMenu = false;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private string? role = "";
+
+    private string? token = "";
 
     protected override async Task OnInitializedAsync()
     {
-        role = await tokenService.GetRoleFromTokenAsync();
-        Console.WriteLine("ROL CURENT: ", role);
+        token = await tokenService.GetTokenAsync();
+        if(String.IsNullOrWhiteSpace(token))
+        {
+            Console.WriteLine("Nobody is logged in yet");
+            return;
+        }
+        //role = await tokenService.GetRoleFromTokenAsync();
+        var loggedUsername = authService.DecodeUsernameFromTokenAsync(token);
+        User = await UserService.GetUser(loggedUsername.Result.ToString());
+        Console.WriteLine($"ROL Curent din NAVMenu: {User.Roles[0]}");
+        role = User.Roles[0];
     }
-    private void NavigateToDeleteUser()
-    {
-        NavigationManager.NavigateTo("/admin/deleteuser");
-    }
+
+
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
