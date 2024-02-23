@@ -49,7 +49,7 @@ namespace RealEstate.API.Controllers
         }
 
 
-        //[Authorize(Roles = "User")]
+        [Authorize(Roles = "User")]
         [HttpPut("update/{title}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -109,7 +109,7 @@ namespace RealEstate.API.Controllers
             return Ok(result);
         }
 
-        //[Authorize(Roles = "User")]
+        [Authorize(Roles = "User")]
         //[Authorize(Roles = "Admin")]
         [HttpDelete("{title}")]
         [ProducesResponseType(StatusCodes.Status200OK)]

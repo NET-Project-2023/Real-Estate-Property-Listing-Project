@@ -33,31 +33,37 @@
                             <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Listings
                         </NavLink>
                     </div>
-                    <div class="nav-item px-3">
-                        <NavLink class="nav-link" href="addproperty">
-                            <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Add Property
-                        </NavLink>
-                    </div>
-                    <div class="nav-item px-3">
-                        <NavLink class="nav-link" href="myproperties">
-                            <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> My Properties
-                        </NavLink>
-                    </div>
-                    <div class="nav-item px-3">
-                        <NavLink class="nav-link" href="/updateuser">
-                            <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> My Profile
-                        </NavLink>
-                    </div>
+
+                    @if (role == "User")
+                    {
+                        <div class="nav-item px-3">
+                            <NavLink class="nav-link" href="addproperty">
+                                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Add Property
+                            </NavLink>
+                        </div>
+                        <div class="nav-item px-3">
+                            <NavLink class="nav-link" href="myproperties">
+                                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> My Properties
+                            </NavLink>
+                        </div>
+                    }
+
 
                     <!-- Render links only for users with admin role -->
                      @if (role == "Admin")
                     {
                         <div class="nav-item px-3">
-                            <NavLink class="nav-link" href="/inspectusers">
+                            <NavLink class="nav-link" href="/admin/useroverview">
                                 <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Inspect Users
                             </NavLink>
                         </div>
-                    } 
+                    }
+
+                    <div class="nav-item px-3">
+                        <NavLink class="nav-link" href="/updateuser">
+                            <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> My Profile
+                        </NavLink>
+                    </div>
                 </Authorized>
             </AuthorizeView>
         </CascadingAuthenticationState>
@@ -83,11 +89,16 @@
 
     private string? role = "";
 
-    private string token = "";
+    private string? token = "";
 
     protected override async Task OnInitializedAsync()
     {
         token = await tokenService.GetTokenAsync();
+        if(String.IsNullOrWhiteSpace(token))
+        {
+            Console.WriteLine("Nobody is logged in yet");
+            return;
+        }
         //role = await tokenService.GetRoleFromTokenAsync();
         var loggedUsername = authService.DecodeUsernameFromTokenAsync(token);
         User = await UserService.GetUser(loggedUsername.Result.ToString());
@@ -95,11 +106,6 @@
         role = User.Roles[0];
     }
 
-
-    private void NavigateToDeleteUser()
-    {
-        NavigationManager.NavigateTo("/admin/deleteuser");
-    }
 
     private void ToggleNavMenu()
     {

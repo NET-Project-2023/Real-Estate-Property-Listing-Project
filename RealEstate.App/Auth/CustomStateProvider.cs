@@ -25,7 +25,7 @@ namespace RealEstate.App.Auth
                 if (!string.IsNullOrWhiteSpace(token))
                 {
                     var username = await tokenService.GetUsernameFromTokenAsync();
-                    var role = await tokenService.GetRoleFromTokenAsync();
+                    var role = await tokenService.GetRoleFromTokenAsync(); // aici in tokenService am printat si rolul
                     var claims = new List<Claim>
                     {
                         new Claim(ClaimTypes.Name, username),

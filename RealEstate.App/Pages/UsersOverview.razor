@@ -1,0 +1,85 @@
+﻿@page "/admin/useroverview"
+@using RealEstate.App.Contracts
+@using RealEstate.App.ViewModels
+@inject IUserService userService
+
+<style scoped>
+    .container {
+        font-family: Arial, sans-serif;
+    }
+
+    .card {
+        margin-bottom: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .card:hover {
+        background-color: #e9ecef;
+        transform: scale(1.02);
+    }
+
+    .thumbnail {
+        max-width: 150px;
+    }
+
+    .title {
+        font-size: 1.25em;
+    }
+
+    .price {
+        font-size: 1.5em;
+    }
+
+    .info, .size {
+        font-size: 1em;
+    }
+
+
+</style>
+
+<div class="container mt-5">
+    <h3><i class="fas fa-users"></i> User Overview</h3>
+
+    @if (Users != null && Users.Any())
+    {
+        @foreach (var user in Users)
+        {
+            <div class="card p-3 mb-3" @onclick="() => ViewUserProfile(user.Username)">
+                <div class="d-flex">
+                    <!-- User details -->
+                    <div class="flex-grow-1">
+                        <h5 class="card-title"><i class="fas fa-user"></i> @user.Username</h5>
+                        <p class="card-text"><i class="fas fa-address-card"></i> @user.Name</p>
+                        <p class="card-text"><i class="fas fa-envelope"></i> @user.Email</p>
+                        <p class="card-text"><i class="fas fa-phone"></i> @user.PhoneNumber</p>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <p class="text-center text-muted"><i class="fas fa-exclamation-circle"></i> No users found.</p>
+    }
+</div>
+
+@code {
+
+    [Inject]
+    public NavigationManager NavigationManager { get; set; }
+
+    private List<UserViewModel> Users { get; set; } 
+
+    protected override async Task OnInitializedAsync()
+    {
+        Users = await userService.GetAllUsers();
+    }
+
+    private void ViewUserProfile(string username)
+    {
+        // Navigate to the user's profile page
+        NavigationManager.NavigateTo($"/admin/user/{username}");
+    }
+
+}

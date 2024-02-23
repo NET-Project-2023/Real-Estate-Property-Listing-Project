@@ -5,6 +5,7 @@ using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Net.Http.Json;
 
+
 namespace RealEstate.App.Services
 {
     public class UserService : IUserService
@@ -71,5 +72,30 @@ namespace RealEstate.App.Services
             response!.IsSuccess = result.IsSuccessStatusCode;
             return response!;
         }
+
+
+        public async Task<List<UserViewModel>> GetAllUsers()
+        {
+            var requestUri = "api/v1/Users";
+            httpClient.DefaultRequestHeaders.Authorization =
+               new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
+
+            var result = await httpClient.GetAsync(requestUri);
+            result.EnsureSuccessStatusCode();
+
+            var content = await result.Content.ReadAsStringAsync();
+
+            if (!result.IsSuccessStatusCode)
+            {
+                throw new ApplicationException(content);
+            }
+
+            var response = JsonSerializer.Deserialize<UsersResponse>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+            var users = response?.Users ?? new List<UserViewModel>();
+
+            return users!;
+        }
+
     }
+
 }

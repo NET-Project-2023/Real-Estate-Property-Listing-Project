@@ -8,7 +8,5 @@
         public string? PhoneNumber { get; set; }
         public List<string>? Roles { get; set; } 
 
-
-        // Add other fields that you want to update
     }
 }

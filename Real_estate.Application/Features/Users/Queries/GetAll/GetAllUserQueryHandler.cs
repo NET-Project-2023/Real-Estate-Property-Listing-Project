@@ -25,7 +25,6 @@ namespace Real_estate.Application.Features.Listings.Queries.GetAll
                     Name = c.Name,
                     Username = c.Username,
                     Email = c.Email,
-                    //Password = c.Password,
                     Roles = c.Roles,
                     PhoneNumber = c.PhoneNumber
                 }).ToList();

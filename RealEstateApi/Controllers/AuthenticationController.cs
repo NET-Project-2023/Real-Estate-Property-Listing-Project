@@ -52,6 +52,7 @@ namespace RealEstate.API.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
+
         [HttpPost]
         [Route("register")]
         public async Task<IActionResult> Register(RegistrationModel model)
