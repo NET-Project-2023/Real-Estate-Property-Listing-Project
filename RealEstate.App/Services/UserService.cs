@@ -96,6 +96,29 @@ namespace RealEstate.App.Services
             return users!;
         }
 
+
+        public async Task<ApiResponse<bool>> DeleteUser(string username)
+        {
+            try
+            {
+                var requestUri = $"api/v1/Users/delete/{username}";
+
+                httpClient.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
+
+                var result = await httpClient.DeleteAsync(requestUri);
+                result.EnsureSuccessStatusCode();
+
+                return new ApiResponse<bool> { IsSuccess = true };
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception during user deletion: {ex}");
+                // Handle the exception appropriately, such as logging and returning an error response
+                return new ApiResponse<bool> { IsSuccess = false, Message = ex.Message };
+            }
+        }
+
     }
 
 }

@@ -9,5 +9,6 @@ namespace RealEstate.App.Contracts
         Task<ApiResponse<UserViewModel>> UpdateUser(UserViewModel updateUserModel);
         Task<UserViewModel> GetUser(string username);
         Task<List<UserViewModel>> GetAllUsers();
+        Task<ApiResponse<bool>> DeleteUser(string username);
     }
 }

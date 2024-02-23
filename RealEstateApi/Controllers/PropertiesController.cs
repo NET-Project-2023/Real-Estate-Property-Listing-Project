@@ -109,14 +109,13 @@ namespace RealEstate.API.Controllers
             return Ok(result);
         }
 
-        [Authorize(Roles = "User")]
+        //[Authorize(Roles = "User")]
         //[Authorize(Roles = "Admin")]
-        [HttpDelete("{title}")]
+        [HttpDelete("{propertyId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> Delete(string title)
+        public async Task<IActionResult> Delete(Guid propertyId)
         {
-            var command = new DeletePropertyCommand { PropertyTitle = title };
+            var command = new DeletePropertyCommand { PropertyId = propertyId };
             var result = await Mediator.Send(command);
             if (!result.Success)
             {

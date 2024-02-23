@@ -273,16 +273,19 @@ namespace RealEstate.App.Services
             return property;
         }
 
-        public async Task<PropertyDto> DeletePropertyAsync(string title)
+        public async Task<string> DeletePropertyAsync(Guid propertyId)
         {
-            string requestUri = $"api/v1/Property/delete/{title}";
-            var response = await httpClient.DeleteAsync(requestUri);
-            if (!response.IsSuccessStatusCode)
+            var response = await httpClient.DeleteAsync($"api/v1/Properties/{propertyId}");
+
+            if (response.IsSuccessStatusCode)
             {
-                throw new HttpRequestException($"Error deleting property: {response.ReasonPhrase}");
+                return await response.Content.ReadAsStringAsync();
             }
-            var propertyDto = await response.Content.ReadFromJsonAsync<PropertyDto>();
-            return propertyDto;
+            else
+            {
+                // Handle error response if needed
+                throw new HttpRequestException($"Failed to delete property. Status code: {response.StatusCode}");
+            }
         }
 
     }
