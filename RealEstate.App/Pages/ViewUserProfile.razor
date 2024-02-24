@@ -109,80 +109,92 @@
 
 </style>
 
-<div class="container mt-5">
-    <h3>User Profile</h3>
-
-    @if (User != null)
-    {
-        <div class="profile-container user-details">
-
-            <div class="profile-header">
-                <i class="fas fa-user profile-header-icon"></i>
-                <h4>@User.Username</h4>
-            </div>
-            <div class="profile-field">
-                <i class="fas fa-address-card profile-field-icon"></i>
-                <p>Name: @User.Name</p>
-            </div>
-            <div class="profile-field">
-                <i class="fas fa-envelope profile-field-icon"></i>
-                <p>Email: @User.Email</p>
-            </div>
-            <div class="profile-field">
-                <i class="fas fa-phone profile-field-icon"></i>
-                <p>Phone Number: @User.PhoneNumber</p>
-            </div>
-            <div class="delete-button">
-                <button class="btn btn-danger" @onclick="() => DeleteUser(User.Username)"><i class="fas fa-trash"></i> Delete User</button>
-            </div>
-
+@if (isLoading)
+{
+    <div class="loading-overlay">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
         </div>
+    </div>
+}
+else
+{
+    <div class="container mt-5">
+        <h3>User Profile</h3>
 
-        @if (CurrentProperties != null && CurrentProperties.Any())
+        @if (User != null)
         {
-            <div class="properties-container">
-                <h3><i class="fas fa-building"></i> Properties Owned</h3>
+            <div class="profile-container user-details">
 
-                @foreach (var property in CurrentProperties)
-                {
-                    <div class="property-card">
-                        <div class="property-header">
-                            <i class="fas fa-home property-header-icon"></i>
-                            <h5>@property.Title</h5>
-                            <div class="delete-property-button ml-auto">
-                                <button class="btn btn-danger" @onclick="() => DeleteProperty(property.PropertyId)"><i class="fas fa-trash"></i></button>
+                <div class="profile-header">
+                    <i class="fas fa-user profile-header-icon"></i>
+                    <h4>@User.Username</h4>
+                </div>
+                <div class="profile-field">
+                    <i class="fas fa-address-card profile-field-icon"></i>
+                    <p>Name: @User.Name</p>
+                </div>
+                <div class="profile-field">
+                    <i class="fas fa-envelope profile-field-icon"></i>
+                    <p>Email: @User.Email</p>
+                </div>
+                <div class="profile-field">
+                    <i class="fas fa-phone profile-field-icon"></i>
+                    <p>Phone Number: @User.PhoneNumber</p>
+                </div>
+                <div class="delete-button">
+                    <button class="btn btn-danger" @onclick="() => DeleteUser(User.Username)"><i class="fas fa-trash"></i> Delete User</button>
+                </div>
+
+            </div>
+
+            @if (CurrentProperties != null && CurrentProperties.Any())
+            {
+                <div class="properties-container">
+                    <h3><i class="fas fa-building"></i> Properties Owned</h3>
+
+                    @foreach (var property in CurrentProperties)
+                    {
+                        <div class="property-card">
+                            <div class="property-header">
+                                <i class="fas fa-home property-header-icon"></i>
+                                <h5>@property.Title</h5>
+                                <div class="delete-property-button ml-auto">
+                                    <button class="btn btn-danger" @onclick="() => DeleteProperty(property.PropertyId)"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                            <div class="property-field">
+                                <i class="fas fa-map-marker-alt property-field-icon"></i>
+                                <p>Location: @property.City</p>
+                            </div>
+                            <div class="property-field">
+                                <i class="fas fa-ruler-combined property-field-icon"></i>
+                                <p>Size: @property.Size m²</p>
+                            </div>
+                            <div class="property-field">
+                                <i class="fas fa-info-circle property-field-icon"></i>
+                                <p>Description: @property.Description</p>
+                            </div>
+
+                            <div class="property-images">
+                                @foreach (var image in property.Images)
+                                {
+                                    <div class="property-image" style="background-image: url('@GetImageBase64(image)');"></div>
+                                }
                             </div>
                         </div>
-                        <div class="property-field">
-                            <i class="fas fa-map-marker-alt property-field-icon"></i>
-                            <p>Location: @property.City</p>
-                        </div>
-                        <div class="property-field">
-                            <i class="fas fa-ruler-combined property-field-icon"></i>
-                            <p>Size: @property.Size m²</p>
-                        </div>
-                        <div class="property-field">
-                            <i class="fas fa-info-circle property-field-icon"></i>
-                            <p>Description: @property.Description</p>
-                        </div>
+                    }
+                </div>
+            }
 
-                        <div class="property-images">
-                            @foreach (var image in property.Images)
-                            {
-                                <div class="property-image" style="background-image: url('@GetImageBase64(image)');"></div>
-                            }
-                        </div>
-                    </div>
-                }
-            </div>
         }
+        else
+        {
+            <p class="user-not-found"><i class="fas fa-exclamation-circle"></i> User not found.</p>
+        }
+    </div>
+}
 
-    }
-    else
-    {
-        <p class="user-not-found"><i class="fas fa-exclamation-circle"></i> User not found.</p>
-    }
-</div>
 
 @code {
 
@@ -201,6 +213,8 @@
     [Parameter]
     public string username { get; set; }
 
+    private bool isLoading { get; set; } = true;
+
     private UserViewModel User { get; set; }
 
     private List<ListingViewModel>? CurrentListings { get; set; } = new List<ListingViewModel>();
@@ -209,6 +223,8 @@
 
     protected override async Task OnInitializedAsync()
     {
+        isLoading = true;
+
         User = await UserService.GetUser(username);
         CurrentProperties = await PropertyDataService.GetPropertiesByOwner(username);
         var listings = await ListingDataService.GetListingsAsync();
@@ -221,6 +237,8 @@
                 CurrentListings.Add(matchingListing);
             }
         }
+
+        isLoading = false;
     }
 
     private async Task DeleteUser(string username)

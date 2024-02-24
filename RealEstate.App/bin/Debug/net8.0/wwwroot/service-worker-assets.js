@@ -1101,17 +1101,17 @@
       "url": "_framework\/Real_estate.Domain.pdb"
     },
     {
-      "hash": "sha256-acYS3t4awDhKcd1ZWrpRPRL7dGBe1jEcv1T8UZijDWE=",
+      "hash": "sha256-cSoMveNe0K2\/CRE0PYD3nXp7gV3eitfifyzvKyb7JAE=",
       "url": "_framework\/RealEstate.App.wasm"
     },
     {
-      "hash": "sha256-YcUhhwZij0NOOd3qomPwOn20atkNo07JkOD3dsSztF4=",
+      "hash": "sha256-x8+yRk5VhUzz\/FzUf4uLLz4FXvqFJY7ilteOTbDKwpU=",
       "url": "_framework\/RealEstate.App.pdb"
     },
     {
-      "hash": "sha256-MliftbQEYskNNgrCMxLv6+2vIJoX3ep3MEWnaZLviiw=",
+      "hash": "sha256-4BviBPwc9AwahD4t5p9nATWAkdADJ94qlOoSpZSSF+o=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "eow9w9r8"
+  "version": "Ea8qYov7"
 };
