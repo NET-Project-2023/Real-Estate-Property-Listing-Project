@@ -1,7 +1,9 @@
 # Real-Estate-Property-Listing #
 
 The application is a robust platform designed to simplify property search and management. 
-
+- the code follows a clean architecture pattern, separating concerns into distinct layers such as Presentation, Application, Domain, and Infrastructure. This promotes modularity, testability, and scalability of our system
+- we are also adopting CQRS principles, we separate read and write operations, allowing us to optimize our system for different use cases and improve performance.
+- MediatR and Mediator Pattern: simplified the communication flow within the application; components don't need to know about each other's implementations, reducing dependencies and making the code more flexible
 
 
 ## Tech Stack
@@ -10,7 +12,7 @@ The application is a robust platform designed to simplify property search and ma
 
 **Backend:** ASP.NET Core
 
-**Database:** PostgresSQL
+**Database:** PostgresSQL with Entity Framework
 
 
 ## Pages
