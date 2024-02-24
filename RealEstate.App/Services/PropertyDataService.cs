@@ -131,19 +131,17 @@ namespace RealEstate.App.Services
                 
                 // Trebuie sa cautam toate Properties cu UserId==loggedInUserId
 
-                var result = await httpClient.GetAsync($"api/v1/Properties/ByCurrentUser/{loggedInUserId}", HttpCompletionOption.ResponseHeadersRead);
+                var result = await httpClient.GetAsync($"api/v1/Properties/ByOwner/{loggedInUserId}", HttpCompletionOption.ResponseHeadersRead);
 
                 result.EnsureSuccessStatusCode();
 
                 var content = await result.Content.ReadAsStringAsync();
-                Console.WriteLine($"Bad Content from BLAZOR: {content}");
 
                 if (!result.IsSuccessStatusCode)
                 {
                     throw new ApplicationException(content);
                 }
 
-                // Aici e problema!
                 var response = JsonSerializer.Deserialize<PropertiesResponse>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
                 var properties = response?.Properties ?? new List<PropertyViewModel>();
 
@@ -286,6 +284,28 @@ namespace RealEstate.App.Services
                 // Handle error response if needed
                 throw new HttpRequestException($"Failed to delete property. Status code: {response.StatusCode}");
             }
+        }
+
+        public async Task<List<PropertyViewModel>> GetPropertiesByOwner(string username)
+        {
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
+
+            var result = await httpClient.GetAsync($"api/v1/Properties/ByOwner/{username}", HttpCompletionOption.ResponseHeadersRead);
+
+            result.EnsureSuccessStatusCode();
+
+            var content = await result.Content.ReadAsStringAsync();
+
+            if (!result.IsSuccessStatusCode)
+            {
+                throw new ApplicationException(content);
+            }
+
+            var response = JsonSerializer.Deserialize<PropertiesResponse>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+            var properties = response?.Properties ?? new List<PropertyViewModel>();
+
+            return properties!;
+
         }
 
     }

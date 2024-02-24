@@ -207,9 +207,7 @@ else
         catch (Exception ex)
         {
             //message = $"Error updating user: {ex.Message}";
-            error = "Something went wrong updating the profile";
-            //Console.WriteLine(message); // Error message
-            //StateHasChanged(); // This will refresh the UI to display the error message.
+            throw new Exception($"Error updating profile: {ex}");
         }
     }
 }

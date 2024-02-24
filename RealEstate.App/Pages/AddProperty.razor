@@ -216,7 +216,7 @@
     }
 
 
-    private async Task OnInputFileChange(InputFileChangeEventArgs e)
+    private void OnInputFileChange(InputFileChangeEventArgs e)
     {
         var maxAllowedFiles = 10; // Set this to the maximum number of files you want to allow
         var files = e.GetMultipleFiles(maxAllowedFiles);

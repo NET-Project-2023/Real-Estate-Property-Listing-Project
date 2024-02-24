@@ -7,7 +7,7 @@ namespace Infrastructure.Repositories
     {
         public ListingRepository(RealEstateContext context) : base(context)
         {
-
         }
+
     }
 }

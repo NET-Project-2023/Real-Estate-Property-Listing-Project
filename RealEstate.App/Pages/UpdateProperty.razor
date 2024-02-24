@@ -213,7 +213,7 @@
     }
 
 
-    private async Task HandleFileChange(InputFileChangeEventArgs e)
+    private void HandleFileChange(InputFileChangeEventArgs e)
     {
         var maxAllowedFiles = 10; 
         var files = e.GetMultipleFiles(maxAllowedFiles);
@@ -223,7 +223,7 @@
         {
             if (file.Size <= maxFileSize)
             {
-                UpdatePropertyModel.ImagesFiles.Add(file);
+               UpdatePropertyModel.ImagesFiles.Add(file);
             }
             else
             {

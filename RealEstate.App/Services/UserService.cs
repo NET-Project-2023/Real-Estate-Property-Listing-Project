@@ -101,7 +101,7 @@ namespace RealEstate.App.Services
         {
             try
             {
-                var requestUri = $"api/v1/Users/delete/{username}";
+                var requestUri = $"api/v1/Users/deleteByUsername/{username}";
 
                 httpClient.DefaultRequestHeaders.Authorization =
                     new AuthenticationHeaderValue("Bearer", await tokenService.GetTokenAsync());
