@@ -125,11 +125,11 @@ namespace RealEstate.API.Controllers
         }
 
 
-        [Authorize(Roles = "User")]
+        //[Authorize(Roles = "User")]
         //[Authorize(Roles = "Admin")]
-        [HttpGet("ByCurrentUser/{ownerUsername}")]
+        [HttpGet("ByOwner/{ownerUsername}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetByCurrentUser(string ownerUsername)
+        public async Task<IActionResult> GetByOwner(string ownerUsername)
         {
             var result = await Mediator.Send(new GetByOwnerUsernamePropertyQuery(ownerUsername));
             return Ok(result);
