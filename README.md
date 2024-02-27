@@ -27,10 +27,15 @@ The application is a robust platform designed to simplify property search and ma
 ![image](https://github.com/NET-Project-2023/Real-Estate-Property-Listing-Project/assets/41987168/e30f9276-c9c5-4537-9059-e439024ed465)
 
 - Create property:
-  
-![image](https://github.com/NET-Project-2023/Real-Estate-Property-Listing-Project/assets/41987168/bd0ffd44-58ce-4c50-9495-b86d8f358d99)
+
+ ![add_prop](https://github.com/NET-Project-2023/Real-Estate-Property-Listing-Project/assets/41987168/4c5651f7-a2c7-4b0c-b334-8ed8fe4f4e33)
+
+- Edit property:
+
+![edit_prop](https://github.com/NET-Project-2023/Real-Estate-Property-Listing-Project/assets/41987168/d38df882-4a73-4358-a345-0eb0271d245f)
 
 - Listing a property:
+
 ![Videoclip fără titlu - Realizat cu Clipchamp](https://github.com/NET-Project-2023/Real-Estate-Property-Listing-Project/assets/41987168/335363dd-c66b-4d59-b8af-a4667bbd1872)
 
 - Listings overview:
